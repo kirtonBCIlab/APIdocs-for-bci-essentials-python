@@ -38,8 +38,8 @@ jobs:
 
       - name: Generate API documentation
         run: |
-        conda activate bci
-        pdoc ./bci_essentials -d numpy --logo "https://avatars.githubusercontent.com/u/65678973" -o ./docs
+          conda activate bci
+          pdoc ./bci_essentials -d numpy --logo "https://avatars.githubusercontent.com/u/65678973" -o ./docs
 
       - name: Remove bci_essentials folder and environment.yml
         run: |
