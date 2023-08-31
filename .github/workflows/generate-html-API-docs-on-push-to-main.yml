@@ -47,6 +47,7 @@ jobs:
         run: |
           rm -rf ./bci_essentials
           rm ./environment.yml
+          rm ./pyproject.toml
 
       - name: Commit and Push Changes
         run: |
