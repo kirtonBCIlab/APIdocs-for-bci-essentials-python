@@ -29,14 +29,6 @@ jobs:
           pip install .
           pip install pdoc
 
-      # - name: Set up Python 3.9
-      #   uses: actions/setup-python@v4
-      #   with:
-      #     python-version: 3.9
-
-      # - name: Install pdoc
-      #   run: pip install pdoc
-
       - name: Generate API documentation
         shell: bash -el {0}
         run: |
@@ -52,7 +44,7 @@ jobs:
       - name: Commit and Push Changes
         run: |
           git config --local user.email "n44412824+anup2ladder@users.noreply.github.com"
-          git config --local user.name "anup2ladder"
+          git config --local user.name "kirtonBCIlab"
           git add ./docs
           git add -u ./bci_essentials
           git add -u ./environment.yml
