@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: 
           python -m pip install --upgrade pip
-          pip install bci-essentials pdoc
+          pip install bci-essentials pdoc liblsl
 
       - name: Generate API documentation
         run: pdoc ./bci_essentials -d numpy --logo "https://avatars.githubusercontent.com/u/65678973" -o ./docs
