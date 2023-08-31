@@ -37,7 +37,9 @@ jobs:
         run: pip install pdoc
 
       - name: Generate API documentation
-        run: pdoc ./bci_essentials -d numpy --logo "https://avatars.githubusercontent.com/u/65678973" -o ./docs
+        run: |
+        conda activate bci
+        pdoc ./bci_essentials -d numpy --logo "https://avatars.githubusercontent.com/u/65678973" -o ./docs
 
       - name: Remove bci_essentials folder and environment.yml
         run: |
