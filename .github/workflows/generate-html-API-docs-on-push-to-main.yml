@@ -21,20 +21,21 @@ jobs:
           environment-file: environment.yml
           activate-environment: bci
 
-      - name: Install dependencies
+      - name: Install bci-essentials dependencies
         shell: bash -el {0}
         run: |
           conda activate bci
           conda info
           pip install .
+          pip install pdoc
 
       # - name: Set up Python 3.9
       #   uses: actions/setup-python@v4
       #   with:
       #     python-version: 3.9
 
-      - name: Install pdoc
-        run: pip install pdoc
+      # - name: Install pdoc
+      #   run: pip install pdoc
 
       - name: Generate API documentation
         run: |
