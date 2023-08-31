@@ -1,4 +1,4 @@
-name: Generate API Docs and Save to docs folder
+name: Generate API Docs
 # This Github Action generates API documents using the python `pdoc`
 # library, with flags to generate in the "numpy" style.
 # The output are HTML documents saved to "docs"
