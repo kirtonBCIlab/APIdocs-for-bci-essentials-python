@@ -21,7 +21,7 @@ jobs:
           environment-file: environment.yml
           activate-environment: bci
 
-      - name: Install bci-essentials dependencies
+      - name: Install dependencies
         shell: bash -el {0}
         run: |
           conda activate bci
@@ -38,6 +38,7 @@ jobs:
       #   run: pip install pdoc
 
       - name: Generate API documentation
+        shell: bash -el {0}
         run: |
           conda activate bci
           pdoc ./bci_essentials -d numpy --logo "https://avatars.githubusercontent.com/u/65678973" -o ./docs
