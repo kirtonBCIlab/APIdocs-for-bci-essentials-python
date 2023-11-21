@@ -353,7 +353,7 @@ The neural networks are not defined (the code blocks are commented out).</p>
 </span><span id="L-269"><a href="#L-269"><span class="linenos">269</span></a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">print_predict</span><span class="p">):</span>
 </span><span id="L-270"><a href="#L-270"><span class="linenos">270</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Predict function which preprocesses data and makes prediction(s).</span>
 </span><span id="L-271"><a href="#L-271"><span class="linenos">271</span></a>
-</span><span id="L-272"><a href="#L-272"><span class="linenos">272</span></a><span class="sd">        Function is passed an array of size `(X, 8, 512)` from `bci_data.py`</span>
+</span><span id="L-272"><a href="#L-272"><span class="linenos">272</span></a><span class="sd">        Function is passed an array of size `(X, 8, 512)` from `eeg_data.py`</span>
 </span><span id="L-273"><a href="#L-273"><span class="linenos">273</span></a><span class="sd">        where it will predict upon the likelihood of state 1 vs state 2.</span>
 </span><span id="L-274"><a href="#L-274"><span class="linenos">274</span></a><span class="sd">        Only works for three states currently.</span>
 </span><span id="L-275"><a href="#L-275"><span class="linenos">275</span></a>
@@ -703,7 +703,7 @@ The neural networks are not defined (the code blocks are commented out).</p>
 </span><span id="Switch_deep_classifier-270"><a href="#Switch_deep_classifier-270"><span class="linenos">270</span></a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">print_predict</span><span class="p">):</span>
 </span><span id="Switch_deep_classifier-271"><a href="#Switch_deep_classifier-271"><span class="linenos">271</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Predict function which preprocesses data and makes prediction(s).</span>
 </span><span id="Switch_deep_classifier-272"><a href="#Switch_deep_classifier-272"><span class="linenos">272</span></a>
-</span><span id="Switch_deep_classifier-273"><a href="#Switch_deep_classifier-273"><span class="linenos">273</span></a><span class="sd">        Function is passed an array of size `(X, 8, 512)` from `bci_data.py`</span>
+</span><span id="Switch_deep_classifier-273"><a href="#Switch_deep_classifier-273"><span class="linenos">273</span></a><span class="sd">        Function is passed an array of size `(X, 8, 512)` from `eeg_data.py`</span>
 </span><span id="Switch_deep_classifier-274"><a href="#Switch_deep_classifier-274"><span class="linenos">274</span></a><span class="sd">        where it will predict upon the likelihood of state 1 vs state 2.</span>
 </span><span id="Switch_deep_classifier-275"><a href="#Switch_deep_classifier-275"><span class="linenos">275</span></a><span class="sd">        Only works for three states currently.</span>
 </span><span id="Switch_deep_classifier-276"><a href="#Switch_deep_classifier-276"><span class="linenos">276</span></a>
@@ -1152,7 +1152,7 @@ Description of parameter <code>print_performance</code>.
             <div class="pdoc-code codehilite"><pre><span></span><span id="Switch_deep_classifier.predict-270"><a href="#Switch_deep_classifier.predict-270"><span class="linenos">270</span></a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">print_predict</span><span class="p">):</span>
 </span><span id="Switch_deep_classifier.predict-271"><a href="#Switch_deep_classifier.predict-271"><span class="linenos">271</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Predict function which preprocesses data and makes prediction(s).</span>
 </span><span id="Switch_deep_classifier.predict-272"><a href="#Switch_deep_classifier.predict-272"><span class="linenos">272</span></a>
-</span><span id="Switch_deep_classifier.predict-273"><a href="#Switch_deep_classifier.predict-273"><span class="linenos">273</span></a><span class="sd">        Function is passed an array of size `(X, 8, 512)` from `bci_data.py`</span>
+</span><span id="Switch_deep_classifier.predict-273"><a href="#Switch_deep_classifier.predict-273"><span class="linenos">273</span></a><span class="sd">        Function is passed an array of size `(X, 8, 512)` from `eeg_data.py`</span>
 </span><span id="Switch_deep_classifier.predict-274"><a href="#Switch_deep_classifier.predict-274"><span class="linenos">274</span></a><span class="sd">        where it will predict upon the likelihood of state 1 vs state 2.</span>
 </span><span id="Switch_deep_classifier.predict-275"><a href="#Switch_deep_classifier.predict-275"><span class="linenos">275</span></a><span class="sd">        Only works for three states currently.</span>
 </span><span id="Switch_deep_classifier.predict-276"><a href="#Switch_deep_classifier.predict-276"><span class="linenos">276</span></a>
@@ -1246,7 +1246,7 @@ Description of parameter <code>print_performance</code>.
 
             <div class="docstring"><p>Predict function which preprocesses data and makes prediction(s).</p>
 
-<p>Function is passed an array of size <code>(X, 8, 512)</code> from <code>bci_data.py</code>
+<p>Function is passed an array of size <code>(X, 8, 512)</code> from <code>eeg_data.py</code>
 where it will predict upon the likelihood of state 1 vs state 2.
 Only works for three states currently.</p>
 
