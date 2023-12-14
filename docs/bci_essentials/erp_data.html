@@ -309,7 +309,7 @@ and classified (using one of the <code>classification</code> sub-modules).</p>
 </span><span id="L-223"><a href="#L-223"><span class="linenos">223</span></a>                <span class="n">loops</span> <span class="o">=</span> <span class="n">max_loops</span>
 </span><span id="L-224"><a href="#L-224"><span class="linenos">224</span></a>
 </span><span id="L-225"><a href="#L-225"><span class="linenos">225</span></a>            <span class="c1"># read from sources to get new data</span>
-</span><span id="L-226"><a href="#L-226"><span class="linenos">226</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_pull_data_from_source</span><span class="p">()</span>
+</span><span id="L-226"><a href="#L-226"><span class="linenos">226</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_pull_data_from_sources</span><span class="p">()</span>
 </span><span id="L-227"><a href="#L-227"><span class="linenos">227</span></a>
 </span><span id="L-228"><a href="#L-228"><span class="linenos">228</span></a>            <span class="c1"># check if there is an available marker, if not, break and wait for more data</span>
 </span><span id="L-229"><a href="#L-229"><span class="linenos">229</span></a>            <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">marker_timestamps</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">marker_count</span><span class="p">:</span>
@@ -933,7 +933,7 @@ and classified (using one of the <code>classification</code> sub-modules).</p>
 </span><span id="ErpData-224"><a href="#ErpData-224"><span class="linenos">224</span></a>                <span class="n">loops</span> <span class="o">=</span> <span class="n">max_loops</span>
 </span><span id="ErpData-225"><a href="#ErpData-225"><span class="linenos">225</span></a>
 </span><span id="ErpData-226"><a href="#ErpData-226"><span class="linenos">226</span></a>            <span class="c1"># read from sources to get new data</span>
-</span><span id="ErpData-227"><a href="#ErpData-227"><span class="linenos">227</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_pull_data_from_source</span><span class="p">()</span>
+</span><span id="ErpData-227"><a href="#ErpData-227"><span class="linenos">227</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_pull_data_from_sources</span><span class="p">()</span>
 </span><span id="ErpData-228"><a href="#ErpData-228"><span class="linenos">228</span></a>
 </span><span id="ErpData-229"><a href="#ErpData-229"><span class="linenos">229</span></a>            <span class="c1"># check if there is an available marker, if not, break and wait for more data</span>
 </span><span id="ErpData-230"><a href="#ErpData-230"><span class="linenos">230</span></a>            <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">marker_timestamps</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">marker_count</span><span class="p">:</span>
@@ -1542,7 +1542,7 @@ and classified (using one of the <code>classification</code> sub-modules).</p>
 </span><span id="ErpData.main-224"><a href="#ErpData.main-224"><span class="linenos">224</span></a>                <span class="n">loops</span> <span class="o">=</span> <span class="n">max_loops</span>
 </span><span id="ErpData.main-225"><a href="#ErpData.main-225"><span class="linenos">225</span></a>
 </span><span id="ErpData.main-226"><a href="#ErpData.main-226"><span class="linenos">226</span></a>            <span class="c1"># read from sources to get new data</span>
-</span><span id="ErpData.main-227"><a href="#ErpData.main-227"><span class="linenos">227</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_pull_data_from_source</span><span class="p">()</span>
+</span><span id="ErpData.main-227"><a href="#ErpData.main-227"><span class="linenos">227</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_pull_data_from_sources</span><span class="p">()</span>
 </span><span id="ErpData.main-228"><a href="#ErpData.main-228"><span class="linenos">228</span></a>
 </span><span id="ErpData.main-229"><a href="#ErpData.main-229"><span class="linenos">229</span></a>            <span class="c1"># check if there is an available marker, if not, break and wait for more data</span>
 </span><span id="ErpData.main-230"><a href="#ErpData.main-230"><span class="linenos">230</span></a>            <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">marker_timestamps</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">marker_count</span><span class="p">:</span>
@@ -2086,7 +2086,6 @@ Order of the bandpass filter.
                 <dd id="ErpData.eeg_data" class="variable"><a href="eeg_data.html#EegData.eeg_data">eeg_data</a></dd>
                 <dd id="ErpData.eeg_timestamps" class="variable"><a href="eeg_data.html#EegData.eeg_timestamps">eeg_timestamps</a></dd>
                 <dd id="ErpData.ping_count" class="variable"><a href="eeg_data.html#EegData.ping_count">ping_count</a></dd>
-                <dd id="ErpData.ping_interval" class="variable"><a href="eeg_data.html#EegData.ping_interval">ping_interval</a></dd>
                 <dd id="ErpData.nsamples" class="variable"><a href="eeg_data.html#EegData.nsamples">nsamples</a></dd>
                 <dd id="ErpData.time_units" class="variable"><a href="eeg_data.html#EegData.time_units">time_units</a></dd>
                 <dd id="ErpData.edit_settings" class="function"><a href="eeg_data.html#EegData.edit_settings">edit_settings</a></dd>
