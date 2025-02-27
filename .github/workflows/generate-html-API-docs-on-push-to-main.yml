@@ -32,7 +32,7 @@ jobs:
       - name: Generate API documentation
         shell: bash -el {0}
         env:
-          PDODC_ALLOW_EXEC: 1
+          PDOC_ALLOW_EXEC: 1
         run: |
           conda activate bci
           pdoc ./bci_essentials -d numpy --logo "https://avatars.githubusercontent.com/u/65678973" -o ./docs
