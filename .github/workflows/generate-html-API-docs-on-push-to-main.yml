@@ -29,13 +29,27 @@ jobs:
           pip install .
           pip install pdoc
 
-      - name: Generate API documentation
+      - name: Generate API documentation with NumPy style
         shell: bash -el {0}
+        id: numpy_docs
+        continue-on-error: true  # Allow workflow to continue if this step fails
         env:
           PDOC_ALLOW_EXEC: 1
         run: |
           conda activate bci
           pdoc ./bci_essentials -d numpy --logo "https://avatars.githubusercontent.com/u/65678973" -o ./docs
+          echo "Used NumPy style documentation"
+
+      # Fallback to Google style if NumPy style fails
+      - name: Fallback to Google style documentation
+        shell: bash -el {0}
+        if: steps.numpy_docs.outcome == 'failure'
+        env:
+          PDOC_ALLOW_EXEC: 1
+        run: |
+          conda activate bci
+          echo "NumPy style documentation failed, falling back to Google style..."
+          pdoc ./bci_essentials --logo "https://avatars.githubusercontent.com/u/65678973" -o ./docs
 
       - name: Remove bci_essentials folder and environment.yml
         run: |
@@ -48,7 +62,13 @@ jobs:
           git config --local user.email "n44412824+anup2ladder@users.noreply.github.com"
           git config --local user.name "kirtonBCIlab"
           git add ./docs
-          git add -u ./bci_essentials
-          git add -u ./environment.yml
-          git commit -m "Auto-generated API docs and removed unnecessary files"
-          git push origin main
+          git add -u ./bci_essentials || true
+          git add -u ./environment.yml || true
+          
+          # Only commit if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto-generated API docs and removed unnecessary files"
+            git push origin main
+          fi
