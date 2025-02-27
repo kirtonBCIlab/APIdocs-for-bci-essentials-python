@@ -1,4 +1,4 @@
-#__pycache__
+__pycache__
 archive/
 .idea/
 *.egg-info/
@@ -8,3 +8,5 @@ dist/
 *.DS_Store/
 *.swp
 plugins/FeatureExtractorSSVEP
+session_saves/*.pkl
+*.log
