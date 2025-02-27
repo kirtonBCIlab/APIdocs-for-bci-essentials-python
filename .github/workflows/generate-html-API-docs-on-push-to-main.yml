@@ -37,8 +37,7 @@ jobs:
           PDOC_ALLOW_EXEC: 1
         run: |
           conda activate bci
-          # Try NumPy style with --all flag to include all submodules
-          pdoc ./bci_essentials --all -d numpy --logo "https://avatars.githubusercontent.com/u/65678973" -o ./docs
+          pdoc ./bci_essentials -d numpy --logo "https://avatars.githubusercontent.com/u/65678973" -o ./docs
           echo "Used NumPy style documentation"
 
       # Fallback to Google style if NumPy style fails
@@ -50,8 +49,7 @@ jobs:
         run: |
           conda activate bci
           echo "NumPy style documentation failed, falling back to Google style..."\
-          # Try Google style with --all flag to include all submodules
-          pdoc ./bci_essentials --all --logo "https://avatars.githubusercontent.com/u/65678973" -o ./docs
+          pdoc ./bci_essentials --logo "https://avatars.githubusercontent.com/u/65678973" -o ./docs
 
       - name: Remove bci_essentials folder and environment.yml
         run: |
