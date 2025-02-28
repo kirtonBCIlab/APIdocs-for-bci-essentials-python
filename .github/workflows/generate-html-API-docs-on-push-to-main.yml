@@ -1,7 +1,4 @@
 name: Generate API Docs
-# This Github Action generates API documents using the python `pdoc`
-# library, with flags to generate in the "numpy" style.
-# The output are HTML documents saved to "docs"
 
 on:
   push:
@@ -15,13 +12,46 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v3
 
+      - name: Validate required files exist
+        id: validation
+        run: |
+          errors=0
+          
+          # Check for required files
+          if [ ! -d "./bci_essentials" ]; then
+            echo "::error::bci_essentials directory not found"
+            errors=$((errors+1))
+          fi
+          
+          if [ ! -f "./environment.yml" ]; then
+            echo "::error::environment.yml file not found"
+            errors=$((errors+1))
+          fi
+          
+          if [ ! -f "./pyproject.toml" ]; then
+            echo "::error::pyproject.toml file not found"
+            errors=$((errors+1))
+          fi
+          
+          # Exit if any files are missing
+          if [ $errors -gt 0 ]; then
+            echo "Missing required files. Cleaning up..."
+            # Remove any of the files that do exist
+            [ -d "./bci_essentials" ] && rm -rf ./bci_essentials
+            [ -f "./environment.yml" ] && rm ./environment.yml
+            [ -f "./pyproject.toml" ] && rm ./pyproject.toml
+            exit 1
+          fi
+
       - name: Initialize conda environment
+        if: steps.validation.outcome == 'success'
         uses: conda-incubator/setup-miniconda@v2
         with:
           environment-file: environment.yml
           activate-environment: bci
 
       - name: Install dependencies
+        if: steps.validation.outcome == 'success'
         shell: bash -el {0}
         run: |
           conda activate bci
@@ -30,6 +60,7 @@ jobs:
           pip install pdoc
 
       - name: Generate API documentation with NumPy style
+        if: steps.validation.outcome == 'success'
         shell: bash -el {0}
         id: numpy_docs
         continue-on-error: true  # Allow workflow to continue if this step fails
@@ -42,28 +73,32 @@ jobs:
 
       # Fallback to Google style if NumPy style fails
       - name: Fallback to Google style documentation
+        if: steps.validation.outcome == 'success' && steps.numpy_docs.outcome == 'failure'
         shell: bash -el {0}
-        if: steps.numpy_docs.outcome == 'failure'
         env:
           PDOC_ALLOW_EXEC: 1
         run: |
           conda activate bci
-          echo "NumPy style documentation failed, falling back to Google style..."\
+          echo "NumPy style documentation failed, falling back to Google style..."
           pdoc ./bci_essentials --logo "https://avatars.githubusercontent.com/u/65678973" -o ./docs
 
       - name: Remove bci_essentials folder and environment.yml
+        if: always()  # This step will always run regardless of previous steps
         run: |
-          rm -rf ./bci_essentials
-          rm ./environment.yml
-          rm ./pyproject.toml
+          rm -rf ./bci_essentials || true
+          rm ./environment.yml || true
+          rm ./pyproject.toml || true
+          echo "Cleanup completed"
 
       - name: Commit and Push Changes
+        if: success() || (steps.validation.outcome == 'success' && (steps.numpy_docs.outcome == 'success' || steps.google_docs.outcome == 'success'))
         run: |
           git config --local user.email "n44412824+anup2ladder@users.noreply.github.com"
           git config --local user.name "kirtonBCIlab"
           git add ./docs
           git add -u ./bci_essentials || true
           git add -u ./environment.yml || true
+          git add -u ./pyproject.toml || true
           
           # Only commit if there are changes to commit
           if git diff --staged --quiet; then
