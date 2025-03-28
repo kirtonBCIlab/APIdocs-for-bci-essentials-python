@@ -241,7 +241,7 @@
 </span><span id="L-165"><a href="#L-165"><span class="linenos">165</span></a><span class="sd">                        The recall of the trained classification model.</span>
 </span><span id="L-166"><a href="#L-166"><span class="linenos">166</span></a>
 </span><span id="L-167"><a href="#L-167"><span class="linenos">167</span></a><span class="sd">            &quot;&quot;&quot;</span>
-</span><span id="L-168"><a href="#L-168"><span class="linenos">168</span></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X shape: &quot;</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span><span id="L-168"><a href="#L-168"><span class="linenos">168</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;X shape: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </span><span id="L-169"><a href="#L-169"><span class="linenos">169</span></a>
 </span><span id="L-170"><a href="#L-170"><span class="linenos">170</span></a>            <span class="k">for</span> <span class="n">train_idx</span><span class="p">,</span> <span class="n">test_idx</span> <span class="ow">in</span> <span class="n">cv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 </span><span id="L-171"><a href="#L-171"><span class="linenos">171</span></a>                <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">train_idx</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">test_idx</span><span class="p">]</span>
@@ -418,25 +418,24 @@
 </span><span id="L-342"><a href="#L-342"><span class="linenos">342</span></a>            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span><span id="L-343"><a href="#L-343"><span class="linenos">343</span></a>
 </span><span id="L-344"><a href="#L-344"><span class="linenos">344</span></a>        <span class="k">if</span> <span class="n">plot_roc</span><span class="p">:</span>
-</span><span id="L-345"><a href="#L-345"><span class="linenos">345</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Plotting the ROC...&quot;</span><span class="p">)</span>
-</span><span id="L-346"><a href="#L-346"><span class="linenos">346</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Just kidding ROC has not been implemented&quot;</span><span class="p">)</span>
-</span><span id="L-347"><a href="#L-347"><span class="linenos">347</span></a>
-</span><span id="L-348"><a href="#L-348"><span class="linenos">348</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-</span><span id="L-349"><a href="#L-349"><span class="linenos">349</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Predict the class of the data (Unused in this classifier)</span>
-</span><span id="L-350"><a href="#L-350"><span class="linenos">350</span></a>
-</span><span id="L-351"><a href="#L-351"><span class="linenos">351</span></a><span class="sd">        Parameters</span>
-</span><span id="L-352"><a href="#L-352"><span class="linenos">352</span></a><span class="sd">        ----------</span>
-</span><span id="L-353"><a href="#L-353"><span class="linenos">353</span></a><span class="sd">        X : numpy.ndarray</span>
-</span><span id="L-354"><a href="#L-354"><span class="linenos">354</span></a><span class="sd">            3D array where shape = (n_trials, n_channels, n_samples)</span>
-</span><span id="L-355"><a href="#L-355"><span class="linenos">355</span></a>
-</span><span id="L-356"><a href="#L-356"><span class="linenos">356</span></a><span class="sd">        Returns</span>
-</span><span id="L-357"><a href="#L-357"><span class="linenos">357</span></a><span class="sd">        -------</span>
-</span><span id="L-358"><a href="#L-358"><span class="linenos">358</span></a><span class="sd">        prediction : Prediction</span>
-</span><span id="L-359"><a href="#L-359"><span class="linenos">359</span></a><span class="sd">            Empty Predict object</span>
-</span><span id="L-360"><a href="#L-360"><span class="linenos">360</span></a>
-</span><span id="L-361"><a href="#L-361"><span class="linenos">361</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-362"><a href="#L-362"><span class="linenos">362</span></a>
-</span><span id="L-363"><a href="#L-363"><span class="linenos">363</span></a>        <span class="k">return</span> <span class="n">Prediction</span><span class="p">()</span>
+</span><span id="L-345"><a href="#L-345"><span class="linenos">345</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;ROC plot has not been implemented yet&quot;</span><span class="p">)</span>
+</span><span id="L-346"><a href="#L-346"><span class="linenos">346</span></a>
+</span><span id="L-347"><a href="#L-347"><span class="linenos">347</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+</span><span id="L-348"><a href="#L-348"><span class="linenos">348</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Predict the class of the data (Unused in this classifier)</span>
+</span><span id="L-349"><a href="#L-349"><span class="linenos">349</span></a>
+</span><span id="L-350"><a href="#L-350"><span class="linenos">350</span></a><span class="sd">        Parameters</span>
+</span><span id="L-351"><a href="#L-351"><span class="linenos">351</span></a><span class="sd">        ----------</span>
+</span><span id="L-352"><a href="#L-352"><span class="linenos">352</span></a><span class="sd">        X : numpy.ndarray</span>
+</span><span id="L-353"><a href="#L-353"><span class="linenos">353</span></a><span class="sd">            3D array where shape = (n_trials, n_channels, n_samples)</span>
+</span><span id="L-354"><a href="#L-354"><span class="linenos">354</span></a>
+</span><span id="L-355"><a href="#L-355"><span class="linenos">355</span></a><span class="sd">        Returns</span>
+</span><span id="L-356"><a href="#L-356"><span class="linenos">356</span></a><span class="sd">        -------</span>
+</span><span id="L-357"><a href="#L-357"><span class="linenos">357</span></a><span class="sd">        prediction : Prediction</span>
+</span><span id="L-358"><a href="#L-358"><span class="linenos">358</span></a><span class="sd">            Empty Predict object</span>
+</span><span id="L-359"><a href="#L-359"><span class="linenos">359</span></a>
+</span><span id="L-360"><a href="#L-360"><span class="linenos">360</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-361"><a href="#L-361"><span class="linenos">361</span></a>
+</span><span id="L-362"><a href="#L-362"><span class="linenos">362</span></a>        <span class="k">return</span> <span class="n">Prediction</span><span class="p">()</span>
 </span></pre></div>
 
 
@@ -599,7 +598,7 @@
 </span><span id="ErpSingleChannelClassifier-166"><a href="#ErpSingleChannelClassifier-166"><span class="linenos">166</span></a><span class="sd">                        The recall of the trained classification model.</span>
 </span><span id="ErpSingleChannelClassifier-167"><a href="#ErpSingleChannelClassifier-167"><span class="linenos">167</span></a>
 </span><span id="ErpSingleChannelClassifier-168"><a href="#ErpSingleChannelClassifier-168"><span class="linenos">168</span></a><span class="sd">            &quot;&quot;&quot;</span>
-</span><span id="ErpSingleChannelClassifier-169"><a href="#ErpSingleChannelClassifier-169"><span class="linenos">169</span></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X shape: &quot;</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span><span id="ErpSingleChannelClassifier-169"><a href="#ErpSingleChannelClassifier-169"><span class="linenos">169</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;X shape: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </span><span id="ErpSingleChannelClassifier-170"><a href="#ErpSingleChannelClassifier-170"><span class="linenos">170</span></a>
 </span><span id="ErpSingleChannelClassifier-171"><a href="#ErpSingleChannelClassifier-171"><span class="linenos">171</span></a>            <span class="k">for</span> <span class="n">train_idx</span><span class="p">,</span> <span class="n">test_idx</span> <span class="ow">in</span> <span class="n">cv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 </span><span id="ErpSingleChannelClassifier-172"><a href="#ErpSingleChannelClassifier-172"><span class="linenos">172</span></a>                <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">train_idx</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">test_idx</span><span class="p">]</span>
@@ -776,25 +775,24 @@
 </span><span id="ErpSingleChannelClassifier-343"><a href="#ErpSingleChannelClassifier-343"><span class="linenos">343</span></a>            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span><span id="ErpSingleChannelClassifier-344"><a href="#ErpSingleChannelClassifier-344"><span class="linenos">344</span></a>
 </span><span id="ErpSingleChannelClassifier-345"><a href="#ErpSingleChannelClassifier-345"><span class="linenos">345</span></a>        <span class="k">if</span> <span class="n">plot_roc</span><span class="p">:</span>
-</span><span id="ErpSingleChannelClassifier-346"><a href="#ErpSingleChannelClassifier-346"><span class="linenos">346</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Plotting the ROC...&quot;</span><span class="p">)</span>
-</span><span id="ErpSingleChannelClassifier-347"><a href="#ErpSingleChannelClassifier-347"><span class="linenos">347</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Just kidding ROC has not been implemented&quot;</span><span class="p">)</span>
-</span><span id="ErpSingleChannelClassifier-348"><a href="#ErpSingleChannelClassifier-348"><span class="linenos">348</span></a>
-</span><span id="ErpSingleChannelClassifier-349"><a href="#ErpSingleChannelClassifier-349"><span class="linenos">349</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-</span><span id="ErpSingleChannelClassifier-350"><a href="#ErpSingleChannelClassifier-350"><span class="linenos">350</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Predict the class of the data (Unused in this classifier)</span>
-</span><span id="ErpSingleChannelClassifier-351"><a href="#ErpSingleChannelClassifier-351"><span class="linenos">351</span></a>
-</span><span id="ErpSingleChannelClassifier-352"><a href="#ErpSingleChannelClassifier-352"><span class="linenos">352</span></a><span class="sd">        Parameters</span>
-</span><span id="ErpSingleChannelClassifier-353"><a href="#ErpSingleChannelClassifier-353"><span class="linenos">353</span></a><span class="sd">        ----------</span>
-</span><span id="ErpSingleChannelClassifier-354"><a href="#ErpSingleChannelClassifier-354"><span class="linenos">354</span></a><span class="sd">        X : numpy.ndarray</span>
-</span><span id="ErpSingleChannelClassifier-355"><a href="#ErpSingleChannelClassifier-355"><span class="linenos">355</span></a><span class="sd">            3D array where shape = (n_trials, n_channels, n_samples)</span>
-</span><span id="ErpSingleChannelClassifier-356"><a href="#ErpSingleChannelClassifier-356"><span class="linenos">356</span></a>
-</span><span id="ErpSingleChannelClassifier-357"><a href="#ErpSingleChannelClassifier-357"><span class="linenos">357</span></a><span class="sd">        Returns</span>
-</span><span id="ErpSingleChannelClassifier-358"><a href="#ErpSingleChannelClassifier-358"><span class="linenos">358</span></a><span class="sd">        -------</span>
-</span><span id="ErpSingleChannelClassifier-359"><a href="#ErpSingleChannelClassifier-359"><span class="linenos">359</span></a><span class="sd">        prediction : Prediction</span>
-</span><span id="ErpSingleChannelClassifier-360"><a href="#ErpSingleChannelClassifier-360"><span class="linenos">360</span></a><span class="sd">            Empty Predict object</span>
-</span><span id="ErpSingleChannelClassifier-361"><a href="#ErpSingleChannelClassifier-361"><span class="linenos">361</span></a>
-</span><span id="ErpSingleChannelClassifier-362"><a href="#ErpSingleChannelClassifier-362"><span class="linenos">362</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="ErpSingleChannelClassifier-363"><a href="#ErpSingleChannelClassifier-363"><span class="linenos">363</span></a>
-</span><span id="ErpSingleChannelClassifier-364"><a href="#ErpSingleChannelClassifier-364"><span class="linenos">364</span></a>        <span class="k">return</span> <span class="n">Prediction</span><span class="p">()</span>
+</span><span id="ErpSingleChannelClassifier-346"><a href="#ErpSingleChannelClassifier-346"><span class="linenos">346</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;ROC plot has not been implemented yet&quot;</span><span class="p">)</span>
+</span><span id="ErpSingleChannelClassifier-347"><a href="#ErpSingleChannelClassifier-347"><span class="linenos">347</span></a>
+</span><span id="ErpSingleChannelClassifier-348"><a href="#ErpSingleChannelClassifier-348"><span class="linenos">348</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+</span><span id="ErpSingleChannelClassifier-349"><a href="#ErpSingleChannelClassifier-349"><span class="linenos">349</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Predict the class of the data (Unused in this classifier)</span>
+</span><span id="ErpSingleChannelClassifier-350"><a href="#ErpSingleChannelClassifier-350"><span class="linenos">350</span></a>
+</span><span id="ErpSingleChannelClassifier-351"><a href="#ErpSingleChannelClassifier-351"><span class="linenos">351</span></a><span class="sd">        Parameters</span>
+</span><span id="ErpSingleChannelClassifier-352"><a href="#ErpSingleChannelClassifier-352"><span class="linenos">352</span></a><span class="sd">        ----------</span>
+</span><span id="ErpSingleChannelClassifier-353"><a href="#ErpSingleChannelClassifier-353"><span class="linenos">353</span></a><span class="sd">        X : numpy.ndarray</span>
+</span><span id="ErpSingleChannelClassifier-354"><a href="#ErpSingleChannelClassifier-354"><span class="linenos">354</span></a><span class="sd">            3D array where shape = (n_trials, n_channels, n_samples)</span>
+</span><span id="ErpSingleChannelClassifier-355"><a href="#ErpSingleChannelClassifier-355"><span class="linenos">355</span></a>
+</span><span id="ErpSingleChannelClassifier-356"><a href="#ErpSingleChannelClassifier-356"><span class="linenos">356</span></a><span class="sd">        Returns</span>
+</span><span id="ErpSingleChannelClassifier-357"><a href="#ErpSingleChannelClassifier-357"><span class="linenos">357</span></a><span class="sd">        -------</span>
+</span><span id="ErpSingleChannelClassifier-358"><a href="#ErpSingleChannelClassifier-358"><span class="linenos">358</span></a><span class="sd">        prediction : Prediction</span>
+</span><span id="ErpSingleChannelClassifier-359"><a href="#ErpSingleChannelClassifier-359"><span class="linenos">359</span></a><span class="sd">            Empty Predict object</span>
+</span><span id="ErpSingleChannelClassifier-360"><a href="#ErpSingleChannelClassifier-360"><span class="linenos">360</span></a>
+</span><span id="ErpSingleChannelClassifier-361"><a href="#ErpSingleChannelClassifier-361"><span class="linenos">361</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="ErpSingleChannelClassifier-362"><a href="#ErpSingleChannelClassifier-362"><span class="linenos">362</span></a>
+</span><span id="ErpSingleChannelClassifier-363"><a href="#ErpSingleChannelClassifier-363"><span class="linenos">363</span></a>        <span class="k">return</span> <span class="n">Prediction</span><span class="p">()</span>
 </span></pre></div>
 
 
@@ -989,7 +987,7 @@ random_seed : int, <em>optional</em>
 </span><span id="ErpSingleChannelClassifier.fit-166"><a href="#ErpSingleChannelClassifier.fit-166"><span class="linenos">166</span></a><span class="sd">                        The recall of the trained classification model.</span>
 </span><span id="ErpSingleChannelClassifier.fit-167"><a href="#ErpSingleChannelClassifier.fit-167"><span class="linenos">167</span></a>
 </span><span id="ErpSingleChannelClassifier.fit-168"><a href="#ErpSingleChannelClassifier.fit-168"><span class="linenos">168</span></a><span class="sd">            &quot;&quot;&quot;</span>
-</span><span id="ErpSingleChannelClassifier.fit-169"><a href="#ErpSingleChannelClassifier.fit-169"><span class="linenos">169</span></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X shape: &quot;</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span><span id="ErpSingleChannelClassifier.fit-169"><a href="#ErpSingleChannelClassifier.fit-169"><span class="linenos">169</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;X shape: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </span><span id="ErpSingleChannelClassifier.fit-170"><a href="#ErpSingleChannelClassifier.fit-170"><span class="linenos">170</span></a>
 </span><span id="ErpSingleChannelClassifier.fit-171"><a href="#ErpSingleChannelClassifier.fit-171"><span class="linenos">171</span></a>            <span class="k">for</span> <span class="n">train_idx</span><span class="p">,</span> <span class="n">test_idx</span> <span class="ow">in</span> <span class="n">cv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 </span><span id="ErpSingleChannelClassifier.fit-172"><a href="#ErpSingleChannelClassifier.fit-172"><span class="linenos">172</span></a>                <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">train_idx</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">test_idx</span><span class="p">]</span>
@@ -1166,8 +1164,7 @@ random_seed : int, <em>optional</em>
 </span><span id="ErpSingleChannelClassifier.fit-343"><a href="#ErpSingleChannelClassifier.fit-343"><span class="linenos">343</span></a>            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span><span id="ErpSingleChannelClassifier.fit-344"><a href="#ErpSingleChannelClassifier.fit-344"><span class="linenos">344</span></a>
 </span><span id="ErpSingleChannelClassifier.fit-345"><a href="#ErpSingleChannelClassifier.fit-345"><span class="linenos">345</span></a>        <span class="k">if</span> <span class="n">plot_roc</span><span class="p">:</span>
-</span><span id="ErpSingleChannelClassifier.fit-346"><a href="#ErpSingleChannelClassifier.fit-346"><span class="linenos">346</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Plotting the ROC...&quot;</span><span class="p">)</span>
-</span><span id="ErpSingleChannelClassifier.fit-347"><a href="#ErpSingleChannelClassifier.fit-347"><span class="linenos">347</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Just kidding ROC has not been implemented&quot;</span><span class="p">)</span>
+</span><span id="ErpSingleChannelClassifier.fit-346"><a href="#ErpSingleChannelClassifier.fit-346"><span class="linenos">346</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;ROC plot has not been implemented yet&quot;</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -1211,22 +1208,22 @@ lico_expansion_factor : int, <em>optional</em>
 
     </div>
     <a class="headerlink" href="#ErpSingleChannelClassifier.predict"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="ErpSingleChannelClassifier.predict-349"><a href="#ErpSingleChannelClassifier.predict-349"><span class="linenos">349</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-</span><span id="ErpSingleChannelClassifier.predict-350"><a href="#ErpSingleChannelClassifier.predict-350"><span class="linenos">350</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Predict the class of the data (Unused in this classifier)</span>
-</span><span id="ErpSingleChannelClassifier.predict-351"><a href="#ErpSingleChannelClassifier.predict-351"><span class="linenos">351</span></a>
-</span><span id="ErpSingleChannelClassifier.predict-352"><a href="#ErpSingleChannelClassifier.predict-352"><span class="linenos">352</span></a><span class="sd">        Parameters</span>
-</span><span id="ErpSingleChannelClassifier.predict-353"><a href="#ErpSingleChannelClassifier.predict-353"><span class="linenos">353</span></a><span class="sd">        ----------</span>
-</span><span id="ErpSingleChannelClassifier.predict-354"><a href="#ErpSingleChannelClassifier.predict-354"><span class="linenos">354</span></a><span class="sd">        X : numpy.ndarray</span>
-</span><span id="ErpSingleChannelClassifier.predict-355"><a href="#ErpSingleChannelClassifier.predict-355"><span class="linenos">355</span></a><span class="sd">            3D array where shape = (n_trials, n_channels, n_samples)</span>
-</span><span id="ErpSingleChannelClassifier.predict-356"><a href="#ErpSingleChannelClassifier.predict-356"><span class="linenos">356</span></a>
-</span><span id="ErpSingleChannelClassifier.predict-357"><a href="#ErpSingleChannelClassifier.predict-357"><span class="linenos">357</span></a><span class="sd">        Returns</span>
-</span><span id="ErpSingleChannelClassifier.predict-358"><a href="#ErpSingleChannelClassifier.predict-358"><span class="linenos">358</span></a><span class="sd">        -------</span>
-</span><span id="ErpSingleChannelClassifier.predict-359"><a href="#ErpSingleChannelClassifier.predict-359"><span class="linenos">359</span></a><span class="sd">        prediction : Prediction</span>
-</span><span id="ErpSingleChannelClassifier.predict-360"><a href="#ErpSingleChannelClassifier.predict-360"><span class="linenos">360</span></a><span class="sd">            Empty Predict object</span>
-</span><span id="ErpSingleChannelClassifier.predict-361"><a href="#ErpSingleChannelClassifier.predict-361"><span class="linenos">361</span></a>
-</span><span id="ErpSingleChannelClassifier.predict-362"><a href="#ErpSingleChannelClassifier.predict-362"><span class="linenos">362</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="ErpSingleChannelClassifier.predict-363"><a href="#ErpSingleChannelClassifier.predict-363"><span class="linenos">363</span></a>
-</span><span id="ErpSingleChannelClassifier.predict-364"><a href="#ErpSingleChannelClassifier.predict-364"><span class="linenos">364</span></a>        <span class="k">return</span> <span class="n">Prediction</span><span class="p">()</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="ErpSingleChannelClassifier.predict-348"><a href="#ErpSingleChannelClassifier.predict-348"><span class="linenos">348</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+</span><span id="ErpSingleChannelClassifier.predict-349"><a href="#ErpSingleChannelClassifier.predict-349"><span class="linenos">349</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Predict the class of the data (Unused in this classifier)</span>
+</span><span id="ErpSingleChannelClassifier.predict-350"><a href="#ErpSingleChannelClassifier.predict-350"><span class="linenos">350</span></a>
+</span><span id="ErpSingleChannelClassifier.predict-351"><a href="#ErpSingleChannelClassifier.predict-351"><span class="linenos">351</span></a><span class="sd">        Parameters</span>
+</span><span id="ErpSingleChannelClassifier.predict-352"><a href="#ErpSingleChannelClassifier.predict-352"><span class="linenos">352</span></a><span class="sd">        ----------</span>
+</span><span id="ErpSingleChannelClassifier.predict-353"><a href="#ErpSingleChannelClassifier.predict-353"><span class="linenos">353</span></a><span class="sd">        X : numpy.ndarray</span>
+</span><span id="ErpSingleChannelClassifier.predict-354"><a href="#ErpSingleChannelClassifier.predict-354"><span class="linenos">354</span></a><span class="sd">            3D array where shape = (n_trials, n_channels, n_samples)</span>
+</span><span id="ErpSingleChannelClassifier.predict-355"><a href="#ErpSingleChannelClassifier.predict-355"><span class="linenos">355</span></a>
+</span><span id="ErpSingleChannelClassifier.predict-356"><a href="#ErpSingleChannelClassifier.predict-356"><span class="linenos">356</span></a><span class="sd">        Returns</span>
+</span><span id="ErpSingleChannelClassifier.predict-357"><a href="#ErpSingleChannelClassifier.predict-357"><span class="linenos">357</span></a><span class="sd">        -------</span>
+</span><span id="ErpSingleChannelClassifier.predict-358"><a href="#ErpSingleChannelClassifier.predict-358"><span class="linenos">358</span></a><span class="sd">        prediction : Prediction</span>
+</span><span id="ErpSingleChannelClassifier.predict-359"><a href="#ErpSingleChannelClassifier.predict-359"><span class="linenos">359</span></a><span class="sd">            Empty Predict object</span>
+</span><span id="ErpSingleChannelClassifier.predict-360"><a href="#ErpSingleChannelClassifier.predict-360"><span class="linenos">360</span></a>
+</span><span id="ErpSingleChannelClassifier.predict-361"><a href="#ErpSingleChannelClassifier.predict-361"><span class="linenos">361</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="ErpSingleChannelClassifier.predict-362"><a href="#ErpSingleChannelClassifier.predict-362"><span class="linenos">362</span></a>
+</span><span id="ErpSingleChannelClassifier.predict-363"><a href="#ErpSingleChannelClassifier.predict-363"><span class="linenos">363</span></a>        <span class="k">return</span> <span class="n">Prediction</span><span class="p">()</span>
 </span></pre></div>
 
 
