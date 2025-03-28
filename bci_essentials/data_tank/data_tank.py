@@ -1,4 +1,9 @@
 import numpy as np
+from bci_essentials.utils.logger import Logger  # Logger wrapper
+
+# Instantiate a logger for the module at the default level of logging.INFO
+# Logs to bci_essentials.__module__) where __module__ is the name of the module
+logger = Logger(name=__name__)
 
 
 # Will eventually move somewhere else
@@ -173,9 +178,7 @@ class DataTank:
         else:
             # Check the size of the new data
             if X.shape[1:] != self.epochs.shape[1:]:
-                print(
-                    "Epochs are not the same size, skipping this data.",
-                )
+                logger.warning("Epochs are not the same size, skipping this data.")
             else:
                 self.epochs = np.concatenate((self.epochs, np.array(X)))
                 self.labels = np.concatenate((self.labels, np.array(y)))
