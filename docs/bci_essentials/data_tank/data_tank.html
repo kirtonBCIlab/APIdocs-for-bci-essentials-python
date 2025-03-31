@@ -104,7 +104,7 @@
                         <label class="view-source-button" for="mod-data_tank-view-source"><span>View Source</span></label>
 
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">  1</span></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-</span><span id="L-2"><a href="#L-2"><span class="linenos">  2</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">bci_essentials.utils.logger</span><span class="w"> </span><span class="kn">import</span> <span class="n">Logger</span>  <span class="c1"># Logger wrapper</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos">  2</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">..utils.logger</span><span class="w"> </span><span class="kn">import</span> <span class="n">Logger</span>  <span class="c1"># Logger wrapper</span>
 </span><span id="L-3"><a href="#L-3"><span class="linenos">  3</span></a>
 </span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a><span class="c1"># Instantiate a logger for the module at the default level of logging.INFO</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos">  5</span></a><span class="c1"># Logs to bci_essentials.__module__) where __module__ is the name of the module</span>
@@ -280,94 +280,99 @@
 </span><span id="L-175"><a href="#L-175"><span class="linenos">175</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 </span><span id="L-176"><a href="#L-176"><span class="linenos">176</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </span><span id="L-177"><a href="#L-177"><span class="linenos">177</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-</span><span id="L-178"><a href="#L-178"><span class="linenos">178</span></a>        <span class="k">else</span><span class="p">:</span>
-</span><span id="L-179"><a href="#L-179"><span class="linenos">179</span></a>            <span class="c1"># Check the size of the new data</span>
-</span><span id="L-180"><a href="#L-180"><span class="linenos">180</span></a>            <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
-</span><span id="L-181"><a href="#L-181"><span class="linenos">181</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Epochs are not the same size, skipping this data.&quot;</span><span class="p">)</span>
-</span><span id="L-182"><a href="#L-182"><span class="linenos">182</span></a>            <span class="k">else</span><span class="p">:</span>
-</span><span id="L-183"><a href="#L-183"><span class="linenos">183</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
-</span><span id="L-184"><a href="#L-184"><span class="linenos">184</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
-</span><span id="L-185"><a href="#L-185"><span class="linenos">185</span></a>
-</span><span id="L-186"><a href="#L-186"><span class="linenos">186</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_epochs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latest</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-</span><span id="L-187"><a href="#L-187"><span class="linenos">187</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-188"><a href="#L-188"><span class="linenos">188</span></a><span class="sd">        Get the epochs from the data tank.</span>
-</span><span id="L-189"><a href="#L-189"><span class="linenos">189</span></a>
-</span><span id="L-190"><a href="#L-190"><span class="linenos">190</span></a><span class="sd">        Parameters</span>
-</span><span id="L-191"><a href="#L-191"><span class="linenos">191</span></a><span class="sd">        ----------</span>
-</span><span id="L-192"><a href="#L-192"><span class="linenos">192</span></a><span class="sd">        latest : bool</span>
-</span><span id="L-193"><a href="#L-193"><span class="linenos">193</span></a><span class="sd">            If `True`, only return the new data since the last call to this function.</span>
-</span><span id="L-194"><a href="#L-194"><span class="linenos">194</span></a>
-</span><span id="L-195"><a href="#L-195"><span class="linenos">195</span></a><span class="sd">        Returns</span>
-</span><span id="L-196"><a href="#L-196"><span class="linenos">196</span></a><span class="sd">        -------</span>
-</span><span id="L-197"><a href="#L-197"><span class="linenos">197</span></a><span class="sd">        np.array</span>
-</span><span id="L-198"><a href="#L-198"><span class="linenos">198</span></a><span class="sd">            The epochs. Shape is (n_epochs, n_channels, n_samples).</span>
-</span><span id="L-199"><a href="#L-199"><span class="linenos">199</span></a><span class="sd">        np.array</span>
-</span><span id="L-200"><a href="#L-200"><span class="linenos">200</span></a><span class="sd">            The labels of the epochs. Shape is (n_epochs).</span>
-</span><span id="L-201"><a href="#L-201"><span class="linenos">201</span></a>
-</span><span id="L-202"><a href="#L-202"><span class="linenos">202</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-203"><a href="#L-203"><span class="linenos">203</span></a>        <span class="k">if</span> <span class="n">latest</span><span class="p">:</span>
-</span><span id="L-204"><a href="#L-204"><span class="linenos">204</span></a>            <span class="c1"># Return only the new data</span>
-</span><span id="L-205"><a href="#L-205"><span class="linenos">205</span></a>            <span class="n">first_unsent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs_sent</span>
-</span><span id="L-206"><a href="#L-206"><span class="linenos">206</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">epochs_sent</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">)</span>
+</span><span id="L-178"><a href="#L-178"><span class="linenos">178</span></a>
+</span><span id="L-179"><a href="#L-179"><span class="linenos">179</span></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="L-180"><a href="#L-180"><span class="linenos">180</span></a>            <span class="c1"># Check the size of the new data</span>
+</span><span id="L-181"><a href="#L-181"><span class="linenos">181</span></a>            <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+</span><span id="L-182"><a href="#L-182"><span class="linenos">182</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Epochs are not the same size, skipping this data.&quot;</span><span class="p">)</span>
+</span><span id="L-183"><a href="#L-183"><span class="linenos">183</span></a>            <span class="k">else</span><span class="p">:</span>
+</span><span id="L-184"><a href="#L-184"><span class="linenos">184</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+</span><span id="L-185"><a href="#L-185"><span class="linenos">185</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
+</span><span id="L-186"><a href="#L-186"><span class="linenos">186</span></a>
+</span><span id="L-187"><a href="#L-187"><span class="linenos">187</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_epochs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latest</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+</span><span id="L-188"><a href="#L-188"><span class="linenos">188</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-189"><a href="#L-189"><span class="linenos">189</span></a><span class="sd">        Get the epochs from the data tank.</span>
+</span><span id="L-190"><a href="#L-190"><span class="linenos">190</span></a>
+</span><span id="L-191"><a href="#L-191"><span class="linenos">191</span></a><span class="sd">        Parameters</span>
+</span><span id="L-192"><a href="#L-192"><span class="linenos">192</span></a><span class="sd">        ----------</span>
+</span><span id="L-193"><a href="#L-193"><span class="linenos">193</span></a><span class="sd">        latest : bool</span>
+</span><span id="L-194"><a href="#L-194"><span class="linenos">194</span></a><span class="sd">            If `True`, only return the new data since the last call to this function.</span>
+</span><span id="L-195"><a href="#L-195"><span class="linenos">195</span></a>
+</span><span id="L-196"><a href="#L-196"><span class="linenos">196</span></a><span class="sd">        Returns</span>
+</span><span id="L-197"><a href="#L-197"><span class="linenos">197</span></a><span class="sd">        -------</span>
+</span><span id="L-198"><a href="#L-198"><span class="linenos">198</span></a><span class="sd">        np.array</span>
+</span><span id="L-199"><a href="#L-199"><span class="linenos">199</span></a><span class="sd">            The epochs. Shape is (n_epochs, n_channels, n_samples).</span>
+</span><span id="L-200"><a href="#L-200"><span class="linenos">200</span></a><span class="sd">        np.array</span>
+</span><span id="L-201"><a href="#L-201"><span class="linenos">201</span></a><span class="sd">            The labels of the epochs. Shape is (n_epochs).</span>
+</span><span id="L-202"><a href="#L-202"><span class="linenos">202</span></a>
+</span><span id="L-203"><a href="#L-203"><span class="linenos">203</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-204"><a href="#L-204"><span class="linenos">204</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="L-205"><a href="#L-205"><span class="linenos">205</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Data tank contains no epochs, returning None.&quot;</span><span class="p">)</span>
+</span><span id="L-206"><a href="#L-206"><span class="linenos">206</span></a>            <span class="k">return</span> <span class="p">[],</span> <span class="p">[]</span>
 </span><span id="L-207"><a href="#L-207"><span class="linenos">207</span></a>
-</span><span id="L-208"><a href="#L-208"><span class="linenos">208</span></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">[</span><span class="n">first_unsent</span><span class="p">:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">first_unsent</span><span class="p">:]</span>
-</span><span id="L-209"><a href="#L-209"><span class="linenos">209</span></a>        <span class="k">else</span><span class="p">:</span>
-</span><span id="L-210"><a href="#L-210"><span class="linenos">210</span></a>            <span class="c1"># Return all</span>
-</span><span id="L-211"><a href="#L-211"><span class="linenos">211</span></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span>
+</span><span id="L-208"><a href="#L-208"><span class="linenos">208</span></a>        <span class="k">if</span> <span class="n">latest</span><span class="p">:</span>
+</span><span id="L-209"><a href="#L-209"><span class="linenos">209</span></a>            <span class="c1"># Return only the new data</span>
+</span><span id="L-210"><a href="#L-210"><span class="linenos">210</span></a>            <span class="n">first_unsent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs_sent</span>
+</span><span id="L-211"><a href="#L-211"><span class="linenos">211</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">epochs_sent</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">)</span>
 </span><span id="L-212"><a href="#L-212"><span class="linenos">212</span></a>
-</span><span id="L-213"><a href="#L-213"><span class="linenos">213</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_resting_state_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resting_state_data</span><span class="p">):</span>
-</span><span id="L-214"><a href="#L-214"><span class="linenos">214</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-215"><a href="#L-215"><span class="linenos">215</span></a><span class="sd">        Add resting state data to the data tank.</span>
-</span><span id="L-216"><a href="#L-216"><span class="linenos">216</span></a>
-</span><span id="L-217"><a href="#L-217"><span class="linenos">217</span></a><span class="sd">        Parameters</span>
-</span><span id="L-218"><a href="#L-218"><span class="linenos">218</span></a><span class="sd">        ----------</span>
-</span><span id="L-219"><a href="#L-219"><span class="linenos">219</span></a><span class="sd">        resting_state_data : dict</span>
-</span><span id="L-220"><a href="#L-220"><span class="linenos">220</span></a><span class="sd">            Dictionary containing resting state data.</span>
+</span><span id="L-213"><a href="#L-213"><span class="linenos">213</span></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">[</span><span class="n">first_unsent</span><span class="p">:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">first_unsent</span><span class="p">:]</span>
+</span><span id="L-214"><a href="#L-214"><span class="linenos">214</span></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="L-215"><a href="#L-215"><span class="linenos">215</span></a>            <span class="c1"># Return all</span>
+</span><span id="L-216"><a href="#L-216"><span class="linenos">216</span></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span>
+</span><span id="L-217"><a href="#L-217"><span class="linenos">217</span></a>
+</span><span id="L-218"><a href="#L-218"><span class="linenos">218</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_resting_state_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resting_state_data</span><span class="p">):</span>
+</span><span id="L-219"><a href="#L-219"><span class="linenos">219</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-220"><a href="#L-220"><span class="linenos">220</span></a><span class="sd">        Add resting state data to the data tank.</span>
 </span><span id="L-221"><a href="#L-221"><span class="linenos">221</span></a>
-</span><span id="L-222"><a href="#L-222"><span class="linenos">222</span></a><span class="sd">        Returns</span>
-</span><span id="L-223"><a href="#L-223"><span class="linenos">223</span></a><span class="sd">        -------</span>
-</span><span id="L-224"><a href="#L-224"><span class="linenos">224</span></a><span class="sd">        `None`</span>
-</span><span id="L-225"><a href="#L-225"><span class="linenos">225</span></a>
-</span><span id="L-226"><a href="#L-226"><span class="linenos">226</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-227"><a href="#L-227"><span class="linenos">227</span></a>        <span class="c1"># Get the resting state data</span>
-</span><span id="L-228"><a href="#L-228"><span class="linenos">228</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__resting_state_data</span> <span class="o">=</span> <span class="n">resting_state_data</span>
-</span><span id="L-229"><a href="#L-229"><span class="linenos">229</span></a>
-</span><span id="L-230"><a href="#L-230"><span class="linenos">230</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_resting_state_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-231"><a href="#L-231"><span class="linenos">231</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-232"><a href="#L-232"><span class="linenos">232</span></a><span class="sd">        Get the resting state data.</span>
-</span><span id="L-233"><a href="#L-233"><span class="linenos">233</span></a>
-</span><span id="L-234"><a href="#L-234"><span class="linenos">234</span></a><span class="sd">        Returns</span>
-</span><span id="L-235"><a href="#L-235"><span class="linenos">235</span></a><span class="sd">        -------</span>
-</span><span id="L-236"><a href="#L-236"><span class="linenos">236</span></a><span class="sd">        dict</span>
-</span><span id="L-237"><a href="#L-237"><span class="linenos">237</span></a><span class="sd">            Dictionary containing resting state data.</span>
+</span><span id="L-222"><a href="#L-222"><span class="linenos">222</span></a><span class="sd">        Parameters</span>
+</span><span id="L-223"><a href="#L-223"><span class="linenos">223</span></a><span class="sd">        ----------</span>
+</span><span id="L-224"><a href="#L-224"><span class="linenos">224</span></a><span class="sd">        resting_state_data : dict</span>
+</span><span id="L-225"><a href="#L-225"><span class="linenos">225</span></a><span class="sd">            Dictionary containing resting state data.</span>
+</span><span id="L-226"><a href="#L-226"><span class="linenos">226</span></a>
+</span><span id="L-227"><a href="#L-227"><span class="linenos">227</span></a><span class="sd">        Returns</span>
+</span><span id="L-228"><a href="#L-228"><span class="linenos">228</span></a><span class="sd">        -------</span>
+</span><span id="L-229"><a href="#L-229"><span class="linenos">229</span></a><span class="sd">        `None`</span>
+</span><span id="L-230"><a href="#L-230"><span class="linenos">230</span></a>
+</span><span id="L-231"><a href="#L-231"><span class="linenos">231</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-232"><a href="#L-232"><span class="linenos">232</span></a>        <span class="c1"># Get the resting state data</span>
+</span><span id="L-233"><a href="#L-233"><span class="linenos">233</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__resting_state_data</span> <span class="o">=</span> <span class="n">resting_state_data</span>
+</span><span id="L-234"><a href="#L-234"><span class="linenos">234</span></a>
+</span><span id="L-235"><a href="#L-235"><span class="linenos">235</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_resting_state_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="L-236"><a href="#L-236"><span class="linenos">236</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-237"><a href="#L-237"><span class="linenos">237</span></a><span class="sd">        Get the resting state data.</span>
 </span><span id="L-238"><a href="#L-238"><span class="linenos">238</span></a>
-</span><span id="L-239"><a href="#L-239"><span class="linenos">239</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-240"><a href="#L-240"><span class="linenos">240</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__resting_state_data</span>
-</span><span id="L-241"><a href="#L-241"><span class="linenos">241</span></a>
-</span><span id="L-242"><a href="#L-242"><span class="linenos">242</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">save_epochs_as_npz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="L-243"><a href="#L-243"><span class="linenos">243</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-244"><a href="#L-244"><span class="linenos">244</span></a><span class="sd">        Saves EEG trials and labels as a numpy file.</span>
-</span><span id="L-245"><a href="#L-245"><span class="linenos">245</span></a>
-</span><span id="L-246"><a href="#L-246"><span class="linenos">246</span></a><span class="sd">        Parameters</span>
-</span><span id="L-247"><a href="#L-247"><span class="linenos">247</span></a><span class="sd">        ----------</span>
-</span><span id="L-248"><a href="#L-248"><span class="linenos">248</span></a><span class="sd">        file_name : str</span>
-</span><span id="L-249"><a href="#L-249"><span class="linenos">249</span></a><span class="sd">            The name of the file to save the EEG trials and labels to.</span>
+</span><span id="L-239"><a href="#L-239"><span class="linenos">239</span></a><span class="sd">        Returns</span>
+</span><span id="L-240"><a href="#L-240"><span class="linenos">240</span></a><span class="sd">        -------</span>
+</span><span id="L-241"><a href="#L-241"><span class="linenos">241</span></a><span class="sd">        dict</span>
+</span><span id="L-242"><a href="#L-242"><span class="linenos">242</span></a><span class="sd">            Dictionary containing resting state data.</span>
+</span><span id="L-243"><a href="#L-243"><span class="linenos">243</span></a>
+</span><span id="L-244"><a href="#L-244"><span class="linenos">244</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-245"><a href="#L-245"><span class="linenos">245</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__resting_state_data</span>
+</span><span id="L-246"><a href="#L-246"><span class="linenos">246</span></a>
+</span><span id="L-247"><a href="#L-247"><span class="linenos">247</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">save_epochs_as_npz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="L-248"><a href="#L-248"><span class="linenos">248</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-249"><a href="#L-249"><span class="linenos">249</span></a><span class="sd">        Saves EEG trials and labels as a numpy file.</span>
 </span><span id="L-250"><a href="#L-250"><span class="linenos">250</span></a>
-</span><span id="L-251"><a href="#L-251"><span class="linenos">251</span></a><span class="sd">        Returns</span>
-</span><span id="L-252"><a href="#L-252"><span class="linenos">252</span></a><span class="sd">        -------</span>
-</span><span id="L-253"><a href="#L-253"><span class="linenos">253</span></a><span class="sd">        `None`</span>
-</span><span id="L-254"><a href="#L-254"><span class="linenos">254</span></a>
-</span><span id="L-255"><a href="#L-255"><span class="linenos">255</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-256"><a href="#L-256"><span class="linenos">256</span></a>        <span class="c1"># Check if file ends with .npz, if not add it</span>
-</span><span id="L-257"><a href="#L-257"><span class="linenos">257</span></a>        <span class="k">if</span> <span class="n">file_name</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span> <span class="o">!=</span> <span class="s2">&quot;.npz&quot;</span><span class="p">:</span>
-</span><span id="L-258"><a href="#L-258"><span class="linenos">258</span></a>            <span class="n">file_name</span> <span class="o">+=</span> <span class="s2">&quot;.npz&quot;</span>
+</span><span id="L-251"><a href="#L-251"><span class="linenos">251</span></a><span class="sd">        Parameters</span>
+</span><span id="L-252"><a href="#L-252"><span class="linenos">252</span></a><span class="sd">        ----------</span>
+</span><span id="L-253"><a href="#L-253"><span class="linenos">253</span></a><span class="sd">        file_name : str</span>
+</span><span id="L-254"><a href="#L-254"><span class="linenos">254</span></a><span class="sd">            The name of the file to save the EEG trials and labels to.</span>
+</span><span id="L-255"><a href="#L-255"><span class="linenos">255</span></a>
+</span><span id="L-256"><a href="#L-256"><span class="linenos">256</span></a><span class="sd">        Returns</span>
+</span><span id="L-257"><a href="#L-257"><span class="linenos">257</span></a><span class="sd">        -------</span>
+</span><span id="L-258"><a href="#L-258"><span class="linenos">258</span></a><span class="sd">        `None`</span>
 </span><span id="L-259"><a href="#L-259"><span class="linenos">259</span></a>
-</span><span id="L-260"><a href="#L-260"><span class="linenos">260</span></a>        <span class="c1"># Get the raw EEG trials and labels</span>
-</span><span id="L-261"><a href="#L-261"><span class="linenos">261</span></a>        <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span>
-</span><span id="L-262"><a href="#L-262"><span class="linenos">262</span></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span>
-</span><span id="L-263"><a href="#L-263"><span class="linenos">263</span></a>
-</span><span id="L-264"><a href="#L-264"><span class="linenos">264</span></a>        <span class="c1"># Save the raw EEG trials and labels as a numpy file</span>
-</span><span id="L-265"><a href="#L-265"><span class="linenos">265</span></a>        <span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+</span><span id="L-260"><a href="#L-260"><span class="linenos">260</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-261"><a href="#L-261"><span class="linenos">261</span></a>        <span class="c1"># Check if file ends with .npz, if not add it</span>
+</span><span id="L-262"><a href="#L-262"><span class="linenos">262</span></a>        <span class="k">if</span> <span class="n">file_name</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span> <span class="o">!=</span> <span class="s2">&quot;.npz&quot;</span><span class="p">:</span>
+</span><span id="L-263"><a href="#L-263"><span class="linenos">263</span></a>            <span class="n">file_name</span> <span class="o">+=</span> <span class="s2">&quot;.npz&quot;</span>
+</span><span id="L-264"><a href="#L-264"><span class="linenos">264</span></a>
+</span><span id="L-265"><a href="#L-265"><span class="linenos">265</span></a>        <span class="c1"># Get the raw EEG trials and labels</span>
+</span><span id="L-266"><a href="#L-266"><span class="linenos">266</span></a>        <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span>
+</span><span id="L-267"><a href="#L-267"><span class="linenos">267</span></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span>
+</span><span id="L-268"><a href="#L-268"><span class="linenos">268</span></a>
+</span><span id="L-269"><a href="#L-269"><span class="linenos">269</span></a>        <span class="c1"># Save the raw EEG trials and labels as a numpy file</span>
+</span><span id="L-270"><a href="#L-270"><span class="linenos">270</span></a>        <span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -563,94 +568,99 @@
 </span><span id="DataTank-176"><a href="#DataTank-176"><span class="linenos">176</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 </span><span id="DataTank-177"><a href="#DataTank-177"><span class="linenos">177</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </span><span id="DataTank-178"><a href="#DataTank-178"><span class="linenos">178</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-</span><span id="DataTank-179"><a href="#DataTank-179"><span class="linenos">179</span></a>        <span class="k">else</span><span class="p">:</span>
-</span><span id="DataTank-180"><a href="#DataTank-180"><span class="linenos">180</span></a>            <span class="c1"># Check the size of the new data</span>
-</span><span id="DataTank-181"><a href="#DataTank-181"><span class="linenos">181</span></a>            <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
-</span><span id="DataTank-182"><a href="#DataTank-182"><span class="linenos">182</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Epochs are not the same size, skipping this data.&quot;</span><span class="p">)</span>
-</span><span id="DataTank-183"><a href="#DataTank-183"><span class="linenos">183</span></a>            <span class="k">else</span><span class="p">:</span>
-</span><span id="DataTank-184"><a href="#DataTank-184"><span class="linenos">184</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
-</span><span id="DataTank-185"><a href="#DataTank-185"><span class="linenos">185</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
-</span><span id="DataTank-186"><a href="#DataTank-186"><span class="linenos">186</span></a>
-</span><span id="DataTank-187"><a href="#DataTank-187"><span class="linenos">187</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_epochs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latest</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-</span><span id="DataTank-188"><a href="#DataTank-188"><span class="linenos">188</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="DataTank-189"><a href="#DataTank-189"><span class="linenos">189</span></a><span class="sd">        Get the epochs from the data tank.</span>
-</span><span id="DataTank-190"><a href="#DataTank-190"><span class="linenos">190</span></a>
-</span><span id="DataTank-191"><a href="#DataTank-191"><span class="linenos">191</span></a><span class="sd">        Parameters</span>
-</span><span id="DataTank-192"><a href="#DataTank-192"><span class="linenos">192</span></a><span class="sd">        ----------</span>
-</span><span id="DataTank-193"><a href="#DataTank-193"><span class="linenos">193</span></a><span class="sd">        latest : bool</span>
-</span><span id="DataTank-194"><a href="#DataTank-194"><span class="linenos">194</span></a><span class="sd">            If `True`, only return the new data since the last call to this function.</span>
-</span><span id="DataTank-195"><a href="#DataTank-195"><span class="linenos">195</span></a>
-</span><span id="DataTank-196"><a href="#DataTank-196"><span class="linenos">196</span></a><span class="sd">        Returns</span>
-</span><span id="DataTank-197"><a href="#DataTank-197"><span class="linenos">197</span></a><span class="sd">        -------</span>
-</span><span id="DataTank-198"><a href="#DataTank-198"><span class="linenos">198</span></a><span class="sd">        np.array</span>
-</span><span id="DataTank-199"><a href="#DataTank-199"><span class="linenos">199</span></a><span class="sd">            The epochs. Shape is (n_epochs, n_channels, n_samples).</span>
-</span><span id="DataTank-200"><a href="#DataTank-200"><span class="linenos">200</span></a><span class="sd">        np.array</span>
-</span><span id="DataTank-201"><a href="#DataTank-201"><span class="linenos">201</span></a><span class="sd">            The labels of the epochs. Shape is (n_epochs).</span>
-</span><span id="DataTank-202"><a href="#DataTank-202"><span class="linenos">202</span></a>
-</span><span id="DataTank-203"><a href="#DataTank-203"><span class="linenos">203</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DataTank-204"><a href="#DataTank-204"><span class="linenos">204</span></a>        <span class="k">if</span> <span class="n">latest</span><span class="p">:</span>
-</span><span id="DataTank-205"><a href="#DataTank-205"><span class="linenos">205</span></a>            <span class="c1"># Return only the new data</span>
-</span><span id="DataTank-206"><a href="#DataTank-206"><span class="linenos">206</span></a>            <span class="n">first_unsent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs_sent</span>
-</span><span id="DataTank-207"><a href="#DataTank-207"><span class="linenos">207</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">epochs_sent</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">)</span>
+</span><span id="DataTank-179"><a href="#DataTank-179"><span class="linenos">179</span></a>
+</span><span id="DataTank-180"><a href="#DataTank-180"><span class="linenos">180</span></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="DataTank-181"><a href="#DataTank-181"><span class="linenos">181</span></a>            <span class="c1"># Check the size of the new data</span>
+</span><span id="DataTank-182"><a href="#DataTank-182"><span class="linenos">182</span></a>            <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+</span><span id="DataTank-183"><a href="#DataTank-183"><span class="linenos">183</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Epochs are not the same size, skipping this data.&quot;</span><span class="p">)</span>
+</span><span id="DataTank-184"><a href="#DataTank-184"><span class="linenos">184</span></a>            <span class="k">else</span><span class="p">:</span>
+</span><span id="DataTank-185"><a href="#DataTank-185"><span class="linenos">185</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+</span><span id="DataTank-186"><a href="#DataTank-186"><span class="linenos">186</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
+</span><span id="DataTank-187"><a href="#DataTank-187"><span class="linenos">187</span></a>
+</span><span id="DataTank-188"><a href="#DataTank-188"><span class="linenos">188</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_epochs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latest</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+</span><span id="DataTank-189"><a href="#DataTank-189"><span class="linenos">189</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="DataTank-190"><a href="#DataTank-190"><span class="linenos">190</span></a><span class="sd">        Get the epochs from the data tank.</span>
+</span><span id="DataTank-191"><a href="#DataTank-191"><span class="linenos">191</span></a>
+</span><span id="DataTank-192"><a href="#DataTank-192"><span class="linenos">192</span></a><span class="sd">        Parameters</span>
+</span><span id="DataTank-193"><a href="#DataTank-193"><span class="linenos">193</span></a><span class="sd">        ----------</span>
+</span><span id="DataTank-194"><a href="#DataTank-194"><span class="linenos">194</span></a><span class="sd">        latest : bool</span>
+</span><span id="DataTank-195"><a href="#DataTank-195"><span class="linenos">195</span></a><span class="sd">            If `True`, only return the new data since the last call to this function.</span>
+</span><span id="DataTank-196"><a href="#DataTank-196"><span class="linenos">196</span></a>
+</span><span id="DataTank-197"><a href="#DataTank-197"><span class="linenos">197</span></a><span class="sd">        Returns</span>
+</span><span id="DataTank-198"><a href="#DataTank-198"><span class="linenos">198</span></a><span class="sd">        -------</span>
+</span><span id="DataTank-199"><a href="#DataTank-199"><span class="linenos">199</span></a><span class="sd">        np.array</span>
+</span><span id="DataTank-200"><a href="#DataTank-200"><span class="linenos">200</span></a><span class="sd">            The epochs. Shape is (n_epochs, n_channels, n_samples).</span>
+</span><span id="DataTank-201"><a href="#DataTank-201"><span class="linenos">201</span></a><span class="sd">        np.array</span>
+</span><span id="DataTank-202"><a href="#DataTank-202"><span class="linenos">202</span></a><span class="sd">            The labels of the epochs. Shape is (n_epochs).</span>
+</span><span id="DataTank-203"><a href="#DataTank-203"><span class="linenos">203</span></a>
+</span><span id="DataTank-204"><a href="#DataTank-204"><span class="linenos">204</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="DataTank-205"><a href="#DataTank-205"><span class="linenos">205</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="DataTank-206"><a href="#DataTank-206"><span class="linenos">206</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Data tank contains no epochs, returning None.&quot;</span><span class="p">)</span>
+</span><span id="DataTank-207"><a href="#DataTank-207"><span class="linenos">207</span></a>            <span class="k">return</span> <span class="p">[],</span> <span class="p">[]</span>
 </span><span id="DataTank-208"><a href="#DataTank-208"><span class="linenos">208</span></a>
-</span><span id="DataTank-209"><a href="#DataTank-209"><span class="linenos">209</span></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">[</span><span class="n">first_unsent</span><span class="p">:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">first_unsent</span><span class="p">:]</span>
-</span><span id="DataTank-210"><a href="#DataTank-210"><span class="linenos">210</span></a>        <span class="k">else</span><span class="p">:</span>
-</span><span id="DataTank-211"><a href="#DataTank-211"><span class="linenos">211</span></a>            <span class="c1"># Return all</span>
-</span><span id="DataTank-212"><a href="#DataTank-212"><span class="linenos">212</span></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span>
+</span><span id="DataTank-209"><a href="#DataTank-209"><span class="linenos">209</span></a>        <span class="k">if</span> <span class="n">latest</span><span class="p">:</span>
+</span><span id="DataTank-210"><a href="#DataTank-210"><span class="linenos">210</span></a>            <span class="c1"># Return only the new data</span>
+</span><span id="DataTank-211"><a href="#DataTank-211"><span class="linenos">211</span></a>            <span class="n">first_unsent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs_sent</span>
+</span><span id="DataTank-212"><a href="#DataTank-212"><span class="linenos">212</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">epochs_sent</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">)</span>
 </span><span id="DataTank-213"><a href="#DataTank-213"><span class="linenos">213</span></a>
-</span><span id="DataTank-214"><a href="#DataTank-214"><span class="linenos">214</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_resting_state_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resting_state_data</span><span class="p">):</span>
-</span><span id="DataTank-215"><a href="#DataTank-215"><span class="linenos">215</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="DataTank-216"><a href="#DataTank-216"><span class="linenos">216</span></a><span class="sd">        Add resting state data to the data tank.</span>
-</span><span id="DataTank-217"><a href="#DataTank-217"><span class="linenos">217</span></a>
-</span><span id="DataTank-218"><a href="#DataTank-218"><span class="linenos">218</span></a><span class="sd">        Parameters</span>
-</span><span id="DataTank-219"><a href="#DataTank-219"><span class="linenos">219</span></a><span class="sd">        ----------</span>
-</span><span id="DataTank-220"><a href="#DataTank-220"><span class="linenos">220</span></a><span class="sd">        resting_state_data : dict</span>
-</span><span id="DataTank-221"><a href="#DataTank-221"><span class="linenos">221</span></a><span class="sd">            Dictionary containing resting state data.</span>
+</span><span id="DataTank-214"><a href="#DataTank-214"><span class="linenos">214</span></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">[</span><span class="n">first_unsent</span><span class="p">:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">first_unsent</span><span class="p">:]</span>
+</span><span id="DataTank-215"><a href="#DataTank-215"><span class="linenos">215</span></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="DataTank-216"><a href="#DataTank-216"><span class="linenos">216</span></a>            <span class="c1"># Return all</span>
+</span><span id="DataTank-217"><a href="#DataTank-217"><span class="linenos">217</span></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span>
+</span><span id="DataTank-218"><a href="#DataTank-218"><span class="linenos">218</span></a>
+</span><span id="DataTank-219"><a href="#DataTank-219"><span class="linenos">219</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_resting_state_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resting_state_data</span><span class="p">):</span>
+</span><span id="DataTank-220"><a href="#DataTank-220"><span class="linenos">220</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="DataTank-221"><a href="#DataTank-221"><span class="linenos">221</span></a><span class="sd">        Add resting state data to the data tank.</span>
 </span><span id="DataTank-222"><a href="#DataTank-222"><span class="linenos">222</span></a>
-</span><span id="DataTank-223"><a href="#DataTank-223"><span class="linenos">223</span></a><span class="sd">        Returns</span>
-</span><span id="DataTank-224"><a href="#DataTank-224"><span class="linenos">224</span></a><span class="sd">        -------</span>
-</span><span id="DataTank-225"><a href="#DataTank-225"><span class="linenos">225</span></a><span class="sd">        `None`</span>
-</span><span id="DataTank-226"><a href="#DataTank-226"><span class="linenos">226</span></a>
-</span><span id="DataTank-227"><a href="#DataTank-227"><span class="linenos">227</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DataTank-228"><a href="#DataTank-228"><span class="linenos">228</span></a>        <span class="c1"># Get the resting state data</span>
-</span><span id="DataTank-229"><a href="#DataTank-229"><span class="linenos">229</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__resting_state_data</span> <span class="o">=</span> <span class="n">resting_state_data</span>
-</span><span id="DataTank-230"><a href="#DataTank-230"><span class="linenos">230</span></a>
-</span><span id="DataTank-231"><a href="#DataTank-231"><span class="linenos">231</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_resting_state_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="DataTank-232"><a href="#DataTank-232"><span class="linenos">232</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="DataTank-233"><a href="#DataTank-233"><span class="linenos">233</span></a><span class="sd">        Get the resting state data.</span>
-</span><span id="DataTank-234"><a href="#DataTank-234"><span class="linenos">234</span></a>
-</span><span id="DataTank-235"><a href="#DataTank-235"><span class="linenos">235</span></a><span class="sd">        Returns</span>
-</span><span id="DataTank-236"><a href="#DataTank-236"><span class="linenos">236</span></a><span class="sd">        -------</span>
-</span><span id="DataTank-237"><a href="#DataTank-237"><span class="linenos">237</span></a><span class="sd">        dict</span>
-</span><span id="DataTank-238"><a href="#DataTank-238"><span class="linenos">238</span></a><span class="sd">            Dictionary containing resting state data.</span>
+</span><span id="DataTank-223"><a href="#DataTank-223"><span class="linenos">223</span></a><span class="sd">        Parameters</span>
+</span><span id="DataTank-224"><a href="#DataTank-224"><span class="linenos">224</span></a><span class="sd">        ----------</span>
+</span><span id="DataTank-225"><a href="#DataTank-225"><span class="linenos">225</span></a><span class="sd">        resting_state_data : dict</span>
+</span><span id="DataTank-226"><a href="#DataTank-226"><span class="linenos">226</span></a><span class="sd">            Dictionary containing resting state data.</span>
+</span><span id="DataTank-227"><a href="#DataTank-227"><span class="linenos">227</span></a>
+</span><span id="DataTank-228"><a href="#DataTank-228"><span class="linenos">228</span></a><span class="sd">        Returns</span>
+</span><span id="DataTank-229"><a href="#DataTank-229"><span class="linenos">229</span></a><span class="sd">        -------</span>
+</span><span id="DataTank-230"><a href="#DataTank-230"><span class="linenos">230</span></a><span class="sd">        `None`</span>
+</span><span id="DataTank-231"><a href="#DataTank-231"><span class="linenos">231</span></a>
+</span><span id="DataTank-232"><a href="#DataTank-232"><span class="linenos">232</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="DataTank-233"><a href="#DataTank-233"><span class="linenos">233</span></a>        <span class="c1"># Get the resting state data</span>
+</span><span id="DataTank-234"><a href="#DataTank-234"><span class="linenos">234</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__resting_state_data</span> <span class="o">=</span> <span class="n">resting_state_data</span>
+</span><span id="DataTank-235"><a href="#DataTank-235"><span class="linenos">235</span></a>
+</span><span id="DataTank-236"><a href="#DataTank-236"><span class="linenos">236</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_resting_state_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="DataTank-237"><a href="#DataTank-237"><span class="linenos">237</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="DataTank-238"><a href="#DataTank-238"><span class="linenos">238</span></a><span class="sd">        Get the resting state data.</span>
 </span><span id="DataTank-239"><a href="#DataTank-239"><span class="linenos">239</span></a>
-</span><span id="DataTank-240"><a href="#DataTank-240"><span class="linenos">240</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DataTank-241"><a href="#DataTank-241"><span class="linenos">241</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__resting_state_data</span>
-</span><span id="DataTank-242"><a href="#DataTank-242"><span class="linenos">242</span></a>
-</span><span id="DataTank-243"><a href="#DataTank-243"><span class="linenos">243</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">save_epochs_as_npz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="DataTank-244"><a href="#DataTank-244"><span class="linenos">244</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="DataTank-245"><a href="#DataTank-245"><span class="linenos">245</span></a><span class="sd">        Saves EEG trials and labels as a numpy file.</span>
-</span><span id="DataTank-246"><a href="#DataTank-246"><span class="linenos">246</span></a>
-</span><span id="DataTank-247"><a href="#DataTank-247"><span class="linenos">247</span></a><span class="sd">        Parameters</span>
-</span><span id="DataTank-248"><a href="#DataTank-248"><span class="linenos">248</span></a><span class="sd">        ----------</span>
-</span><span id="DataTank-249"><a href="#DataTank-249"><span class="linenos">249</span></a><span class="sd">        file_name : str</span>
-</span><span id="DataTank-250"><a href="#DataTank-250"><span class="linenos">250</span></a><span class="sd">            The name of the file to save the EEG trials and labels to.</span>
+</span><span id="DataTank-240"><a href="#DataTank-240"><span class="linenos">240</span></a><span class="sd">        Returns</span>
+</span><span id="DataTank-241"><a href="#DataTank-241"><span class="linenos">241</span></a><span class="sd">        -------</span>
+</span><span id="DataTank-242"><a href="#DataTank-242"><span class="linenos">242</span></a><span class="sd">        dict</span>
+</span><span id="DataTank-243"><a href="#DataTank-243"><span class="linenos">243</span></a><span class="sd">            Dictionary containing resting state data.</span>
+</span><span id="DataTank-244"><a href="#DataTank-244"><span class="linenos">244</span></a>
+</span><span id="DataTank-245"><a href="#DataTank-245"><span class="linenos">245</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="DataTank-246"><a href="#DataTank-246"><span class="linenos">246</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__resting_state_data</span>
+</span><span id="DataTank-247"><a href="#DataTank-247"><span class="linenos">247</span></a>
+</span><span id="DataTank-248"><a href="#DataTank-248"><span class="linenos">248</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">save_epochs_as_npz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="DataTank-249"><a href="#DataTank-249"><span class="linenos">249</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="DataTank-250"><a href="#DataTank-250"><span class="linenos">250</span></a><span class="sd">        Saves EEG trials and labels as a numpy file.</span>
 </span><span id="DataTank-251"><a href="#DataTank-251"><span class="linenos">251</span></a>
-</span><span id="DataTank-252"><a href="#DataTank-252"><span class="linenos">252</span></a><span class="sd">        Returns</span>
-</span><span id="DataTank-253"><a href="#DataTank-253"><span class="linenos">253</span></a><span class="sd">        -------</span>
-</span><span id="DataTank-254"><a href="#DataTank-254"><span class="linenos">254</span></a><span class="sd">        `None`</span>
-</span><span id="DataTank-255"><a href="#DataTank-255"><span class="linenos">255</span></a>
-</span><span id="DataTank-256"><a href="#DataTank-256"><span class="linenos">256</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DataTank-257"><a href="#DataTank-257"><span class="linenos">257</span></a>        <span class="c1"># Check if file ends with .npz, if not add it</span>
-</span><span id="DataTank-258"><a href="#DataTank-258"><span class="linenos">258</span></a>        <span class="k">if</span> <span class="n">file_name</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span> <span class="o">!=</span> <span class="s2">&quot;.npz&quot;</span><span class="p">:</span>
-</span><span id="DataTank-259"><a href="#DataTank-259"><span class="linenos">259</span></a>            <span class="n">file_name</span> <span class="o">+=</span> <span class="s2">&quot;.npz&quot;</span>
+</span><span id="DataTank-252"><a href="#DataTank-252"><span class="linenos">252</span></a><span class="sd">        Parameters</span>
+</span><span id="DataTank-253"><a href="#DataTank-253"><span class="linenos">253</span></a><span class="sd">        ----------</span>
+</span><span id="DataTank-254"><a href="#DataTank-254"><span class="linenos">254</span></a><span class="sd">        file_name : str</span>
+</span><span id="DataTank-255"><a href="#DataTank-255"><span class="linenos">255</span></a><span class="sd">            The name of the file to save the EEG trials and labels to.</span>
+</span><span id="DataTank-256"><a href="#DataTank-256"><span class="linenos">256</span></a>
+</span><span id="DataTank-257"><a href="#DataTank-257"><span class="linenos">257</span></a><span class="sd">        Returns</span>
+</span><span id="DataTank-258"><a href="#DataTank-258"><span class="linenos">258</span></a><span class="sd">        -------</span>
+</span><span id="DataTank-259"><a href="#DataTank-259"><span class="linenos">259</span></a><span class="sd">        `None`</span>
 </span><span id="DataTank-260"><a href="#DataTank-260"><span class="linenos">260</span></a>
-</span><span id="DataTank-261"><a href="#DataTank-261"><span class="linenos">261</span></a>        <span class="c1"># Get the raw EEG trials and labels</span>
-</span><span id="DataTank-262"><a href="#DataTank-262"><span class="linenos">262</span></a>        <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span>
-</span><span id="DataTank-263"><a href="#DataTank-263"><span class="linenos">263</span></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span>
-</span><span id="DataTank-264"><a href="#DataTank-264"><span class="linenos">264</span></a>
-</span><span id="DataTank-265"><a href="#DataTank-265"><span class="linenos">265</span></a>        <span class="c1"># Save the raw EEG trials and labels as a numpy file</span>
-</span><span id="DataTank-266"><a href="#DataTank-266"><span class="linenos">266</span></a>        <span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+</span><span id="DataTank-261"><a href="#DataTank-261"><span class="linenos">261</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="DataTank-262"><a href="#DataTank-262"><span class="linenos">262</span></a>        <span class="c1"># Check if file ends with .npz, if not add it</span>
+</span><span id="DataTank-263"><a href="#DataTank-263"><span class="linenos">263</span></a>        <span class="k">if</span> <span class="n">file_name</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span> <span class="o">!=</span> <span class="s2">&quot;.npz&quot;</span><span class="p">:</span>
+</span><span id="DataTank-264"><a href="#DataTank-264"><span class="linenos">264</span></a>            <span class="n">file_name</span> <span class="o">+=</span> <span class="s2">&quot;.npz&quot;</span>
+</span><span id="DataTank-265"><a href="#DataTank-265"><span class="linenos">265</span></a>
+</span><span id="DataTank-266"><a href="#DataTank-266"><span class="linenos">266</span></a>        <span class="c1"># Get the raw EEG trials and labels</span>
+</span><span id="DataTank-267"><a href="#DataTank-267"><span class="linenos">267</span></a>        <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span>
+</span><span id="DataTank-268"><a href="#DataTank-268"><span class="linenos">268</span></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span>
+</span><span id="DataTank-269"><a href="#DataTank-269"><span class="linenos">269</span></a>
+</span><span id="DataTank-270"><a href="#DataTank-270"><span class="linenos">270</span></a>        <span class="c1"># Save the raw EEG trials and labels as a numpy file</span>
+</span><span id="DataTank-271"><a href="#DataTank-271"><span class="linenos">271</span></a>        <span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -1031,13 +1041,14 @@ np.array
 </span><span id="DataTank.add_epochs-176"><a href="#DataTank.add_epochs-176"><span class="linenos">176</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 </span><span id="DataTank.add_epochs-177"><a href="#DataTank.add_epochs-177"><span class="linenos">177</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </span><span id="DataTank.add_epochs-178"><a href="#DataTank.add_epochs-178"><span class="linenos">178</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-</span><span id="DataTank.add_epochs-179"><a href="#DataTank.add_epochs-179"><span class="linenos">179</span></a>        <span class="k">else</span><span class="p">:</span>
-</span><span id="DataTank.add_epochs-180"><a href="#DataTank.add_epochs-180"><span class="linenos">180</span></a>            <span class="c1"># Check the size of the new data</span>
-</span><span id="DataTank.add_epochs-181"><a href="#DataTank.add_epochs-181"><span class="linenos">181</span></a>            <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
-</span><span id="DataTank.add_epochs-182"><a href="#DataTank.add_epochs-182"><span class="linenos">182</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Epochs are not the same size, skipping this data.&quot;</span><span class="p">)</span>
-</span><span id="DataTank.add_epochs-183"><a href="#DataTank.add_epochs-183"><span class="linenos">183</span></a>            <span class="k">else</span><span class="p">:</span>
-</span><span id="DataTank.add_epochs-184"><a href="#DataTank.add_epochs-184"><span class="linenos">184</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
-</span><span id="DataTank.add_epochs-185"><a href="#DataTank.add_epochs-185"><span class="linenos">185</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
+</span><span id="DataTank.add_epochs-179"><a href="#DataTank.add_epochs-179"><span class="linenos">179</span></a>
+</span><span id="DataTank.add_epochs-180"><a href="#DataTank.add_epochs-180"><span class="linenos">180</span></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="DataTank.add_epochs-181"><a href="#DataTank.add_epochs-181"><span class="linenos">181</span></a>            <span class="c1"># Check the size of the new data</span>
+</span><span id="DataTank.add_epochs-182"><a href="#DataTank.add_epochs-182"><span class="linenos">182</span></a>            <span class="k">if</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+</span><span id="DataTank.add_epochs-183"><a href="#DataTank.add_epochs-183"><span class="linenos">183</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Epochs are not the same size, skipping this data.&quot;</span><span class="p">)</span>
+</span><span id="DataTank.add_epochs-184"><a href="#DataTank.add_epochs-184"><span class="linenos">184</span></a>            <span class="k">else</span><span class="p">:</span>
+</span><span id="DataTank.add_epochs-185"><a href="#DataTank.add_epochs-185"><span class="linenos">185</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+</span><span id="DataTank.add_epochs-186"><a href="#DataTank.add_epochs-186"><span class="linenos">186</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
 </span></pre></div>
 
 
@@ -1068,32 +1079,36 @@ y : np.array
 
     </div>
     <a class="headerlink" href="#DataTank.get_epochs"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="DataTank.get_epochs-187"><a href="#DataTank.get_epochs-187"><span class="linenos">187</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_epochs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latest</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-</span><span id="DataTank.get_epochs-188"><a href="#DataTank.get_epochs-188"><span class="linenos">188</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="DataTank.get_epochs-189"><a href="#DataTank.get_epochs-189"><span class="linenos">189</span></a><span class="sd">        Get the epochs from the data tank.</span>
-</span><span id="DataTank.get_epochs-190"><a href="#DataTank.get_epochs-190"><span class="linenos">190</span></a>
-</span><span id="DataTank.get_epochs-191"><a href="#DataTank.get_epochs-191"><span class="linenos">191</span></a><span class="sd">        Parameters</span>
-</span><span id="DataTank.get_epochs-192"><a href="#DataTank.get_epochs-192"><span class="linenos">192</span></a><span class="sd">        ----------</span>
-</span><span id="DataTank.get_epochs-193"><a href="#DataTank.get_epochs-193"><span class="linenos">193</span></a><span class="sd">        latest : bool</span>
-</span><span id="DataTank.get_epochs-194"><a href="#DataTank.get_epochs-194"><span class="linenos">194</span></a><span class="sd">            If `True`, only return the new data since the last call to this function.</span>
-</span><span id="DataTank.get_epochs-195"><a href="#DataTank.get_epochs-195"><span class="linenos">195</span></a>
-</span><span id="DataTank.get_epochs-196"><a href="#DataTank.get_epochs-196"><span class="linenos">196</span></a><span class="sd">        Returns</span>
-</span><span id="DataTank.get_epochs-197"><a href="#DataTank.get_epochs-197"><span class="linenos">197</span></a><span class="sd">        -------</span>
-</span><span id="DataTank.get_epochs-198"><a href="#DataTank.get_epochs-198"><span class="linenos">198</span></a><span class="sd">        np.array</span>
-</span><span id="DataTank.get_epochs-199"><a href="#DataTank.get_epochs-199"><span class="linenos">199</span></a><span class="sd">            The epochs. Shape is (n_epochs, n_channels, n_samples).</span>
-</span><span id="DataTank.get_epochs-200"><a href="#DataTank.get_epochs-200"><span class="linenos">200</span></a><span class="sd">        np.array</span>
-</span><span id="DataTank.get_epochs-201"><a href="#DataTank.get_epochs-201"><span class="linenos">201</span></a><span class="sd">            The labels of the epochs. Shape is (n_epochs).</span>
-</span><span id="DataTank.get_epochs-202"><a href="#DataTank.get_epochs-202"><span class="linenos">202</span></a>
-</span><span id="DataTank.get_epochs-203"><a href="#DataTank.get_epochs-203"><span class="linenos">203</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DataTank.get_epochs-204"><a href="#DataTank.get_epochs-204"><span class="linenos">204</span></a>        <span class="k">if</span> <span class="n">latest</span><span class="p">:</span>
-</span><span id="DataTank.get_epochs-205"><a href="#DataTank.get_epochs-205"><span class="linenos">205</span></a>            <span class="c1"># Return only the new data</span>
-</span><span id="DataTank.get_epochs-206"><a href="#DataTank.get_epochs-206"><span class="linenos">206</span></a>            <span class="n">first_unsent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs_sent</span>
-</span><span id="DataTank.get_epochs-207"><a href="#DataTank.get_epochs-207"><span class="linenos">207</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">epochs_sent</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">)</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="DataTank.get_epochs-188"><a href="#DataTank.get_epochs-188"><span class="linenos">188</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_epochs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latest</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+</span><span id="DataTank.get_epochs-189"><a href="#DataTank.get_epochs-189"><span class="linenos">189</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="DataTank.get_epochs-190"><a href="#DataTank.get_epochs-190"><span class="linenos">190</span></a><span class="sd">        Get the epochs from the data tank.</span>
+</span><span id="DataTank.get_epochs-191"><a href="#DataTank.get_epochs-191"><span class="linenos">191</span></a>
+</span><span id="DataTank.get_epochs-192"><a href="#DataTank.get_epochs-192"><span class="linenos">192</span></a><span class="sd">        Parameters</span>
+</span><span id="DataTank.get_epochs-193"><a href="#DataTank.get_epochs-193"><span class="linenos">193</span></a><span class="sd">        ----------</span>
+</span><span id="DataTank.get_epochs-194"><a href="#DataTank.get_epochs-194"><span class="linenos">194</span></a><span class="sd">        latest : bool</span>
+</span><span id="DataTank.get_epochs-195"><a href="#DataTank.get_epochs-195"><span class="linenos">195</span></a><span class="sd">            If `True`, only return the new data since the last call to this function.</span>
+</span><span id="DataTank.get_epochs-196"><a href="#DataTank.get_epochs-196"><span class="linenos">196</span></a>
+</span><span id="DataTank.get_epochs-197"><a href="#DataTank.get_epochs-197"><span class="linenos">197</span></a><span class="sd">        Returns</span>
+</span><span id="DataTank.get_epochs-198"><a href="#DataTank.get_epochs-198"><span class="linenos">198</span></a><span class="sd">        -------</span>
+</span><span id="DataTank.get_epochs-199"><a href="#DataTank.get_epochs-199"><span class="linenos">199</span></a><span class="sd">        np.array</span>
+</span><span id="DataTank.get_epochs-200"><a href="#DataTank.get_epochs-200"><span class="linenos">200</span></a><span class="sd">            The epochs. Shape is (n_epochs, n_channels, n_samples).</span>
+</span><span id="DataTank.get_epochs-201"><a href="#DataTank.get_epochs-201"><span class="linenos">201</span></a><span class="sd">        np.array</span>
+</span><span id="DataTank.get_epochs-202"><a href="#DataTank.get_epochs-202"><span class="linenos">202</span></a><span class="sd">            The labels of the epochs. Shape is (n_epochs).</span>
+</span><span id="DataTank.get_epochs-203"><a href="#DataTank.get_epochs-203"><span class="linenos">203</span></a>
+</span><span id="DataTank.get_epochs-204"><a href="#DataTank.get_epochs-204"><span class="linenos">204</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="DataTank.get_epochs-205"><a href="#DataTank.get_epochs-205"><span class="linenos">205</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="DataTank.get_epochs-206"><a href="#DataTank.get_epochs-206"><span class="linenos">206</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Data tank contains no epochs, returning None.&quot;</span><span class="p">)</span>
+</span><span id="DataTank.get_epochs-207"><a href="#DataTank.get_epochs-207"><span class="linenos">207</span></a>            <span class="k">return</span> <span class="p">[],</span> <span class="p">[]</span>
 </span><span id="DataTank.get_epochs-208"><a href="#DataTank.get_epochs-208"><span class="linenos">208</span></a>
-</span><span id="DataTank.get_epochs-209"><a href="#DataTank.get_epochs-209"><span class="linenos">209</span></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">[</span><span class="n">first_unsent</span><span class="p">:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">first_unsent</span><span class="p">:]</span>
-</span><span id="DataTank.get_epochs-210"><a href="#DataTank.get_epochs-210"><span class="linenos">210</span></a>        <span class="k">else</span><span class="p">:</span>
-</span><span id="DataTank.get_epochs-211"><a href="#DataTank.get_epochs-211"><span class="linenos">211</span></a>            <span class="c1"># Return all</span>
-</span><span id="DataTank.get_epochs-212"><a href="#DataTank.get_epochs-212"><span class="linenos">212</span></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span>
+</span><span id="DataTank.get_epochs-209"><a href="#DataTank.get_epochs-209"><span class="linenos">209</span></a>        <span class="k">if</span> <span class="n">latest</span><span class="p">:</span>
+</span><span id="DataTank.get_epochs-210"><a href="#DataTank.get_epochs-210"><span class="linenos">210</span></a>            <span class="c1"># Return only the new data</span>
+</span><span id="DataTank.get_epochs-211"><a href="#DataTank.get_epochs-211"><span class="linenos">211</span></a>            <span class="n">first_unsent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs_sent</span>
+</span><span id="DataTank.get_epochs-212"><a href="#DataTank.get_epochs-212"><span class="linenos">212</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">epochs_sent</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">)</span>
+</span><span id="DataTank.get_epochs-213"><a href="#DataTank.get_epochs-213"><span class="linenos">213</span></a>
+</span><span id="DataTank.get_epochs-214"><a href="#DataTank.get_epochs-214"><span class="linenos">214</span></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">[</span><span class="n">first_unsent</span><span class="p">:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">first_unsent</span><span class="p">:]</span>
+</span><span id="DataTank.get_epochs-215"><a href="#DataTank.get_epochs-215"><span class="linenos">215</span></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="DataTank.get_epochs-216"><a href="#DataTank.get_epochs-216"><span class="linenos">216</span></a>            <span class="c1"># Return all</span>
+</span><span id="DataTank.get_epochs-217"><a href="#DataTank.get_epochs-217"><span class="linenos">217</span></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span>
 </span></pre></div>
 
 
@@ -1125,22 +1140,22 @@ np.array
 
     </div>
     <a class="headerlink" href="#DataTank.add_resting_state_data"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="DataTank.add_resting_state_data-214"><a href="#DataTank.add_resting_state_data-214"><span class="linenos">214</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_resting_state_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resting_state_data</span><span class="p">):</span>
-</span><span id="DataTank.add_resting_state_data-215"><a href="#DataTank.add_resting_state_data-215"><span class="linenos">215</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="DataTank.add_resting_state_data-216"><a href="#DataTank.add_resting_state_data-216"><span class="linenos">216</span></a><span class="sd">        Add resting state data to the data tank.</span>
-</span><span id="DataTank.add_resting_state_data-217"><a href="#DataTank.add_resting_state_data-217"><span class="linenos">217</span></a>
-</span><span id="DataTank.add_resting_state_data-218"><a href="#DataTank.add_resting_state_data-218"><span class="linenos">218</span></a><span class="sd">        Parameters</span>
-</span><span id="DataTank.add_resting_state_data-219"><a href="#DataTank.add_resting_state_data-219"><span class="linenos">219</span></a><span class="sd">        ----------</span>
-</span><span id="DataTank.add_resting_state_data-220"><a href="#DataTank.add_resting_state_data-220"><span class="linenos">220</span></a><span class="sd">        resting_state_data : dict</span>
-</span><span id="DataTank.add_resting_state_data-221"><a href="#DataTank.add_resting_state_data-221"><span class="linenos">221</span></a><span class="sd">            Dictionary containing resting state data.</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="DataTank.add_resting_state_data-219"><a href="#DataTank.add_resting_state_data-219"><span class="linenos">219</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_resting_state_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resting_state_data</span><span class="p">):</span>
+</span><span id="DataTank.add_resting_state_data-220"><a href="#DataTank.add_resting_state_data-220"><span class="linenos">220</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="DataTank.add_resting_state_data-221"><a href="#DataTank.add_resting_state_data-221"><span class="linenos">221</span></a><span class="sd">        Add resting state data to the data tank.</span>
 </span><span id="DataTank.add_resting_state_data-222"><a href="#DataTank.add_resting_state_data-222"><span class="linenos">222</span></a>
-</span><span id="DataTank.add_resting_state_data-223"><a href="#DataTank.add_resting_state_data-223"><span class="linenos">223</span></a><span class="sd">        Returns</span>
-</span><span id="DataTank.add_resting_state_data-224"><a href="#DataTank.add_resting_state_data-224"><span class="linenos">224</span></a><span class="sd">        -------</span>
-</span><span id="DataTank.add_resting_state_data-225"><a href="#DataTank.add_resting_state_data-225"><span class="linenos">225</span></a><span class="sd">        `None`</span>
-</span><span id="DataTank.add_resting_state_data-226"><a href="#DataTank.add_resting_state_data-226"><span class="linenos">226</span></a>
-</span><span id="DataTank.add_resting_state_data-227"><a href="#DataTank.add_resting_state_data-227"><span class="linenos">227</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DataTank.add_resting_state_data-228"><a href="#DataTank.add_resting_state_data-228"><span class="linenos">228</span></a>        <span class="c1"># Get the resting state data</span>
-</span><span id="DataTank.add_resting_state_data-229"><a href="#DataTank.add_resting_state_data-229"><span class="linenos">229</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__resting_state_data</span> <span class="o">=</span> <span class="n">resting_state_data</span>
+</span><span id="DataTank.add_resting_state_data-223"><a href="#DataTank.add_resting_state_data-223"><span class="linenos">223</span></a><span class="sd">        Parameters</span>
+</span><span id="DataTank.add_resting_state_data-224"><a href="#DataTank.add_resting_state_data-224"><span class="linenos">224</span></a><span class="sd">        ----------</span>
+</span><span id="DataTank.add_resting_state_data-225"><a href="#DataTank.add_resting_state_data-225"><span class="linenos">225</span></a><span class="sd">        resting_state_data : dict</span>
+</span><span id="DataTank.add_resting_state_data-226"><a href="#DataTank.add_resting_state_data-226"><span class="linenos">226</span></a><span class="sd">            Dictionary containing resting state data.</span>
+</span><span id="DataTank.add_resting_state_data-227"><a href="#DataTank.add_resting_state_data-227"><span class="linenos">227</span></a>
+</span><span id="DataTank.add_resting_state_data-228"><a href="#DataTank.add_resting_state_data-228"><span class="linenos">228</span></a><span class="sd">        Returns</span>
+</span><span id="DataTank.add_resting_state_data-229"><a href="#DataTank.add_resting_state_data-229"><span class="linenos">229</span></a><span class="sd">        -------</span>
+</span><span id="DataTank.add_resting_state_data-230"><a href="#DataTank.add_resting_state_data-230"><span class="linenos">230</span></a><span class="sd">        `None`</span>
+</span><span id="DataTank.add_resting_state_data-231"><a href="#DataTank.add_resting_state_data-231"><span class="linenos">231</span></a>
+</span><span id="DataTank.add_resting_state_data-232"><a href="#DataTank.add_resting_state_data-232"><span class="linenos">232</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="DataTank.add_resting_state_data-233"><a href="#DataTank.add_resting_state_data-233"><span class="linenos">233</span></a>        <span class="c1"># Get the resting state data</span>
+</span><span id="DataTank.add_resting_state_data-234"><a href="#DataTank.add_resting_state_data-234"><span class="linenos">234</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__resting_state_data</span> <span class="o">=</span> <span class="n">resting_state_data</span>
 </span></pre></div>
 
 
@@ -1169,17 +1184,17 @@ np.array
 
     </div>
     <a class="headerlink" href="#DataTank.get_resting_state_data"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="DataTank.get_resting_state_data-231"><a href="#DataTank.get_resting_state_data-231"><span class="linenos">231</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_resting_state_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="DataTank.get_resting_state_data-232"><a href="#DataTank.get_resting_state_data-232"><span class="linenos">232</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="DataTank.get_resting_state_data-233"><a href="#DataTank.get_resting_state_data-233"><span class="linenos">233</span></a><span class="sd">        Get the resting state data.</span>
-</span><span id="DataTank.get_resting_state_data-234"><a href="#DataTank.get_resting_state_data-234"><span class="linenos">234</span></a>
-</span><span id="DataTank.get_resting_state_data-235"><a href="#DataTank.get_resting_state_data-235"><span class="linenos">235</span></a><span class="sd">        Returns</span>
-</span><span id="DataTank.get_resting_state_data-236"><a href="#DataTank.get_resting_state_data-236"><span class="linenos">236</span></a><span class="sd">        -------</span>
-</span><span id="DataTank.get_resting_state_data-237"><a href="#DataTank.get_resting_state_data-237"><span class="linenos">237</span></a><span class="sd">        dict</span>
-</span><span id="DataTank.get_resting_state_data-238"><a href="#DataTank.get_resting_state_data-238"><span class="linenos">238</span></a><span class="sd">            Dictionary containing resting state data.</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="DataTank.get_resting_state_data-236"><a href="#DataTank.get_resting_state_data-236"><span class="linenos">236</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_resting_state_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="DataTank.get_resting_state_data-237"><a href="#DataTank.get_resting_state_data-237"><span class="linenos">237</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="DataTank.get_resting_state_data-238"><a href="#DataTank.get_resting_state_data-238"><span class="linenos">238</span></a><span class="sd">        Get the resting state data.</span>
 </span><span id="DataTank.get_resting_state_data-239"><a href="#DataTank.get_resting_state_data-239"><span class="linenos">239</span></a>
-</span><span id="DataTank.get_resting_state_data-240"><a href="#DataTank.get_resting_state_data-240"><span class="linenos">240</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DataTank.get_resting_state_data-241"><a href="#DataTank.get_resting_state_data-241"><span class="linenos">241</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__resting_state_data</span>
+</span><span id="DataTank.get_resting_state_data-240"><a href="#DataTank.get_resting_state_data-240"><span class="linenos">240</span></a><span class="sd">        Returns</span>
+</span><span id="DataTank.get_resting_state_data-241"><a href="#DataTank.get_resting_state_data-241"><span class="linenos">241</span></a><span class="sd">        -------</span>
+</span><span id="DataTank.get_resting_state_data-242"><a href="#DataTank.get_resting_state_data-242"><span class="linenos">242</span></a><span class="sd">        dict</span>
+</span><span id="DataTank.get_resting_state_data-243"><a href="#DataTank.get_resting_state_data-243"><span class="linenos">243</span></a><span class="sd">            Dictionary containing resting state data.</span>
+</span><span id="DataTank.get_resting_state_data-244"><a href="#DataTank.get_resting_state_data-244"><span class="linenos">244</span></a>
+</span><span id="DataTank.get_resting_state_data-245"><a href="#DataTank.get_resting_state_data-245"><span class="linenos">245</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="DataTank.get_resting_state_data-246"><a href="#DataTank.get_resting_state_data-246"><span class="linenos">246</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__resting_state_data</span>
 </span></pre></div>
 
 
@@ -1204,30 +1219,30 @@ np.array
 
     </div>
     <a class="headerlink" href="#DataTank.save_epochs_as_npz"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="DataTank.save_epochs_as_npz-243"><a href="#DataTank.save_epochs_as_npz-243"><span class="linenos">243</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">save_epochs_as_npz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="DataTank.save_epochs_as_npz-244"><a href="#DataTank.save_epochs_as_npz-244"><span class="linenos">244</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="DataTank.save_epochs_as_npz-245"><a href="#DataTank.save_epochs_as_npz-245"><span class="linenos">245</span></a><span class="sd">        Saves EEG trials and labels as a numpy file.</span>
-</span><span id="DataTank.save_epochs_as_npz-246"><a href="#DataTank.save_epochs_as_npz-246"><span class="linenos">246</span></a>
-</span><span id="DataTank.save_epochs_as_npz-247"><a href="#DataTank.save_epochs_as_npz-247"><span class="linenos">247</span></a><span class="sd">        Parameters</span>
-</span><span id="DataTank.save_epochs_as_npz-248"><a href="#DataTank.save_epochs_as_npz-248"><span class="linenos">248</span></a><span class="sd">        ----------</span>
-</span><span id="DataTank.save_epochs_as_npz-249"><a href="#DataTank.save_epochs_as_npz-249"><span class="linenos">249</span></a><span class="sd">        file_name : str</span>
-</span><span id="DataTank.save_epochs_as_npz-250"><a href="#DataTank.save_epochs_as_npz-250"><span class="linenos">250</span></a><span class="sd">            The name of the file to save the EEG trials and labels to.</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="DataTank.save_epochs_as_npz-248"><a href="#DataTank.save_epochs_as_npz-248"><span class="linenos">248</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">save_epochs_as_npz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="DataTank.save_epochs_as_npz-249"><a href="#DataTank.save_epochs_as_npz-249"><span class="linenos">249</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="DataTank.save_epochs_as_npz-250"><a href="#DataTank.save_epochs_as_npz-250"><span class="linenos">250</span></a><span class="sd">        Saves EEG trials and labels as a numpy file.</span>
 </span><span id="DataTank.save_epochs_as_npz-251"><a href="#DataTank.save_epochs_as_npz-251"><span class="linenos">251</span></a>
-</span><span id="DataTank.save_epochs_as_npz-252"><a href="#DataTank.save_epochs_as_npz-252"><span class="linenos">252</span></a><span class="sd">        Returns</span>
-</span><span id="DataTank.save_epochs_as_npz-253"><a href="#DataTank.save_epochs_as_npz-253"><span class="linenos">253</span></a><span class="sd">        -------</span>
-</span><span id="DataTank.save_epochs_as_npz-254"><a href="#DataTank.save_epochs_as_npz-254"><span class="linenos">254</span></a><span class="sd">        `None`</span>
-</span><span id="DataTank.save_epochs_as_npz-255"><a href="#DataTank.save_epochs_as_npz-255"><span class="linenos">255</span></a>
-</span><span id="DataTank.save_epochs_as_npz-256"><a href="#DataTank.save_epochs_as_npz-256"><span class="linenos">256</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="DataTank.save_epochs_as_npz-257"><a href="#DataTank.save_epochs_as_npz-257"><span class="linenos">257</span></a>        <span class="c1"># Check if file ends with .npz, if not add it</span>
-</span><span id="DataTank.save_epochs_as_npz-258"><a href="#DataTank.save_epochs_as_npz-258"><span class="linenos">258</span></a>        <span class="k">if</span> <span class="n">file_name</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span> <span class="o">!=</span> <span class="s2">&quot;.npz&quot;</span><span class="p">:</span>
-</span><span id="DataTank.save_epochs_as_npz-259"><a href="#DataTank.save_epochs_as_npz-259"><span class="linenos">259</span></a>            <span class="n">file_name</span> <span class="o">+=</span> <span class="s2">&quot;.npz&quot;</span>
+</span><span id="DataTank.save_epochs_as_npz-252"><a href="#DataTank.save_epochs_as_npz-252"><span class="linenos">252</span></a><span class="sd">        Parameters</span>
+</span><span id="DataTank.save_epochs_as_npz-253"><a href="#DataTank.save_epochs_as_npz-253"><span class="linenos">253</span></a><span class="sd">        ----------</span>
+</span><span id="DataTank.save_epochs_as_npz-254"><a href="#DataTank.save_epochs_as_npz-254"><span class="linenos">254</span></a><span class="sd">        file_name : str</span>
+</span><span id="DataTank.save_epochs_as_npz-255"><a href="#DataTank.save_epochs_as_npz-255"><span class="linenos">255</span></a><span class="sd">            The name of the file to save the EEG trials and labels to.</span>
+</span><span id="DataTank.save_epochs_as_npz-256"><a href="#DataTank.save_epochs_as_npz-256"><span class="linenos">256</span></a>
+</span><span id="DataTank.save_epochs_as_npz-257"><a href="#DataTank.save_epochs_as_npz-257"><span class="linenos">257</span></a><span class="sd">        Returns</span>
+</span><span id="DataTank.save_epochs_as_npz-258"><a href="#DataTank.save_epochs_as_npz-258"><span class="linenos">258</span></a><span class="sd">        -------</span>
+</span><span id="DataTank.save_epochs_as_npz-259"><a href="#DataTank.save_epochs_as_npz-259"><span class="linenos">259</span></a><span class="sd">        `None`</span>
 </span><span id="DataTank.save_epochs_as_npz-260"><a href="#DataTank.save_epochs_as_npz-260"><span class="linenos">260</span></a>
-</span><span id="DataTank.save_epochs_as_npz-261"><a href="#DataTank.save_epochs_as_npz-261"><span class="linenos">261</span></a>        <span class="c1"># Get the raw EEG trials and labels</span>
-</span><span id="DataTank.save_epochs_as_npz-262"><a href="#DataTank.save_epochs_as_npz-262"><span class="linenos">262</span></a>        <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span>
-</span><span id="DataTank.save_epochs_as_npz-263"><a href="#DataTank.save_epochs_as_npz-263"><span class="linenos">263</span></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span>
-</span><span id="DataTank.save_epochs_as_npz-264"><a href="#DataTank.save_epochs_as_npz-264"><span class="linenos">264</span></a>
-</span><span id="DataTank.save_epochs_as_npz-265"><a href="#DataTank.save_epochs_as_npz-265"><span class="linenos">265</span></a>        <span class="c1"># Save the raw EEG trials and labels as a numpy file</span>
-</span><span id="DataTank.save_epochs_as_npz-266"><a href="#DataTank.save_epochs_as_npz-266"><span class="linenos">266</span></a>        <span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+</span><span id="DataTank.save_epochs_as_npz-261"><a href="#DataTank.save_epochs_as_npz-261"><span class="linenos">261</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="DataTank.save_epochs_as_npz-262"><a href="#DataTank.save_epochs_as_npz-262"><span class="linenos">262</span></a>        <span class="c1"># Check if file ends with .npz, if not add it</span>
+</span><span id="DataTank.save_epochs_as_npz-263"><a href="#DataTank.save_epochs_as_npz-263"><span class="linenos">263</span></a>        <span class="k">if</span> <span class="n">file_name</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span> <span class="o">!=</span> <span class="s2">&quot;.npz&quot;</span><span class="p">:</span>
+</span><span id="DataTank.save_epochs_as_npz-264"><a href="#DataTank.save_epochs_as_npz-264"><span class="linenos">264</span></a>            <span class="n">file_name</span> <span class="o">+=</span> <span class="s2">&quot;.npz&quot;</span>
+</span><span id="DataTank.save_epochs_as_npz-265"><a href="#DataTank.save_epochs_as_npz-265"><span class="linenos">265</span></a>
+</span><span id="DataTank.save_epochs_as_npz-266"><a href="#DataTank.save_epochs_as_npz-266"><span class="linenos">266</span></a>        <span class="c1"># Get the raw EEG trials and labels</span>
+</span><span id="DataTank.save_epochs_as_npz-267"><a href="#DataTank.save_epochs_as_npz-267"><span class="linenos">267</span></a>        <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span>
+</span><span id="DataTank.save_epochs_as_npz-268"><a href="#DataTank.save_epochs_as_npz-268"><span class="linenos">268</span></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span>
+</span><span id="DataTank.save_epochs_as_npz-269"><a href="#DataTank.save_epochs_as_npz-269"><span class="linenos">269</span></a>
+</span><span id="DataTank.save_epochs_as_npz-270"><a href="#DataTank.save_epochs_as_npz-270"><span class="linenos">270</span></a>        <span class="c1"># Save the raw EEG trials and labels as a numpy file</span>
+</span><span id="DataTank.save_epochs_as_npz-271"><a href="#DataTank.save_epochs_as_npz-271"><span class="linenos">271</span></a>        <span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 </span></pre></div>
 
 
