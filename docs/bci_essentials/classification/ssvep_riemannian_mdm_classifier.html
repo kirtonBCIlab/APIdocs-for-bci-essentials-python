@@ -957,32 +957,47 @@ frequencies.</p>
 
             <div class="docstring"><p>Set the SSVEP settings.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>n_splits : int, *optional*
-    Number of folds for cross-validation.
-    - Default is <code>3</code>.
-random_seed : int, <em>optional</em>
-    Random seed.
-    - Default is <code>42</code>.
-n_harmonics : int, *optional*
-    Number of harmonics to be used for each frequency.
-    - Default is <code>2</code>.
-f_width : float, <em>optional</em>
-    Width of frequency bins to be used around the target
-    frequencies.
-    - Default is <code>0.2</code>.
-covariance_estimator : str, *optional*
-    Covariance Estimator (see Covariances - pyriemann)
-    - Default is <code>"oas"</code>.
-remove_flats : bool, <em>optional</em>
-    Remove flat channels.
-    - Default is <code>True</code>.</p>
+<ul>
+<li><strong>n_splits</strong> (int, <em>optional</em>):
+Number of folds for cross-validation.
+<ul>
+<li>Default is <code>3</code>.</li>
+</ul></li>
+<li><strong>random_seed</strong> (int, <em>optional</em>):
+Random seed.
+<ul>
+<li>Default is <code>42</code>.</li>
+</ul></li>
+<li><strong>n_harmonics</strong> (int, <em>optional</em>):
+Number of harmonics to be used for each frequency.
+<ul>
+<li>Default is <code>2</code>.</li>
+</ul></li>
+<li><strong>f_width</strong> (float, <em>optional</em>):
+Width of frequency bins to be used around the target
+frequencies.
+<ul>
+<li>Default is <code>0.2</code>.</li>
+</ul></li>
+<li><strong>covariance_estimator</strong> (str, <em>optional</em>):
+Covariance Estimator (see Covariances - pyriemann)
+<ul>
+<li>Default is <code>"oas"</code>.</li>
+</ul></li>
+<li><strong>remove_flats</strong> (bool, <em>optional</em>):
+Remove flat channels.
+<ul>
+<li>Default is <code>True</code>.</li>
+</ul></li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p><code>None</code>
-    Models created used in <code><a href="#SsvepRiemannianMdmClassifier.fit">fit()</a></code>.</p>
+<ul>
+<li><strong><code>None</code></strong>: Models created used in <code><a href="#SsvepRiemannianMdmClassifier.fit">fit()</a></code>.</li>
+</ul>
 </div>
 
 
@@ -1092,36 +1107,45 @@ remove_flats : bool, <em>optional</em>
 
 <p>Creates the Riemannian Geometry supertrial for SSVEP.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>X : numpy.ndarray
-    Trials of EEG data.
-    3D array containing data with <code>float</code> type.
-    shape = (<code>n_trials</code>,<code>n_channels</code>,<code>n_samples</code>)
-target_freqs : numpy.ndarray
-    Target frequencies for the SSVEP.
-fsample : float
-    Sampling rate.
-f_width : float, <em>optional</em>
-    Width of frequency bins to be used around the target
-    frequencies.
-    - Default is <code>0.4</code>.
-n_harmonics : int, *optional*
-    Number of harmonics to be used for each frequency.
-    - Default is <code>2</code>.
-covarianc_estimator : str, <em>optional</em>
-    Covariance Estimator (see Covariances - pyriemann)
-    - Default is <code>"oas"</code>.</p>
+<ul>
+<li><strong>X</strong> (numpy.ndarray):
+Trials of EEG data.
+3D array containing data with <code>float</code> type.
+shape = (<code>n_trials</code>,<code>n_channels</code>,<code>n_samples</code>)</li>
+<li><strong>target_freqs</strong> (numpy.ndarray):
+Target frequencies for the SSVEP.</li>
+<li><strong>fsample</strong> (float):
+Sampling rate.</li>
+<li><strong>f_width</strong> (float, <em>optional</em>):
+Width of frequency bins to be used around the target
+frequencies.
+<ul>
+<li>Default is <code>0.4</code>.</li>
+</ul></li>
+<li><strong>n_harmonics</strong> (int, <em>optional</em>):
+Number of harmonics to be used for each frequency.
+<ul>
+<li>Default is <code>2</code>.</li>
+</ul></li>
+<li><strong>covarianc_estimator</strong> (str, <em>optional</em>):
+Covariance Estimator (see Covariances - pyriemann)
+<ul>
+<li>Default is <code>"oas"</code>.</li>
+</ul></li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>super_X : numpy.ndarray
-    Supertrials of X.
-    3D array containing data with <code>float</code> type.</p>
+<ul>
+<li><p><strong>super_X</strong> (numpy.ndarray):
+Supertrials of X.
+3D array containing data with <code>float</code> type.</p>
 
-<pre><code>shape = (`n_trials`,`n_channels*number of target_freqs`,
-`n_channels*number of target_freqs`)
-</code></pre>
+<p>shape = (<code>n_trials</code>,<code>n_channels*number of target_freqs</code>,
+<code>n_channels*number of target_freqs</code>)</p></li>
+</ul>
 </div>
 
 
@@ -1312,10 +1336,11 @@ covarianc_estimator : str, <em>optional</em>
 
             <div class="docstring"><p>Fit the model.</p>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p><code>None</code>
-    Models created used in <code><a href="#SsvepRiemannianMdmClassifier.predict">predict()</a></code>.</p>
+<ul>
+<li><strong><code>None</code></strong>: Models created used in <code><a href="#SsvepRiemannianMdmClassifier.predict">predict()</a></code>.</li>
+</ul>
 </div>
 
 
@@ -1378,16 +1403,20 @@ covarianc_estimator : str, <em>optional</em>
 
             <div class="docstring"><p>Predict the class labels for the provided data.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>X : numpy.ndarray
-    3D array where shape = (trials, channels, samples)</p>
+<ul>
+<li><strong>X</strong> (numpy.ndarray):
+3D array where shape = (trials, channels, samples)</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>prediction : Prediction
-    Results of predict call containing the predicted class labels, and
-    the probabilities of the labels.</p>
+<ul>
+<li><strong>prediction</strong> (Prediction):
+Results of predict call containing the predicted class labels, and
+the probabilities of the labels.</li>
+</ul>
 </div>
 
 

@@ -796,24 +796,28 @@ To be added:</p>
 
             <div class="docstring"><p>Set the source data for the DataTank so that this metadata can be saved with the data.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>headset_string : str
-    The name of the headset used to collect the data.
-fsample : float
-    The sampling frequency of the data.
-n_channels : int
-    The number of channels in the data.
-ch_types : list of str
-    The type of each channel.
-ch_units : list of str
-    The units of each channel.
-channel_labels : list of str
-    The labels of each channel.</p>
+<ul>
+<li><strong>headset_string</strong> (str):
+The name of the headset used to collect the data.</li>
+<li><strong>fsample</strong> (float):
+The sampling frequency of the data.</li>
+<li><strong>n_channels</strong> (int):
+The number of channels in the data.</li>
+<li><strong>ch_types</strong> (list of str):
+The type of each channel.</li>
+<li><strong>ch_units</strong> (list of str):
+The units of each channel.</li>
+<li><strong>channel_labels</strong> (list of str):
+The labels of each channel.</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p><code>None</code></p>
+<ul>
+<li><strong><code>None</code></strong></li>
+</ul>
 </div>
 
 
@@ -862,17 +866,20 @@ channel_labels : list of str
 
             <div class="docstring"><p>Add raw EEG data to the data tank.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>new_raw_eeg : np.array
-    The new raw EEG data to add.</p>
+<ul>
+<li><strong>new_raw_eeg</strong> (np.array):
+The new raw EEG data to add.</li>
+<li><strong>new_eeg_timestamps</strong> (np.array):
+The timestamps of the new raw EEG data.</li>
+</ul>
 
-<p>new_eeg_timestamps : np.array
-    The timestamps of the new raw EEG data.</p>
+<h6 id="returns">Returns</h6>
 
-<h2 id="returns">Returns</h2>
-
-<p><code>None</code></p>
+<ul>
+<li><strong><code>None</code></strong></li>
+</ul>
 </div>
 
 
@@ -919,16 +926,20 @@ channel_labels : list of str
 
             <div class="docstring"><p>Add raw markers to the data tank.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>new_marker_strings : np.array
-    The new marker strings to add.
-new_marker_timestamps : np.array
-    The timestamps of the new marker strings.</p>
+<ul>
+<li><strong>new_marker_strings</strong> (np.array):
+The new marker strings to add.</li>
+<li><strong>new_marker_timestamps</strong> (np.array):
+The timestamps of the new marker strings.</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p><code>None</code></p>
+<ul>
+<li><strong><code>None</code></strong></li>
+</ul>
 </div>
 
 
@@ -962,12 +973,12 @@ new_marker_timestamps : np.array
 
             <div class="docstring"><p>Get the raw EEG data from the DataTank.</p>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>np.array
-    The raw EEG data.
-np.array
-    The timestamps of the raw EEG data.</p>
+<ul>
+<li><strong>np.array</strong>: The raw EEG data.</li>
+<li><strong>np.array</strong>: The timestamps of the raw EEG data.</li>
+</ul>
 </div>
 
 
@@ -1000,12 +1011,12 @@ np.array
 
             <div class="docstring"><p>Get the raw markers from the DataTank.</p>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>np.array
-    The raw marker strings.
-np.array
-    The timestamps of the raw marker strings.</p>
+<ul>
+<li><strong>np.array</strong>: The raw marker strings.</li>
+<li><strong>np.array</strong>: The timestamps of the raw marker strings.</li>
+</ul>
 </div>
 
 
@@ -1054,16 +1065,20 @@ np.array
 
             <div class="docstring"><p>Add epochs to the data tank.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>X : np.array
-    The new epochs to add. Shape is (n_epochs, n_channels, n_samples).
-y : np.array
-    The labels of the epochs. Shape is (n_epochs).</p>
+<ul>
+<li><strong>X</strong> (np.array):
+The new epochs to add. Shape is (n_epochs, n_channels, n_samples).</li>
+<li><strong>y</strong> (np.array):
+The labels of the epochs. Shape is (n_epochs).</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p><code>None</code></p>
+<ul>
+<li><strong><code>None</code></strong></li>
+</ul>
 </div>
 
 
@@ -1114,17 +1129,19 @@ y : np.array
 
             <div class="docstring"><p>Get the epochs from the data tank.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>latest : bool
-    If <code>True</code>, only return the new data since the last call to this function.</p>
+<ul>
+<li><strong>latest</strong> (bool):
+If <code>True</code>, only return the new data since the last call to this function.</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>np.array
-    The epochs. Shape is (n_epochs, n_channels, n_samples).
-np.array
-    The labels of the epochs. Shape is (n_epochs).</p>
+<ul>
+<li><strong>np.array</strong>: The epochs. Shape is (n_epochs, n_channels, n_samples).</li>
+<li><strong>np.array</strong>: The labels of the epochs. Shape is (n_epochs).</li>
+</ul>
 </div>
 
 
@@ -1161,14 +1178,18 @@ np.array
 
             <div class="docstring"><p>Add resting state data to the data tank.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>resting_state_data : dict
-    Dictionary containing resting state data.</p>
+<ul>
+<li><strong>resting_state_data</strong> (dict):
+Dictionary containing resting state data.</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p><code>None</code></p>
+<ul>
+<li><strong><code>None</code></strong></li>
+</ul>
 </div>
 
 
@@ -1200,10 +1221,11 @@ np.array
 
             <div class="docstring"><p>Get the resting state data.</p>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>dict
-    Dictionary containing resting state data.</p>
+<ul>
+<li><strong>dict</strong>: Dictionary containing resting state data.</li>
+</ul>
 </div>
 
 
@@ -1248,14 +1270,18 @@ np.array
 
             <div class="docstring"><p>Saves EEG trials and labels as a numpy file.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>file_name : str
-    The name of the file to save the EEG trials and labels to.</p>
+<ul>
+<li><strong>file_name</strong> (str):
+The name of the file to save the EEG trials and labels to.</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p><code>None</code></p>
+<ul>
+<li><strong><code>None</code></strong></li>
+</ul>
 </div>
 
 

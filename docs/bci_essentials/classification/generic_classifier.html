@@ -1280,65 +1280,103 @@
 
             <div class="docstring"><p>Initializes <code><a href="#GenericClassifier">GenericClassifier</a></code> class.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>training_selection : int, <em>optional</em>
-    Integer representing the object selected for training.
-    - Default is <code>0</code>.
-subset : list of <code>int</code> or <code>str</code>, <em>optional</em>
-    List of indices (int) or labels (str) of the desired channels.
-    - Default is <code>[]</code>.</p>
+<ul>
+<li><strong>training_selection</strong> (int, <em>optional</em>):
+Integer representing the object selected for training.
+<ul>
+<li>Default is <code>0</code>.</li>
+</ul></li>
+<li><strong>subset</strong> (list of <code>int</code> or <code>str</code>, <em>optional</em>):
+List of indices (int) or labels (str) of the desired channels.
+<ul>
+<li>Default is <code>[]</code>.</li>
+</ul></li>
+</ul>
 
-<h2 id="attributes">Attributes</h2>
+<h6 id="attributes">Attributes</h6>
 
-<p>X : numpy.ndarray
-    Input features (training data).
-    3D numpy array with shape = (<code>n_samples</code>, <code>n_channels</code>, <code>n_trials</code>).
-    - Initial value is <code>np.ndarray([0])</code>.
-y : numpy.ndarray
-    Target labels corresponding to input features in <code>X</code>.
-    1D numpy array with shape = (<code>n_samples</code>, ).
-    - Initial value is <code>np.ndarray([0])</code>.
-subset_defined : bool
-    Flag indicating whether a subset is defined.
-    - Initial value is <code>False</code>.
-subset : list of <code>int</code> or <code>str</code>
-    List of indices (int) or labels (str) of the desired channels.
-    - Initial value is parameter <code>subset</code>.
-channel_labels : list of <code>str</code>
-    Channel labels from the entire EEG montage.
-    - Initial value is <code>[]</code>.
-channel_selection_setup : bool
-    FLag indicating whether channel selection is set up.
-    - Initial value is <code>False</code>.
-offline_accuracy : list of <code>float</code>
-    Stores offline accuracy values during training.
-    - Initial value is <code>[]</code>.
-offline_precision : list of <code>float</code>
-    Stores offline precision values during training.
-    - Initial value is <code>[]</code>.
-offline_recall : list of <code>float</code>
-    Stores offline recall values during training.
-    - Initial value is <code>[]</code>.
-offline_trial_count : int
-    Counter to keep track of the number of offline trials
-    - Initial value is <code>0</code>.
-offline_trial_counts : list of <code>int</code>
-    List to store the counts of offline trials.
-    i.e. <code>offline_trial_count' values.
-    - Initial value is</code>[]<code>.
-next_fit_trial : int
-    Counter to track the next trial for fitting.
-    - Initial value is</code>0<code>.
-predictions : list
-    Stores predications made during training or testing
-    - Initial value is</code>[]<code>.
-pred_probas : list of</code>float<code>
-    List to store predication probabilities during testing.
-    - Initial value is</code>[]<code>.
-n_splits : int
-    Number of splits for cross-validation. Also serves as minimum required samples per class for training when running _check_ready_for_fit().
-    - Initial value is</code>5`.</p>
+<ul>
+<li><strong>X</strong> (numpy.ndarray):
+Input features (training data).
+3D numpy array with shape = (<code>n_samples</code>, <code>n_channels</code>, <code>n_trials</code>).
+<ul>
+<li>Initial value is <code>np.ndarray([0])</code>.</li>
+</ul></li>
+<li><strong>y</strong> (numpy.ndarray):
+Target labels corresponding to input features in <code>X</code>.
+1D numpy array with shape = (<code>n_samples</code>, ).
+<ul>
+<li>Initial value is <code>np.ndarray([0])</code>.</li>
+</ul></li>
+<li><strong>subset_defined</strong> (bool):
+Flag indicating whether a subset is defined.
+<ul>
+<li>Initial value is <code>False</code>.</li>
+</ul></li>
+<li><strong>subset</strong> (list of <code>int</code> or <code>str</code>):
+List of indices (int) or labels (str) of the desired channels.
+<ul>
+<li>Initial value is parameter <code>subset</code>.</li>
+</ul></li>
+<li><strong>channel_labels</strong> (list of <code>str</code>):
+Channel labels from the entire EEG montage.
+<ul>
+<li>Initial value is <code>[]</code>.</li>
+</ul></li>
+<li><strong>channel_selection_setup</strong> (bool):
+FLag indicating whether channel selection is set up.
+<ul>
+<li>Initial value is <code>False</code>.</li>
+</ul></li>
+<li><strong>offline_accuracy</strong> (list of <code>float</code>):
+Stores offline accuracy values during training.
+<ul>
+<li>Initial value is <code>[]</code>.</li>
+</ul></li>
+<li><strong>offline_precision</strong> (list of <code>float</code>):
+Stores offline precision values during training.
+<ul>
+<li>Initial value is <code>[]</code>.</li>
+</ul></li>
+<li><strong>offline_recall</strong> (list of <code>float</code>):
+Stores offline recall values during training.
+<ul>
+<li>Initial value is <code>[]</code>.</li>
+</ul></li>
+<li><strong>offline_trial_count</strong> (int):
+Counter to keep track of the number of offline trials
+<ul>
+<li>Initial value is <code>0</code>.</li>
+</ul></li>
+<li><strong>offline_trial_counts</strong> (list of <code>int</code>):
+List to store the counts of offline trials.
+i.e. `offline_trial_count' values.
+<ul>
+<li>Initial value is <code>[]</code>.</li>
+</ul></li>
+<li><strong>next_fit_trial</strong> (int):
+Counter to track the next trial for fitting.
+<ul>
+<li>Initial value is <code>0</code>.</li>
+</ul></li>
+<li><strong>predictions</strong> (list):
+Stores predications made during training or testing
+<ul>
+<li>Initial value is <code>[]</code>.</li>
+</ul></li>
+<li><strong>pred_probas</strong> (list of <code>float</code>):
+List to store predication probabilities during testing.
+<ul>
+<li>Initial value is <code>[]</code>.</li>
+</ul></li>
+<li><strong>n_splits</strong> (int):
+Number of splits for cross-validation. Also serves as minimum required samples per class for training when running _check_ready_for_fit().
+<ul>
+<li>Initial value is <code>5</code>.</li>
+</ul></li>
+</ul>
 </div>
 
 
@@ -1436,30 +1474,38 @@ n_splits : int
 
             <div class="docstring"><p>Get a subset of X according to labels or indices.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>X : numpy.ndarray, <em>optional</em>
-    3D array containing data with <code>float</code> type.</p>
+<ul>
+<li><p><strong>X</strong> (numpy.ndarray, <em>optional</em>):
+3D array containing data with <code>float</code> type.</p>
 
-<pre><code>shape = (`n_trials`,`n_channels`,`n_samples`)
-- Default is `[]`.
-</code></pre>
+<p>shape = (<code>n_trials</code>,<code>n_channels</code>,<code>n_samples</code>)</p>
 
-<p>subset : list of <code>int</code> or <code>str</code>, <em>optional</em>
-    List of indices (int) or labels (str) of the desired channels.
-    - Default is <code>[]</code>.
-channel_labels : list of <code>str</code>, <em>optional</em>
-    Channel labels from the entire EEG montage.
-    - Default is <code>[]</code>.</p>
+<ul>
+<li>Default is <code>[]</code>.</li>
+</ul></li>
+<li><strong>subset</strong> (list of <code>int</code> or <code>str</code>, <em>optional</em>):
+List of indices (int) or labels (str) of the desired channels.
+<ul>
+<li>Default is <code>[]</code>.</li>
+</ul></li>
+<li><strong>channel_labels</strong> (list of <code>str</code>, <em>optional</em>):
+Channel labels from the entire EEG montage.
+<ul>
+<li>Default is <code>[]</code>.</li>
+</ul></li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>X : numpy.ndarray
-    Subset of input <code>X</code> according to labels or indices.
-    3D array containing data with <code>float</code> type.</p>
+<ul>
+<li><p><strong>X</strong> (numpy.ndarray):
+Subset of input <code>X</code> according to labels or indices.
+3D array containing data with <code>float</code> type.</p>
 
-<pre><code>shape = (`n_trials`,`n_channels`,`n_samples`)
-</code></pre>
+<p>shape = (<code>n_trials</code>,<code>n_channels</code>,<code>n_samples</code>)</p></li>
+</ul>
 </div>
 
 
@@ -1550,43 +1596,65 @@ channel_labels : list of <code>str</code>, <em>optional</em>
 
             <div class="docstring"><p>Setup channel selection parameters.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>method : str, <em>optional</em>
-    The method used to add or remove channels.
-    - Default is <code>"SBS"</code>.
-metric : str, <em>optional</em>
-    The metric used to measure performance.
-    - Default is <code>"accuracy"</code>.
-iterative_selection : bool, *optional*
-    Whether or not to use the previously selected subset for the initial subset.
-    Default is <code>False</code>.
-initial_channels : type, <em>optional</em>
-    List of channels to use as initial subset for selection.
-    If empty, <code>initial_channels</code> is set to all available channels.
-    - Default is <code>[]</code>.
-max_time : int, *optional*
-    Maximum time in seconds allowed for channel selection.
-    - Default is <code>999</code>.
-min_channels : int, <em>optional</em>
-    Minimum number of channels to select during channel selection.
-    - Default is <code>1</code>.
-max_channels : int, *optional*
-    Maximum number of channels allowed in the final subset.
-    - Default is <code>999</code>.
-performance_delta : float, <em>optional</em>
-    Smallest performance increment to allow continue of the search.
-    - Default is <code>0.001</code>.
-n_jobs : int, *optional*
-    The number of threads to dedicate to this calculation.
-    - Default is <code>1</code>.
-record_performance : bool, <em>optional</em>
-    Decides whether or not to record performance of channel selection.
-    - Default is <code>False</code>.</p>
+<ul>
+<li><strong>method</strong> (str, <em>optional</em>):
+The method used to add or remove channels.
+<ul>
+<li>Default is <code>"SBS"</code>.</li>
+</ul></li>
+<li><strong>metric</strong> (str, <em>optional</em>):
+The metric used to measure performance.
+<ul>
+<li>Default is <code>"accuracy"</code>.</li>
+</ul></li>
+<li><strong>iterative_selection</strong> (bool, <em>optional</em>):
+Whether or not to use the previously selected subset for the initial subset.
+Default is <code>False</code>.</li>
+<li><strong>initial_channels</strong> (type, <em>optional</em>):
+List of channels to use as initial subset for selection.
+If empty, <code>initial_channels</code> is set to all available channels.
+<ul>
+<li>Default is <code>[]</code>.</li>
+</ul></li>
+<li><strong>max_time</strong> (int, <em>optional</em>):
+Maximum time in seconds allowed for channel selection.
+<ul>
+<li>Default is <code>999</code>.</li>
+</ul></li>
+<li><strong>min_channels</strong> (int, <em>optional</em>):
+Minimum number of channels to select during channel selection.
+<ul>
+<li>Default is <code>1</code>.</li>
+</ul></li>
+<li><strong>max_channels</strong> (int, <em>optional</em>):
+Maximum number of channels allowed in the final subset.
+<ul>
+<li>Default is <code>999</code>.</li>
+</ul></li>
+<li><strong>performance_delta</strong> (float, <em>optional</em>):
+Smallest performance increment to allow continue of the search.
+<ul>
+<li>Default is <code>0.001</code>.</li>
+</ul></li>
+<li><strong>n_jobs</strong> (int, <em>optional</em>):
+The number of threads to dedicate to this calculation.
+<ul>
+<li>Default is <code>1</code>.</li>
+</ul></li>
+<li><strong>record_performance</strong> (bool, <em>optional</em>):
+Decides whether or not to record performance of channel selection.
+<ul>
+<li>Default is <code>False</code>.</li>
+</ul></li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p><code>None</code></p>
+<ul>
+<li><strong><code>None</code></strong></li>
+</ul>
 </div>
 
 
@@ -1648,24 +1716,32 @@ record_performance : bool, <em>optional</em>
             <div class="docstring"><p>Add training data to the training set using a decision block
 and a label.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>decision_block : numpy.ndarray
-    Decision block containing EEG data for training.
-    3D array with shape = (<code>n_epochs</code>, <code>n_channels</code>, <code>n_samples</code>).
-labels : numpy.ndarray
-    Labels corresponding to each epoch in <code>decision_block</code>.
-    1D array with shape = (<code>n_epochs</code>, ).
-num_options : int, <em>optional</em>
-    Number of options available for each trial.
-    - Default is <code>0</code>.
-meta : list, <em>optional</em>
-    Additional metadata related to the training data.
-    - Default is <code>[]</code>.</p>
+<ul>
+<li><strong>decision_block</strong> (numpy.ndarray):
+Decision block containing EEG data for training.
+3D array with shape = (<code>n_epochs</code>, <code>n_channels</code>, <code>n_samples</code>).</li>
+<li><strong>labels</strong> (numpy.ndarray):
+Labels corresponding to each epoch in <code>decision_block</code>.
+1D array with shape = (<code>n_epochs</code>, ).</li>
+<li><strong>num_options</strong> (int, <em>optional</em>):
+Number of options available for each trial.
+<ul>
+<li>Default is <code>0</code>.</li>
+</ul></li>
+<li><strong>meta</strong> (list, <em>optional</em>):
+Additional metadata related to the training data.
+<ul>
+<li>Default is <code>[]</code>.</li>
+</ul></li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p><code>None</code></p>
+<ul>
+<li><strong><code>None</code></strong></li>
+</ul>
 </div>
 
 
@@ -1697,9 +1773,11 @@ meta : list, <em>optional</em>
 
             <div class="docstring"><p>Abstract method to fit classifier</p>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p><code>None</code></p>
+<ul>
+<li><strong><code>None</code></strong></li>
+</ul>
 </div>
 
 
@@ -1739,11 +1817,13 @@ meta : list, <em>optional</em>
 <p>X : numpy.ndarray
     3D array where shape = (trials, channels, samples)</p>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>prediction : Prediction
-    Results of predict call containing the predicted class labels, and
-    optionally the probabilities of the labels (empty list if not possible).</p>
+<ul>
+<li><strong>prediction</strong> (Prediction):
+Results of predict call containing the predicted class labels, and
+optionally the probabilities of the labels (empty list if not possible).</li>
+</ul>
 </div>
 
 

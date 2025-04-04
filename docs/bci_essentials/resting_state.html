@@ -426,24 +426,27 @@ a set of trials.</p>
 
             <div class="docstring"><p>Get the shape of the input data.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>data : numpy.ndarray
-    Trial(s) of resting state EEG data.
-    2D or 3D array containing data with <code>float</code> type.</p>
+<ul>
+<li><p><strong>data</strong> (numpy.ndarray):
+Trial(s) of resting state EEG data.
+2D or 3D array containing data with <code>float</code> type.</p>
 
-<pre><code>shape = (`n_channels`,`n_samples`) OR
-(`n_trials`,`n_channels`,`n_samples`)
-</code></pre>
+<p>shape = (<code>n_channels</code>,<code>n_samples</code>) OR
+(<code>n_trials</code>,<code>n_channels</code>,<code>n_samples</code>)</p></li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>n_trials : int
-    Number of trials.
-n_channels : int
-    Number of channels.
-n_samples : int
-    Number of samples.</p>
+<ul>
+<li><strong>n_trials</strong> (int):
+Number of trials.</li>
+<li><strong>n_channels</strong> (int):
+Number of channels.</li>
+<li><strong>n_samples</strong> (int):
+Number of samples.</li>
+</ul>
 </div>
 
 
@@ -514,34 +517,37 @@ n_samples : int
 
             <div class="docstring"><p>Get the bandpower of a trial of EEG.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>data : numpy.ndarray
-    A single resting state EEG trial
-    2D array containing data with <code>float</code> type.</p>
+<ul>
+<li><p><strong>data</strong> (numpy.ndarray):
+A single resting state EEG trial
+2D array containing data with <code>float</code> type.</p>
 
-<pre><code>shape = (`n_channels`,`n_samples`)
-</code></pre>
+<p>shape = (<code>n_channels</code>,<code>n_samples</code>)</p></li>
+<li><strong>fs</strong> (float):
+EEG sampling frequency.</li>
+<li><strong>fmin</strong> (float):
+Lower frequency bound.</li>
+<li><strong>fmax</strong> (float):
+Upper frequency bound.</li>
+<li><strong>normalization</strong> (string, <em>optional</em>):
+Method for normalization.
+<ul>
+<li><code>"norm"</code> for divide by norm.</li>
+<li><code>"sum"</code> for divide by sum.</li>
+<li>Default is <code>None</code> and no normalization is done.</li>
+</ul></li>
+</ul>
 
-<p>fs : float
-    EEG sampling frequency.
-fmin : float
-    Lower frequency bound.
-fmax : float
-    Upper frequency bound.
-normalization : string, <em>optional</em>
-    Method for normalization.
-    - <code>"norm"</code> for divide by norm.
-    - <code>"sum"</code> for divide by sum.
-    - Default is <code>None</code> and no normalization is done.</p>
+<h6 id="returns">Returns</h6>
 
-<h2 id="returns">Returns</h2>
+<ul>
+<li><p><strong>power</strong> (numpy.ndarray):
+Bandpower of frequency band.</p>
 
-<p>power : numpy.ndarray
-    Bandpower of frequency band.</p>
-
-<pre><code>shape = (`n_channels`)
-</code></pre>
+<p>shape = (<code>n_channels</code>)</p></li>
+</ul>
 </div>
 
 
@@ -631,29 +637,37 @@ normalization : string, <em>optional</em>
 
             <div class="docstring"><p>Get the alpha peak based on the all channel median PSD.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>data : numpy.ndarray
-    Resting state EEG trial with eyes closed.
-    3D array containing data with <code>float</code> type.</p>
+<ul>
+<li><p><strong>data</strong> (numpy.ndarray):
+Resting state EEG trial with eyes closed.
+3D array containing data with <code>float</code> type.</p>
 
-<pre><code>shape = (`n_trials`,`n_channels`,`n_samples`)
-</code></pre>
+<p>shape = (<code>n_trials</code>,<code>n_channels</code>,<code>n_samples</code>)</p></li>
+<li><strong>alpha_min</strong> (float, <em>optional</em>):
+Lowest possible value of alpha peak (Hz)
+<ul>
+<li>Default is <code>8</code>.</li>
+</ul></li>
+<li><strong>alpha_max</strong> (float, <em>optional</em>):
+Highest possible value of alpha peak (Hz)
+<ul>
+<li>Default is <code>12</code>.</li>
+</ul></li>
+<li><strong>plot_psd</strong> (bool, <em>optional</em>):
+Plot the PSD for inspection.
+<ul>
+<li>Default is <code>False</code>.</li>
+</ul></li>
+</ul>
 
-<p>alpha_min : float, *optional*
-    Lowest possible value of alpha peak (Hz)
-    - Default is <code>8</code>.
-alpha_max : float, <em>optional</em>
-    Highest possible value of alpha peak (Hz)
-    - Default is <code>12</code>.
-plot_psd : bool, <em>optional</em>
-    Plot the PSD for inspection.
-    - Default is <code>False</code>.</p>
+<h6 id="returns">Returns</h6>
 
-<h2 id="returns">Returns</h2>
-
-<p>alpha_peaks : numpy.ndarray
-    The peak alpha frequency (in Hz) for each trial.</p>
+<ul>
+<li><strong>alpha_peaks</strong> (numpy.ndarray):
+The peak alpha frequency (in Hz) for each trial.</li>
+</ul>
 </div>
 
 
@@ -769,40 +783,44 @@ plot_psd : bool, <em>optional</em>
 
             <div class="docstring"><p>Get bandpower features.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>data : numpy.ndarray
-    Trials of resting state EEG data.
-    3D array containing data with <code>float</code> type.</p>
+<ul>
+<li><p><strong>data</strong> (numpy.ndarray):
+Trials of resting state EEG data.
+3D array containing data with <code>float</code> type.</p>
 
-<pre><code>shape = (`n_trials`,`n_channels`,`n_samples`)
-</code></pre>
+<p>shape = (<code>n_trials</code>,<code>n_channels</code>,<code>n_samples</code>)</p></li>
+<li><strong>fs</strong> (float):
+Sampling frequency (Hz).</li>
+<li><strong>transition_freqs</strong> (array-like, <em>optional</em>):
+The transition frequencies of the desired power bands.
+The first value is the lower cutoff, the last value is the
+upper cutoff, the middle values are band transition frequencies.
+<ul>
+<li>Default is <code>[0, 4, 8, 12, 30]</code>.</li>
+</ul></li>
+</ul>
 
-<p>fs : float
-    Sampling frequency (Hz).
-transition_freqs : array-like, <em>optional</em>
-    The transition frequencies of the desired power bands.
-    The first value is the lower cutoff, the last value is the
-    upper cutoff, the middle values are band transition frequencies.
-    - Default is <code>[0, 4, 8, 12, 30]</code>.</p>
+<h6 id="returns">Returns</h6>
 
-<h2 id="returns">Returns</h2>
-
-<p>abs_bandpower : numpy.ndarray
-    A numpy array of the absolute bandpower of provided bands.
-    The last item is the total bandpower. The array length is equal
-    to the length of <code>transition_freqs</code>.
-rel_bandpower : numpy.ndarray
-    A numpy array of the relative bandpower of provided bands with
-    respect to the entire region of interest from <code>transition_freqs[0]</code>
-    to <code>transition_freqs[-1]</code>. The last item is the total relative
-    bandpower and should always equal <code>1</code>. The array length is equal to
-    the length of <code>transition_freqs</code>.
-rel_bandpower_mat : array_like
-    A numpy array of the relative bandpower of provided bands such that
-    location <code>(R,C)</code> corresponds to the power of <code>R</code> relative to <code>C</code>.
-    The final row and column correspond to the cumulative power of
-    all bands such that <code>(R,-1)</code> is <code>R</code> relative to all bands</p>
+<ul>
+<li><strong>abs_bandpower</strong> (numpy.ndarray):
+A numpy array of the absolute bandpower of provided bands.
+The last item is the total bandpower. The array length is equal
+to the length of <code>transition_freqs</code>.</li>
+<li><strong>rel_bandpower</strong> (numpy.ndarray):
+A numpy array of the relative bandpower of provided bands with
+respect to the entire region of interest from <code>transition_freqs[0]</code>
+to <code>transition_freqs[-1]</code>. The last item is the total relative
+bandpower and should always equal <code>1</code>. The array length is equal to
+the length of <code>transition_freqs</code>.</li>
+<li><strong>rel_bandpower_mat</strong> (array_like):
+A numpy array of the relative bandpower of provided bands such that
+location <code>(R,C)</code> corresponds to the power of <code>R</code> relative to <code>C</code>.
+The final row and column correspond to the cumulative power of
+all bands such that <code>(R,-1)</code> is <code>R</code> relative to all bands</li>
+</ul>
 </div>
 
 

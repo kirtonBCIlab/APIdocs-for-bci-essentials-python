@@ -524,23 +524,35 @@
 </span></pre></div>
 
 
-            <div class="docstring"><h2 id="parameters">Parameters</h2>
+            <div class="docstring"><h6 id="parameters">Parameters</h6>
 
-<p>filters : list of floats, <em>optional</em>
-    Filter bands.
-    - Default is <code>[1, 15]</code>.
-iterative_training : bool, *optional*
-    Flag to indicate if the classifier will be updated iteratively.
-    - Default is <code>False</code>.
-epoch_start : float, <em>optional</em>
-    The start of the epoch relative to flash onset in seconds.
-    - Default is <code>0</code>.
-epoch_end : float, *optional*
-    The end of the epoch relative to flash onset in seconds.
-    - Default is <code>0.6</code>.
-buffer_time : float, <em>optional</em>
-    Defines the time in seconds after an epoch for which we require EEG data to ensure that all EEG is present in that epoch.
-    - Default is <code>0.01</code>.</p>
+<ul>
+<li><strong>filters</strong> (list of floats, <em>optional</em>):
+Filter bands.
+<ul>
+<li>Default is <code>[1, 15]</code>.</li>
+</ul></li>
+<li><strong>iterative_training</strong> (bool, <em>optional</em>):
+Flag to indicate if the classifier will be updated iteratively.
+<ul>
+<li>Default is <code>False</code>.</li>
+</ul></li>
+<li><strong>epoch_start</strong> (float, <em>optional</em>):
+The start of the epoch relative to flash onset in seconds.
+<ul>
+<li>Default is <code>0</code>.</li>
+</ul></li>
+<li><strong>epoch_end</strong> (float, <em>optional</em>):
+The end of the epoch relative to flash onset in seconds.
+<ul>
+<li>Default is <code>0.6</code>.</li>
+</ul></li>
+<li><strong>buffer_time</strong> (float, <em>optional</em>):
+Defines the time in seconds after an epoch for which we require EEG data to ensure that all EEG is present in that epoch.
+<ul>
+<li>Default is <code>0.01</code>.</li>
+</ul></li>
+</ul>
 </div>
 
 
@@ -661,19 +673,21 @@ buffer_time : float, <em>optional</em>
 
             <div class="docstring"><p>Get the start and end times of the EEG data based on the markers.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>markers : list of str
-    List of markers.
-timestamps : list of float
-    List of timestamps.</p>
+<ul>
+<li><strong>markers</strong> (list of str):
+List of markers.</li>
+<li><strong>timestamps</strong> (list of float):
+List of timestamps.</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>float
-    Start time.
-float
-    End time.</p>
+<ul>
+<li><strong>float</strong>: Start time.</li>
+<li><strong>float</strong>: End time.</li>
+</ul>
 </div>
 
 
@@ -789,25 +803,27 @@ float
 
             <div class="docstring"><p>This takes in the markers and EEG data and processes them into epochs according to the P300 paradigm.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>markers : list of str
-    List of markers.
-marker_timestamps : list of float
-    List of timestamps.
-eeg : np.array
-    EEG data. Shape is (n_channels, n_samples).
-eeg_timestamps : np.array
-    EEG timestamps. Shape is (n_samples).
-fsample : float
-    Sampling frequency.</p>
+<ul>
+<li><strong>markers</strong> (list of str):
+List of markers.</li>
+<li><strong>marker_timestamps</strong> (list of float):
+List of timestamps.</li>
+<li><strong>eeg</strong> (np.array):
+EEG data. Shape is (n_channels, n_samples).</li>
+<li><strong>eeg_timestamps</strong> (np.array):
+EEG timestamps. Shape is (n_samples).</li>
+<li><strong>fsample</strong> (float):
+Sampling frequency.</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>np.array
-    Processed EEG data. Shape is (n_epochs, n_channels, n_samples).
-np.array
-    Labels. Shape is (n_epochs).</p>
+<ul>
+<li><strong>np.array</strong>: Processed EEG data. Shape is (n_epochs, n_channels, n_samples).</li>
+<li><strong>np.array</strong>: Labels. Shape is (n_epochs).</li>
+</ul>
 </div>
 
 

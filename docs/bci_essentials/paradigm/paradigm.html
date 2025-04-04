@@ -799,12 +799,14 @@ inheritance.</p>
             <div class="docstring"><p>Base class for all paradigms.
 Please use a subclass of this class for your specific paradigm.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>filters : list of floats | [5, 30]
-    Filter bands.
-channel_subset : list of str | None
-    Channel subset to use.</p>
+<ul>
+<li><strong>filters</strong> (list of floats | [5, 30]):
+Filter bands.</li>
+<li><strong>channel_subset</strong> (list of str | None):
+Channel subset to use.</li>
+</ul>
 </div>
 
 
@@ -1104,23 +1106,26 @@ channel_subset : list of str | None
 
             <div class="docstring"><p>Package resting state data.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>marker_data : list of str
-    List of markers.
-marker_timestamps : np.ndarray
-    Timestamps of markers.
-bci_controller : np.ndarray
-    EEG data. Shape is (n_channels, n_samples).
-eeg_timestamps : np.ndarray
-    Timestamps of EEG data. Shape is (n_samples,).
-fsample : float
-    Sampling frequency.</p>
+<ul>
+<li><strong>marker_data</strong> (list of str):
+List of markers.</li>
+<li><strong>marker_timestamps</strong> (np.ndarray):
+Timestamps of markers.</li>
+<li><strong>bci_controller</strong> (np.ndarray):
+EEG data. Shape is (n_channels, n_samples).</li>
+<li><strong>eeg_timestamps</strong> (np.ndarray):
+Timestamps of EEG data. Shape is (n_samples,).</li>
+<li><strong>fsample</strong> (float):
+Sampling frequency.</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p><code>None</code>
-    <code>self.rest_trials</code> is updated.</p>
+<ul>
+<li><strong><code>None</code></strong>: <code>self.rest_trials</code> is updated.</li>
+</ul>
 </div>
 
 
@@ -1163,19 +1168,21 @@ fsample : float
 
             <div class="docstring"><p>Get the start and end times of the EEG data based on the markers.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>markers : list of str
-    List of markers.
-timestamps : list of float
-    List of timestamps.</p>
+<ul>
+<li><strong>markers</strong> (list of str):
+List of markers.</li>
+<li><strong>timestamps</strong> (list of float):
+List of timestamps.</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>float
-    Start time.
-float
-    End time.</p>
+<ul>
+<li><strong>float</strong>: Start time.</li>
+<li><strong>float</strong>: End time.</li>
+</ul>
 </div>
 
 
@@ -1224,25 +1231,27 @@ float
 
             <div class="docstring"><p>This takes in the markers and EEG data and processes them into epochs accordingt to the MI paradigm.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>markers : list of str
-    List of markers.
-marker_timestamps : list of float
-    List of timestamps.
-eeg : np.array
-    EEG data. Shape is (n_channels, n_samples).
-eeg_timestamps : np.array
-    EEG timestamps. Shape is (n_samples).
-fsample : float
-    Sampling frequency.</p>
+<ul>
+<li><strong>markers</strong> (list of str):
+List of markers.</li>
+<li><strong>marker_timestamps</strong> (list of float):
+List of timestamps.</li>
+<li><strong>eeg</strong> (np.array):
+EEG data. Shape is (n_channels, n_samples).</li>
+<li><strong>eeg_timestamps</strong> (np.array):
+EEG timestamps. Shape is (n_samples).</li>
+<li><strong>fsample</strong> (float):
+Sampling frequency.</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>np.array
-    Processed EEG data. Shape is (n_epochs, n_channels, n_samples).
-np.array
-    Labels. Shape is (n_epochs).</p>
+<ul>
+<li><strong>np.array</strong>: Processed EEG data. Shape is (n_epochs, n_channels, n_samples).</li>
+<li><strong>np.array</strong>: Labels. Shape is (n_epochs).</li>
+</ul>
 </div>
 
 

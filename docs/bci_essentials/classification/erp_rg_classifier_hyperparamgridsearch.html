@@ -828,37 +828,53 @@ class (<em>inherits from <code>GenericClassifier</code></em>).</p>
 
             <div class="docstring"><p>Set P300 Classifier Settings.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>n_splits : int, *optional*
-    Number of folds for cross-validation.
-    - Default is <code>3</code>.
-resampling_method : str, <em>optional</em>, None
-    Resampling method to use ["lico", "oversample", "undersample"].
-    Default is None.
-lico_expansion_factor : int, <em>optional</em>
-    Linear Combination Oversampling expansion factor, which is the
-    factor by which the number of ERPs in the training set will be
-    expanded.
-    - Default is <code>1</code>.
-oversample_ratio : float, *optional*
-    Traditional oversampling. Range is from from 0.1-1 resulting
-    from the ratio of erp to non-erp class. 0 for no oversampling.
-    - Default is <code>0</code>.
-undersample_ratio : float, <em>optional</em>
-    Traditional undersampling. Range is from from 0.1-1 resulting
-    from the ratio of erp to non-erp class. 0 for no undersampling.
-    - Default is <code>0</code>.
-random_seed : int, *optional*
-    Random seed.
-    - Default is <code>42</code>.
-remove_flats : bool, <em>optional</em>
-    Whether to remove flat channels.
-    - Default is <code>True</code>.</p>
+<ul>
+<li><strong>n_splits</strong> (int, <em>optional</em>):
+Number of folds for cross-validation.
+<ul>
+<li>Default is <code>3</code>.</li>
+</ul></li>
+<li><strong>resampling_method</strong> (str, <em>optional</em>, None):
+Resampling method to use ["lico", "oversample", "undersample"].
+Default is None.</li>
+<li><strong>lico_expansion_factor</strong> (int, <em>optional</em>):
+Linear Combination Oversampling expansion factor, which is the
+factor by which the number of ERPs in the training set will be
+expanded.
+<ul>
+<li>Default is <code>1</code>.</li>
+</ul></li>
+<li><strong>oversample_ratio</strong> (float, <em>optional</em>):
+Traditional oversampling. Range is from from 0.1-1 resulting
+from the ratio of erp to non-erp class. 0 for no oversampling.
+<ul>
+<li>Default is <code>0</code>.</li>
+</ul></li>
+<li><strong>undersample_ratio</strong> (float, <em>optional</em>):
+Traditional undersampling. Range is from from 0.1-1 resulting
+from the ratio of erp to non-erp class. 0 for no undersampling.
+<ul>
+<li>Default is <code>0</code>.</li>
+</ul></li>
+<li><strong>random_seed</strong> (int, <em>optional</em>):
+Random seed.
+<ul>
+<li>Default is <code>42</code>.</li>
+</ul></li>
+<li><strong>remove_flats</strong> (bool, <em>optional</em>):
+Whether to remove flat channels.
+<ul>
+<li>Default is <code>True</code>.</li>
+</ul></li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p><code>None</code></p>
+<ul>
+<li><strong><code>None</code></strong></li>
+</ul>
 </div>
 
 
@@ -946,19 +962,26 @@ remove_flats : bool, <em>optional</em>
 
             <div class="docstring"><p>Fit the model.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>plot_cm : bool, *optional*
-    Whether to plot the confusion matrix during training.
-    - Default is <code>False</code>.
-plot_roc : bool, <em>optional</em>
-    Whether to plot the ROC curve during training.
-    - Default is <code>False</code>.</p>
+<ul>
+<li><strong>plot_cm</strong> (bool, <em>optional</em>):
+Whether to plot the confusion matrix during training.
+<ul>
+<li>Default is <code>False</code>.</li>
+</ul></li>
+<li><strong>plot_roc</strong> (bool, <em>optional</em>):
+Whether to plot the ROC curve during training.
+<ul>
+<li>Default is <code>False</code>.</li>
+</ul></li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p><code>None</code>
-    Models created used in <code><a href="#ErpRgClassifierHyperparamGridSearch.predict">predict()</a></code>.</p>
+<ul>
+<li><strong><code>None</code></strong>: Models created used in <code><a href="#ErpRgClassifierHyperparamGridSearch.predict">predict()</a></code>.</li>
+</ul>
 </div>
 
 
@@ -1005,17 +1028,21 @@ plot_roc : bool, <em>optional</em>
 
             <div class="docstring"><p>Predict the class of the data</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>X : numpy.ndarray
-    3D array where shape = (n_epochs, n_channels, n_samples)</p>
+<ul>
+<li><strong>X</strong> (numpy.ndarray):
+3D array where shape = (n_epochs, n_channels, n_samples)</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>prediction : Prediction
-    Predict object. Contains the predicted labels and and the probability.
-    Because this classifier chooses the P300 object with the highest posterior probability,
-    the probability is only the posterior probability of the chosen object.</p>
+<ul>
+<li><strong>prediction</strong> (Prediction):
+Predict object. Contains the predicted labels and and the probability.
+Because this classifier chooses the P300 object with the highest posterior probability,
+the probability is only the posterior probability of the chosen object.</li>
+</ul>
 </div>
 
 

@@ -871,41 +871,62 @@
 
             <div class="docstring"><p>Set MI classifier settings.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>n_splits : int, *optional*
-    Number of folds for cross-validation.
-    - Default is <code>5</code>.
-type : str, *optional*
-    Type of classifier to be used.
-    Options = sLDA, RandomForest, TS, or MDM.
-    - Default is <code>"TS"</code>.
-remove_flats : bool, <em>optional</em>
-    Whether to remove flat channels from the EEG data.
-    - Default is <code>True</code>.
-whitening : bool, <em>optional</em>
-    Whether to apply whitening to the EEG data.
-    - Default is <code>False</code>.
-covariance_estimator : str, *optional*
-    Covariance estimator. See pyriemann Covariances.
-    - Default is <code>"oas"</code>.
-artifact_rejection : str, <em>optional</em>
-    Method for artefact rejection.
-    - Default is <code>"none"</code>.
-pred_threshold : float, *optional*
-    Prediction threshold used for classification.
-    - Default is <code>0.5</code>.
-random_seed : int, <em>optional</em>
-    Random seed.
-    - Default is <code>42</code>.
-n_jobs : int, <em>optional</em>
-    The number of threads to dedicate to this calculation.
-    - Default is <code>1</code>.</p>
+<ul>
+<li><strong>n_splits</strong> (int, <em>optional</em>):
+Number of folds for cross-validation.
+<ul>
+<li>Default is <code>5</code>.</li>
+</ul></li>
+<li><strong>type</strong> (str, <em>optional</em>):
+Type of classifier to be used.
+Options = sLDA, RandomForest, TS, or MDM.
+<ul>
+<li>Default is <code>"TS"</code>.</li>
+</ul></li>
+<li><strong>remove_flats</strong> (bool, <em>optional</em>):
+Whether to remove flat channels from the EEG data.
+<ul>
+<li>Default is <code>True</code>.</li>
+</ul></li>
+<li><strong>whitening</strong> (bool, <em>optional</em>):
+Whether to apply whitening to the EEG data.
+<ul>
+<li>Default is <code>False</code>.</li>
+</ul></li>
+<li><strong>covariance_estimator</strong> (str, <em>optional</em>):
+Covariance estimator. See pyriemann Covariances.
+<ul>
+<li>Default is <code>"oas"</code>.</li>
+</ul></li>
+<li><strong>artifact_rejection</strong> (str, <em>optional</em>):
+Method for artefact rejection.
+<ul>
+<li>Default is <code>"none"</code>.</li>
+</ul></li>
+<li><strong>pred_threshold</strong> (float, <em>optional</em>):
+Prediction threshold used for classification.
+<ul>
+<li>Default is <code>0.5</code>.</li>
+</ul></li>
+<li><strong>random_seed</strong> (int, <em>optional</em>):
+Random seed.
+<ul>
+<li>Default is <code>42</code>.</li>
+</ul></li>
+<li><strong>n_jobs</strong> (int, <em>optional</em>):
+The number of threads to dedicate to this calculation.
+<ul>
+<li>Default is <code>1</code>.</li>
+</ul></li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p><code>None</code>
-    Models created are used in <code><a href="#MiClassifier.fit">fit()</a></code>.</p>
+<ul>
+<li><strong><code>None</code></strong>: Models created are used in <code><a href="#MiClassifier.fit">fit()</a></code>.</li>
+</ul>
 </div>
 
 
@@ -1078,10 +1099,11 @@ n_jobs : int, <em>optional</em>
 
             <div class="docstring"><p>Fit the model.</p>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p><code>None</code>
-    Models created used in <code><a href="#MiClassifier.predict">predict()</a></code>.</p>
+<ul>
+<li><strong><code>None</code></strong>: Models created used in <code><a href="#MiClassifier.predict">predict()</a></code>.</li>
+</ul>
 </div>
 
 
@@ -1136,16 +1158,20 @@ n_jobs : int, <em>optional</em>
 
             <div class="docstring"><p>Predict the class labels for the provided data.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>X : numpy.ndarray
-    3D array where shape = (trials, channels, samples)</p>
+<ul>
+<li><strong>X</strong> (numpy.ndarray):
+3D array where shape = (trials, channels, samples)</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>prediction : Prediction
-    Results of predict call containing the predicted class labels, and
-    the probabilities of the labels.</p>
+<ul>
+<li><strong>prediction</strong> (Prediction):
+Results of predict call containing the predicted class labels, and
+the probabilities of the labels.</li>
+</ul>
 </div>
 
 

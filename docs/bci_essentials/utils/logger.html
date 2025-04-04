@@ -29,8 +29,6 @@
 
             <h2>Contents</h2>
             <ul>
-  <li><a href="#logging-levels">Logging Levels</a></li>
-  <li><a href="#examples">Examples</a></li>
   <li><a href="#example-1-creating-a-logger-object-within-the-bci_essentials-package">Example 1: Creating a Logger object within the 'bci_essentials' package</a></li>
   <li><a href="#example-2-creating-the-logger-object-outside-of-the-bci_essentials-package">Example 2: Creating the Logger object outside of the 'bci_essentials' package</a></li>
   <li><a href="#example-3-modifying-the-logging-level-of-the-bci_essentials-package-in-a-user-script">Example 3: Modifying the logging level of the 'bci_essentials' package in a User script</a></li>
@@ -123,7 +121,7 @@ messages of that level and higher will be logged.</p>
 class. For example, the <code><a href="#Logger.INFO">Logger.INFO</a></code> property can be used to set the
 logging level to INFO.</p>
 
-<h2 id="logging-levels">Logging Levels</h2>
+<h6 id="logging-levels">Logging Levels</h6>
 
 <p>DEBUG :
     Debug level logging. This level outputs detailed information,
@@ -142,7 +140,7 @@ CRITICAL :
     Critical level logging. A serious error, indicating that the program itself
     may be unable to continue running.</p>
 
-<h2 id="examples">Examples</h2>
+<h6 id="examples">Examples</h6>
 
 <h2 id="example-1-creating-a-logger-object-within-the-bci_essentials-package">Example 1: Creating a Logger object within the 'bci_essentials' package</h2>
 
@@ -943,7 +941,7 @@ bci_essentials logger and configure it to save logs to a file. E.g.</p>
 package. It supports standard logging levels and allows saving log messages to a
 file.</p>
 
-<h2 id="class-properties">Class Properties</h2>
+<h6 id="class-properties">Class Properties</h6>
 
 <p>DEBUG : logging.Level
     Debug level logging.
@@ -989,11 +987,13 @@ CRITICAL : logging.Level
 
             <div class="docstring"><p>Initializes and configures the logger.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>name : str, <em>optional</em>
-    Name of the logger.
-    – Default is 'bci_essentials'.</p>
+<ul>
+<li><strong>name</strong> (str, <em>optional</em>):
+Name of the logger.
+– Default is 'bci_essentials'.</li>
+</ul>
 </div>
 
 
@@ -1107,13 +1107,17 @@ CRITICAL : logging.Level
 
             <div class="docstring"><p>Sets the logging level for the logger.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>level : logging.Level
-    Logging level as per python <code>logging</code> module. This can be set using
-    the class properties <code><a href="#Logger.DEBUG">Logger.DEBUG</a></code>, <code><a href="#Logger.INFO">Logger.INFO</a></code>,
-    <code><a href="#Logger.WARNING">Logger.WARNING</a></code>, <code><a href="#Logger.ERROR">Logger.ERROR</a></code>, and <code><a href="#Logger.CRITICAL">Logger.CRITICAL</a></code>.
-    - Default is <code><a href="#Logger.INFO">Logger.INFO</a></code>.</p>
+<ul>
+<li><strong>level</strong> (logging.Level):
+Logging level as per python <code>logging</code> module. This can be set using
+the class properties <code><a href="#Logger.DEBUG">Logger.DEBUG</a></code>, <code><a href="#Logger.INFO">Logger.INFO</a></code>,
+<code><a href="#Logger.WARNING">Logger.WARNING</a></code>, <code><a href="#Logger.ERROR">Logger.ERROR</a></code>, and <code><a href="#Logger.CRITICAL">Logger.CRITICAL</a></code>.
+<ul>
+<li>Default is <code><a href="#Logger.INFO">Logger.INFO</a></code>.</li>
+</ul></li>
+</ul>
 </div>
 
 
@@ -1166,11 +1170,15 @@ to a text file using either the specified or default filename.</p>
 
 <p><strong>NOTE</strong>: Messages before this function is called will not be saved.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>filename : str, <em>optional</em>
-    Name of the file to log messages to
-    - Default is is "YYYYmmdd-HHMMSS-bci_essentials.log".</p>
+<ul>
+<li><strong>filename</strong> (str, <em>optional</em>):
+Name of the file to log messages to
+<ul>
+<li>Default is is "YYYYmmdd-HHMMSS-bci_essentials.log".</li>
+</ul></li>
+</ul>
 </div>
 
 
@@ -1209,16 +1217,16 @@ to a text file using either the specified or default filename.</p>
 
             <div class="docstring"><p>Logs a DEBUG message.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>msg : str
-    The log message format string.
-<em>args
-    Arguments merged into msg using string formatting.
-*</em>kwargs
-    Additional keyword arguments.</p>
+<ul>
+<li><strong>msg</strong> (str):
+The log message format string.</li>
+<li><strong>*args</strong>: Arguments merged into msg using string formatting.</li>
+<li><strong>**kwargs</strong>: Additional keyword arguments.</li>
+</ul>
 
-<h2 id="examples">Examples</h2>
+<h6 id="examples">Examples</h6>
 
 <div class="pdoc-code codehilite">
 <pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Debug message with variable: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">variable_name</span><span class="p">)</span>
@@ -1262,16 +1270,16 @@ to a text file using either the specified or default filename.</p>
 
             <div class="docstring"><p>Logs an INFO message.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>msg : str
-    The log message format string.
-<em>args
-    Arguments merged into msg using string formatting.
-*</em>kwargs
-    Additional keyword arguments.</p>
+<ul>
+<li><strong>msg</strong> (str):
+The log message format string.</li>
+<li><strong>*args</strong>: Arguments merged into msg using string formatting.</li>
+<li><strong>**kwargs</strong>: Additional keyword arguments.</li>
+</ul>
 
-<h2 id="examples">Examples</h2>
+<h6 id="examples">Examples</h6>
 
 <div class="pdoc-code codehilite">
 <pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Info message with variable: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">variable_name</span><span class="p">)</span>
@@ -1315,16 +1323,16 @@ to a text file using either the specified or default filename.</p>
 
             <div class="docstring"><p>Logs a WARNING message.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>msg : str
-    The log message format string.
-<em>args
-    Arguments merged into msg using string formatting.
-*</em>kwargs
-    Additional keyword arguments.</p>
+<ul>
+<li><strong>msg</strong> (str):
+The log message format string.</li>
+<li><strong>*args</strong>: Arguments merged into msg using string formatting.</li>
+<li><strong>**kwargs</strong>: Additional keyword arguments.</li>
+</ul>
 
-<h2 id="examples">Examples</h2>
+<h6 id="examples">Examples</h6>
 
 <div class="pdoc-code codehilite">
 <pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Warning message with variable: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">variable_name</span><span class="p">)</span>
@@ -1368,16 +1376,16 @@ to a text file using either the specified or default filename.</p>
 
             <div class="docstring"><p>Logs an ERROR message.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>msg : str
-    The log message format string.
-<em>args
-    Arguments merged into msg using string formatting.
-*</em>kwargs
-    Additional keyword arguments.</p>
+<ul>
+<li><strong>msg</strong> (str):
+The log message format string.</li>
+<li><strong>*args</strong>: Arguments merged into msg using string formatting.</li>
+<li><strong>**kwargs</strong>: Additional keyword arguments.</li>
+</ul>
 
-<h2 id="examples">Examples</h2>
+<h6 id="examples">Examples</h6>
 
 <div class="pdoc-code codehilite">
 <pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Error message with variable: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">variable_name</span><span class="p">)</span>
@@ -1421,16 +1429,16 @@ to a text file using either the specified or default filename.</p>
 
             <div class="docstring"><p>Logs a CRITICAL message.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>msg : str
-    The log message format string.
-<em>args
-    Arguments merged into msg using string formatting.
-*</em>kwargs
-    Additional keyword arguments.</p>
+<ul>
+<li><strong>msg</strong> (str):
+The log message format string.</li>
+<li><strong>*args</strong>: Arguments merged into msg using string formatting.</li>
+<li><strong>**kwargs</strong>: Additional keyword arguments.</li>
+</ul>
 
-<h2 id="examples">Examples</h2>
+<h6 id="examples">Examples</h6>
 
 <div class="pdoc-code codehilite">
 <pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Critical message with variable: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">variable_name</span><span class="p">)</span>

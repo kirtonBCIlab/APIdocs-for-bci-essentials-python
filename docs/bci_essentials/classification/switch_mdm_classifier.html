@@ -683,30 +683,43 @@ final classification.</li>
 
             <div class="docstring"><p>Set the Switch Classifier MDM settings.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>n_splits : int, *optional*
-    Number of folds for cross-validation.
-    - Default is <code>2</code>.
-rebuild : bool, *optional*
-    Rebuild the classifier each time. *More description needed*.
-    - Default is <code>True</code>.
-random_seed : int, <em>optional</em>
-    Random seed.
-    - Default is <code>42</code>.
-n_jobs : int, *optional*
-    The number of threads to dedicate to this calculation.
-activation_main : str, <em>optional</em>
-    Activation function for hidden layers.
-    - Default is <code>relu</code>.
-activation_class : str, <em>optional</em>
-    Activation function for the output layer.
-    - Default is <code>sigmoid</code>.</p>
+<ul>
+<li><strong>n_splits</strong> (int, <em>optional</em>):
+Number of folds for cross-validation.
+<ul>
+<li>Default is <code>2</code>.</li>
+</ul></li>
+<li><strong>rebuild</strong> (bool, <em>optional</em>):
+Rebuild the classifier each time. <em>More description needed</em>.
+<ul>
+<li>Default is <code>True</code>.</li>
+</ul></li>
+<li><strong>random_seed</strong> (int, <em>optional</em>):
+Random seed.
+<ul>
+<li>Default is <code>42</code>.</li>
+</ul></li>
+<li><strong>n_jobs</strong> (int, <em>optional</em>):
+The number of threads to dedicate to this calculation.</li>
+<li><strong>activation_main</strong> (str, <em>optional</em>):
+Activation function for hidden layers.
+<ul>
+<li>Default is <code>relu</code>.</li>
+</ul></li>
+<li><strong>activation_class</strong> (str, <em>optional</em>):
+Activation function for the output layer.
+<ul>
+<li>Default is <code>sigmoid</code>.</li>
+</ul></li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p><code>None</code>
-    Models created are used in <code><a href="#SwitchMdmClassifier.fit">fit()</a></code>.</p>
+<ul>
+<li><strong><code>None</code></strong>: Models created are used in <code><a href="#SwitchMdmClassifier.fit">fit()</a></code>.</li>
+</ul>
 </div>
 
 
@@ -848,10 +861,11 @@ activation_class : str, <em>optional</em>
 
             <div class="docstring"><p>Fit the model.</p>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p><code>None</code>
-    Models created used in <code><a href="#SwitchMdmClassifier.predict">predict()</a></code>.</p>
+<ul>
+<li><strong><code>None</code></strong>: Models created used in <code><a href="#SwitchMdmClassifier.predict">predict()</a></code>.</li>
+</ul>
 </div>
 
 
@@ -935,16 +949,20 @@ activation_class : str, <em>optional</em>
 
             <div class="docstring"><p>Predict the class labels for the provided data.</p>
 
-<h2 id="parameters">Parameters</h2>
+<h6 id="parameters">Parameters</h6>
 
-<p>X : numpy.ndarray
-    3D array where shape = (trials, channels, samples)</p>
+<ul>
+<li><strong>X</strong> (numpy.ndarray):
+3D array where shape = (trials, channels, samples)</li>
+</ul>
 
-<h2 id="returns">Returns</h2>
+<h6 id="returns">Returns</h6>
 
-<p>prediction : Prediction
-    Results of predict call containing the predicted class labels.  Probabilities
-    are not available (empty list).</p>
+<ul>
+<li><strong>prediction</strong> (Prediction):
+Results of predict call containing the predicted class labels.  Probabilities
+are not available (empty list).</li>
+</ul>
 </div>
 
 
