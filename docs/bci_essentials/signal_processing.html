@@ -52,6 +52,12 @@
             <li>
                     <a class="function" href="#lico">lico</a>
             </li>
+            <li>
+                    <a class="function" href="#random_oversampling">random_oversampling</a>
+            </li>
+            <li>
+                    <a class="function" href="#random_undersampling">random_undersampling</a>
+            </li>
     </ul>
 
 
@@ -348,6 +354,113 @@
 </span><span id="L-251"><a href="#L-251"><span class="linenos">251</span></a>    <span class="n">over_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="n">new_trial</span><span class="p">]))</span>
 </span><span id="L-252"><a href="#L-252"><span class="linenos">252</span></a>
 </span><span id="L-253"><a href="#L-253"><span class="linenos">253</span></a>    <span class="k">return</span> <span class="n">over_X</span><span class="p">,</span> <span class="n">over_y</span>
+</span><span id="L-254"><a href="#L-254"><span class="linenos">254</span></a>
+</span><span id="L-255"><a href="#L-255"><span class="linenos">255</span></a>
+</span><span id="L-256"><a href="#L-256"><span class="linenos">256</span></a><span class="k">def</span><span class="w"> </span><span class="nf">random_oversampling</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ratio</span><span class="p">):</span>
+</span><span id="L-257"><a href="#L-257"><span class="linenos">257</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Random Oversampling</span>
+</span><span id="L-258"><a href="#L-258"><span class="linenos">258</span></a>
+</span><span id="L-259"><a href="#L-259"><span class="linenos">259</span></a><span class="sd">    Randomly samples epochs of X to oversample the MINORITY class.</span>
+</span><span id="L-260"><a href="#L-260"><span class="linenos">260</span></a><span class="sd">    Automatically determines which class is the MINORITY class.</span>
+</span><span id="L-261"><a href="#L-261"><span class="linenos">261</span></a>
+</span><span id="L-262"><a href="#L-262"><span class="linenos">262</span></a><span class="sd">    Parameters</span>
+</span><span id="L-263"><a href="#L-263"><span class="linenos">263</span></a><span class="sd">    ----------</span>
+</span><span id="L-264"><a href="#L-264"><span class="linenos">264</span></a><span class="sd">    X : numpy.ndarray [n_trials, n_channels, n_samples]</span>
+</span><span id="L-265"><a href="#L-265"><span class="linenos">265</span></a><span class="sd">        Trials of EEG data.</span>
+</span><span id="L-266"><a href="#L-266"><span class="linenos">266</span></a><span class="sd">        3D array containing data with `float` type.</span>
+</span><span id="L-267"><a href="#L-267"><span class="linenos">267</span></a><span class="sd">    y : numpy.ndarray [n_trials]</span>
+</span><span id="L-268"><a href="#L-268"><span class="linenos">268</span></a><span class="sd">        Labels corresponding to X.</span>
+</span><span id="L-269"><a href="#L-269"><span class="linenos">269</span></a><span class="sd">    ratio : float</span>
+</span><span id="L-270"><a href="#L-270"><span class="linenos">270</span></a><span class="sd">        Desired ratio of MINORITY class samples to majority class samples</span>
+</span><span id="L-271"><a href="#L-271"><span class="linenos">271</span></a><span class="sd">        - ratio=1 means the number of MINORITY class samples will be equal to the number of majority class samples</span>
+</span><span id="L-272"><a href="#L-272"><span class="linenos">272</span></a><span class="sd">        - ratio=0.5 means the number of MINORITY class samples will be half the number of majority class samples</span>
+</span><span id="L-273"><a href="#L-273"><span class="linenos">273</span></a><span class="sd">        - ratio=2 means the number of MINORITY class samples will be twice the number of majority class samples</span>
+</span><span id="L-274"><a href="#L-274"><span class="linenos">274</span></a>
+</span><span id="L-275"><a href="#L-275"><span class="linenos">275</span></a><span class="sd">    Returns</span>
+</span><span id="L-276"><a href="#L-276"><span class="linenos">276</span></a><span class="sd">    -------</span>
+</span><span id="L-277"><a href="#L-277"><span class="linenos">277</span></a><span class="sd">    over_X : numpy.ndarray</span>
+</span><span id="L-278"><a href="#L-278"><span class="linenos">278</span></a><span class="sd">        Oversampled X.</span>
+</span><span id="L-279"><a href="#L-279"><span class="linenos">279</span></a><span class="sd">    over_y : numpy.ndarray</span>
+</span><span id="L-280"><a href="#L-280"><span class="linenos">280</span></a><span class="sd">        Oversampled y.</span>
+</span><span id="L-281"><a href="#L-281"><span class="linenos">281</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-282"><a href="#L-282"><span class="linenos">282</span></a>    <span class="c1"># Find unique classes and their counts</span>
+</span><span id="L-283"><a href="#L-283"><span class="linenos">283</span></a>    <span class="n">classes</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="L-284"><a href="#L-284"><span class="linenos">284</span></a>
+</span><span id="L-285"><a href="#L-285"><span class="linenos">285</span></a>    <span class="c1"># Determine minority and majority classes</span>
+</span><span id="L-286"><a href="#L-286"><span class="linenos">286</span></a>    <span class="n">minority_class</span> <span class="o">=</span> <span class="n">classes</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">counts</span><span class="p">)]</span>
+</span><span id="L-287"><a href="#L-287"><span class="linenos">287</span></a>    <span class="n">n_minority</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</span><span id="L-288"><a href="#L-288"><span class="linenos">288</span></a>    <span class="n">n_majority</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</span><span id="L-289"><a href="#L-289"><span class="linenos">289</span></a>
+</span><span id="L-290"><a href="#L-290"><span class="linenos">290</span></a>    <span class="c1"># Get minority class samples</span>
+</span><span id="L-291"><a href="#L-291"><span class="linenos">291</span></a>    <span class="n">minority_X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="n">minority_class</span><span class="p">]</span>
+</span><span id="L-292"><a href="#L-292"><span class="linenos">292</span></a>
+</span><span id="L-293"><a href="#L-293"><span class="linenos">293</span></a>    <span class="c1"># Calculate number of samples needed</span>
+</span><span id="L-294"><a href="#L-294"><span class="linenos">294</span></a>    <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_majority</span> <span class="o">*</span> <span class="n">ratio</span><span class="p">)</span> <span class="o">-</span> <span class="n">n_minority</span>
+</span><span id="L-295"><a href="#L-295"><span class="linenos">295</span></a>
+</span><span id="L-296"><a href="#L-296"><span class="linenos">296</span></a>    <span class="c1"># Generate new samples</span>
+</span><span id="L-297"><a href="#L-297"><span class="linenos">297</span></a>    <span class="n">new_X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+</span><span id="L-298"><a href="#L-298"><span class="linenos">298</span></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_samples</span><span class="p">):</span>
+</span><span id="L-299"><a href="#L-299"><span class="linenos">299</span></a>        <span class="n">new_X</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">minority_X</span><span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_minority</span><span class="p">)),</span> <span class="p">:,</span> <span class="p">:]</span>
+</span><span id="L-300"><a href="#L-300"><span class="linenos">300</span></a>
+</span><span id="L-301"><a href="#L-301"><span class="linenos">301</span></a>    <span class="n">over_X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">new_X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="L-302"><a href="#L-302"><span class="linenos">302</span></a>    <span class="n">over_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="n">n_samples</span><span class="p">])</span> <span class="o">*</span> <span class="n">minority_class</span><span class="p">)</span>
+</span><span id="L-303"><a href="#L-303"><span class="linenos">303</span></a>
+</span><span id="L-304"><a href="#L-304"><span class="linenos">304</span></a>    <span class="k">return</span> <span class="n">over_X</span><span class="p">,</span> <span class="n">over_y</span>
+</span><span id="L-305"><a href="#L-305"><span class="linenos">305</span></a>
+</span><span id="L-306"><a href="#L-306"><span class="linenos">306</span></a>
+</span><span id="L-307"><a href="#L-307"><span class="linenos">307</span></a><span class="k">def</span><span class="w"> </span><span class="nf">random_undersampling</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ratio</span><span class="p">):</span>
+</span><span id="L-308"><a href="#L-308"><span class="linenos">308</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Random Undersampling</span>
+</span><span id="L-309"><a href="#L-309"><span class="linenos">309</span></a>
+</span><span id="L-310"><a href="#L-310"><span class="linenos">310</span></a><span class="sd">    Randomly removes epochs of X to undersample the MAJORITY class.</span>
+</span><span id="L-311"><a href="#L-311"><span class="linenos">311</span></a><span class="sd">    Automatically determines which class is the MAJORITYajority class.</span>
+</span><span id="L-312"><a href="#L-312"><span class="linenos">312</span></a>
+</span><span id="L-313"><a href="#L-313"><span class="linenos">313</span></a><span class="sd">    Parameters</span>
+</span><span id="L-314"><a href="#L-314"><span class="linenos">314</span></a><span class="sd">    ----------</span>
+</span><span id="L-315"><a href="#L-315"><span class="linenos">315</span></a><span class="sd">    X : numpy.ndarray [n_trials, n_channels, n_samples]</span>
+</span><span id="L-316"><a href="#L-316"><span class="linenos">316</span></a><span class="sd">        Trials of EEG data.</span>
+</span><span id="L-317"><a href="#L-317"><span class="linenos">317</span></a><span class="sd">        3D array containing data with `float` type.</span>
+</span><span id="L-318"><a href="#L-318"><span class="linenos">318</span></a><span class="sd">    y : numpy.ndarray [n_trials]</span>
+</span><span id="L-319"><a href="#L-319"><span class="linenos">319</span></a><span class="sd">        Labels corresponding to X.</span>
+</span><span id="L-320"><a href="#L-320"><span class="linenos">320</span></a><span class="sd">    ratio : float</span>
+</span><span id="L-321"><a href="#L-321"><span class="linenos">321</span></a><span class="sd">        Desired ratio of MAJORITY class samples to minority class samples.</span>
+</span><span id="L-322"><a href="#L-322"><span class="linenos">322</span></a><span class="sd">        - ratio=1 means the number of MAJORITY class samples will be equal to the number of minority class samples</span>
+</span><span id="L-323"><a href="#L-323"><span class="linenos">323</span></a><span class="sd">        - ratio=0.5 means the number of MAJORITY class samples will be half the number of minority class samples</span>
+</span><span id="L-324"><a href="#L-324"><span class="linenos">324</span></a><span class="sd">        - ratio=2 means the number of MAJORITY class samples will be twice the number of minority class samples</span>
+</span><span id="L-325"><a href="#L-325"><span class="linenos">325</span></a>
+</span><span id="L-326"><a href="#L-326"><span class="linenos">326</span></a><span class="sd">    Returns</span>
+</span><span id="L-327"><a href="#L-327"><span class="linenos">327</span></a><span class="sd">    -------</span>
+</span><span id="L-328"><a href="#L-328"><span class="linenos">328</span></a><span class="sd">    under_X : numpy.ndarray</span>
+</span><span id="L-329"><a href="#L-329"><span class="linenos">329</span></a><span class="sd">        Undersampled X.</span>
+</span><span id="L-330"><a href="#L-330"><span class="linenos">330</span></a><span class="sd">    under_y : numpy.ndarray</span>
+</span><span id="L-331"><a href="#L-331"><span class="linenos">331</span></a><span class="sd">        Undersampled y.</span>
+</span><span id="L-332"><a href="#L-332"><span class="linenos">332</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-333"><a href="#L-333"><span class="linenos">333</span></a>    <span class="c1"># Find unique classes and their counts</span>
+</span><span id="L-334"><a href="#L-334"><span class="linenos">334</span></a>    <span class="n">classes</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="L-335"><a href="#L-335"><span class="linenos">335</span></a>
+</span><span id="L-336"><a href="#L-336"><span class="linenos">336</span></a>    <span class="c1"># Determine minority and majority classes</span>
+</span><span id="L-337"><a href="#L-337"><span class="linenos">337</span></a>    <span class="n">majority_class</span> <span class="o">=</span> <span class="n">classes</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">counts</span><span class="p">)]</span>
+</span><span id="L-338"><a href="#L-338"><span class="linenos">338</span></a>    <span class="n">minority_class</span> <span class="o">=</span> <span class="n">classes</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">counts</span><span class="p">)]</span>
+</span><span id="L-339"><a href="#L-339"><span class="linenos">339</span></a>    <span class="n">n_minority</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</span><span id="L-340"><a href="#L-340"><span class="linenos">340</span></a>
+</span><span id="L-341"><a href="#L-341"><span class="linenos">341</span></a>    <span class="c1"># Calculate number of majority samples to keep</span>
+</span><span id="L-342"><a href="#L-342"><span class="linenos">342</span></a>    <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_minority</span> <span class="o">*</span> <span class="n">ratio</span><span class="p">)</span>
+</span><span id="L-343"><a href="#L-343"><span class="linenos">343</span></a>
+</span><span id="L-344"><a href="#L-344"><span class="linenos">344</span></a>    <span class="c1"># Get indices of majority class samples</span>
+</span><span id="L-345"><a href="#L-345"><span class="linenos">345</span></a>    <span class="n">majority_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="n">majority_class</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="L-346"><a href="#L-346"><span class="linenos">346</span></a>
+</span><span id="L-347"><a href="#L-347"><span class="linenos">347</span></a>    <span class="c1"># Randomly select indices to keep</span>
+</span><span id="L-348"><a href="#L-348"><span class="linenos">348</span></a>    <span class="n">keep_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">majority_indices</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="L-349"><a href="#L-349"><span class="linenos">349</span></a>
+</span><span id="L-350"><a href="#L-350"><span class="linenos">350</span></a>    <span class="c1"># Get indices of minority class samples</span>
+</span><span id="L-351"><a href="#L-351"><span class="linenos">351</span></a>    <span class="n">minority_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="n">minority_class</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="L-352"><a href="#L-352"><span class="linenos">352</span></a>
+</span><span id="L-353"><a href="#L-353"><span class="linenos">353</span></a>    <span class="c1"># Combine indices</span>
+</span><span id="L-354"><a href="#L-354"><span class="linenos">354</span></a>    <span class="n">all_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">keep_indices</span><span class="p">,</span> <span class="n">minority_indices</span><span class="p">])</span>
+</span><span id="L-355"><a href="#L-355"><span class="linenos">355</span></a>
+</span><span id="L-356"><a href="#L-356"><span class="linenos">356</span></a>    <span class="c1"># Create undersampled datasets</span>
+</span><span id="L-357"><a href="#L-357"><span class="linenos">357</span></a>    <span class="n">under_X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">all_indices</span><span class="p">]</span>
+</span><span id="L-358"><a href="#L-358"><span class="linenos">358</span></a>    <span class="n">under_y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">all_indices</span><span class="p">]</span>
+</span><span id="L-359"><a href="#L-359"><span class="linenos">359</span></a>
+</span><span id="L-360"><a href="#L-360"><span class="linenos">360</span></a>    <span class="k">return</span> <span class="n">under_X</span><span class="p">,</span> <span class="n">under_y</span>
 </span></pre></div>
 
 
@@ -841,6 +954,193 @@ sum_num : int, <em>optional</em>
     Oversampled X.
 over_y : numpy.ndarray
     Oversampled y.</p>
+</div>
+
+
+                </section>
+                <section id="random_oversampling">
+                            <input id="random_oversampling-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">random_oversampling</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">X</span>, </span><span class="param"><span class="n">y</span>, </span><span class="param"><span class="n">ratio</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="random_oversampling-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#random_oversampling"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="random_oversampling-257"><a href="#random_oversampling-257"><span class="linenos">257</span></a><span class="k">def</span><span class="w"> </span><span class="nf">random_oversampling</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ratio</span><span class="p">):</span>
+</span><span id="random_oversampling-258"><a href="#random_oversampling-258"><span class="linenos">258</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Random Oversampling</span>
+</span><span id="random_oversampling-259"><a href="#random_oversampling-259"><span class="linenos">259</span></a>
+</span><span id="random_oversampling-260"><a href="#random_oversampling-260"><span class="linenos">260</span></a><span class="sd">    Randomly samples epochs of X to oversample the MINORITY class.</span>
+</span><span id="random_oversampling-261"><a href="#random_oversampling-261"><span class="linenos">261</span></a><span class="sd">    Automatically determines which class is the MINORITY class.</span>
+</span><span id="random_oversampling-262"><a href="#random_oversampling-262"><span class="linenos">262</span></a>
+</span><span id="random_oversampling-263"><a href="#random_oversampling-263"><span class="linenos">263</span></a><span class="sd">    Parameters</span>
+</span><span id="random_oversampling-264"><a href="#random_oversampling-264"><span class="linenos">264</span></a><span class="sd">    ----------</span>
+</span><span id="random_oversampling-265"><a href="#random_oversampling-265"><span class="linenos">265</span></a><span class="sd">    X : numpy.ndarray [n_trials, n_channels, n_samples]</span>
+</span><span id="random_oversampling-266"><a href="#random_oversampling-266"><span class="linenos">266</span></a><span class="sd">        Trials of EEG data.</span>
+</span><span id="random_oversampling-267"><a href="#random_oversampling-267"><span class="linenos">267</span></a><span class="sd">        3D array containing data with `float` type.</span>
+</span><span id="random_oversampling-268"><a href="#random_oversampling-268"><span class="linenos">268</span></a><span class="sd">    y : numpy.ndarray [n_trials]</span>
+</span><span id="random_oversampling-269"><a href="#random_oversampling-269"><span class="linenos">269</span></a><span class="sd">        Labels corresponding to X.</span>
+</span><span id="random_oversampling-270"><a href="#random_oversampling-270"><span class="linenos">270</span></a><span class="sd">    ratio : float</span>
+</span><span id="random_oversampling-271"><a href="#random_oversampling-271"><span class="linenos">271</span></a><span class="sd">        Desired ratio of MINORITY class samples to majority class samples</span>
+</span><span id="random_oversampling-272"><a href="#random_oversampling-272"><span class="linenos">272</span></a><span class="sd">        - ratio=1 means the number of MINORITY class samples will be equal to the number of majority class samples</span>
+</span><span id="random_oversampling-273"><a href="#random_oversampling-273"><span class="linenos">273</span></a><span class="sd">        - ratio=0.5 means the number of MINORITY class samples will be half the number of majority class samples</span>
+</span><span id="random_oversampling-274"><a href="#random_oversampling-274"><span class="linenos">274</span></a><span class="sd">        - ratio=2 means the number of MINORITY class samples will be twice the number of majority class samples</span>
+</span><span id="random_oversampling-275"><a href="#random_oversampling-275"><span class="linenos">275</span></a>
+</span><span id="random_oversampling-276"><a href="#random_oversampling-276"><span class="linenos">276</span></a><span class="sd">    Returns</span>
+</span><span id="random_oversampling-277"><a href="#random_oversampling-277"><span class="linenos">277</span></a><span class="sd">    -------</span>
+</span><span id="random_oversampling-278"><a href="#random_oversampling-278"><span class="linenos">278</span></a><span class="sd">    over_X : numpy.ndarray</span>
+</span><span id="random_oversampling-279"><a href="#random_oversampling-279"><span class="linenos">279</span></a><span class="sd">        Oversampled X.</span>
+</span><span id="random_oversampling-280"><a href="#random_oversampling-280"><span class="linenos">280</span></a><span class="sd">    over_y : numpy.ndarray</span>
+</span><span id="random_oversampling-281"><a href="#random_oversampling-281"><span class="linenos">281</span></a><span class="sd">        Oversampled y.</span>
+</span><span id="random_oversampling-282"><a href="#random_oversampling-282"><span class="linenos">282</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="random_oversampling-283"><a href="#random_oversampling-283"><span class="linenos">283</span></a>    <span class="c1"># Find unique classes and their counts</span>
+</span><span id="random_oversampling-284"><a href="#random_oversampling-284"><span class="linenos">284</span></a>    <span class="n">classes</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="random_oversampling-285"><a href="#random_oversampling-285"><span class="linenos">285</span></a>
+</span><span id="random_oversampling-286"><a href="#random_oversampling-286"><span class="linenos">286</span></a>    <span class="c1"># Determine minority and majority classes</span>
+</span><span id="random_oversampling-287"><a href="#random_oversampling-287"><span class="linenos">287</span></a>    <span class="n">minority_class</span> <span class="o">=</span> <span class="n">classes</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">counts</span><span class="p">)]</span>
+</span><span id="random_oversampling-288"><a href="#random_oversampling-288"><span class="linenos">288</span></a>    <span class="n">n_minority</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</span><span id="random_oversampling-289"><a href="#random_oversampling-289"><span class="linenos">289</span></a>    <span class="n">n_majority</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</span><span id="random_oversampling-290"><a href="#random_oversampling-290"><span class="linenos">290</span></a>
+</span><span id="random_oversampling-291"><a href="#random_oversampling-291"><span class="linenos">291</span></a>    <span class="c1"># Get minority class samples</span>
+</span><span id="random_oversampling-292"><a href="#random_oversampling-292"><span class="linenos">292</span></a>    <span class="n">minority_X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="n">minority_class</span><span class="p">]</span>
+</span><span id="random_oversampling-293"><a href="#random_oversampling-293"><span class="linenos">293</span></a>
+</span><span id="random_oversampling-294"><a href="#random_oversampling-294"><span class="linenos">294</span></a>    <span class="c1"># Calculate number of samples needed</span>
+</span><span id="random_oversampling-295"><a href="#random_oversampling-295"><span class="linenos">295</span></a>    <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_majority</span> <span class="o">*</span> <span class="n">ratio</span><span class="p">)</span> <span class="o">-</span> <span class="n">n_minority</span>
+</span><span id="random_oversampling-296"><a href="#random_oversampling-296"><span class="linenos">296</span></a>
+</span><span id="random_oversampling-297"><a href="#random_oversampling-297"><span class="linenos">297</span></a>    <span class="c1"># Generate new samples</span>
+</span><span id="random_oversampling-298"><a href="#random_oversampling-298"><span class="linenos">298</span></a>    <span class="n">new_X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+</span><span id="random_oversampling-299"><a href="#random_oversampling-299"><span class="linenos">299</span></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_samples</span><span class="p">):</span>
+</span><span id="random_oversampling-300"><a href="#random_oversampling-300"><span class="linenos">300</span></a>        <span class="n">new_X</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">minority_X</span><span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_minority</span><span class="p">)),</span> <span class="p">:,</span> <span class="p">:]</span>
+</span><span id="random_oversampling-301"><a href="#random_oversampling-301"><span class="linenos">301</span></a>
+</span><span id="random_oversampling-302"><a href="#random_oversampling-302"><span class="linenos">302</span></a>    <span class="n">over_X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">new_X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="random_oversampling-303"><a href="#random_oversampling-303"><span class="linenos">303</span></a>    <span class="n">over_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="n">n_samples</span><span class="p">])</span> <span class="o">*</span> <span class="n">minority_class</span><span class="p">)</span>
+</span><span id="random_oversampling-304"><a href="#random_oversampling-304"><span class="linenos">304</span></a>
+</span><span id="random_oversampling-305"><a href="#random_oversampling-305"><span class="linenos">305</span></a>    <span class="k">return</span> <span class="n">over_X</span><span class="p">,</span> <span class="n">over_y</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Random Oversampling</p>
+
+<p>Randomly samples epochs of X to oversample the MINORITY class.
+Automatically determines which class is the MINORITY class.</p>
+
+<h2 id="parameters">Parameters</h2>
+
+<p>X : numpy.ndarray [n_trials, n_channels, n_samples]
+    Trials of EEG data.
+    3D array containing data with <code>float</code> type.
+y : numpy.ndarray [n_trials]
+    Labels corresponding to X.
+ratio : float
+    Desired ratio of MINORITY class samples to majority class samples
+    - ratio=1 means the number of MINORITY class samples will be equal to the number of majority class samples
+    - ratio=0.5 means the number of MINORITY class samples will be half the number of majority class samples
+    - ratio=2 means the number of MINORITY class samples will be twice the number of majority class samples</p>
+
+<h2 id="returns">Returns</h2>
+
+<p>over_X : numpy.ndarray
+    Oversampled X.
+over_y : numpy.ndarray
+    Oversampled y.</p>
+</div>
+
+
+                </section>
+                <section id="random_undersampling">
+                            <input id="random_undersampling-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">random_undersampling</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">X</span>, </span><span class="param"><span class="n">y</span>, </span><span class="param"><span class="n">ratio</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="random_undersampling-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#random_undersampling"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="random_undersampling-308"><a href="#random_undersampling-308"><span class="linenos">308</span></a><span class="k">def</span><span class="w"> </span><span class="nf">random_undersampling</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ratio</span><span class="p">):</span>
+</span><span id="random_undersampling-309"><a href="#random_undersampling-309"><span class="linenos">309</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Random Undersampling</span>
+</span><span id="random_undersampling-310"><a href="#random_undersampling-310"><span class="linenos">310</span></a>
+</span><span id="random_undersampling-311"><a href="#random_undersampling-311"><span class="linenos">311</span></a><span class="sd">    Randomly removes epochs of X to undersample the MAJORITY class.</span>
+</span><span id="random_undersampling-312"><a href="#random_undersampling-312"><span class="linenos">312</span></a><span class="sd">    Automatically determines which class is the MAJORITYajority class.</span>
+</span><span id="random_undersampling-313"><a href="#random_undersampling-313"><span class="linenos">313</span></a>
+</span><span id="random_undersampling-314"><a href="#random_undersampling-314"><span class="linenos">314</span></a><span class="sd">    Parameters</span>
+</span><span id="random_undersampling-315"><a href="#random_undersampling-315"><span class="linenos">315</span></a><span class="sd">    ----------</span>
+</span><span id="random_undersampling-316"><a href="#random_undersampling-316"><span class="linenos">316</span></a><span class="sd">    X : numpy.ndarray [n_trials, n_channels, n_samples]</span>
+</span><span id="random_undersampling-317"><a href="#random_undersampling-317"><span class="linenos">317</span></a><span class="sd">        Trials of EEG data.</span>
+</span><span id="random_undersampling-318"><a href="#random_undersampling-318"><span class="linenos">318</span></a><span class="sd">        3D array containing data with `float` type.</span>
+</span><span id="random_undersampling-319"><a href="#random_undersampling-319"><span class="linenos">319</span></a><span class="sd">    y : numpy.ndarray [n_trials]</span>
+</span><span id="random_undersampling-320"><a href="#random_undersampling-320"><span class="linenos">320</span></a><span class="sd">        Labels corresponding to X.</span>
+</span><span id="random_undersampling-321"><a href="#random_undersampling-321"><span class="linenos">321</span></a><span class="sd">    ratio : float</span>
+</span><span id="random_undersampling-322"><a href="#random_undersampling-322"><span class="linenos">322</span></a><span class="sd">        Desired ratio of MAJORITY class samples to minority class samples.</span>
+</span><span id="random_undersampling-323"><a href="#random_undersampling-323"><span class="linenos">323</span></a><span class="sd">        - ratio=1 means the number of MAJORITY class samples will be equal to the number of minority class samples</span>
+</span><span id="random_undersampling-324"><a href="#random_undersampling-324"><span class="linenos">324</span></a><span class="sd">        - ratio=0.5 means the number of MAJORITY class samples will be half the number of minority class samples</span>
+</span><span id="random_undersampling-325"><a href="#random_undersampling-325"><span class="linenos">325</span></a><span class="sd">        - ratio=2 means the number of MAJORITY class samples will be twice the number of minority class samples</span>
+</span><span id="random_undersampling-326"><a href="#random_undersampling-326"><span class="linenos">326</span></a>
+</span><span id="random_undersampling-327"><a href="#random_undersampling-327"><span class="linenos">327</span></a><span class="sd">    Returns</span>
+</span><span id="random_undersampling-328"><a href="#random_undersampling-328"><span class="linenos">328</span></a><span class="sd">    -------</span>
+</span><span id="random_undersampling-329"><a href="#random_undersampling-329"><span class="linenos">329</span></a><span class="sd">    under_X : numpy.ndarray</span>
+</span><span id="random_undersampling-330"><a href="#random_undersampling-330"><span class="linenos">330</span></a><span class="sd">        Undersampled X.</span>
+</span><span id="random_undersampling-331"><a href="#random_undersampling-331"><span class="linenos">331</span></a><span class="sd">    under_y : numpy.ndarray</span>
+</span><span id="random_undersampling-332"><a href="#random_undersampling-332"><span class="linenos">332</span></a><span class="sd">        Undersampled y.</span>
+</span><span id="random_undersampling-333"><a href="#random_undersampling-333"><span class="linenos">333</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="random_undersampling-334"><a href="#random_undersampling-334"><span class="linenos">334</span></a>    <span class="c1"># Find unique classes and their counts</span>
+</span><span id="random_undersampling-335"><a href="#random_undersampling-335"><span class="linenos">335</span></a>    <span class="n">classes</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="random_undersampling-336"><a href="#random_undersampling-336"><span class="linenos">336</span></a>
+</span><span id="random_undersampling-337"><a href="#random_undersampling-337"><span class="linenos">337</span></a>    <span class="c1"># Determine minority and majority classes</span>
+</span><span id="random_undersampling-338"><a href="#random_undersampling-338"><span class="linenos">338</span></a>    <span class="n">majority_class</span> <span class="o">=</span> <span class="n">classes</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">counts</span><span class="p">)]</span>
+</span><span id="random_undersampling-339"><a href="#random_undersampling-339"><span class="linenos">339</span></a>    <span class="n">minority_class</span> <span class="o">=</span> <span class="n">classes</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">counts</span><span class="p">)]</span>
+</span><span id="random_undersampling-340"><a href="#random_undersampling-340"><span class="linenos">340</span></a>    <span class="n">n_minority</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</span><span id="random_undersampling-341"><a href="#random_undersampling-341"><span class="linenos">341</span></a>
+</span><span id="random_undersampling-342"><a href="#random_undersampling-342"><span class="linenos">342</span></a>    <span class="c1"># Calculate number of majority samples to keep</span>
+</span><span id="random_undersampling-343"><a href="#random_undersampling-343"><span class="linenos">343</span></a>    <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_minority</span> <span class="o">*</span> <span class="n">ratio</span><span class="p">)</span>
+</span><span id="random_undersampling-344"><a href="#random_undersampling-344"><span class="linenos">344</span></a>
+</span><span id="random_undersampling-345"><a href="#random_undersampling-345"><span class="linenos">345</span></a>    <span class="c1"># Get indices of majority class samples</span>
+</span><span id="random_undersampling-346"><a href="#random_undersampling-346"><span class="linenos">346</span></a>    <span class="n">majority_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="n">majority_class</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="random_undersampling-347"><a href="#random_undersampling-347"><span class="linenos">347</span></a>
+</span><span id="random_undersampling-348"><a href="#random_undersampling-348"><span class="linenos">348</span></a>    <span class="c1"># Randomly select indices to keep</span>
+</span><span id="random_undersampling-349"><a href="#random_undersampling-349"><span class="linenos">349</span></a>    <span class="n">keep_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">majority_indices</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="random_undersampling-350"><a href="#random_undersampling-350"><span class="linenos">350</span></a>
+</span><span id="random_undersampling-351"><a href="#random_undersampling-351"><span class="linenos">351</span></a>    <span class="c1"># Get indices of minority class samples</span>
+</span><span id="random_undersampling-352"><a href="#random_undersampling-352"><span class="linenos">352</span></a>    <span class="n">minority_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="n">minority_class</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="random_undersampling-353"><a href="#random_undersampling-353"><span class="linenos">353</span></a>
+</span><span id="random_undersampling-354"><a href="#random_undersampling-354"><span class="linenos">354</span></a>    <span class="c1"># Combine indices</span>
+</span><span id="random_undersampling-355"><a href="#random_undersampling-355"><span class="linenos">355</span></a>    <span class="n">all_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">keep_indices</span><span class="p">,</span> <span class="n">minority_indices</span><span class="p">])</span>
+</span><span id="random_undersampling-356"><a href="#random_undersampling-356"><span class="linenos">356</span></a>
+</span><span id="random_undersampling-357"><a href="#random_undersampling-357"><span class="linenos">357</span></a>    <span class="c1"># Create undersampled datasets</span>
+</span><span id="random_undersampling-358"><a href="#random_undersampling-358"><span class="linenos">358</span></a>    <span class="n">under_X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">all_indices</span><span class="p">]</span>
+</span><span id="random_undersampling-359"><a href="#random_undersampling-359"><span class="linenos">359</span></a>    <span class="n">under_y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">all_indices</span><span class="p">]</span>
+</span><span id="random_undersampling-360"><a href="#random_undersampling-360"><span class="linenos">360</span></a>
+</span><span id="random_undersampling-361"><a href="#random_undersampling-361"><span class="linenos">361</span></a>    <span class="k">return</span> <span class="n">under_X</span><span class="p">,</span> <span class="n">under_y</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Random Undersampling</p>
+
+<p>Randomly removes epochs of X to undersample the MAJORITY class.
+Automatically determines which class is the MAJORITYajority class.</p>
+
+<h2 id="parameters">Parameters</h2>
+
+<p>X : numpy.ndarray [n_trials, n_channels, n_samples]
+    Trials of EEG data.
+    3D array containing data with <code>float</code> type.
+y : numpy.ndarray [n_trials]
+    Labels corresponding to X.
+ratio : float
+    Desired ratio of MAJORITY class samples to minority class samples.
+    - ratio=1 means the number of MAJORITY class samples will be equal to the number of minority class samples
+    - ratio=0.5 means the number of MAJORITY class samples will be half the number of minority class samples
+    - ratio=2 means the number of MAJORITY class samples will be twice the number of minority class samples</p>
+
+<h2 id="returns">Returns</h2>
+
+<p>under_X : numpy.ndarray
+    Undersampled X.
+under_y : numpy.ndarray
+    Undersampled y.</p>
 </div>
 
 
