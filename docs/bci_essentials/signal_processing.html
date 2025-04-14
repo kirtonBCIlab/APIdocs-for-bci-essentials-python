@@ -174,9 +174,9 @@
 </span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a>
 </span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a><span class="sd">        shape = (n_trials, n_channels, n_samples) or (n_channels, n_samples)</span>
 </span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="sd">    f_low : float</span>
-</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a><span class="sd">        Lower corner frequency.</span>
+</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a><span class="sd">        Lower cut-off frequency.</span>
 </span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a><span class="sd">    f_high : float</span>
-</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a><span class="sd">        Upper corner frequency.</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a><span class="sd">        Upper cut-off frequency.</span>
 </span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a><span class="sd">    order : int</span>
 </span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a><span class="sd">        Order of the filter.</span>
 </span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a><span class="sd">    fsample : float</span>
@@ -200,7 +200,7 @@
 </span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a>
 </span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a>
 </span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a><span class="nd">@validate_filter_input</span>
-</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a><span class="k">def</span><span class="w"> </span><span class="nf">lowpass</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f_critical</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">fsample</span><span class="p">):</span>
+</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a><span class="k">def</span><span class="w"> </span><span class="nf">lowpass</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f_cutoff</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">fsample</span><span class="p">):</span>
 </span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Lowpass Filter.</span>
 </span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a>
 </span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a><span class="sd">    Filters out frequencies above f_critical with a Butterworth filter of specific order.</span>
@@ -214,8 +214,8 @@
 </span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a><span class="sd">        3D (or 2D) array containing data with `float` type.</span>
 </span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a>
 </span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a><span class="sd">        shape = (n_trials, n_channels, n_samples) or (n_channels, n_samples)</span>
-</span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a><span class="sd">    f_critical : float</span>
-</span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a><span class="sd">        Critical (cutoff) frequency.</span>
+</span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a><span class="sd">    f_cutoff : float</span>
+</span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a><span class="sd">        Cut-off frequency.</span>
 </span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a><span class="sd">    order : int</span>
 </span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a><span class="sd">        Order of the filter.</span>
 </span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a><span class="sd">    fsample : float</span>
@@ -230,7 +230,7 @@
 </span><span id="L-124"><a href="#L-124"><span class="linenos">124</span></a><span class="sd">        shape = (n_trials, n_channels, n_samples) or (n_channels, n_samples)</span>
 </span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a>
 </span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a>    <span class="n">Wn</span> <span class="o">=</span> <span class="n">f_critical</span> <span class="o">/</span> <span class="p">(</span><span class="n">fsample</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+</span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a>    <span class="n">Wn</span> <span class="o">=</span> <span class="n">f_cutoff</span> <span class="o">/</span> <span class="p">(</span><span class="n">fsample</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
 </span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a>    <span class="n">sos</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">Wn</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s2">&quot;lowpass&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;sos&quot;</span><span class="p">)</span>
 </span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a>
 </span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a>    <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">sosfiltfilt</span><span class="p">(</span><span class="n">sos</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">padlen</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -239,7 +239,7 @@
 </span><span id="L-133"><a href="#L-133"><span class="linenos">133</span></a>
 </span><span id="L-134"><a href="#L-134"><span class="linenos">134</span></a>
 </span><span id="L-135"><a href="#L-135"><span class="linenos">135</span></a><span class="nd">@validate_filter_input</span>
-</span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a><span class="k">def</span><span class="w"> </span><span class="nf">highpass</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f_critical</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">fsample</span><span class="p">):</span>
+</span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a><span class="k">def</span><span class="w"> </span><span class="nf">highpass</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f_cutoff</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">fsample</span><span class="p">):</span>
 </span><span id="L-137"><a href="#L-137"><span class="linenos">137</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Highpass Filter.</span>
 </span><span id="L-138"><a href="#L-138"><span class="linenos">138</span></a>
 </span><span id="L-139"><a href="#L-139"><span class="linenos">139</span></a><span class="sd">    Filters out frequencies below f_critical with a Butterworth filter of specific order.</span>
@@ -253,8 +253,8 @@
 </span><span id="L-147"><a href="#L-147"><span class="linenos">147</span></a><span class="sd">        3D (or 2D) array containing data with `float` type.</span>
 </span><span id="L-148"><a href="#L-148"><span class="linenos">148</span></a>
 </span><span id="L-149"><a href="#L-149"><span class="linenos">149</span></a><span class="sd">        shape = (n_trials, n_channels, n_samples) or (n_channels, n_samples)</span>
-</span><span id="L-150"><a href="#L-150"><span class="linenos">150</span></a><span class="sd">    f_critical : float</span>
-</span><span id="L-151"><a href="#L-151"><span class="linenos">151</span></a><span class="sd">        Critical (cutoff) frequency.</span>
+</span><span id="L-150"><a href="#L-150"><span class="linenos">150</span></a><span class="sd">    f_cutoff : float</span>
+</span><span id="L-151"><a href="#L-151"><span class="linenos">151</span></a><span class="sd">        Cut-off frequency.</span>
 </span><span id="L-152"><a href="#L-152"><span class="linenos">152</span></a><span class="sd">    order : int</span>
 </span><span id="L-153"><a href="#L-153"><span class="linenos">153</span></a><span class="sd">        Order of the filter.</span>
 </span><span id="L-154"><a href="#L-154"><span class="linenos">154</span></a><span class="sd">    fsample : float</span>
@@ -268,7 +268,7 @@
 </span><span id="L-162"><a href="#L-162"><span class="linenos">162</span></a>
 </span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a><span class="sd">        shape = (n_trials, n_channels, n_samples) or (n_channels, n_samples)</span>
 </span><span id="L-164"><a href="#L-164"><span class="linenos">164</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-165"><a href="#L-165"><span class="linenos">165</span></a>    <span class="n">Wn</span> <span class="o">=</span> <span class="n">f_critical</span> <span class="o">/</span> <span class="p">(</span><span class="n">fsample</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+</span><span id="L-165"><a href="#L-165"><span class="linenos">165</span></a>    <span class="n">Wn</span> <span class="o">=</span> <span class="n">f_cutoff</span> <span class="o">/</span> <span class="p">(</span><span class="n">fsample</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
 </span><span id="L-166"><a href="#L-166"><span class="linenos">166</span></a>    <span class="n">sos</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">Wn</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s2">&quot;highpass&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;sos&quot;</span><span class="p">)</span>
 </span><span id="L-167"><a href="#L-167"><span class="linenos">167</span></a>
 </span><span id="L-168"><a href="#L-168"><span class="linenos">168</span></a>    <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">sosfiltfilt</span><span class="p">(</span><span class="n">sos</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">padlen</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -683,9 +683,9 @@
 </span><span id="bandpass-69"><a href="#bandpass-69"><span class="linenos">69</span></a>
 </span><span id="bandpass-70"><a href="#bandpass-70"><span class="linenos">70</span></a><span class="sd">        shape = (n_trials, n_channels, n_samples) or (n_channels, n_samples)</span>
 </span><span id="bandpass-71"><a href="#bandpass-71"><span class="linenos">71</span></a><span class="sd">    f_low : float</span>
-</span><span id="bandpass-72"><a href="#bandpass-72"><span class="linenos">72</span></a><span class="sd">        Lower corner frequency.</span>
+</span><span id="bandpass-72"><a href="#bandpass-72"><span class="linenos">72</span></a><span class="sd">        Lower cut-off frequency.</span>
 </span><span id="bandpass-73"><a href="#bandpass-73"><span class="linenos">73</span></a><span class="sd">    f_high : float</span>
-</span><span id="bandpass-74"><a href="#bandpass-74"><span class="linenos">74</span></a><span class="sd">        Upper corner frequency.</span>
+</span><span id="bandpass-74"><a href="#bandpass-74"><span class="linenos">74</span></a><span class="sd">        Upper cut-off frequency.</span>
 </span><span id="bandpass-75"><a href="#bandpass-75"><span class="linenos">75</span></a><span class="sd">    order : int</span>
 </span><span id="bandpass-76"><a href="#bandpass-76"><span class="linenos">76</span></a><span class="sd">        Order of the filter.</span>
 </span><span id="bandpass-77"><a href="#bandpass-77"><span class="linenos">77</span></a><span class="sd">    fsample : float</span>
@@ -725,9 +725,9 @@ Trials of EEG data.
 
 <p>shape = (n_trials, n_channels, n_samples) or (n_channels, n_samples)</p></li>
 <li><strong>f_low</strong> (float):
-Lower corner frequency.</li>
+Lower cut-off frequency.</li>
 <li><strong>f_high</strong> (float):
-Upper corner frequency.</li>
+Upper cut-off frequency.</li>
 <li><strong>order</strong> (int):
 Order of the filter.</li>
 <li><strong>fsample</strong> (float):
@@ -753,14 +753,14 @@ Trials of filtered EEG data.
                     <div class="decorator decorator-validate_filter_input">@validate_filter_input</div>
 
         <span class="def">def</span>
-        <span class="name">lowpass</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">data</span>, </span><span class="param"><span class="n">f_critical</span>, </span><span class="param"><span class="n">order</span>, </span><span class="param"><span class="n">fsample</span></span><span class="return-annotation">):</span></span>
+        <span class="name">lowpass</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">data</span>, </span><span class="param"><span class="n">f_cutoff</span>, </span><span class="param"><span class="n">order</span>, </span><span class="param"><span class="n">fsample</span></span><span class="return-annotation">):</span></span>
 
                 <label class="view-source-button" for="lowpass-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#lowpass"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="lowpass-97"><a href="#lowpass-97"><span class="linenos"> 97</span></a><span class="nd">@validate_filter_input</span>
-</span><span id="lowpass-98"><a href="#lowpass-98"><span class="linenos"> 98</span></a><span class="k">def</span><span class="w"> </span><span class="nf">lowpass</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f_critical</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">fsample</span><span class="p">):</span>
+</span><span id="lowpass-98"><a href="#lowpass-98"><span class="linenos"> 98</span></a><span class="k">def</span><span class="w"> </span><span class="nf">lowpass</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f_cutoff</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">fsample</span><span class="p">):</span>
 </span><span id="lowpass-99"><a href="#lowpass-99"><span class="linenos"> 99</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Lowpass Filter.</span>
 </span><span id="lowpass-100"><a href="#lowpass-100"><span class="linenos">100</span></a>
 </span><span id="lowpass-101"><a href="#lowpass-101"><span class="linenos">101</span></a><span class="sd">    Filters out frequencies above f_critical with a Butterworth filter of specific order.</span>
@@ -774,8 +774,8 @@ Trials of filtered EEG data.
 </span><span id="lowpass-109"><a href="#lowpass-109"><span class="linenos">109</span></a><span class="sd">        3D (or 2D) array containing data with `float` type.</span>
 </span><span id="lowpass-110"><a href="#lowpass-110"><span class="linenos">110</span></a>
 </span><span id="lowpass-111"><a href="#lowpass-111"><span class="linenos">111</span></a><span class="sd">        shape = (n_trials, n_channels, n_samples) or (n_channels, n_samples)</span>
-</span><span id="lowpass-112"><a href="#lowpass-112"><span class="linenos">112</span></a><span class="sd">    f_critical : float</span>
-</span><span id="lowpass-113"><a href="#lowpass-113"><span class="linenos">113</span></a><span class="sd">        Critical (cutoff) frequency.</span>
+</span><span id="lowpass-112"><a href="#lowpass-112"><span class="linenos">112</span></a><span class="sd">    f_cutoff : float</span>
+</span><span id="lowpass-113"><a href="#lowpass-113"><span class="linenos">113</span></a><span class="sd">        Cut-off frequency.</span>
 </span><span id="lowpass-114"><a href="#lowpass-114"><span class="linenos">114</span></a><span class="sd">    order : int</span>
 </span><span id="lowpass-115"><a href="#lowpass-115"><span class="linenos">115</span></a><span class="sd">        Order of the filter.</span>
 </span><span id="lowpass-116"><a href="#lowpass-116"><span class="linenos">116</span></a><span class="sd">    fsample : float</span>
@@ -790,7 +790,7 @@ Trials of filtered EEG data.
 </span><span id="lowpass-125"><a href="#lowpass-125"><span class="linenos">125</span></a><span class="sd">        shape = (n_trials, n_channels, n_samples) or (n_channels, n_samples)</span>
 </span><span id="lowpass-126"><a href="#lowpass-126"><span class="linenos">126</span></a>
 </span><span id="lowpass-127"><a href="#lowpass-127"><span class="linenos">127</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="lowpass-128"><a href="#lowpass-128"><span class="linenos">128</span></a>    <span class="n">Wn</span> <span class="o">=</span> <span class="n">f_critical</span> <span class="o">/</span> <span class="p">(</span><span class="n">fsample</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+</span><span id="lowpass-128"><a href="#lowpass-128"><span class="linenos">128</span></a>    <span class="n">Wn</span> <span class="o">=</span> <span class="n">f_cutoff</span> <span class="o">/</span> <span class="p">(</span><span class="n">fsample</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
 </span><span id="lowpass-129"><a href="#lowpass-129"><span class="linenos">129</span></a>    <span class="n">sos</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">Wn</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s2">&quot;lowpass&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;sos&quot;</span><span class="p">)</span>
 </span><span id="lowpass-130"><a href="#lowpass-130"><span class="linenos">130</span></a>
 </span><span id="lowpass-131"><a href="#lowpass-131"><span class="linenos">131</span></a>    <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">sosfiltfilt</span><span class="p">(</span><span class="n">sos</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">padlen</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -813,8 +813,8 @@ Trials of EEG data.
 3D (or 2D) array containing data with <code>float</code> type.</p>
 
 <p>shape = (n_trials, n_channels, n_samples) or (n_channels, n_samples)</p></li>
-<li><strong>f_critical</strong> (float):
-Critical (cutoff) frequency.</li>
+<li><strong>f_cutoff</strong> (float):
+Cut-off frequency.</li>
 <li><strong>order</strong> (int):
 Order of the filter.</li>
 <li><strong>fsample</strong> (float):
@@ -840,14 +840,14 @@ Trials of filtered EEG data.
                     <div class="decorator decorator-validate_filter_input">@validate_filter_input</div>
 
         <span class="def">def</span>
-        <span class="name">highpass</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">data</span>, </span><span class="param"><span class="n">f_critical</span>, </span><span class="param"><span class="n">order</span>, </span><span class="param"><span class="n">fsample</span></span><span class="return-annotation">):</span></span>
+        <span class="name">highpass</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">data</span>, </span><span class="param"><span class="n">f_cutoff</span>, </span><span class="param"><span class="n">order</span>, </span><span class="param"><span class="n">fsample</span></span><span class="return-annotation">):</span></span>
 
                 <label class="view-source-button" for="highpass-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#highpass"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="highpass-136"><a href="#highpass-136"><span class="linenos">136</span></a><span class="nd">@validate_filter_input</span>
-</span><span id="highpass-137"><a href="#highpass-137"><span class="linenos">137</span></a><span class="k">def</span><span class="w"> </span><span class="nf">highpass</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f_critical</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">fsample</span><span class="p">):</span>
+</span><span id="highpass-137"><a href="#highpass-137"><span class="linenos">137</span></a><span class="k">def</span><span class="w"> </span><span class="nf">highpass</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f_cutoff</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">fsample</span><span class="p">):</span>
 </span><span id="highpass-138"><a href="#highpass-138"><span class="linenos">138</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Highpass Filter.</span>
 </span><span id="highpass-139"><a href="#highpass-139"><span class="linenos">139</span></a>
 </span><span id="highpass-140"><a href="#highpass-140"><span class="linenos">140</span></a><span class="sd">    Filters out frequencies below f_critical with a Butterworth filter of specific order.</span>
@@ -861,8 +861,8 @@ Trials of filtered EEG data.
 </span><span id="highpass-148"><a href="#highpass-148"><span class="linenos">148</span></a><span class="sd">        3D (or 2D) array containing data with `float` type.</span>
 </span><span id="highpass-149"><a href="#highpass-149"><span class="linenos">149</span></a>
 </span><span id="highpass-150"><a href="#highpass-150"><span class="linenos">150</span></a><span class="sd">        shape = (n_trials, n_channels, n_samples) or (n_channels, n_samples)</span>
-</span><span id="highpass-151"><a href="#highpass-151"><span class="linenos">151</span></a><span class="sd">    f_critical : float</span>
-</span><span id="highpass-152"><a href="#highpass-152"><span class="linenos">152</span></a><span class="sd">        Critical (cutoff) frequency.</span>
+</span><span id="highpass-151"><a href="#highpass-151"><span class="linenos">151</span></a><span class="sd">    f_cutoff : float</span>
+</span><span id="highpass-152"><a href="#highpass-152"><span class="linenos">152</span></a><span class="sd">        Cut-off frequency.</span>
 </span><span id="highpass-153"><a href="#highpass-153"><span class="linenos">153</span></a><span class="sd">    order : int</span>
 </span><span id="highpass-154"><a href="#highpass-154"><span class="linenos">154</span></a><span class="sd">        Order of the filter.</span>
 </span><span id="highpass-155"><a href="#highpass-155"><span class="linenos">155</span></a><span class="sd">    fsample : float</span>
@@ -876,7 +876,7 @@ Trials of filtered EEG data.
 </span><span id="highpass-163"><a href="#highpass-163"><span class="linenos">163</span></a>
 </span><span id="highpass-164"><a href="#highpass-164"><span class="linenos">164</span></a><span class="sd">        shape = (n_trials, n_channels, n_samples) or (n_channels, n_samples)</span>
 </span><span id="highpass-165"><a href="#highpass-165"><span class="linenos">165</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="highpass-166"><a href="#highpass-166"><span class="linenos">166</span></a>    <span class="n">Wn</span> <span class="o">=</span> <span class="n">f_critical</span> <span class="o">/</span> <span class="p">(</span><span class="n">fsample</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+</span><span id="highpass-166"><a href="#highpass-166"><span class="linenos">166</span></a>    <span class="n">Wn</span> <span class="o">=</span> <span class="n">f_cutoff</span> <span class="o">/</span> <span class="p">(</span><span class="n">fsample</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
 </span><span id="highpass-167"><a href="#highpass-167"><span class="linenos">167</span></a>    <span class="n">sos</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">Wn</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s2">&quot;highpass&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;sos&quot;</span><span class="p">)</span>
 </span><span id="highpass-168"><a href="#highpass-168"><span class="linenos">168</span></a>
 </span><span id="highpass-169"><a href="#highpass-169"><span class="linenos">169</span></a>    <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">sosfiltfilt</span><span class="p">(</span><span class="n">sos</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">padlen</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -899,8 +899,8 @@ Trials of EEG data.
 3D (or 2D) array containing data with <code>float</code> type.</p>
 
 <p>shape = (n_trials, n_channels, n_samples) or (n_channels, n_samples)</p></li>
-<li><strong>f_critical</strong> (float):
-Critical (cutoff) frequency.</li>
+<li><strong>f_cutoff</strong> (float):
+Cut-off frequency.</li>
 <li><strong>order</strong> (int):
 Order of the filter.</li>
 <li><strong>fsample</strong> (float):
