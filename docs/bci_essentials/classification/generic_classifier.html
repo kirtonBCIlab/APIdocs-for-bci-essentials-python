@@ -59,7 +59,7 @@
                                 <a class="variable" href="#KernelResults.model">model</a>
                         </li>
                         <li>
-                                <a class="variable" href="#KernelResults.preds">preds</a>
+                                <a class="variable" href="#KernelResults.cv_preds">cv_preds</a>
                         </li>
                         <li>
                                 <a class="variable" href="#KernelResults.accuracy">accuracy</a>
@@ -168,8 +168,8 @@
 </span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a><span class="sd">    model : classifier</span>
 </span><span id="L-45"><a href="#L-45"><span class="linenos"> 45</span></a><span class="sd">        The trained classification model.</span>
 </span><span id="L-46"><a href="#L-46"><span class="linenos"> 46</span></a>
-</span><span id="L-47"><a href="#L-47"><span class="linenos"> 47</span></a><span class="sd">    preds : numpy.ndarray</span>
-</span><span id="L-48"><a href="#L-48"><span class="linenos"> 48</span></a><span class="sd">        The predictions from the model.</span>
+</span><span id="L-47"><a href="#L-47"><span class="linenos"> 47</span></a><span class="sd">    cv_preds : numpy.ndarray</span>
+</span><span id="L-48"><a href="#L-48"><span class="linenos"> 48</span></a><span class="sd">        The predictions from the model using cross-validation.</span>
 </span><span id="L-49"><a href="#L-49"><span class="linenos"> 49</span></a>
 </span><span id="L-50"><a href="#L-50"><span class="linenos"> 50</span></a><span class="sd">    accuracy : float</span>
 </span><span id="L-51"><a href="#L-51"><span class="linenos"> 51</span></a><span class="sd">        The accuracy of the trained classification model.</span>
@@ -182,7 +182,7 @@
 </span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a>
 </span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a>    <span class="n">model</span><span class="p">:</span> <span class="n">Pipeline</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-</span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a>    <span class="n">preds</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+</span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a>    <span class="n">cv_preds</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
 </span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a>    <span class="n">accuracy</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
 </span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a>    <span class="n">precision</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
 </span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a>    <span class="n">recall</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
@@ -667,8 +667,8 @@
 </span><span id="KernelResults-45"><a href="#KernelResults-45"><span class="linenos">45</span></a><span class="sd">    model : classifier</span>
 </span><span id="KernelResults-46"><a href="#KernelResults-46"><span class="linenos">46</span></a><span class="sd">        The trained classification model.</span>
 </span><span id="KernelResults-47"><a href="#KernelResults-47"><span class="linenos">47</span></a>
-</span><span id="KernelResults-48"><a href="#KernelResults-48"><span class="linenos">48</span></a><span class="sd">    preds : numpy.ndarray</span>
-</span><span id="KernelResults-49"><a href="#KernelResults-49"><span class="linenos">49</span></a><span class="sd">        The predictions from the model.</span>
+</span><span id="KernelResults-48"><a href="#KernelResults-48"><span class="linenos">48</span></a><span class="sd">    cv_preds : numpy.ndarray</span>
+</span><span id="KernelResults-49"><a href="#KernelResults-49"><span class="linenos">49</span></a><span class="sd">        The predictions from the model using cross-validation.</span>
 </span><span id="KernelResults-50"><a href="#KernelResults-50"><span class="linenos">50</span></a>
 </span><span id="KernelResults-51"><a href="#KernelResults-51"><span class="linenos">51</span></a><span class="sd">    accuracy : float</span>
 </span><span id="KernelResults-52"><a href="#KernelResults-52"><span class="linenos">52</span></a><span class="sd">        The accuracy of the trained classification model.</span>
@@ -681,7 +681,7 @@
 </span><span id="KernelResults-59"><a href="#KernelResults-59"><span class="linenos">59</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="KernelResults-60"><a href="#KernelResults-60"><span class="linenos">60</span></a>
 </span><span id="KernelResults-61"><a href="#KernelResults-61"><span class="linenos">61</span></a>    <span class="n">model</span><span class="p">:</span> <span class="n">Pipeline</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-</span><span id="KernelResults-62"><a href="#KernelResults-62"><span class="linenos">62</span></a>    <span class="n">preds</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+</span><span id="KernelResults-62"><a href="#KernelResults-62"><span class="linenos">62</span></a>    <span class="n">cv_preds</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
 </span><span id="KernelResults-63"><a href="#KernelResults-63"><span class="linenos">63</span></a>    <span class="n">accuracy</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
 </span><span id="KernelResults-64"><a href="#KernelResults-64"><span class="linenos">64</span></a>    <span class="n">precision</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
 </span><span id="KernelResults-65"><a href="#KernelResults-65"><span class="linenos">65</span></a>    <span class="n">recall</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
@@ -693,8 +693,8 @@
 <p>model : classifier
     The trained classification model.</p>
 
-<p>preds : numpy.ndarray
-    The predictions from the model.</p>
+<p>cv_preds : numpy.ndarray
+    The predictions from the model using cross-validation.</p>
 
 <p>accuracy : float
     The accuracy of the trained classification model.</p>
@@ -710,7 +710,7 @@
                             <div id="KernelResults.__init__" class="classattr">
                                 <div class="attr function">
             
-        <span class="name">KernelResults</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">model</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">Pipeline</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">preds</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">factory</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">accuracy</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>,</span><span class="param">	<span class="n">precision</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>,</span><span class="param">	<span class="n">recall</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span></span>)</span>
+        <span class="name">KernelResults</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">model</span><span class="p">:</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">Pipeline</span> <span class="o">=</span> <span class="kc">None</span>,</span><span class="param">	<span class="n">cv_preds</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">factory</span><span class="o">&gt;</span>,</span><span class="param">	<span class="n">accuracy</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>,</span><span class="param">	<span class="n">precision</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>,</span><span class="param">	<span class="n">recall</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span></span>)</span>
 
         
     </div>
@@ -731,13 +731,13 @@
     
 
                             </div>
-                            <div id="KernelResults.preds" class="classattr">
+                            <div id="KernelResults.cv_preds" class="classattr">
                                 <div class="attr variable">
-            <span class="name">preds</span><span class="annotation">: numpy.ndarray</span>
+            <span class="name">cv_preds</span><span class="annotation">: numpy.ndarray</span>
 
         
     </div>
-    <a class="headerlink" href="#KernelResults.preds"></a>
+    <a class="headerlink" href="#KernelResults.cv_preds"></a>
     
     
 
