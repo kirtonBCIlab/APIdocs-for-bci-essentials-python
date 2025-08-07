@@ -248,14 +248,23 @@
 </span><span id="L-143"><a href="#L-143"><span class="linenos">143</span></a>        <span class="nb">type</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 </span><span id="L-144"><a href="#L-144"><span class="linenos">144</span></a>        <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="n">streamtype</span><span class="p">:</span>
 </span><span id="L-145"><a href="#L-145"><span class="linenos">145</span></a>            <span class="k">try</span><span class="p">:</span>
-</span><span id="L-146"><a href="#L-146"><span class="linenos">146</span></a>                <span class="n">samples</span> <span class="o">=</span> <span class="n">stream</span><span class="p">[</span><span class="s2">&quot;time_series&quot;</span><span class="p">]</span>
-</span><span id="L-147"><a href="#L-147"><span class="linenos">147</span></a>                <span class="n">timestamps</span> <span class="o">=</span> <span class="n">stream</span><span class="p">[</span><span class="s2">&quot;time_stamps&quot;</span><span class="p">]</span>
-</span><span id="L-148"><a href="#L-148"><span class="linenos">148</span></a>
-</span><span id="L-149"><a href="#L-149"><span class="linenos">149</span></a>            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-</span><span id="L-150"><a href="#L-150"><span class="linenos">150</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> data not available&quot;</span><span class="p">,</span> <span class="n">streamtype</span><span class="p">)</span>
-</span><span id="L-151"><a href="#L-151"><span class="linenos">151</span></a>            <span class="k">break</span>
-</span><span id="L-152"><a href="#L-152"><span class="linenos">152</span></a>
-</span><span id="L-153"><a href="#L-153"><span class="linenos">153</span></a>    <span class="k">return</span> <span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
+</span><span id="L-146"><a href="#L-146"><span class="linenos">146</span></a>                <span class="c1"># Check if the stream is empty</span>
+</span><span id="L-147"><a href="#L-147"><span class="linenos">147</span></a>                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stream</span><span class="p">[</span><span class="s2">&quot;time_series&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="L-148"><a href="#L-148"><span class="linenos">148</span></a>                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+</span><span id="L-149"><a href="#L-149"><span class="linenos">149</span></a>                        <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> stream is empty, there may be multiple streams including ghost streams so maybe this is okay&quot;</span><span class="p">,</span>
+</span><span id="L-150"><a href="#L-150"><span class="linenos">150</span></a>                        <span class="n">streamtype</span><span class="p">,</span>
+</span><span id="L-151"><a href="#L-151"><span class="linenos">151</span></a>                    <span class="p">)</span>
+</span><span id="L-152"><a href="#L-152"><span class="linenos">152</span></a>                    <span class="k">continue</span>
+</span><span id="L-153"><a href="#L-153"><span class="linenos">153</span></a>
+</span><span id="L-154"><a href="#L-154"><span class="linenos">154</span></a>                <span class="n">samples</span> <span class="o">=</span> <span class="n">stream</span><span class="p">[</span><span class="s2">&quot;time_series&quot;</span><span class="p">]</span>
+</span><span id="L-155"><a href="#L-155"><span class="linenos">155</span></a>                <span class="n">timestamps</span> <span class="o">=</span> <span class="n">stream</span><span class="p">[</span><span class="s2">&quot;time_stamps&quot;</span><span class="p">]</span>
+</span><span id="L-156"><a href="#L-156"><span class="linenos">156</span></a>
+</span><span id="L-157"><a href="#L-157"><span class="linenos">157</span></a>            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+</span><span id="L-158"><a href="#L-158"><span class="linenos">158</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> data not available&quot;</span><span class="p">,</span> <span class="n">streamtype</span><span class="p">)</span>
+</span><span id="L-159"><a href="#L-159"><span class="linenos">159</span></a>
+</span><span id="L-160"><a href="#L-160"><span class="linenos">160</span></a>            <span class="k">break</span>
+</span><span id="L-161"><a href="#L-161"><span class="linenos">161</span></a>
+</span><span id="L-162"><a href="#L-162"><span class="linenos">162</span></a>    <span class="k">return</span> <span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
 </span></pre></div>
 
 
