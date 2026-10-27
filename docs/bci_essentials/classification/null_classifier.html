@@ -73,13 +73,13 @@ The classifier always predicts 0.</p>
 
                         <label class="view-source-button" for="mod-null_classifier-view-source"><span>View Source</span></label>
 
-                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="sd">&quot;&quot;&quot;**Null classifier**</span>
+                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="sd">"""**Null classifier**</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>
 </span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="sd">No model is used.</span>
 </span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="sd">No fitting is done.</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="sd">The classifier always predicts 0.</span>
 </span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a>
-</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="sd">"""</span>
 </span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>
 </span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a><span class="c1"># Import bci_essentials modules and methods</span>
 </span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">..classification.generic_classifier</span><span class="w"> </span><span class="kn">import</span> <span class="n">GenericClassifier</span><span class="p">,</span> <span class="n">Prediction</span>
@@ -91,10 +91,10 @@ The classifier always predicts 0.</p>
 </span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>
 </span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>
 </span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="k">class</span><span class="w"> </span><span class="nc">NullClassifier</span><span class="p">(</span><span class="n">GenericClassifier</span><span class="p">):</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;NullClassifier class (*inherits from GenericClassifier*).&quot;&quot;&quot;</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a><span class="w">    </span><span class="sd">"""NullClassifier class (*inherits from GenericClassifier*)."""</span>
 </span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>
 </span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Fit the classifier to the data.</span>
+</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a><span class="w">        </span><span class="sd">"""Fit the classifier to the data.</span>
 </span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>
 </span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a><span class="sd">        No fitting is done.</span>
 </span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>
@@ -102,11 +102,11 @@ The classifier always predicts 0.</p>
 </span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a><span class="sd">        -------</span>
 </span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a><span class="sd">        `None`</span>
 </span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>
-</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;This is a null classifier, there is no fitting&quot;</span><span class="p">)</span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a><span class="sd">        """</span>
+</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"This is a null classifier, there is no fitting"</span><span class="p">)</span>
 </span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>
 </span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Predict the class of the data.</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a><span class="w">        </span><span class="sd">"""Predict the class of the data.</span>
 </span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>
 </span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a><span class="sd">        Parameters</span>
 </span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a><span class="sd">        ----------</span>
@@ -119,9 +119,9 @@ The classifier always predicts 0.</p>
 </span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a><span class="sd">        prediction : Prediction</span>
 </span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a><span class="sd">            Prediction object with labels = [0]</span>
 </span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a>
-</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;This is a null classifier, there is no return value&quot;</span><span class="p">)</span>
-</span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Returning 0&quot;</span><span class="p">)</span>
+</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a><span class="sd">        """</span>
+</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"This is a null classifier, there is no return value"</span><span class="p">)</span>
+</span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"Returning 0"</span><span class="p">)</span>
 </span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a>        <span class="k">return</span> <span class="n">Prediction</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </span></pre></div>
 
@@ -151,10 +151,10 @@ The classifier always predicts 0.</p>
     </div>
     <a class="headerlink" href="#NullClassifier"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="NullClassifier-19"><a href="#NullClassifier-19"><span class="linenos">19</span></a><span class="k">class</span><span class="w"> </span><span class="nc">NullClassifier</span><span class="p">(</span><span class="n">GenericClassifier</span><span class="p">):</span>
-</span><span id="NullClassifier-20"><a href="#NullClassifier-20"><span class="linenos">20</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;NullClassifier class (*inherits from GenericClassifier*).&quot;&quot;&quot;</span>
+</span><span id="NullClassifier-20"><a href="#NullClassifier-20"><span class="linenos">20</span></a><span class="w">    </span><span class="sd">"""NullClassifier class (*inherits from GenericClassifier*)."""</span>
 </span><span id="NullClassifier-21"><a href="#NullClassifier-21"><span class="linenos">21</span></a>
 </span><span id="NullClassifier-22"><a href="#NullClassifier-22"><span class="linenos">22</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="NullClassifier-23"><a href="#NullClassifier-23"><span class="linenos">23</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Fit the classifier to the data.</span>
+</span><span id="NullClassifier-23"><a href="#NullClassifier-23"><span class="linenos">23</span></a><span class="w">        </span><span class="sd">"""Fit the classifier to the data.</span>
 </span><span id="NullClassifier-24"><a href="#NullClassifier-24"><span class="linenos">24</span></a>
 </span><span id="NullClassifier-25"><a href="#NullClassifier-25"><span class="linenos">25</span></a><span class="sd">        No fitting is done.</span>
 </span><span id="NullClassifier-26"><a href="#NullClassifier-26"><span class="linenos">26</span></a>
@@ -162,11 +162,11 @@ The classifier always predicts 0.</p>
 </span><span id="NullClassifier-28"><a href="#NullClassifier-28"><span class="linenos">28</span></a><span class="sd">        -------</span>
 </span><span id="NullClassifier-29"><a href="#NullClassifier-29"><span class="linenos">29</span></a><span class="sd">        `None`</span>
 </span><span id="NullClassifier-30"><a href="#NullClassifier-30"><span class="linenos">30</span></a>
-</span><span id="NullClassifier-31"><a href="#NullClassifier-31"><span class="linenos">31</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="NullClassifier-32"><a href="#NullClassifier-32"><span class="linenos">32</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;This is a null classifier, there is no fitting&quot;</span><span class="p">)</span>
+</span><span id="NullClassifier-31"><a href="#NullClassifier-31"><span class="linenos">31</span></a><span class="sd">        """</span>
+</span><span id="NullClassifier-32"><a href="#NullClassifier-32"><span class="linenos">32</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"This is a null classifier, there is no fitting"</span><span class="p">)</span>
 </span><span id="NullClassifier-33"><a href="#NullClassifier-33"><span class="linenos">33</span></a>
 </span><span id="NullClassifier-34"><a href="#NullClassifier-34"><span class="linenos">34</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-</span><span id="NullClassifier-35"><a href="#NullClassifier-35"><span class="linenos">35</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Predict the class of the data.</span>
+</span><span id="NullClassifier-35"><a href="#NullClassifier-35"><span class="linenos">35</span></a><span class="w">        </span><span class="sd">"""Predict the class of the data.</span>
 </span><span id="NullClassifier-36"><a href="#NullClassifier-36"><span class="linenos">36</span></a>
 </span><span id="NullClassifier-37"><a href="#NullClassifier-37"><span class="linenos">37</span></a><span class="sd">        Parameters</span>
 </span><span id="NullClassifier-38"><a href="#NullClassifier-38"><span class="linenos">38</span></a><span class="sd">        ----------</span>
@@ -179,9 +179,9 @@ The classifier always predicts 0.</p>
 </span><span id="NullClassifier-45"><a href="#NullClassifier-45"><span class="linenos">45</span></a><span class="sd">        prediction : Prediction</span>
 </span><span id="NullClassifier-46"><a href="#NullClassifier-46"><span class="linenos">46</span></a><span class="sd">            Prediction object with labels = [0]</span>
 </span><span id="NullClassifier-47"><a href="#NullClassifier-47"><span class="linenos">47</span></a>
-</span><span id="NullClassifier-48"><a href="#NullClassifier-48"><span class="linenos">48</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="NullClassifier-49"><a href="#NullClassifier-49"><span class="linenos">49</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;This is a null classifier, there is no return value&quot;</span><span class="p">)</span>
-</span><span id="NullClassifier-50"><a href="#NullClassifier-50"><span class="linenos">50</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Returning 0&quot;</span><span class="p">)</span>
+</span><span id="NullClassifier-48"><a href="#NullClassifier-48"><span class="linenos">48</span></a><span class="sd">        """</span>
+</span><span id="NullClassifier-49"><a href="#NullClassifier-49"><span class="linenos">49</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"This is a null classifier, there is no return value"</span><span class="p">)</span>
+</span><span id="NullClassifier-50"><a href="#NullClassifier-50"><span class="linenos">50</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"Returning 0"</span><span class="p">)</span>
 </span><span id="NullClassifier-51"><a href="#NullClassifier-51"><span class="linenos">51</span></a>        <span class="k">return</span> <span class="n">Prediction</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </span></pre></div>
 
@@ -202,7 +202,7 @@ The classifier always predicts 0.</p>
     </div>
     <a class="headerlink" href="#NullClassifier.fit"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="NullClassifier.fit-22"><a href="#NullClassifier.fit-22"><span class="linenos">22</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="NullClassifier.fit-23"><a href="#NullClassifier.fit-23"><span class="linenos">23</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Fit the classifier to the data.</span>
+</span><span id="NullClassifier.fit-23"><a href="#NullClassifier.fit-23"><span class="linenos">23</span></a><span class="w">        </span><span class="sd">"""Fit the classifier to the data.</span>
 </span><span id="NullClassifier.fit-24"><a href="#NullClassifier.fit-24"><span class="linenos">24</span></a>
 </span><span id="NullClassifier.fit-25"><a href="#NullClassifier.fit-25"><span class="linenos">25</span></a><span class="sd">        No fitting is done.</span>
 </span><span id="NullClassifier.fit-26"><a href="#NullClassifier.fit-26"><span class="linenos">26</span></a>
@@ -210,8 +210,8 @@ The classifier always predicts 0.</p>
 </span><span id="NullClassifier.fit-28"><a href="#NullClassifier.fit-28"><span class="linenos">28</span></a><span class="sd">        -------</span>
 </span><span id="NullClassifier.fit-29"><a href="#NullClassifier.fit-29"><span class="linenos">29</span></a><span class="sd">        `None`</span>
 </span><span id="NullClassifier.fit-30"><a href="#NullClassifier.fit-30"><span class="linenos">30</span></a>
-</span><span id="NullClassifier.fit-31"><a href="#NullClassifier.fit-31"><span class="linenos">31</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="NullClassifier.fit-32"><a href="#NullClassifier.fit-32"><span class="linenos">32</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;This is a null classifier, there is no fitting&quot;</span><span class="p">)</span>
+</span><span id="NullClassifier.fit-31"><a href="#NullClassifier.fit-31"><span class="linenos">31</span></a><span class="sd">        """</span>
+</span><span id="NullClassifier.fit-32"><a href="#NullClassifier.fit-32"><span class="linenos">32</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"This is a null classifier, there is no fitting"</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -240,7 +240,7 @@ The classifier always predicts 0.</p>
     </div>
     <a class="headerlink" href="#NullClassifier.predict"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="NullClassifier.predict-34"><a href="#NullClassifier.predict-34"><span class="linenos">34</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
-</span><span id="NullClassifier.predict-35"><a href="#NullClassifier.predict-35"><span class="linenos">35</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Predict the class of the data.</span>
+</span><span id="NullClassifier.predict-35"><a href="#NullClassifier.predict-35"><span class="linenos">35</span></a><span class="w">        </span><span class="sd">"""Predict the class of the data.</span>
 </span><span id="NullClassifier.predict-36"><a href="#NullClassifier.predict-36"><span class="linenos">36</span></a>
 </span><span id="NullClassifier.predict-37"><a href="#NullClassifier.predict-37"><span class="linenos">37</span></a><span class="sd">        Parameters</span>
 </span><span id="NullClassifier.predict-38"><a href="#NullClassifier.predict-38"><span class="linenos">38</span></a><span class="sd">        ----------</span>
@@ -253,9 +253,9 @@ The classifier always predicts 0.</p>
 </span><span id="NullClassifier.predict-45"><a href="#NullClassifier.predict-45"><span class="linenos">45</span></a><span class="sd">        prediction : Prediction</span>
 </span><span id="NullClassifier.predict-46"><a href="#NullClassifier.predict-46"><span class="linenos">46</span></a><span class="sd">            Prediction object with labels = [0]</span>
 </span><span id="NullClassifier.predict-47"><a href="#NullClassifier.predict-47"><span class="linenos">47</span></a>
-</span><span id="NullClassifier.predict-48"><a href="#NullClassifier.predict-48"><span class="linenos">48</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="NullClassifier.predict-49"><a href="#NullClassifier.predict-49"><span class="linenos">49</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;This is a null classifier, there is no return value&quot;</span><span class="p">)</span>
-</span><span id="NullClassifier.predict-50"><a href="#NullClassifier.predict-50"><span class="linenos">50</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Returning 0&quot;</span><span class="p">)</span>
+</span><span id="NullClassifier.predict-48"><a href="#NullClassifier.predict-48"><span class="linenos">48</span></a><span class="sd">        """</span>
+</span><span id="NullClassifier.predict-49"><a href="#NullClassifier.predict-49"><span class="linenos">49</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"This is a null classifier, there is no return value"</span><span class="p">)</span>
+</span><span id="NullClassifier.predict-50"><a href="#NullClassifier.predict-50"><span class="linenos">50</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"Returning 0"</span><span class="p">)</span>
 </span><span id="NullClassifier.predict-51"><a href="#NullClassifier.predict-51"><span class="linenos">51</span></a>        <span class="k">return</span> <span class="n">Prediction</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </span></pre></div>
 

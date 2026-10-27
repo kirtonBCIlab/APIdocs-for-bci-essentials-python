@@ -88,11 +88,11 @@
 </span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a>
 </span><span id="L-5"><a href="#L-5"><span class="linenos">  5</span></a>
 </span><span id="L-6"><a href="#L-6"><span class="linenos">  6</span></a><span class="k">class</span><span class="w"> </span><span class="nc">SsvepParadigm</span><span class="p">(</span><span class="n">Paradigm</span><span class="p">):</span>
-</span><span id="L-7"><a href="#L-7"><span class="linenos">  7</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos">  7</span></a><span class="w">    </span><span class="sd">"""</span>
 </span><span id="L-8"><a href="#L-8"><span class="linenos">  8</span></a><span class="sd">    SSVEP paradigm.</span>
 </span><span id="L-9"><a href="#L-9"><span class="linenos">  9</span></a>
 </span><span id="L-10"><a href="#L-10"><span class="linenos"> 10</span></a><span class="sd">    TODO Determine how to automatically set the target frequencies in the classifier from here.</span>
-</span><span id="L-11"><a href="#L-11"><span class="linenos"> 11</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-11"><a href="#L-11"><span class="linenos"> 11</span></a><span class="sd">    """</span>
 </span><span id="L-12"><a href="#L-12"><span class="linenos"> 12</span></a>
 </span><span id="L-13"><a href="#L-13"><span class="linenos"> 13</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 </span><span id="L-14"><a href="#L-14"><span class="linenos"> 14</span></a>        <span class="bp">self</span><span class="p">,</span>
@@ -101,7 +101,7 @@
 </span><span id="L-17"><a href="#L-17"><span class="linenos"> 17</span></a>        <span class="n">live_update</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 </span><span id="L-18"><a href="#L-18"><span class="linenos"> 18</span></a>        <span class="n">buffer_time</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
 </span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a>    <span class="p">):</span>
-</span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a><span class="w">        </span><span class="sd">"""</span>
 </span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a><span class="sd">        Parameters</span>
 </span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a><span class="sd">        ----------</span>
 </span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a><span class="sd">        filters : list of floats, *optional*</span>
@@ -117,7 +117,7 @@
 </span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a><span class="sd">        buffer_time : float, *optional*</span>
 </span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a><span class="sd">            Defines the time in seconds after an epoch for which we require EEG data to ensure that all EEG is present in that epoch.</span>
 </span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a><span class="sd">            - Default is `0.01`.</span>
-</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a><span class="sd">        """</span>
 </span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">filters</span><span class="p">)</span>
 </span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a>
 </span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">live_update</span> <span class="o">=</span> <span class="n">live_update</span>
@@ -132,10 +132,10 @@
 </span><span id="L-48"><a href="#L-48"><span class="linenos"> 48</span></a>
 </span><span id="L-49"><a href="#L-49"><span class="linenos"> 49</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span> <span class="o">=</span> <span class="n">buffer_time</span>
 </span><span id="L-50"><a href="#L-50"><span class="linenos"> 50</span></a>
-</span><span id="L-51"><a href="#L-51"><span class="linenos"> 51</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">paradigm_name</span> <span class="o">=</span> <span class="s2">&quot;SSVEP&quot;</span>
+</span><span id="L-51"><a href="#L-51"><span class="linenos"> 51</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">paradigm_name</span> <span class="o">=</span> <span class="s2">"SSVEP"</span>
 </span><span id="L-52"><a href="#L-52"><span class="linenos"> 52</span></a>
 </span><span id="L-53"><a href="#L-53"><span class="linenos"> 53</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_eeg_start_and_end_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">markers</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">):</span>
-</span><span id="L-54"><a href="#L-54"><span class="linenos"> 54</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-54"><a href="#L-54"><span class="linenos"> 54</span></a><span class="w">        </span><span class="sd">"""</span>
 </span><span id="L-55"><a href="#L-55"><span class="linenos"> 55</span></a><span class="sd">        Get the start and end times of the EEG data based on the markers.</span>
 </span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a>
 </span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a><span class="sd">        Parameters</span>
@@ -151,15 +151,15 @@
 </span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a><span class="sd">            Start time.</span>
 </span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a><span class="sd">        float</span>
 </span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a><span class="sd">            End time.</span>
-</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="sd">        """</span>
 </span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a>        <span class="n">start_time</span> <span class="o">=</span> <span class="n">timestamps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span>
 </span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a>
-</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a>        <span class="n">end_time</span> <span class="o">=</span> <span class="n">timestamps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">3</span><span class="p">])</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a>        <span class="n">end_time</span> <span class="o">=</span> <span class="n">timestamps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)[</span><span class="mi">3</span><span class="p">])</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span>
 </span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a>
 </span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a>        <span class="k">return</span> <span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span>
 </span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a>
 </span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">process_markers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">markers</span><span class="p">,</span> <span class="n">marker_timestamps</span><span class="p">,</span> <span class="n">eeg</span><span class="p">,</span> <span class="n">eeg_timestamps</span><span class="p">,</span> <span class="n">fsample</span><span class="p">):</span>
-</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a><span class="w">        </span><span class="sd">"""</span>
 </span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a><span class="sd">        This takes in the markers and EEG data and processes them into epochs according to the SSVEP paradigm.</span>
 </span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a>
 </span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a><span class="sd">        Parameters</span>
@@ -181,13 +181,13 @@
 </span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a><span class="sd">            Processed EEG data. Shape is (n_epochs, n_channels, n_samples).</span>
 </span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a><span class="sd">        np.array</span>
 </span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a><span class="sd">            Labels. Shape is (n_epochs).</span>
-</span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a><span class="sd">        """</span>
 </span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>
 </span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a>        <span class="c1"># Initialize y</span>
 </span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a>        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">markers</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 </span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a>
 </span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">marker</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">markers</span><span class="p">):</span>
-</span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a>            <span class="n">marker</span> <span class="o">=</span> <span class="n">marker</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+</span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a>            <span class="n">marker</span> <span class="o">=</span> <span class="n">marker</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>
 </span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a>            <span class="n">label</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">marker</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a>            <span class="n">epoch_length</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">marker</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 </span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">target_freqs</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">marker</span><span class="p">[</span><span class="mi">4</span><span class="p">:]]</span>
@@ -242,11 +242,11 @@
     </div>
     <a class="headerlink" href="#SsvepParadigm"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="SsvepParadigm-7"><a href="#SsvepParadigm-7"><span class="linenos">  7</span></a><span class="k">class</span><span class="w"> </span><span class="nc">SsvepParadigm</span><span class="p">(</span><span class="n">Paradigm</span><span class="p">):</span>
-</span><span id="SsvepParadigm-8"><a href="#SsvepParadigm-8"><span class="linenos">  8</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="SsvepParadigm-8"><a href="#SsvepParadigm-8"><span class="linenos">  8</span></a><span class="w">    </span><span class="sd">"""</span>
 </span><span id="SsvepParadigm-9"><a href="#SsvepParadigm-9"><span class="linenos">  9</span></a><span class="sd">    SSVEP paradigm.</span>
 </span><span id="SsvepParadigm-10"><a href="#SsvepParadigm-10"><span class="linenos"> 10</span></a>
 </span><span id="SsvepParadigm-11"><a href="#SsvepParadigm-11"><span class="linenos"> 11</span></a><span class="sd">    TODO Determine how to automatically set the target frequencies in the classifier from here.</span>
-</span><span id="SsvepParadigm-12"><a href="#SsvepParadigm-12"><span class="linenos"> 12</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="SsvepParadigm-12"><a href="#SsvepParadigm-12"><span class="linenos"> 12</span></a><span class="sd">    """</span>
 </span><span id="SsvepParadigm-13"><a href="#SsvepParadigm-13"><span class="linenos"> 13</span></a>
 </span><span id="SsvepParadigm-14"><a href="#SsvepParadigm-14"><span class="linenos"> 14</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 </span><span id="SsvepParadigm-15"><a href="#SsvepParadigm-15"><span class="linenos"> 15</span></a>        <span class="bp">self</span><span class="p">,</span>
@@ -255,7 +255,7 @@
 </span><span id="SsvepParadigm-18"><a href="#SsvepParadigm-18"><span class="linenos"> 18</span></a>        <span class="n">live_update</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 </span><span id="SsvepParadigm-19"><a href="#SsvepParadigm-19"><span class="linenos"> 19</span></a>        <span class="n">buffer_time</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
 </span><span id="SsvepParadigm-20"><a href="#SsvepParadigm-20"><span class="linenos"> 20</span></a>    <span class="p">):</span>
-</span><span id="SsvepParadigm-21"><a href="#SsvepParadigm-21"><span class="linenos"> 21</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="SsvepParadigm-21"><a href="#SsvepParadigm-21"><span class="linenos"> 21</span></a><span class="w">        </span><span class="sd">"""</span>
 </span><span id="SsvepParadigm-22"><a href="#SsvepParadigm-22"><span class="linenos"> 22</span></a><span class="sd">        Parameters</span>
 </span><span id="SsvepParadigm-23"><a href="#SsvepParadigm-23"><span class="linenos"> 23</span></a><span class="sd">        ----------</span>
 </span><span id="SsvepParadigm-24"><a href="#SsvepParadigm-24"><span class="linenos"> 24</span></a><span class="sd">        filters : list of floats, *optional*</span>
@@ -271,7 +271,7 @@
 </span><span id="SsvepParadigm-34"><a href="#SsvepParadigm-34"><span class="linenos"> 34</span></a><span class="sd">        buffer_time : float, *optional*</span>
 </span><span id="SsvepParadigm-35"><a href="#SsvepParadigm-35"><span class="linenos"> 35</span></a><span class="sd">            Defines the time in seconds after an epoch for which we require EEG data to ensure that all EEG is present in that epoch.</span>
 </span><span id="SsvepParadigm-36"><a href="#SsvepParadigm-36"><span class="linenos"> 36</span></a><span class="sd">            - Default is `0.01`.</span>
-</span><span id="SsvepParadigm-37"><a href="#SsvepParadigm-37"><span class="linenos"> 37</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="SsvepParadigm-37"><a href="#SsvepParadigm-37"><span class="linenos"> 37</span></a><span class="sd">        """</span>
 </span><span id="SsvepParadigm-38"><a href="#SsvepParadigm-38"><span class="linenos"> 38</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">filters</span><span class="p">)</span>
 </span><span id="SsvepParadigm-39"><a href="#SsvepParadigm-39"><span class="linenos"> 39</span></a>
 </span><span id="SsvepParadigm-40"><a href="#SsvepParadigm-40"><span class="linenos"> 40</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">live_update</span> <span class="o">=</span> <span class="n">live_update</span>
@@ -286,10 +286,10 @@
 </span><span id="SsvepParadigm-49"><a href="#SsvepParadigm-49"><span class="linenos"> 49</span></a>
 </span><span id="SsvepParadigm-50"><a href="#SsvepParadigm-50"><span class="linenos"> 50</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span> <span class="o">=</span> <span class="n">buffer_time</span>
 </span><span id="SsvepParadigm-51"><a href="#SsvepParadigm-51"><span class="linenos"> 51</span></a>
-</span><span id="SsvepParadigm-52"><a href="#SsvepParadigm-52"><span class="linenos"> 52</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">paradigm_name</span> <span class="o">=</span> <span class="s2">&quot;SSVEP&quot;</span>
+</span><span id="SsvepParadigm-52"><a href="#SsvepParadigm-52"><span class="linenos"> 52</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">paradigm_name</span> <span class="o">=</span> <span class="s2">"SSVEP"</span>
 </span><span id="SsvepParadigm-53"><a href="#SsvepParadigm-53"><span class="linenos"> 53</span></a>
 </span><span id="SsvepParadigm-54"><a href="#SsvepParadigm-54"><span class="linenos"> 54</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_eeg_start_and_end_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">markers</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">):</span>
-</span><span id="SsvepParadigm-55"><a href="#SsvepParadigm-55"><span class="linenos"> 55</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="SsvepParadigm-55"><a href="#SsvepParadigm-55"><span class="linenos"> 55</span></a><span class="w">        </span><span class="sd">"""</span>
 </span><span id="SsvepParadigm-56"><a href="#SsvepParadigm-56"><span class="linenos"> 56</span></a><span class="sd">        Get the start and end times of the EEG data based on the markers.</span>
 </span><span id="SsvepParadigm-57"><a href="#SsvepParadigm-57"><span class="linenos"> 57</span></a>
 </span><span id="SsvepParadigm-58"><a href="#SsvepParadigm-58"><span class="linenos"> 58</span></a><span class="sd">        Parameters</span>
@@ -305,15 +305,15 @@
 </span><span id="SsvepParadigm-68"><a href="#SsvepParadigm-68"><span class="linenos"> 68</span></a><span class="sd">            Start time.</span>
 </span><span id="SsvepParadigm-69"><a href="#SsvepParadigm-69"><span class="linenos"> 69</span></a><span class="sd">        float</span>
 </span><span id="SsvepParadigm-70"><a href="#SsvepParadigm-70"><span class="linenos"> 70</span></a><span class="sd">            End time.</span>
-</span><span id="SsvepParadigm-71"><a href="#SsvepParadigm-71"><span class="linenos"> 71</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="SsvepParadigm-71"><a href="#SsvepParadigm-71"><span class="linenos"> 71</span></a><span class="sd">        """</span>
 </span><span id="SsvepParadigm-72"><a href="#SsvepParadigm-72"><span class="linenos"> 72</span></a>        <span class="n">start_time</span> <span class="o">=</span> <span class="n">timestamps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span>
 </span><span id="SsvepParadigm-73"><a href="#SsvepParadigm-73"><span class="linenos"> 73</span></a>
-</span><span id="SsvepParadigm-74"><a href="#SsvepParadigm-74"><span class="linenos"> 74</span></a>        <span class="n">end_time</span> <span class="o">=</span> <span class="n">timestamps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">3</span><span class="p">])</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span>
+</span><span id="SsvepParadigm-74"><a href="#SsvepParadigm-74"><span class="linenos"> 74</span></a>        <span class="n">end_time</span> <span class="o">=</span> <span class="n">timestamps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)[</span><span class="mi">3</span><span class="p">])</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span>
 </span><span id="SsvepParadigm-75"><a href="#SsvepParadigm-75"><span class="linenos"> 75</span></a>
 </span><span id="SsvepParadigm-76"><a href="#SsvepParadigm-76"><span class="linenos"> 76</span></a>        <span class="k">return</span> <span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span>
 </span><span id="SsvepParadigm-77"><a href="#SsvepParadigm-77"><span class="linenos"> 77</span></a>
 </span><span id="SsvepParadigm-78"><a href="#SsvepParadigm-78"><span class="linenos"> 78</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">process_markers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">markers</span><span class="p">,</span> <span class="n">marker_timestamps</span><span class="p">,</span> <span class="n">eeg</span><span class="p">,</span> <span class="n">eeg_timestamps</span><span class="p">,</span> <span class="n">fsample</span><span class="p">):</span>
-</span><span id="SsvepParadigm-79"><a href="#SsvepParadigm-79"><span class="linenos"> 79</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="SsvepParadigm-79"><a href="#SsvepParadigm-79"><span class="linenos"> 79</span></a><span class="w">        </span><span class="sd">"""</span>
 </span><span id="SsvepParadigm-80"><a href="#SsvepParadigm-80"><span class="linenos"> 80</span></a><span class="sd">        This takes in the markers and EEG data and processes them into epochs according to the SSVEP paradigm.</span>
 </span><span id="SsvepParadigm-81"><a href="#SsvepParadigm-81"><span class="linenos"> 81</span></a>
 </span><span id="SsvepParadigm-82"><a href="#SsvepParadigm-82"><span class="linenos"> 82</span></a><span class="sd">        Parameters</span>
@@ -335,13 +335,13 @@
 </span><span id="SsvepParadigm-98"><a href="#SsvepParadigm-98"><span class="linenos"> 98</span></a><span class="sd">            Processed EEG data. Shape is (n_epochs, n_channels, n_samples).</span>
 </span><span id="SsvepParadigm-99"><a href="#SsvepParadigm-99"><span class="linenos"> 99</span></a><span class="sd">        np.array</span>
 </span><span id="SsvepParadigm-100"><a href="#SsvepParadigm-100"><span class="linenos">100</span></a><span class="sd">            Labels. Shape is (n_epochs).</span>
-</span><span id="SsvepParadigm-101"><a href="#SsvepParadigm-101"><span class="linenos">101</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="SsvepParadigm-101"><a href="#SsvepParadigm-101"><span class="linenos">101</span></a><span class="sd">        """</span>
 </span><span id="SsvepParadigm-102"><a href="#SsvepParadigm-102"><span class="linenos">102</span></a>
 </span><span id="SsvepParadigm-103"><a href="#SsvepParadigm-103"><span class="linenos">103</span></a>        <span class="c1"># Initialize y</span>
 </span><span id="SsvepParadigm-104"><a href="#SsvepParadigm-104"><span class="linenos">104</span></a>        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">markers</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 </span><span id="SsvepParadigm-105"><a href="#SsvepParadigm-105"><span class="linenos">105</span></a>
 </span><span id="SsvepParadigm-106"><a href="#SsvepParadigm-106"><span class="linenos">106</span></a>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">marker</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">markers</span><span class="p">):</span>
-</span><span id="SsvepParadigm-107"><a href="#SsvepParadigm-107"><span class="linenos">107</span></a>            <span class="n">marker</span> <span class="o">=</span> <span class="n">marker</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+</span><span id="SsvepParadigm-107"><a href="#SsvepParadigm-107"><span class="linenos">107</span></a>            <span class="n">marker</span> <span class="o">=</span> <span class="n">marker</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>
 </span><span id="SsvepParadigm-108"><a href="#SsvepParadigm-108"><span class="linenos">108</span></a>            <span class="n">label</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">marker</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </span><span id="SsvepParadigm-109"><a href="#SsvepParadigm-109"><span class="linenos">109</span></a>            <span class="n">epoch_length</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">marker</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 </span><span id="SsvepParadigm-110"><a href="#SsvepParadigm-110"><span class="linenos">110</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">target_freqs</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">marker</span><span class="p">[</span><span class="mi">4</span><span class="p">:]]</span>
@@ -406,7 +406,7 @@
 </span><span id="SsvepParadigm.__init__-18"><a href="#SsvepParadigm.__init__-18"><span class="linenos">18</span></a>        <span class="n">live_update</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 </span><span id="SsvepParadigm.__init__-19"><a href="#SsvepParadigm.__init__-19"><span class="linenos">19</span></a>        <span class="n">buffer_time</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
 </span><span id="SsvepParadigm.__init__-20"><a href="#SsvepParadigm.__init__-20"><span class="linenos">20</span></a>    <span class="p">):</span>
-</span><span id="SsvepParadigm.__init__-21"><a href="#SsvepParadigm.__init__-21"><span class="linenos">21</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="SsvepParadigm.__init__-21"><a href="#SsvepParadigm.__init__-21"><span class="linenos">21</span></a><span class="w">        </span><span class="sd">"""</span>
 </span><span id="SsvepParadigm.__init__-22"><a href="#SsvepParadigm.__init__-22"><span class="linenos">22</span></a><span class="sd">        Parameters</span>
 </span><span id="SsvepParadigm.__init__-23"><a href="#SsvepParadigm.__init__-23"><span class="linenos">23</span></a><span class="sd">        ----------</span>
 </span><span id="SsvepParadigm.__init__-24"><a href="#SsvepParadigm.__init__-24"><span class="linenos">24</span></a><span class="sd">        filters : list of floats, *optional*</span>
@@ -422,7 +422,7 @@
 </span><span id="SsvepParadigm.__init__-34"><a href="#SsvepParadigm.__init__-34"><span class="linenos">34</span></a><span class="sd">        buffer_time : float, *optional*</span>
 </span><span id="SsvepParadigm.__init__-35"><a href="#SsvepParadigm.__init__-35"><span class="linenos">35</span></a><span class="sd">            Defines the time in seconds after an epoch for which we require EEG data to ensure that all EEG is present in that epoch.</span>
 </span><span id="SsvepParadigm.__init__-36"><a href="#SsvepParadigm.__init__-36"><span class="linenos">36</span></a><span class="sd">            - Default is `0.01`.</span>
-</span><span id="SsvepParadigm.__init__-37"><a href="#SsvepParadigm.__init__-37"><span class="linenos">37</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="SsvepParadigm.__init__-37"><a href="#SsvepParadigm.__init__-37"><span class="linenos">37</span></a><span class="sd">        """</span>
 </span><span id="SsvepParadigm.__init__-38"><a href="#SsvepParadigm.__init__-38"><span class="linenos">38</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">filters</span><span class="p">)</span>
 </span><span id="SsvepParadigm.__init__-39"><a href="#SsvepParadigm.__init__-39"><span class="linenos">39</span></a>
 </span><span id="SsvepParadigm.__init__-40"><a href="#SsvepParadigm.__init__-40"><span class="linenos">40</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">live_update</span> <span class="o">=</span> <span class="n">live_update</span>
@@ -437,7 +437,7 @@
 </span><span id="SsvepParadigm.__init__-49"><a href="#SsvepParadigm.__init__-49"><span class="linenos">49</span></a>
 </span><span id="SsvepParadigm.__init__-50"><a href="#SsvepParadigm.__init__-50"><span class="linenos">50</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span> <span class="o">=</span> <span class="n">buffer_time</span>
 </span><span id="SsvepParadigm.__init__-51"><a href="#SsvepParadigm.__init__-51"><span class="linenos">51</span></a>
-</span><span id="SsvepParadigm.__init__-52"><a href="#SsvepParadigm.__init__-52"><span class="linenos">52</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">paradigm_name</span> <span class="o">=</span> <span class="s2">&quot;SSVEP&quot;</span>
+</span><span id="SsvepParadigm.__init__-52"><a href="#SsvepParadigm.__init__-52"><span class="linenos">52</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">paradigm_name</span> <span class="o">=</span> <span class="s2">"SSVEP"</span>
 </span></pre></div>
 
 
@@ -526,7 +526,7 @@ Defines the time in seconds after an epoch for which we require EEG data to ensu
     </div>
     <a class="headerlink" href="#SsvepParadigm.get_eeg_start_and_end_times"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="SsvepParadigm.get_eeg_start_and_end_times-54"><a href="#SsvepParadigm.get_eeg_start_and_end_times-54"><span class="linenos">54</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_eeg_start_and_end_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">markers</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">):</span>
-</span><span id="SsvepParadigm.get_eeg_start_and_end_times-55"><a href="#SsvepParadigm.get_eeg_start_and_end_times-55"><span class="linenos">55</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="SsvepParadigm.get_eeg_start_and_end_times-55"><a href="#SsvepParadigm.get_eeg_start_and_end_times-55"><span class="linenos">55</span></a><span class="w">        </span><span class="sd">"""</span>
 </span><span id="SsvepParadigm.get_eeg_start_and_end_times-56"><a href="#SsvepParadigm.get_eeg_start_and_end_times-56"><span class="linenos">56</span></a><span class="sd">        Get the start and end times of the EEG data based on the markers.</span>
 </span><span id="SsvepParadigm.get_eeg_start_and_end_times-57"><a href="#SsvepParadigm.get_eeg_start_and_end_times-57"><span class="linenos">57</span></a>
 </span><span id="SsvepParadigm.get_eeg_start_and_end_times-58"><a href="#SsvepParadigm.get_eeg_start_and_end_times-58"><span class="linenos">58</span></a><span class="sd">        Parameters</span>
@@ -542,10 +542,10 @@ Defines the time in seconds after an epoch for which we require EEG data to ensu
 </span><span id="SsvepParadigm.get_eeg_start_and_end_times-68"><a href="#SsvepParadigm.get_eeg_start_and_end_times-68"><span class="linenos">68</span></a><span class="sd">            Start time.</span>
 </span><span id="SsvepParadigm.get_eeg_start_and_end_times-69"><a href="#SsvepParadigm.get_eeg_start_and_end_times-69"><span class="linenos">69</span></a><span class="sd">        float</span>
 </span><span id="SsvepParadigm.get_eeg_start_and_end_times-70"><a href="#SsvepParadigm.get_eeg_start_and_end_times-70"><span class="linenos">70</span></a><span class="sd">            End time.</span>
-</span><span id="SsvepParadigm.get_eeg_start_and_end_times-71"><a href="#SsvepParadigm.get_eeg_start_and_end_times-71"><span class="linenos">71</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="SsvepParadigm.get_eeg_start_and_end_times-71"><a href="#SsvepParadigm.get_eeg_start_and_end_times-71"><span class="linenos">71</span></a><span class="sd">        """</span>
 </span><span id="SsvepParadigm.get_eeg_start_and_end_times-72"><a href="#SsvepParadigm.get_eeg_start_and_end_times-72"><span class="linenos">72</span></a>        <span class="n">start_time</span> <span class="o">=</span> <span class="n">timestamps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span>
 </span><span id="SsvepParadigm.get_eeg_start_and_end_times-73"><a href="#SsvepParadigm.get_eeg_start_and_end_times-73"><span class="linenos">73</span></a>
-</span><span id="SsvepParadigm.get_eeg_start_and_end_times-74"><a href="#SsvepParadigm.get_eeg_start_and_end_times-74"><span class="linenos">74</span></a>        <span class="n">end_time</span> <span class="o">=</span> <span class="n">timestamps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">3</span><span class="p">])</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span>
+</span><span id="SsvepParadigm.get_eeg_start_and_end_times-74"><a href="#SsvepParadigm.get_eeg_start_and_end_times-74"><span class="linenos">74</span></a>        <span class="n">end_time</span> <span class="o">=</span> <span class="n">timestamps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)[</span><span class="mi">3</span><span class="p">])</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span>
 </span><span id="SsvepParadigm.get_eeg_start_and_end_times-75"><a href="#SsvepParadigm.get_eeg_start_and_end_times-75"><span class="linenos">75</span></a>
 </span><span id="SsvepParadigm.get_eeg_start_and_end_times-76"><a href="#SsvepParadigm.get_eeg_start_and_end_times-76"><span class="linenos">76</span></a>        <span class="k">return</span> <span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span>
 </span></pre></div>
@@ -584,7 +584,7 @@ List of timestamps.</li>
     </div>
     <a class="headerlink" href="#SsvepParadigm.process_markers"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="SsvepParadigm.process_markers-78"><a href="#SsvepParadigm.process_markers-78"><span class="linenos"> 78</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">process_markers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">markers</span><span class="p">,</span> <span class="n">marker_timestamps</span><span class="p">,</span> <span class="n">eeg</span><span class="p">,</span> <span class="n">eeg_timestamps</span><span class="p">,</span> <span class="n">fsample</span><span class="p">):</span>
-</span><span id="SsvepParadigm.process_markers-79"><a href="#SsvepParadigm.process_markers-79"><span class="linenos"> 79</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="SsvepParadigm.process_markers-79"><a href="#SsvepParadigm.process_markers-79"><span class="linenos"> 79</span></a><span class="w">        </span><span class="sd">"""</span>
 </span><span id="SsvepParadigm.process_markers-80"><a href="#SsvepParadigm.process_markers-80"><span class="linenos"> 80</span></a><span class="sd">        This takes in the markers and EEG data and processes them into epochs according to the SSVEP paradigm.</span>
 </span><span id="SsvepParadigm.process_markers-81"><a href="#SsvepParadigm.process_markers-81"><span class="linenos"> 81</span></a>
 </span><span id="SsvepParadigm.process_markers-82"><a href="#SsvepParadigm.process_markers-82"><span class="linenos"> 82</span></a><span class="sd">        Parameters</span>
@@ -606,13 +606,13 @@ List of timestamps.</li>
 </span><span id="SsvepParadigm.process_markers-98"><a href="#SsvepParadigm.process_markers-98"><span class="linenos"> 98</span></a><span class="sd">            Processed EEG data. Shape is (n_epochs, n_channels, n_samples).</span>
 </span><span id="SsvepParadigm.process_markers-99"><a href="#SsvepParadigm.process_markers-99"><span class="linenos"> 99</span></a><span class="sd">        np.array</span>
 </span><span id="SsvepParadigm.process_markers-100"><a href="#SsvepParadigm.process_markers-100"><span class="linenos">100</span></a><span class="sd">            Labels. Shape is (n_epochs).</span>
-</span><span id="SsvepParadigm.process_markers-101"><a href="#SsvepParadigm.process_markers-101"><span class="linenos">101</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="SsvepParadigm.process_markers-101"><a href="#SsvepParadigm.process_markers-101"><span class="linenos">101</span></a><span class="sd">        """</span>
 </span><span id="SsvepParadigm.process_markers-102"><a href="#SsvepParadigm.process_markers-102"><span class="linenos">102</span></a>
 </span><span id="SsvepParadigm.process_markers-103"><a href="#SsvepParadigm.process_markers-103"><span class="linenos">103</span></a>        <span class="c1"># Initialize y</span>
 </span><span id="SsvepParadigm.process_markers-104"><a href="#SsvepParadigm.process_markers-104"><span class="linenos">104</span></a>        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">markers</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 </span><span id="SsvepParadigm.process_markers-105"><a href="#SsvepParadigm.process_markers-105"><span class="linenos">105</span></a>
 </span><span id="SsvepParadigm.process_markers-106"><a href="#SsvepParadigm.process_markers-106"><span class="linenos">106</span></a>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">marker</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">markers</span><span class="p">):</span>
-</span><span id="SsvepParadigm.process_markers-107"><a href="#SsvepParadigm.process_markers-107"><span class="linenos">107</span></a>            <span class="n">marker</span> <span class="o">=</span> <span class="n">marker</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+</span><span id="SsvepParadigm.process_markers-107"><a href="#SsvepParadigm.process_markers-107"><span class="linenos">107</span></a>            <span class="n">marker</span> <span class="o">=</span> <span class="n">marker</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>
 </span><span id="SsvepParadigm.process_markers-108"><a href="#SsvepParadigm.process_markers-108"><span class="linenos">108</span></a>            <span class="n">label</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">marker</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </span><span id="SsvepParadigm.process_markers-109"><a href="#SsvepParadigm.process_markers-109"><span class="linenos">109</span></a>            <span class="n">epoch_length</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">marker</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 </span><span id="SsvepParadigm.process_markers-110"><a href="#SsvepParadigm.process_markers-110"><span class="linenos">110</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">target_freqs</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">marker</span><span class="p">[</span><span class="mi">4</span><span class="p">:]]</span>

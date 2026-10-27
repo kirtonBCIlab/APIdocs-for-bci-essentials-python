@@ -122,11 +122,11 @@
 
                         <label class="view-source-button" for="mod-generic_classifier-view-source"><span>View Source</span></label>
 
-                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">  1</span></a><span class="sd">&quot;&quot;&quot;**Generic classifier class for BCI Essentials**</span>
+                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">  1</span></a><span class="sd">"""**Generic classifier class for BCI Essentials**</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos">  2</span></a>
 </span><span id="L-3"><a href="#L-3"><span class="linenos">  3</span></a><span class="sd">Used as Parent classifier class for other classifiers.</span>
 </span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a>
-</span><span id="L-5"><a href="#L-5"><span class="linenos">  5</span></a><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-5"><a href="#L-5"><span class="linenos">  5</span></a><span class="sd">"""</span>
 </span><span id="L-6"><a href="#L-6"><span class="linenos">  6</span></a>
 </span><span id="L-7"><a href="#L-7"><span class="linenos">  7</span></a><span class="c1"># Stock libraries</span>
 </span><span id="L-8"><a href="#L-8"><span class="linenos">  8</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
@@ -144,18 +144,18 @@
 </span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a>
 </span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a><span class="nd">@dataclass</span>
 </span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a><span class="k">class</span><span class="w"> </span><span class="nc">Prediction</span><span class="p">:</span>
-</span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Prediction data returned by GenericClassifer.predict()</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a><span class="w">    </span><span class="sd">"""Prediction data returned by GenericClassifer.predict()</span>
 </span><span id="L-24"><a href="#L-24"><span class="linenos"> 24</span></a>
 </span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a><span class="sd">    labels : list</span>
 </span><span id="L-26"><a href="#L-26"><span class="linenos"> 26</span></a><span class="sd">        List of the predicted class labels.</span>
 </span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a><span class="sd">        - Default is `[]`.</span>
 </span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a>
 </span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a><span class="sd">    probabilities : list</span>
-</span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a><span class="sd">        List of probabilities for each class label. If the classifier can&#39;t</span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a><span class="sd">        List of probabilities for each class label. If the classifier can't</span>
 </span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a><span class="sd">        provide probabilities, this will be an empty list `[]`.</span>
 </span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a><span class="sd">        - Default is `[]`</span>
 </span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a>
-</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a><span class="sd">    """</span>
 </span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a>
 </span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a>    <span class="n">labels</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
 </span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a>    <span class="n">probabilities</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
@@ -163,7 +163,7 @@
 </span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a>
 </span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a><span class="nd">@dataclass</span>
 </span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a><span class="k">class</span><span class="w"> </span><span class="nc">KernelResults</span><span class="p">:</span>
-</span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Dataclass to store output from the kernel methods</span>
+</span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a><span class="w">    </span><span class="sd">"""Dataclass to store output from the kernel methods</span>
 </span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a>
 </span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a><span class="sd">    model : classifier</span>
 </span><span id="L-45"><a href="#L-45"><span class="linenos"> 45</span></a><span class="sd">        The trained classification model.</span>
@@ -179,7 +179,7 @@
 </span><span id="L-55"><a href="#L-55"><span class="linenos"> 55</span></a>
 </span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a><span class="sd">    recall : float</span>
 </span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a><span class="sd">        The recall of the trained classification model.</span>
-</span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a><span class="sd">    """</span>
 </span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a>
 </span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a>    <span class="n">model</span><span class="p">:</span> <span class="n">Pipeline</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a>    <span class="n">cv_preds</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
@@ -189,10 +189,10 @@
 </span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a>
 </span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a>
 </span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a><span class="k">class</span><span class="w"> </span><span class="nc">GenericClassifier</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-</span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;The base generic classifier class for other classifiers.&quot;&quot;&quot;</span>
+</span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a><span class="w">    </span><span class="sd">"""The base generic classifier class for other classifiers."""</span>
 </span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a>
 </span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">training_selection</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="p">[]):</span>
-</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes `GenericClassifier` class.</span>
+</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a><span class="w">        </span><span class="sd">"""Initializes `GenericClassifier` class.</span>
 </span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a>
 </span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a><span class="sd">        Parameters</span>
 </span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a><span class="sd">        ----------</span>
@@ -239,7 +239,7 @@
 </span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a><span class="sd">            - Initial value is `0`.</span>
 </span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a><span class="sd">        offline_trial_counts : list of `int`</span>
 </span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a><span class="sd">            List to store the counts of offline trials.</span>
-</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a><span class="sd">            i.e. `offline_trial_count&#39; values.</span>
+</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a><span class="sd">            i.e. `offline_trial_count' values.</span>
 </span><span id="L-119"><a href="#L-119"><span class="linenos">119</span></a><span class="sd">            - Initial value is `[]`.</span>
 </span><span id="L-120"><a href="#L-120"><span class="linenos">120</span></a><span class="sd">        next_fit_trial : int</span>
 </span><span id="L-121"><a href="#L-121"><span class="linenos">121</span></a><span class="sd">            Counter to track the next trial for fitting.</span>
@@ -254,50 +254,50 @@
 </span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a><span class="sd">            Number of splits for cross-validation. Also serves as minimum required samples per class for training when running _check_ready_for_fit().</span>
 </span><span id="L-131"><a href="#L-131"><span class="linenos">131</span></a><span class="sd">            - Initial value is `5`.</span>
 </span><span id="L-132"><a href="#L-132"><span class="linenos">132</span></a>
-</span><span id="L-133"><a href="#L-133"><span class="linenos">133</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-134"><a href="#L-134"><span class="linenos">134</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Initializing the classifier&quot;</span><span class="p">)</span>
+</span><span id="L-133"><a href="#L-133"><span class="linenos">133</span></a><span class="sd">        """</span>
+</span><span id="L-134"><a href="#L-134"><span class="linenos">134</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Initializing the classifier"</span><span class="p">)</span>
 </span><span id="L-135"><a href="#L-135"><span class="linenos">135</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="L-137"><a href="#L-137"><span class="linenos">137</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="L-138"><a href="#L-138"><span class="linenos">138</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="L-138"><a href="#L-138"><span class="linenos">138</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="L-139"><a href="#L-139"><span class="linenos">139</span></a>
 </span><span id="L-140"><a href="#L-140"><span class="linenos">140</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">subset_defined</span> <span class="o">=</span> <span class="kc">False</span>
-</span><span id="L-141"><a href="#L-141"><span class="linenos">141</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="L-141"><a href="#L-141"><span class="linenos">141</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="L-142"><a href="#L-142"><span class="linenos">142</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">subset</span> <span class="o">=</span> <span class="n">subset</span>
-</span><span id="L-143"><a href="#L-143"><span class="linenos">143</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="L-143"><a href="#L-143"><span class="linenos">143</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="L-144"><a href="#L-144"><span class="linenos">144</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">channel_labels</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="L-145"><a href="#L-145"><span class="linenos">145</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="L-145"><a href="#L-145"><span class="linenos">145</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="L-146"><a href="#L-146"><span class="linenos">146</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">channel_selection_setup</span> <span class="o">=</span> <span class="kc">False</span>
-</span><span id="L-147"><a href="#L-147"><span class="linenos">147</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="L-147"><a href="#L-147"><span class="linenos">147</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="L-148"><a href="#L-148"><span class="linenos">148</span></a>
 </span><span id="L-149"><a href="#L-149"><span class="linenos">149</span></a>        <span class="c1"># Lists for plotting classifier performance over time</span>
 </span><span id="L-150"><a href="#L-150"><span class="linenos">150</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">offline_accuracy</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="L-151"><a href="#L-151"><span class="linenos">151</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="L-151"><a href="#L-151"><span class="linenos">151</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="L-152"><a href="#L-152"><span class="linenos">152</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">offline_precision</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="L-153"><a href="#L-153"><span class="linenos">153</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="L-153"><a href="#L-153"><span class="linenos">153</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="L-154"><a href="#L-154"><span class="linenos">154</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">offline_recall</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="L-155"><a href="#L-155"><span class="linenos">155</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="L-155"><a href="#L-155"><span class="linenos">155</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="L-156"><a href="#L-156"><span class="linenos">156</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">offline_trial_count</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span id="L-157"><a href="#L-157"><span class="linenos">157</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="L-157"><a href="#L-157"><span class="linenos">157</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="L-158"><a href="#L-158"><span class="linenos">158</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">offline_trial_counts</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="L-159"><a href="#L-159"><span class="linenos">159</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="L-159"><a href="#L-159"><span class="linenos">159</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="L-160"><a href="#L-160"><span class="linenos">160</span></a>
 </span><span id="L-161"><a href="#L-161"><span class="linenos">161</span></a>        <span class="c1"># For iterative fitting,</span>
 </span><span id="L-162"><a href="#L-162"><span class="linenos">162</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">next_fit_trial</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="L-164"><a href="#L-164"><span class="linenos">164</span></a>
 </span><span id="L-165"><a href="#L-165"><span class="linenos">165</span></a>        <span class="c1"># Keep track of predictions</span>
 </span><span id="L-166"><a href="#L-166"><span class="linenos">166</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">predictions</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="L-167"><a href="#L-167"><span class="linenos">167</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="L-167"><a href="#L-167"><span class="linenos">167</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="L-168"><a href="#L-168"><span class="linenos">168</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">pred_probas</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="L-169"><a href="#L-169"><span class="linenos">169</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="L-169"><a href="#L-169"><span class="linenos">169</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="L-170"><a href="#L-170"><span class="linenos">170</span></a>
 </span><span id="L-171"><a href="#L-171"><span class="linenos">171</span></a>        <span class="c1"># N Splits</span>
 </span><span id="L-172"><a href="#L-172"><span class="linenos">172</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">n_splits</span> <span class="o">=</span> <span class="mi">5</span>
-</span><span id="L-173"><a href="#L-173"><span class="linenos">173</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="L-173"><a href="#L-173"><span class="linenos">173</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="L-174"><a href="#L-174"><span class="linenos">174</span></a>
 </span><span id="L-175"><a href="#L-175"><span class="linenos">175</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">_check_ready_for_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-176"><a href="#L-176"><span class="linenos">176</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if sufficient data is available for fitting with cross-validation.</span>
+</span><span id="L-176"><a href="#L-176"><span class="linenos">176</span></a><span class="w">        </span><span class="sd">"""Check if sufficient data is available for fitting with cross-validation.</span>
 </span><span id="L-177"><a href="#L-177"><span class="linenos">177</span></a>
 </span><span id="L-178"><a href="#L-178"><span class="linenos">178</span></a><span class="sd">        This method validates that:</span>
 </span><span id="L-179"><a href="#L-179"><span class="linenos">179</span></a><span class="sd">        1. Training data (X) exists</span>
@@ -308,15 +308,15 @@
 </span><span id="L-184"><a href="#L-184"><span class="linenos">184</span></a><span class="sd">        -------</span>
 </span><span id="L-185"><a href="#L-185"><span class="linenos">185</span></a><span class="sd">        bool</span>
 </span><span id="L-186"><a href="#L-186"><span class="linenos">186</span></a><span class="sd">            Returns `True` if data meets all requirements for fitting, otherwise `False`.</span>
-</span><span id="L-187"><a href="#L-187"><span class="linenos">187</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-187"><a href="#L-187"><span class="linenos">187</span></a><span class="sd">        """</span>
 </span><span id="L-188"><a href="#L-188"><span class="linenos">188</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="L-189"><a href="#L-189"><span class="linenos">189</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;No data available for fitting&quot;</span><span class="p">)</span>
+</span><span id="L-189"><a href="#L-189"><span class="linenos">189</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"No data available for fitting"</span><span class="p">)</span>
 </span><span id="L-190"><a href="#L-190"><span class="linenos">190</span></a>            <span class="k">return</span> <span class="kc">False</span>
 </span><span id="L-191"><a href="#L-191"><span class="linenos">191</span></a>
 </span><span id="L-192"><a href="#L-192"><span class="linenos">192</span></a>        <span class="n">unique_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
 </span><span id="L-193"><a href="#L-193"><span class="linenos">193</span></a>
 </span><span id="L-194"><a href="#L-194"><span class="linenos">194</span></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_y</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-</span><span id="L-195"><a href="#L-195"><span class="linenos">195</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Only one class available for fitting&quot;</span><span class="p">)</span>
+</span><span id="L-195"><a href="#L-195"><span class="linenos">195</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"Only one class available for fitting"</span><span class="p">)</span>
 </span><span id="L-196"><a href="#L-196"><span class="linenos">196</span></a>            <span class="k">return</span> <span class="kc">False</span>
 </span><span id="L-197"><a href="#L-197"><span class="linenos">197</span></a>
 </span><span id="L-198"><a href="#L-198"><span class="linenos">198</span></a>        <span class="n">class_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">unique_y</span><span class="p">))</span>
@@ -328,7 +328,7 @@
 </span><span id="L-204"><a href="#L-204"><span class="linenos">204</span></a>            <span class="c1"># Future implementation: Report the class with the least number of samples</span>
 </span><span id="L-205"><a href="#L-205"><span class="linenos">205</span></a>            <span class="c1"># Future implementation: Report the number of samples in each class</span>
 </span><span id="L-206"><a href="#L-206"><span class="linenos">206</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-</span><span id="L-207"><a href="#L-207"><span class="linenos">207</span></a>                <span class="s2">&quot;Need at least </span><span class="si">%s</span><span class="s2"> samples per class for cross-validation. Please collect more training data.&quot;</span><span class="p">,</span>
+</span><span id="L-207"><a href="#L-207"><span class="linenos">207</span></a>                <span class="s2">"Need at least </span><span class="si">%s</span><span class="s2"> samples per class for cross-validation. Please collect more training data."</span><span class="p">,</span>
 </span><span id="L-208"><a href="#L-208"><span class="linenos">208</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">n_splits</span><span class="p">,</span>
 </span><span id="L-209"><a href="#L-209"><span class="linenos">209</span></a>            <span class="p">)</span>
 </span><span id="L-210"><a href="#L-210"><span class="linenos">210</span></a>            <span class="k">return</span> <span class="kc">False</span>
@@ -336,7 +336,7 @@
 </span><span id="L-212"><a href="#L-212"><span class="linenos">212</span></a>        <span class="k">return</span> <span class="kc">True</span>
 </span><span id="L-213"><a href="#L-213"><span class="linenos">213</span></a>
 </span><span id="L-214"><a href="#L-214"><span class="linenos">214</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_subset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="p">[],</span> <span class="n">subset</span><span class="o">=</span><span class="p">[],</span> <span class="n">channel_labels</span><span class="o">=</span><span class="p">[]):</span>
-</span><span id="L-215"><a href="#L-215"><span class="linenos">215</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a subset of X according to labels or indices.</span>
+</span><span id="L-215"><a href="#L-215"><span class="linenos">215</span></a><span class="w">        </span><span class="sd">"""Get a subset of X according to labels or indices.</span>
 </span><span id="L-216"><a href="#L-216"><span class="linenos">216</span></a>
 </span><span id="L-217"><a href="#L-217"><span class="linenos">217</span></a><span class="sd">        Parameters</span>
 </span><span id="L-218"><a href="#L-218"><span class="linenos">218</span></a><span class="sd">        ----------</span>
@@ -360,7 +360,7 @@
 </span><span id="L-236"><a href="#L-236"><span class="linenos">236</span></a>
 </span><span id="L-237"><a href="#L-237"><span class="linenos">237</span></a><span class="sd">            shape = (`n_trials`,`n_channels`,`n_samples`)</span>
 </span><span id="L-238"><a href="#L-238"><span class="linenos">238</span></a>
-</span><span id="L-239"><a href="#L-239"><span class="linenos">239</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-239"><a href="#L-239"><span class="linenos">239</span></a><span class="sd">        """</span>
 </span><span id="L-240"><a href="#L-240"><span class="linenos">240</span></a>
 </span><span id="L-241"><a href="#L-241"><span class="linenos">241</span></a>        <span class="c1"># Check for self.subset and/or self.channel_labels</span>
 </span><span id="L-242"><a href="#L-242"><span class="linenos">242</span></a>
@@ -374,14 +374,14 @@
 </span><span id="L-250"><a href="#L-250"><span class="linenos">250</span></a>                <span class="k">return</span> <span class="n">X</span>
 </span><span id="L-251"><a href="#L-251"><span class="linenos">251</span></a>
 </span><span id="L-252"><a href="#L-252"><span class="linenos">252</span></a>            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subset</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
-</span><span id="L-253"><a href="#L-253"><span class="linenos">253</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Using subset indices&quot;</span><span class="p">)</span>
+</span><span id="L-253"><a href="#L-253"><span class="linenos">253</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Using subset indices"</span><span class="p">)</span>
 </span><span id="L-254"><a href="#L-254"><span class="linenos">254</span></a>
 </span><span id="L-255"><a href="#L-255"><span class="linenos">255</span></a>                <span class="n">subset_indices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subset</span>
 </span><span id="L-256"><a href="#L-256"><span class="linenos">256</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">subset_defined</span>
 </span><span id="L-257"><a href="#L-257"><span class="linenos">257</span></a>
 </span><span id="L-258"><a href="#L-258"><span class="linenos">258</span></a>            <span class="c1"># Or channel labels</span>
 </span><span id="L-259"><a href="#L-259"><span class="linenos">259</span></a>            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subset</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="L-260"><a href="#L-260"><span class="linenos">260</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Using channel labels and subset labels&quot;</span><span class="p">)</span>
+</span><span id="L-260"><a href="#L-260"><span class="linenos">260</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Using channel labels and subset labels"</span><span class="p">)</span>
 </span><span id="L-261"><a href="#L-261"><span class="linenos">261</span></a>
 </span><span id="L-262"><a href="#L-262"><span class="linenos">262</span></a>                <span class="c1"># Replace indices with those described by labels</span>
 </span><span id="L-263"><a href="#L-263"><span class="linenos">263</span></a>                <span class="k">for</span> <span class="n">sl</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subset</span><span class="p">:</span>
@@ -410,13 +410,13 @@
 </span><span id="L-286"><a href="#L-286"><span class="linenos">286</span></a>
 </span><span id="L-287"><a href="#L-287"><span class="linenos">287</span></a>        <span class="c1"># notify if failed</span>
 </span><span id="L-288"><a href="#L-288"><span class="linenos">288</span></a>        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-</span><span id="L-289"><a href="#L-289"><span class="linenos">289</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;something went wrong, no subset taken&quot;</span><span class="p">)</span>
+</span><span id="L-289"><a href="#L-289"><span class="linenos">289</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"something went wrong, no subset taken"</span><span class="p">)</span>
 </span><span id="L-290"><a href="#L-290"><span class="linenos">290</span></a>            <span class="k">return</span> <span class="n">X</span>
 </span><span id="L-291"><a href="#L-291"><span class="linenos">291</span></a>
 </span><span id="L-292"><a href="#L-292"><span class="linenos">292</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">setup_channel_selection</span><span class="p">(</span>
 </span><span id="L-293"><a href="#L-293"><span class="linenos">293</span></a>        <span class="bp">self</span><span class="p">,</span>
-</span><span id="L-294"><a href="#L-294"><span class="linenos">294</span></a>        <span class="n">method</span><span class="o">=</span><span class="s2">&quot;SBS&quot;</span><span class="p">,</span>
-</span><span id="L-295"><a href="#L-295"><span class="linenos">295</span></a>        <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;accuracy&quot;</span><span class="p">,</span>
+</span><span id="L-294"><a href="#L-294"><span class="linenos">294</span></a>        <span class="n">method</span><span class="o">=</span><span class="s2">"SBS"</span><span class="p">,</span>
+</span><span id="L-295"><a href="#L-295"><span class="linenos">295</span></a>        <span class="n">metric</span><span class="o">=</span><span class="s2">"accuracy"</span><span class="p">,</span>
 </span><span id="L-296"><a href="#L-296"><span class="linenos">296</span></a>        <span class="n">iterative_selection</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 </span><span id="L-297"><a href="#L-297"><span class="linenos">297</span></a>        <span class="n">initial_channels</span><span class="o">=</span><span class="p">[],</span>  <span class="c1"># wrapper setup</span>
 </span><span id="L-298"><a href="#L-298"><span class="linenos">298</span></a>        <span class="n">max_time</span><span class="o">=</span><span class="mi">999</span><span class="p">,</span>
@@ -426,16 +426,16 @@
 </span><span id="L-302"><a href="#L-302"><span class="linenos">302</span></a>        <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
 </span><span id="L-303"><a href="#L-303"><span class="linenos">303</span></a>        <span class="n">record_performance</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 </span><span id="L-304"><a href="#L-304"><span class="linenos">304</span></a>    <span class="p">):</span>
-</span><span id="L-305"><a href="#L-305"><span class="linenos">305</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Setup channel selection parameters.</span>
+</span><span id="L-305"><a href="#L-305"><span class="linenos">305</span></a><span class="w">        </span><span class="sd">"""Setup channel selection parameters.</span>
 </span><span id="L-306"><a href="#L-306"><span class="linenos">306</span></a>
 </span><span id="L-307"><a href="#L-307"><span class="linenos">307</span></a><span class="sd">        Parameters</span>
 </span><span id="L-308"><a href="#L-308"><span class="linenos">308</span></a><span class="sd">        ----------</span>
 </span><span id="L-309"><a href="#L-309"><span class="linenos">309</span></a><span class="sd">        method : str, *optional*</span>
 </span><span id="L-310"><a href="#L-310"><span class="linenos">310</span></a><span class="sd">            The method used to add or remove channels.</span>
-</span><span id="L-311"><a href="#L-311"><span class="linenos">311</span></a><span class="sd">            - Default is `&quot;SBS&quot;`.</span>
+</span><span id="L-311"><a href="#L-311"><span class="linenos">311</span></a><span class="sd">            - Default is `"SBS"`.</span>
 </span><span id="L-312"><a href="#L-312"><span class="linenos">312</span></a><span class="sd">        metric : str, *optional*</span>
 </span><span id="L-313"><a href="#L-313"><span class="linenos">313</span></a><span class="sd">            The metric used to measure performance.</span>
-</span><span id="L-314"><a href="#L-314"><span class="linenos">314</span></a><span class="sd">            - Default is `&quot;accuracy&quot;`.</span>
+</span><span id="L-314"><a href="#L-314"><span class="linenos">314</span></a><span class="sd">            - Default is `"accuracy"`.</span>
 </span><span id="L-315"><a href="#L-315"><span class="linenos">315</span></a><span class="sd">        iterative_selection : bool, *optional*</span>
 </span><span id="L-316"><a href="#L-316"><span class="linenos">316</span></a><span class="sd">            Whether or not to use the previously selected subset for the initial subset.</span>
 </span><span id="L-317"><a href="#L-317"><span class="linenos">317</span></a><span class="sd">            Default is `False`.</span>
@@ -466,7 +466,7 @@
 </span><span id="L-342"><a href="#L-342"><span class="linenos">342</span></a><span class="sd">        -------</span>
 </span><span id="L-343"><a href="#L-343"><span class="linenos">343</span></a><span class="sd">        `None`</span>
 </span><span id="L-344"><a href="#L-344"><span class="linenos">344</span></a>
-</span><span id="L-345"><a href="#L-345"><span class="linenos">345</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-345"><a href="#L-345"><span class="linenos">345</span></a><span class="sd">        """</span>
 </span><span id="L-346"><a href="#L-346"><span class="linenos">346</span></a>        <span class="c1"># Add these to settings later</span>
 </span><span id="L-347"><a href="#L-347"><span class="linenos">347</span></a>        <span class="k">if</span> <span class="n">initial_channels</span> <span class="o">==</span> <span class="p">[]:</span>
 </span><span id="L-348"><a href="#L-348"><span class="linenos">348</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">chs_initial_subset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel_labels</span>
@@ -486,7 +486,7 @@
 </span><span id="L-362"><a href="#L-362"><span class="linenos">362</span></a>
 </span><span id="L-363"><a href="#L-363"><span class="linenos">363</span></a>    <span class="c1"># add training data, to the training set using a decision block and a label</span>
 </span><span id="L-364"><a href="#L-364"><span class="linenos">364</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_to_train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decision_block</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">num_options</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="p">[]):</span>
-</span><span id="L-365"><a href="#L-365"><span class="linenos">365</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Add training data to the training set using a decision block</span>
+</span><span id="L-365"><a href="#L-365"><span class="linenos">365</span></a><span class="w">        </span><span class="sd">"""Add training data to the training set using a decision block</span>
 </span><span id="L-366"><a href="#L-366"><span class="linenos">366</span></a><span class="sd">        and a label.</span>
 </span><span id="L-367"><a href="#L-367"><span class="linenos">367</span></a>
 </span><span id="L-368"><a href="#L-368"><span class="linenos">368</span></a><span class="sd">        Parameters</span>
@@ -508,8 +508,8 @@
 </span><span id="L-384"><a href="#L-384"><span class="linenos">384</span></a><span class="sd">        -------</span>
 </span><span id="L-385"><a href="#L-385"><span class="linenos">385</span></a><span class="sd">        `None`</span>
 </span><span id="L-386"><a href="#L-386"><span class="linenos">386</span></a>
-</span><span id="L-387"><a href="#L-387"><span class="linenos">387</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-388"><a href="#L-388"><span class="linenos">388</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Adding to training set&quot;</span><span class="p">)</span>
+</span><span id="L-387"><a href="#L-387"><span class="linenos">387</span></a><span class="sd">        """</span>
+</span><span id="L-388"><a href="#L-388"><span class="linenos">388</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Adding to training set"</span><span class="p">)</span>
 </span><span id="L-389"><a href="#L-389"><span class="linenos">389</span></a>        <span class="c1"># n = number of channels</span>
 </span><span id="L-390"><a href="#L-390"><span class="linenos">390</span></a>        <span class="c1"># m = number of samples</span>
 </span><span id="L-391"><a href="#L-391"><span class="linenos">391</span></a>        <span class="c1"># p = number of epochs</span>
@@ -528,18 +528,18 @@
 </span><span id="L-404"><a href="#L-404"><span class="linenos">404</span></a>
 </span><span id="L-405"><a href="#L-405"><span class="linenos">405</span></a>    <span class="nd">@abstractmethod</span>
 </span><span id="L-406"><a href="#L-406"><span class="linenos">406</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-407"><a href="#L-407"><span class="linenos">407</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Abstract method to fit classifier</span>
+</span><span id="L-407"><a href="#L-407"><span class="linenos">407</span></a><span class="w">        </span><span class="sd">"""Abstract method to fit classifier</span>
 </span><span id="L-408"><a href="#L-408"><span class="linenos">408</span></a>
 </span><span id="L-409"><a href="#L-409"><span class="linenos">409</span></a><span class="sd">        Returns</span>
 </span><span id="L-410"><a href="#L-410"><span class="linenos">410</span></a><span class="sd">        -------</span>
 </span><span id="L-411"><a href="#L-411"><span class="linenos">411</span></a><span class="sd">        `None`</span>
 </span><span id="L-412"><a href="#L-412"><span class="linenos">412</span></a>
-</span><span id="L-413"><a href="#L-413"><span class="linenos">413</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-413"><a href="#L-413"><span class="linenos">413</span></a><span class="sd">        """</span>
 </span><span id="L-414"><a href="#L-414"><span class="linenos">414</span></a>        <span class="k">pass</span>
 </span><span id="L-415"><a href="#L-415"><span class="linenos">415</span></a>
 </span><span id="L-416"><a href="#L-416"><span class="linenos">416</span></a>    <span class="nd">@abstractmethod</span>
 </span><span id="L-417"><a href="#L-417"><span class="linenos">417</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Prediction</span><span class="p">:</span>
-</span><span id="L-418"><a href="#L-418"><span class="linenos">418</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Abstract method to predict with classifier</span>
+</span><span id="L-418"><a href="#L-418"><span class="linenos">418</span></a><span class="w">        </span><span class="sd">"""Abstract method to predict with classifier</span>
 </span><span id="L-419"><a href="#L-419"><span class="linenos">419</span></a>
 </span><span id="L-420"><a href="#L-420"><span class="linenos">420</span></a><span class="sd">        X : numpy.ndarray</span>
 </span><span id="L-421"><a href="#L-421"><span class="linenos">421</span></a><span class="sd">            3D array where shape = (trials, channels, samples)</span>
@@ -550,7 +550,7 @@
 </span><span id="L-426"><a href="#L-426"><span class="linenos">426</span></a><span class="sd">            Results of predict call containing the predicted class labels, and</span>
 </span><span id="L-427"><a href="#L-427"><span class="linenos">427</span></a><span class="sd">            optionally the probabilities of the labels (empty list if not possible).</span>
 </span><span id="L-428"><a href="#L-428"><span class="linenos">428</span></a>
-</span><span id="L-429"><a href="#L-429"><span class="linenos">429</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-429"><a href="#L-429"><span class="linenos">429</span></a><span class="sd">        """</span>
 </span><span id="L-430"><a href="#L-430"><span class="linenos">430</span></a>        <span class="k">pass</span>
 </span></pre></div>
 
@@ -582,18 +582,18 @@
     <a class="headerlink" href="#Prediction"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="Prediction-22"><a href="#Prediction-22"><span class="linenos">22</span></a><span class="nd">@dataclass</span>
 </span><span id="Prediction-23"><a href="#Prediction-23"><span class="linenos">23</span></a><span class="k">class</span><span class="w"> </span><span class="nc">Prediction</span><span class="p">:</span>
-</span><span id="Prediction-24"><a href="#Prediction-24"><span class="linenos">24</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Prediction data returned by GenericClassifer.predict()</span>
+</span><span id="Prediction-24"><a href="#Prediction-24"><span class="linenos">24</span></a><span class="w">    </span><span class="sd">"""Prediction data returned by GenericClassifer.predict()</span>
 </span><span id="Prediction-25"><a href="#Prediction-25"><span class="linenos">25</span></a>
 </span><span id="Prediction-26"><a href="#Prediction-26"><span class="linenos">26</span></a><span class="sd">    labels : list</span>
 </span><span id="Prediction-27"><a href="#Prediction-27"><span class="linenos">27</span></a><span class="sd">        List of the predicted class labels.</span>
 </span><span id="Prediction-28"><a href="#Prediction-28"><span class="linenos">28</span></a><span class="sd">        - Default is `[]`.</span>
 </span><span id="Prediction-29"><a href="#Prediction-29"><span class="linenos">29</span></a>
 </span><span id="Prediction-30"><a href="#Prediction-30"><span class="linenos">30</span></a><span class="sd">    probabilities : list</span>
-</span><span id="Prediction-31"><a href="#Prediction-31"><span class="linenos">31</span></a><span class="sd">        List of probabilities for each class label. If the classifier can&#39;t</span>
+</span><span id="Prediction-31"><a href="#Prediction-31"><span class="linenos">31</span></a><span class="sd">        List of probabilities for each class label. If the classifier can't</span>
 </span><span id="Prediction-32"><a href="#Prediction-32"><span class="linenos">32</span></a><span class="sd">        provide probabilities, this will be an empty list `[]`.</span>
 </span><span id="Prediction-33"><a href="#Prediction-33"><span class="linenos">33</span></a><span class="sd">        - Default is `[]`</span>
 </span><span id="Prediction-34"><a href="#Prediction-34"><span class="linenos">34</span></a>
-</span><span id="Prediction-35"><a href="#Prediction-35"><span class="linenos">35</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="Prediction-35"><a href="#Prediction-35"><span class="linenos">35</span></a><span class="sd">    """</span>
 </span><span id="Prediction-36"><a href="#Prediction-36"><span class="linenos">36</span></a>
 </span><span id="Prediction-37"><a href="#Prediction-37"><span class="linenos">37</span></a>    <span class="n">labels</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
 </span><span id="Prediction-38"><a href="#Prediction-38"><span class="linenos">38</span></a>    <span class="n">probabilities</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
@@ -662,7 +662,7 @@
     <a class="headerlink" href="#KernelResults"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="KernelResults-41"><a href="#KernelResults-41"><span class="linenos">41</span></a><span class="nd">@dataclass</span>
 </span><span id="KernelResults-42"><a href="#KernelResults-42"><span class="linenos">42</span></a><span class="k">class</span><span class="w"> </span><span class="nc">KernelResults</span><span class="p">:</span>
-</span><span id="KernelResults-43"><a href="#KernelResults-43"><span class="linenos">43</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Dataclass to store output from the kernel methods</span>
+</span><span id="KernelResults-43"><a href="#KernelResults-43"><span class="linenos">43</span></a><span class="w">    </span><span class="sd">"""Dataclass to store output from the kernel methods</span>
 </span><span id="KernelResults-44"><a href="#KernelResults-44"><span class="linenos">44</span></a>
 </span><span id="KernelResults-45"><a href="#KernelResults-45"><span class="linenos">45</span></a><span class="sd">    model : classifier</span>
 </span><span id="KernelResults-46"><a href="#KernelResults-46"><span class="linenos">46</span></a><span class="sd">        The trained classification model.</span>
@@ -678,7 +678,7 @@
 </span><span id="KernelResults-56"><a href="#KernelResults-56"><span class="linenos">56</span></a>
 </span><span id="KernelResults-57"><a href="#KernelResults-57"><span class="linenos">57</span></a><span class="sd">    recall : float</span>
 </span><span id="KernelResults-58"><a href="#KernelResults-58"><span class="linenos">58</span></a><span class="sd">        The recall of the trained classification model.</span>
-</span><span id="KernelResults-59"><a href="#KernelResults-59"><span class="linenos">59</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="KernelResults-59"><a href="#KernelResults-59"><span class="linenos">59</span></a><span class="sd">    """</span>
 </span><span id="KernelResults-60"><a href="#KernelResults-60"><span class="linenos">60</span></a>
 </span><span id="KernelResults-61"><a href="#KernelResults-61"><span class="linenos">61</span></a>    <span class="n">model</span><span class="p">:</span> <span class="n">Pipeline</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </span><span id="KernelResults-62"><a href="#KernelResults-62"><span class="linenos">62</span></a>    <span class="n">cv_preds</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
@@ -791,10 +791,10 @@
     </div>
     <a class="headerlink" href="#GenericClassifier"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="GenericClassifier-68"><a href="#GenericClassifier-68"><span class="linenos"> 68</span></a><span class="k">class</span><span class="w"> </span><span class="nc">GenericClassifier</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-</span><span id="GenericClassifier-69"><a href="#GenericClassifier-69"><span class="linenos"> 69</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;The base generic classifier class for other classifiers.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-69"><a href="#GenericClassifier-69"><span class="linenos"> 69</span></a><span class="w">    </span><span class="sd">"""The base generic classifier class for other classifiers."""</span>
 </span><span id="GenericClassifier-70"><a href="#GenericClassifier-70"><span class="linenos"> 70</span></a>
 </span><span id="GenericClassifier-71"><a href="#GenericClassifier-71"><span class="linenos"> 71</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">training_selection</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="p">[]):</span>
-</span><span id="GenericClassifier-72"><a href="#GenericClassifier-72"><span class="linenos"> 72</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes `GenericClassifier` class.</span>
+</span><span id="GenericClassifier-72"><a href="#GenericClassifier-72"><span class="linenos"> 72</span></a><span class="w">        </span><span class="sd">"""Initializes `GenericClassifier` class.</span>
 </span><span id="GenericClassifier-73"><a href="#GenericClassifier-73"><span class="linenos"> 73</span></a>
 </span><span id="GenericClassifier-74"><a href="#GenericClassifier-74"><span class="linenos"> 74</span></a><span class="sd">        Parameters</span>
 </span><span id="GenericClassifier-75"><a href="#GenericClassifier-75"><span class="linenos"> 75</span></a><span class="sd">        ----------</span>
@@ -841,7 +841,7 @@
 </span><span id="GenericClassifier-116"><a href="#GenericClassifier-116"><span class="linenos">116</span></a><span class="sd">            - Initial value is `0`.</span>
 </span><span id="GenericClassifier-117"><a href="#GenericClassifier-117"><span class="linenos">117</span></a><span class="sd">        offline_trial_counts : list of `int`</span>
 </span><span id="GenericClassifier-118"><a href="#GenericClassifier-118"><span class="linenos">118</span></a><span class="sd">            List to store the counts of offline trials.</span>
-</span><span id="GenericClassifier-119"><a href="#GenericClassifier-119"><span class="linenos">119</span></a><span class="sd">            i.e. `offline_trial_count&#39; values.</span>
+</span><span id="GenericClassifier-119"><a href="#GenericClassifier-119"><span class="linenos">119</span></a><span class="sd">            i.e. `offline_trial_count' values.</span>
 </span><span id="GenericClassifier-120"><a href="#GenericClassifier-120"><span class="linenos">120</span></a><span class="sd">            - Initial value is `[]`.</span>
 </span><span id="GenericClassifier-121"><a href="#GenericClassifier-121"><span class="linenos">121</span></a><span class="sd">        next_fit_trial : int</span>
 </span><span id="GenericClassifier-122"><a href="#GenericClassifier-122"><span class="linenos">122</span></a><span class="sd">            Counter to track the next trial for fitting.</span>
@@ -856,50 +856,50 @@
 </span><span id="GenericClassifier-131"><a href="#GenericClassifier-131"><span class="linenos">131</span></a><span class="sd">            Number of splits for cross-validation. Also serves as minimum required samples per class for training when running _check_ready_for_fit().</span>
 </span><span id="GenericClassifier-132"><a href="#GenericClassifier-132"><span class="linenos">132</span></a><span class="sd">            - Initial value is `5`.</span>
 </span><span id="GenericClassifier-133"><a href="#GenericClassifier-133"><span class="linenos">133</span></a>
-</span><span id="GenericClassifier-134"><a href="#GenericClassifier-134"><span class="linenos">134</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="GenericClassifier-135"><a href="#GenericClassifier-135"><span class="linenos">135</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Initializing the classifier&quot;</span><span class="p">)</span>
+</span><span id="GenericClassifier-134"><a href="#GenericClassifier-134"><span class="linenos">134</span></a><span class="sd">        """</span>
+</span><span id="GenericClassifier-135"><a href="#GenericClassifier-135"><span class="linenos">135</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Initializing the classifier"</span><span class="p">)</span>
 </span><span id="GenericClassifier-136"><a href="#GenericClassifier-136"><span class="linenos">136</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="GenericClassifier-137"><a href="#GenericClassifier-137"><span class="linenos">137</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-137"><a href="#GenericClassifier-137"><span class="linenos">137</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier-138"><a href="#GenericClassifier-138"><span class="linenos">138</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="GenericClassifier-139"><a href="#GenericClassifier-139"><span class="linenos">139</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-139"><a href="#GenericClassifier-139"><span class="linenos">139</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier-140"><a href="#GenericClassifier-140"><span class="linenos">140</span></a>
 </span><span id="GenericClassifier-141"><a href="#GenericClassifier-141"><span class="linenos">141</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">subset_defined</span> <span class="o">=</span> <span class="kc">False</span>
-</span><span id="GenericClassifier-142"><a href="#GenericClassifier-142"><span class="linenos">142</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-142"><a href="#GenericClassifier-142"><span class="linenos">142</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier-143"><a href="#GenericClassifier-143"><span class="linenos">143</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">subset</span> <span class="o">=</span> <span class="n">subset</span>
-</span><span id="GenericClassifier-144"><a href="#GenericClassifier-144"><span class="linenos">144</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-144"><a href="#GenericClassifier-144"><span class="linenos">144</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier-145"><a href="#GenericClassifier-145"><span class="linenos">145</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">channel_labels</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="GenericClassifier-146"><a href="#GenericClassifier-146"><span class="linenos">146</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-146"><a href="#GenericClassifier-146"><span class="linenos">146</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier-147"><a href="#GenericClassifier-147"><span class="linenos">147</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">channel_selection_setup</span> <span class="o">=</span> <span class="kc">False</span>
-</span><span id="GenericClassifier-148"><a href="#GenericClassifier-148"><span class="linenos">148</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-148"><a href="#GenericClassifier-148"><span class="linenos">148</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier-149"><a href="#GenericClassifier-149"><span class="linenos">149</span></a>
 </span><span id="GenericClassifier-150"><a href="#GenericClassifier-150"><span class="linenos">150</span></a>        <span class="c1"># Lists for plotting classifier performance over time</span>
 </span><span id="GenericClassifier-151"><a href="#GenericClassifier-151"><span class="linenos">151</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">offline_accuracy</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="GenericClassifier-152"><a href="#GenericClassifier-152"><span class="linenos">152</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-152"><a href="#GenericClassifier-152"><span class="linenos">152</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier-153"><a href="#GenericClassifier-153"><span class="linenos">153</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">offline_precision</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="GenericClassifier-154"><a href="#GenericClassifier-154"><span class="linenos">154</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-154"><a href="#GenericClassifier-154"><span class="linenos">154</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier-155"><a href="#GenericClassifier-155"><span class="linenos">155</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">offline_recall</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="GenericClassifier-156"><a href="#GenericClassifier-156"><span class="linenos">156</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-156"><a href="#GenericClassifier-156"><span class="linenos">156</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier-157"><a href="#GenericClassifier-157"><span class="linenos">157</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">offline_trial_count</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span id="GenericClassifier-158"><a href="#GenericClassifier-158"><span class="linenos">158</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-158"><a href="#GenericClassifier-158"><span class="linenos">158</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier-159"><a href="#GenericClassifier-159"><span class="linenos">159</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">offline_trial_counts</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="GenericClassifier-160"><a href="#GenericClassifier-160"><span class="linenos">160</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-160"><a href="#GenericClassifier-160"><span class="linenos">160</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier-161"><a href="#GenericClassifier-161"><span class="linenos">161</span></a>
 </span><span id="GenericClassifier-162"><a href="#GenericClassifier-162"><span class="linenos">162</span></a>        <span class="c1"># For iterative fitting,</span>
 </span><span id="GenericClassifier-163"><a href="#GenericClassifier-163"><span class="linenos">163</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">next_fit_trial</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span id="GenericClassifier-164"><a href="#GenericClassifier-164"><span class="linenos">164</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-164"><a href="#GenericClassifier-164"><span class="linenos">164</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier-165"><a href="#GenericClassifier-165"><span class="linenos">165</span></a>
 </span><span id="GenericClassifier-166"><a href="#GenericClassifier-166"><span class="linenos">166</span></a>        <span class="c1"># Keep track of predictions</span>
 </span><span id="GenericClassifier-167"><a href="#GenericClassifier-167"><span class="linenos">167</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">predictions</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="GenericClassifier-168"><a href="#GenericClassifier-168"><span class="linenos">168</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-168"><a href="#GenericClassifier-168"><span class="linenos">168</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier-169"><a href="#GenericClassifier-169"><span class="linenos">169</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">pred_probas</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="GenericClassifier-170"><a href="#GenericClassifier-170"><span class="linenos">170</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-170"><a href="#GenericClassifier-170"><span class="linenos">170</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier-171"><a href="#GenericClassifier-171"><span class="linenos">171</span></a>
 </span><span id="GenericClassifier-172"><a href="#GenericClassifier-172"><span class="linenos">172</span></a>        <span class="c1"># N Splits</span>
 </span><span id="GenericClassifier-173"><a href="#GenericClassifier-173"><span class="linenos">173</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">n_splits</span> <span class="o">=</span> <span class="mi">5</span>
-</span><span id="GenericClassifier-174"><a href="#GenericClassifier-174"><span class="linenos">174</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-174"><a href="#GenericClassifier-174"><span class="linenos">174</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier-175"><a href="#GenericClassifier-175"><span class="linenos">175</span></a>
 </span><span id="GenericClassifier-176"><a href="#GenericClassifier-176"><span class="linenos">176</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">_check_ready_for_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="GenericClassifier-177"><a href="#GenericClassifier-177"><span class="linenos">177</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if sufficient data is available for fitting with cross-validation.</span>
+</span><span id="GenericClassifier-177"><a href="#GenericClassifier-177"><span class="linenos">177</span></a><span class="w">        </span><span class="sd">"""Check if sufficient data is available for fitting with cross-validation.</span>
 </span><span id="GenericClassifier-178"><a href="#GenericClassifier-178"><span class="linenos">178</span></a>
 </span><span id="GenericClassifier-179"><a href="#GenericClassifier-179"><span class="linenos">179</span></a><span class="sd">        This method validates that:</span>
 </span><span id="GenericClassifier-180"><a href="#GenericClassifier-180"><span class="linenos">180</span></a><span class="sd">        1. Training data (X) exists</span>
@@ -910,15 +910,15 @@
 </span><span id="GenericClassifier-185"><a href="#GenericClassifier-185"><span class="linenos">185</span></a><span class="sd">        -------</span>
 </span><span id="GenericClassifier-186"><a href="#GenericClassifier-186"><span class="linenos">186</span></a><span class="sd">        bool</span>
 </span><span id="GenericClassifier-187"><a href="#GenericClassifier-187"><span class="linenos">187</span></a><span class="sd">            Returns `True` if data meets all requirements for fitting, otherwise `False`.</span>
-</span><span id="GenericClassifier-188"><a href="#GenericClassifier-188"><span class="linenos">188</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-188"><a href="#GenericClassifier-188"><span class="linenos">188</span></a><span class="sd">        """</span>
 </span><span id="GenericClassifier-189"><a href="#GenericClassifier-189"><span class="linenos">189</span></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="GenericClassifier-190"><a href="#GenericClassifier-190"><span class="linenos">190</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;No data available for fitting&quot;</span><span class="p">)</span>
+</span><span id="GenericClassifier-190"><a href="#GenericClassifier-190"><span class="linenos">190</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"No data available for fitting"</span><span class="p">)</span>
 </span><span id="GenericClassifier-191"><a href="#GenericClassifier-191"><span class="linenos">191</span></a>            <span class="k">return</span> <span class="kc">False</span>
 </span><span id="GenericClassifier-192"><a href="#GenericClassifier-192"><span class="linenos">192</span></a>
 </span><span id="GenericClassifier-193"><a href="#GenericClassifier-193"><span class="linenos">193</span></a>        <span class="n">unique_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
 </span><span id="GenericClassifier-194"><a href="#GenericClassifier-194"><span class="linenos">194</span></a>
 </span><span id="GenericClassifier-195"><a href="#GenericClassifier-195"><span class="linenos">195</span></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_y</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-</span><span id="GenericClassifier-196"><a href="#GenericClassifier-196"><span class="linenos">196</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Only one class available for fitting&quot;</span><span class="p">)</span>
+</span><span id="GenericClassifier-196"><a href="#GenericClassifier-196"><span class="linenos">196</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"Only one class available for fitting"</span><span class="p">)</span>
 </span><span id="GenericClassifier-197"><a href="#GenericClassifier-197"><span class="linenos">197</span></a>            <span class="k">return</span> <span class="kc">False</span>
 </span><span id="GenericClassifier-198"><a href="#GenericClassifier-198"><span class="linenos">198</span></a>
 </span><span id="GenericClassifier-199"><a href="#GenericClassifier-199"><span class="linenos">199</span></a>        <span class="n">class_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">unique_y</span><span class="p">))</span>
@@ -930,7 +930,7 @@
 </span><span id="GenericClassifier-205"><a href="#GenericClassifier-205"><span class="linenos">205</span></a>            <span class="c1"># Future implementation: Report the class with the least number of samples</span>
 </span><span id="GenericClassifier-206"><a href="#GenericClassifier-206"><span class="linenos">206</span></a>            <span class="c1"># Future implementation: Report the number of samples in each class</span>
 </span><span id="GenericClassifier-207"><a href="#GenericClassifier-207"><span class="linenos">207</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-</span><span id="GenericClassifier-208"><a href="#GenericClassifier-208"><span class="linenos">208</span></a>                <span class="s2">&quot;Need at least </span><span class="si">%s</span><span class="s2"> samples per class for cross-validation. Please collect more training data.&quot;</span><span class="p">,</span>
+</span><span id="GenericClassifier-208"><a href="#GenericClassifier-208"><span class="linenos">208</span></a>                <span class="s2">"Need at least </span><span class="si">%s</span><span class="s2"> samples per class for cross-validation. Please collect more training data."</span><span class="p">,</span>
 </span><span id="GenericClassifier-209"><a href="#GenericClassifier-209"><span class="linenos">209</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">n_splits</span><span class="p">,</span>
 </span><span id="GenericClassifier-210"><a href="#GenericClassifier-210"><span class="linenos">210</span></a>            <span class="p">)</span>
 </span><span id="GenericClassifier-211"><a href="#GenericClassifier-211"><span class="linenos">211</span></a>            <span class="k">return</span> <span class="kc">False</span>
@@ -938,7 +938,7 @@
 </span><span id="GenericClassifier-213"><a href="#GenericClassifier-213"><span class="linenos">213</span></a>        <span class="k">return</span> <span class="kc">True</span>
 </span><span id="GenericClassifier-214"><a href="#GenericClassifier-214"><span class="linenos">214</span></a>
 </span><span id="GenericClassifier-215"><a href="#GenericClassifier-215"><span class="linenos">215</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_subset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="p">[],</span> <span class="n">subset</span><span class="o">=</span><span class="p">[],</span> <span class="n">channel_labels</span><span class="o">=</span><span class="p">[]):</span>
-</span><span id="GenericClassifier-216"><a href="#GenericClassifier-216"><span class="linenos">216</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a subset of X according to labels or indices.</span>
+</span><span id="GenericClassifier-216"><a href="#GenericClassifier-216"><span class="linenos">216</span></a><span class="w">        </span><span class="sd">"""Get a subset of X according to labels or indices.</span>
 </span><span id="GenericClassifier-217"><a href="#GenericClassifier-217"><span class="linenos">217</span></a>
 </span><span id="GenericClassifier-218"><a href="#GenericClassifier-218"><span class="linenos">218</span></a><span class="sd">        Parameters</span>
 </span><span id="GenericClassifier-219"><a href="#GenericClassifier-219"><span class="linenos">219</span></a><span class="sd">        ----------</span>
@@ -962,7 +962,7 @@
 </span><span id="GenericClassifier-237"><a href="#GenericClassifier-237"><span class="linenos">237</span></a>
 </span><span id="GenericClassifier-238"><a href="#GenericClassifier-238"><span class="linenos">238</span></a><span class="sd">            shape = (`n_trials`,`n_channels`,`n_samples`)</span>
 </span><span id="GenericClassifier-239"><a href="#GenericClassifier-239"><span class="linenos">239</span></a>
-</span><span id="GenericClassifier-240"><a href="#GenericClassifier-240"><span class="linenos">240</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-240"><a href="#GenericClassifier-240"><span class="linenos">240</span></a><span class="sd">        """</span>
 </span><span id="GenericClassifier-241"><a href="#GenericClassifier-241"><span class="linenos">241</span></a>
 </span><span id="GenericClassifier-242"><a href="#GenericClassifier-242"><span class="linenos">242</span></a>        <span class="c1"># Check for self.subset and/or self.channel_labels</span>
 </span><span id="GenericClassifier-243"><a href="#GenericClassifier-243"><span class="linenos">243</span></a>
@@ -976,14 +976,14 @@
 </span><span id="GenericClassifier-251"><a href="#GenericClassifier-251"><span class="linenos">251</span></a>                <span class="k">return</span> <span class="n">X</span>
 </span><span id="GenericClassifier-252"><a href="#GenericClassifier-252"><span class="linenos">252</span></a>
 </span><span id="GenericClassifier-253"><a href="#GenericClassifier-253"><span class="linenos">253</span></a>            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subset</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
-</span><span id="GenericClassifier-254"><a href="#GenericClassifier-254"><span class="linenos">254</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Using subset indices&quot;</span><span class="p">)</span>
+</span><span id="GenericClassifier-254"><a href="#GenericClassifier-254"><span class="linenos">254</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Using subset indices"</span><span class="p">)</span>
 </span><span id="GenericClassifier-255"><a href="#GenericClassifier-255"><span class="linenos">255</span></a>
 </span><span id="GenericClassifier-256"><a href="#GenericClassifier-256"><span class="linenos">256</span></a>                <span class="n">subset_indices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subset</span>
 </span><span id="GenericClassifier-257"><a href="#GenericClassifier-257"><span class="linenos">257</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">subset_defined</span>
 </span><span id="GenericClassifier-258"><a href="#GenericClassifier-258"><span class="linenos">258</span></a>
 </span><span id="GenericClassifier-259"><a href="#GenericClassifier-259"><span class="linenos">259</span></a>            <span class="c1"># Or channel labels</span>
 </span><span id="GenericClassifier-260"><a href="#GenericClassifier-260"><span class="linenos">260</span></a>            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subset</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="GenericClassifier-261"><a href="#GenericClassifier-261"><span class="linenos">261</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Using channel labels and subset labels&quot;</span><span class="p">)</span>
+</span><span id="GenericClassifier-261"><a href="#GenericClassifier-261"><span class="linenos">261</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Using channel labels and subset labels"</span><span class="p">)</span>
 </span><span id="GenericClassifier-262"><a href="#GenericClassifier-262"><span class="linenos">262</span></a>
 </span><span id="GenericClassifier-263"><a href="#GenericClassifier-263"><span class="linenos">263</span></a>                <span class="c1"># Replace indices with those described by labels</span>
 </span><span id="GenericClassifier-264"><a href="#GenericClassifier-264"><span class="linenos">264</span></a>                <span class="k">for</span> <span class="n">sl</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subset</span><span class="p">:</span>
@@ -1012,13 +1012,13 @@
 </span><span id="GenericClassifier-287"><a href="#GenericClassifier-287"><span class="linenos">287</span></a>
 </span><span id="GenericClassifier-288"><a href="#GenericClassifier-288"><span class="linenos">288</span></a>        <span class="c1"># notify if failed</span>
 </span><span id="GenericClassifier-289"><a href="#GenericClassifier-289"><span class="linenos">289</span></a>        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-</span><span id="GenericClassifier-290"><a href="#GenericClassifier-290"><span class="linenos">290</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;something went wrong, no subset taken&quot;</span><span class="p">)</span>
+</span><span id="GenericClassifier-290"><a href="#GenericClassifier-290"><span class="linenos">290</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"something went wrong, no subset taken"</span><span class="p">)</span>
 </span><span id="GenericClassifier-291"><a href="#GenericClassifier-291"><span class="linenos">291</span></a>            <span class="k">return</span> <span class="n">X</span>
 </span><span id="GenericClassifier-292"><a href="#GenericClassifier-292"><span class="linenos">292</span></a>
 </span><span id="GenericClassifier-293"><a href="#GenericClassifier-293"><span class="linenos">293</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">setup_channel_selection</span><span class="p">(</span>
 </span><span id="GenericClassifier-294"><a href="#GenericClassifier-294"><span class="linenos">294</span></a>        <span class="bp">self</span><span class="p">,</span>
-</span><span id="GenericClassifier-295"><a href="#GenericClassifier-295"><span class="linenos">295</span></a>        <span class="n">method</span><span class="o">=</span><span class="s2">&quot;SBS&quot;</span><span class="p">,</span>
-</span><span id="GenericClassifier-296"><a href="#GenericClassifier-296"><span class="linenos">296</span></a>        <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;accuracy&quot;</span><span class="p">,</span>
+</span><span id="GenericClassifier-295"><a href="#GenericClassifier-295"><span class="linenos">295</span></a>        <span class="n">method</span><span class="o">=</span><span class="s2">"SBS"</span><span class="p">,</span>
+</span><span id="GenericClassifier-296"><a href="#GenericClassifier-296"><span class="linenos">296</span></a>        <span class="n">metric</span><span class="o">=</span><span class="s2">"accuracy"</span><span class="p">,</span>
 </span><span id="GenericClassifier-297"><a href="#GenericClassifier-297"><span class="linenos">297</span></a>        <span class="n">iterative_selection</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 </span><span id="GenericClassifier-298"><a href="#GenericClassifier-298"><span class="linenos">298</span></a>        <span class="n">initial_channels</span><span class="o">=</span><span class="p">[],</span>  <span class="c1"># wrapper setup</span>
 </span><span id="GenericClassifier-299"><a href="#GenericClassifier-299"><span class="linenos">299</span></a>        <span class="n">max_time</span><span class="o">=</span><span class="mi">999</span><span class="p">,</span>
@@ -1028,16 +1028,16 @@
 </span><span id="GenericClassifier-303"><a href="#GenericClassifier-303"><span class="linenos">303</span></a>        <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
 </span><span id="GenericClassifier-304"><a href="#GenericClassifier-304"><span class="linenos">304</span></a>        <span class="n">record_performance</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 </span><span id="GenericClassifier-305"><a href="#GenericClassifier-305"><span class="linenos">305</span></a>    <span class="p">):</span>
-</span><span id="GenericClassifier-306"><a href="#GenericClassifier-306"><span class="linenos">306</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Setup channel selection parameters.</span>
+</span><span id="GenericClassifier-306"><a href="#GenericClassifier-306"><span class="linenos">306</span></a><span class="w">        </span><span class="sd">"""Setup channel selection parameters.</span>
 </span><span id="GenericClassifier-307"><a href="#GenericClassifier-307"><span class="linenos">307</span></a>
 </span><span id="GenericClassifier-308"><a href="#GenericClassifier-308"><span class="linenos">308</span></a><span class="sd">        Parameters</span>
 </span><span id="GenericClassifier-309"><a href="#GenericClassifier-309"><span class="linenos">309</span></a><span class="sd">        ----------</span>
 </span><span id="GenericClassifier-310"><a href="#GenericClassifier-310"><span class="linenos">310</span></a><span class="sd">        method : str, *optional*</span>
 </span><span id="GenericClassifier-311"><a href="#GenericClassifier-311"><span class="linenos">311</span></a><span class="sd">            The method used to add or remove channels.</span>
-</span><span id="GenericClassifier-312"><a href="#GenericClassifier-312"><span class="linenos">312</span></a><span class="sd">            - Default is `&quot;SBS&quot;`.</span>
+</span><span id="GenericClassifier-312"><a href="#GenericClassifier-312"><span class="linenos">312</span></a><span class="sd">            - Default is `"SBS"`.</span>
 </span><span id="GenericClassifier-313"><a href="#GenericClassifier-313"><span class="linenos">313</span></a><span class="sd">        metric : str, *optional*</span>
 </span><span id="GenericClassifier-314"><a href="#GenericClassifier-314"><span class="linenos">314</span></a><span class="sd">            The metric used to measure performance.</span>
-</span><span id="GenericClassifier-315"><a href="#GenericClassifier-315"><span class="linenos">315</span></a><span class="sd">            - Default is `&quot;accuracy&quot;`.</span>
+</span><span id="GenericClassifier-315"><a href="#GenericClassifier-315"><span class="linenos">315</span></a><span class="sd">            - Default is `"accuracy"`.</span>
 </span><span id="GenericClassifier-316"><a href="#GenericClassifier-316"><span class="linenos">316</span></a><span class="sd">        iterative_selection : bool, *optional*</span>
 </span><span id="GenericClassifier-317"><a href="#GenericClassifier-317"><span class="linenos">317</span></a><span class="sd">            Whether or not to use the previously selected subset for the initial subset.</span>
 </span><span id="GenericClassifier-318"><a href="#GenericClassifier-318"><span class="linenos">318</span></a><span class="sd">            Default is `False`.</span>
@@ -1068,7 +1068,7 @@
 </span><span id="GenericClassifier-343"><a href="#GenericClassifier-343"><span class="linenos">343</span></a><span class="sd">        -------</span>
 </span><span id="GenericClassifier-344"><a href="#GenericClassifier-344"><span class="linenos">344</span></a><span class="sd">        `None`</span>
 </span><span id="GenericClassifier-345"><a href="#GenericClassifier-345"><span class="linenos">345</span></a>
-</span><span id="GenericClassifier-346"><a href="#GenericClassifier-346"><span class="linenos">346</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-346"><a href="#GenericClassifier-346"><span class="linenos">346</span></a><span class="sd">        """</span>
 </span><span id="GenericClassifier-347"><a href="#GenericClassifier-347"><span class="linenos">347</span></a>        <span class="c1"># Add these to settings later</span>
 </span><span id="GenericClassifier-348"><a href="#GenericClassifier-348"><span class="linenos">348</span></a>        <span class="k">if</span> <span class="n">initial_channels</span> <span class="o">==</span> <span class="p">[]:</span>
 </span><span id="GenericClassifier-349"><a href="#GenericClassifier-349"><span class="linenos">349</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">chs_initial_subset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel_labels</span>
@@ -1088,7 +1088,7 @@
 </span><span id="GenericClassifier-363"><a href="#GenericClassifier-363"><span class="linenos">363</span></a>
 </span><span id="GenericClassifier-364"><a href="#GenericClassifier-364"><span class="linenos">364</span></a>    <span class="c1"># add training data, to the training set using a decision block and a label</span>
 </span><span id="GenericClassifier-365"><a href="#GenericClassifier-365"><span class="linenos">365</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_to_train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decision_block</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">num_options</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="p">[]):</span>
-</span><span id="GenericClassifier-366"><a href="#GenericClassifier-366"><span class="linenos">366</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Add training data to the training set using a decision block</span>
+</span><span id="GenericClassifier-366"><a href="#GenericClassifier-366"><span class="linenos">366</span></a><span class="w">        </span><span class="sd">"""Add training data to the training set using a decision block</span>
 </span><span id="GenericClassifier-367"><a href="#GenericClassifier-367"><span class="linenos">367</span></a><span class="sd">        and a label.</span>
 </span><span id="GenericClassifier-368"><a href="#GenericClassifier-368"><span class="linenos">368</span></a>
 </span><span id="GenericClassifier-369"><a href="#GenericClassifier-369"><span class="linenos">369</span></a><span class="sd">        Parameters</span>
@@ -1110,8 +1110,8 @@
 </span><span id="GenericClassifier-385"><a href="#GenericClassifier-385"><span class="linenos">385</span></a><span class="sd">        -------</span>
 </span><span id="GenericClassifier-386"><a href="#GenericClassifier-386"><span class="linenos">386</span></a><span class="sd">        `None`</span>
 </span><span id="GenericClassifier-387"><a href="#GenericClassifier-387"><span class="linenos">387</span></a>
-</span><span id="GenericClassifier-388"><a href="#GenericClassifier-388"><span class="linenos">388</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="GenericClassifier-389"><a href="#GenericClassifier-389"><span class="linenos">389</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Adding to training set&quot;</span><span class="p">)</span>
+</span><span id="GenericClassifier-388"><a href="#GenericClassifier-388"><span class="linenos">388</span></a><span class="sd">        """</span>
+</span><span id="GenericClassifier-389"><a href="#GenericClassifier-389"><span class="linenos">389</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Adding to training set"</span><span class="p">)</span>
 </span><span id="GenericClassifier-390"><a href="#GenericClassifier-390"><span class="linenos">390</span></a>        <span class="c1"># n = number of channels</span>
 </span><span id="GenericClassifier-391"><a href="#GenericClassifier-391"><span class="linenos">391</span></a>        <span class="c1"># m = number of samples</span>
 </span><span id="GenericClassifier-392"><a href="#GenericClassifier-392"><span class="linenos">392</span></a>        <span class="c1"># p = number of epochs</span>
@@ -1130,18 +1130,18 @@
 </span><span id="GenericClassifier-405"><a href="#GenericClassifier-405"><span class="linenos">405</span></a>
 </span><span id="GenericClassifier-406"><a href="#GenericClassifier-406"><span class="linenos">406</span></a>    <span class="nd">@abstractmethod</span>
 </span><span id="GenericClassifier-407"><a href="#GenericClassifier-407"><span class="linenos">407</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="GenericClassifier-408"><a href="#GenericClassifier-408"><span class="linenos">408</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Abstract method to fit classifier</span>
+</span><span id="GenericClassifier-408"><a href="#GenericClassifier-408"><span class="linenos">408</span></a><span class="w">        </span><span class="sd">"""Abstract method to fit classifier</span>
 </span><span id="GenericClassifier-409"><a href="#GenericClassifier-409"><span class="linenos">409</span></a>
 </span><span id="GenericClassifier-410"><a href="#GenericClassifier-410"><span class="linenos">410</span></a><span class="sd">        Returns</span>
 </span><span id="GenericClassifier-411"><a href="#GenericClassifier-411"><span class="linenos">411</span></a><span class="sd">        -------</span>
 </span><span id="GenericClassifier-412"><a href="#GenericClassifier-412"><span class="linenos">412</span></a><span class="sd">        `None`</span>
 </span><span id="GenericClassifier-413"><a href="#GenericClassifier-413"><span class="linenos">413</span></a>
-</span><span id="GenericClassifier-414"><a href="#GenericClassifier-414"><span class="linenos">414</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-414"><a href="#GenericClassifier-414"><span class="linenos">414</span></a><span class="sd">        """</span>
 </span><span id="GenericClassifier-415"><a href="#GenericClassifier-415"><span class="linenos">415</span></a>        <span class="k">pass</span>
 </span><span id="GenericClassifier-416"><a href="#GenericClassifier-416"><span class="linenos">416</span></a>
 </span><span id="GenericClassifier-417"><a href="#GenericClassifier-417"><span class="linenos">417</span></a>    <span class="nd">@abstractmethod</span>
 </span><span id="GenericClassifier-418"><a href="#GenericClassifier-418"><span class="linenos">418</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Prediction</span><span class="p">:</span>
-</span><span id="GenericClassifier-419"><a href="#GenericClassifier-419"><span class="linenos">419</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Abstract method to predict with classifier</span>
+</span><span id="GenericClassifier-419"><a href="#GenericClassifier-419"><span class="linenos">419</span></a><span class="w">        </span><span class="sd">"""Abstract method to predict with classifier</span>
 </span><span id="GenericClassifier-420"><a href="#GenericClassifier-420"><span class="linenos">420</span></a>
 </span><span id="GenericClassifier-421"><a href="#GenericClassifier-421"><span class="linenos">421</span></a><span class="sd">        X : numpy.ndarray</span>
 </span><span id="GenericClassifier-422"><a href="#GenericClassifier-422"><span class="linenos">422</span></a><span class="sd">            3D array where shape = (trials, channels, samples)</span>
@@ -1152,7 +1152,7 @@
 </span><span id="GenericClassifier-427"><a href="#GenericClassifier-427"><span class="linenos">427</span></a><span class="sd">            Results of predict call containing the predicted class labels, and</span>
 </span><span id="GenericClassifier-428"><a href="#GenericClassifier-428"><span class="linenos">428</span></a><span class="sd">            optionally the probabilities of the labels (empty list if not possible).</span>
 </span><span id="GenericClassifier-429"><a href="#GenericClassifier-429"><span class="linenos">429</span></a>
-</span><span id="GenericClassifier-430"><a href="#GenericClassifier-430"><span class="linenos">430</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="GenericClassifier-430"><a href="#GenericClassifier-430"><span class="linenos">430</span></a><span class="sd">        """</span>
 </span><span id="GenericClassifier-431"><a href="#GenericClassifier-431"><span class="linenos">431</span></a>        <span class="k">pass</span>
 </span></pre></div>
 
@@ -1172,7 +1172,7 @@
     </div>
     <a class="headerlink" href="#GenericClassifier.__init__"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="GenericClassifier.__init__-71"><a href="#GenericClassifier.__init__-71"><span class="linenos"> 71</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">training_selection</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="p">[]):</span>
-</span><span id="GenericClassifier.__init__-72"><a href="#GenericClassifier.__init__-72"><span class="linenos"> 72</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes `GenericClassifier` class.</span>
+</span><span id="GenericClassifier.__init__-72"><a href="#GenericClassifier.__init__-72"><span class="linenos"> 72</span></a><span class="w">        </span><span class="sd">"""Initializes `GenericClassifier` class.</span>
 </span><span id="GenericClassifier.__init__-73"><a href="#GenericClassifier.__init__-73"><span class="linenos"> 73</span></a>
 </span><span id="GenericClassifier.__init__-74"><a href="#GenericClassifier.__init__-74"><span class="linenos"> 74</span></a><span class="sd">        Parameters</span>
 </span><span id="GenericClassifier.__init__-75"><a href="#GenericClassifier.__init__-75"><span class="linenos"> 75</span></a><span class="sd">        ----------</span>
@@ -1219,7 +1219,7 @@
 </span><span id="GenericClassifier.__init__-116"><a href="#GenericClassifier.__init__-116"><span class="linenos">116</span></a><span class="sd">            - Initial value is `0`.</span>
 </span><span id="GenericClassifier.__init__-117"><a href="#GenericClassifier.__init__-117"><span class="linenos">117</span></a><span class="sd">        offline_trial_counts : list of `int`</span>
 </span><span id="GenericClassifier.__init__-118"><a href="#GenericClassifier.__init__-118"><span class="linenos">118</span></a><span class="sd">            List to store the counts of offline trials.</span>
-</span><span id="GenericClassifier.__init__-119"><a href="#GenericClassifier.__init__-119"><span class="linenos">119</span></a><span class="sd">            i.e. `offline_trial_count&#39; values.</span>
+</span><span id="GenericClassifier.__init__-119"><a href="#GenericClassifier.__init__-119"><span class="linenos">119</span></a><span class="sd">            i.e. `offline_trial_count' values.</span>
 </span><span id="GenericClassifier.__init__-120"><a href="#GenericClassifier.__init__-120"><span class="linenos">120</span></a><span class="sd">            - Initial value is `[]`.</span>
 </span><span id="GenericClassifier.__init__-121"><a href="#GenericClassifier.__init__-121"><span class="linenos">121</span></a><span class="sd">        next_fit_trial : int</span>
 </span><span id="GenericClassifier.__init__-122"><a href="#GenericClassifier.__init__-122"><span class="linenos">122</span></a><span class="sd">            Counter to track the next trial for fitting.</span>
@@ -1234,47 +1234,47 @@
 </span><span id="GenericClassifier.__init__-131"><a href="#GenericClassifier.__init__-131"><span class="linenos">131</span></a><span class="sd">            Number of splits for cross-validation. Also serves as minimum required samples per class for training when running _check_ready_for_fit().</span>
 </span><span id="GenericClassifier.__init__-132"><a href="#GenericClassifier.__init__-132"><span class="linenos">132</span></a><span class="sd">            - Initial value is `5`.</span>
 </span><span id="GenericClassifier.__init__-133"><a href="#GenericClassifier.__init__-133"><span class="linenos">133</span></a>
-</span><span id="GenericClassifier.__init__-134"><a href="#GenericClassifier.__init__-134"><span class="linenos">134</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="GenericClassifier.__init__-135"><a href="#GenericClassifier.__init__-135"><span class="linenos">135</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Initializing the classifier&quot;</span><span class="p">)</span>
+</span><span id="GenericClassifier.__init__-134"><a href="#GenericClassifier.__init__-134"><span class="linenos">134</span></a><span class="sd">        """</span>
+</span><span id="GenericClassifier.__init__-135"><a href="#GenericClassifier.__init__-135"><span class="linenos">135</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Initializing the classifier"</span><span class="p">)</span>
 </span><span id="GenericClassifier.__init__-136"><a href="#GenericClassifier.__init__-136"><span class="linenos">136</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="GenericClassifier.__init__-137"><a href="#GenericClassifier.__init__-137"><span class="linenos">137</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.__init__-137"><a href="#GenericClassifier.__init__-137"><span class="linenos">137</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier.__init__-138"><a href="#GenericClassifier.__init__-138"><span class="linenos">138</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="GenericClassifier.__init__-139"><a href="#GenericClassifier.__init__-139"><span class="linenos">139</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.__init__-139"><a href="#GenericClassifier.__init__-139"><span class="linenos">139</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier.__init__-140"><a href="#GenericClassifier.__init__-140"><span class="linenos">140</span></a>
 </span><span id="GenericClassifier.__init__-141"><a href="#GenericClassifier.__init__-141"><span class="linenos">141</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">subset_defined</span> <span class="o">=</span> <span class="kc">False</span>
-</span><span id="GenericClassifier.__init__-142"><a href="#GenericClassifier.__init__-142"><span class="linenos">142</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.__init__-142"><a href="#GenericClassifier.__init__-142"><span class="linenos">142</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier.__init__-143"><a href="#GenericClassifier.__init__-143"><span class="linenos">143</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">subset</span> <span class="o">=</span> <span class="n">subset</span>
-</span><span id="GenericClassifier.__init__-144"><a href="#GenericClassifier.__init__-144"><span class="linenos">144</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.__init__-144"><a href="#GenericClassifier.__init__-144"><span class="linenos">144</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier.__init__-145"><a href="#GenericClassifier.__init__-145"><span class="linenos">145</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">channel_labels</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="GenericClassifier.__init__-146"><a href="#GenericClassifier.__init__-146"><span class="linenos">146</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.__init__-146"><a href="#GenericClassifier.__init__-146"><span class="linenos">146</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier.__init__-147"><a href="#GenericClassifier.__init__-147"><span class="linenos">147</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">channel_selection_setup</span> <span class="o">=</span> <span class="kc">False</span>
-</span><span id="GenericClassifier.__init__-148"><a href="#GenericClassifier.__init__-148"><span class="linenos">148</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.__init__-148"><a href="#GenericClassifier.__init__-148"><span class="linenos">148</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier.__init__-149"><a href="#GenericClassifier.__init__-149"><span class="linenos">149</span></a>
 </span><span id="GenericClassifier.__init__-150"><a href="#GenericClassifier.__init__-150"><span class="linenos">150</span></a>        <span class="c1"># Lists for plotting classifier performance over time</span>
 </span><span id="GenericClassifier.__init__-151"><a href="#GenericClassifier.__init__-151"><span class="linenos">151</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">offline_accuracy</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="GenericClassifier.__init__-152"><a href="#GenericClassifier.__init__-152"><span class="linenos">152</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.__init__-152"><a href="#GenericClassifier.__init__-152"><span class="linenos">152</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier.__init__-153"><a href="#GenericClassifier.__init__-153"><span class="linenos">153</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">offline_precision</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="GenericClassifier.__init__-154"><a href="#GenericClassifier.__init__-154"><span class="linenos">154</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.__init__-154"><a href="#GenericClassifier.__init__-154"><span class="linenos">154</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier.__init__-155"><a href="#GenericClassifier.__init__-155"><span class="linenos">155</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">offline_recall</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="GenericClassifier.__init__-156"><a href="#GenericClassifier.__init__-156"><span class="linenos">156</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.__init__-156"><a href="#GenericClassifier.__init__-156"><span class="linenos">156</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier.__init__-157"><a href="#GenericClassifier.__init__-157"><span class="linenos">157</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">offline_trial_count</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span id="GenericClassifier.__init__-158"><a href="#GenericClassifier.__init__-158"><span class="linenos">158</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.__init__-158"><a href="#GenericClassifier.__init__-158"><span class="linenos">158</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier.__init__-159"><a href="#GenericClassifier.__init__-159"><span class="linenos">159</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">offline_trial_counts</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="GenericClassifier.__init__-160"><a href="#GenericClassifier.__init__-160"><span class="linenos">160</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.__init__-160"><a href="#GenericClassifier.__init__-160"><span class="linenos">160</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier.__init__-161"><a href="#GenericClassifier.__init__-161"><span class="linenos">161</span></a>
 </span><span id="GenericClassifier.__init__-162"><a href="#GenericClassifier.__init__-162"><span class="linenos">162</span></a>        <span class="c1"># For iterative fitting,</span>
 </span><span id="GenericClassifier.__init__-163"><a href="#GenericClassifier.__init__-163"><span class="linenos">163</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">next_fit_trial</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span id="GenericClassifier.__init__-164"><a href="#GenericClassifier.__init__-164"><span class="linenos">164</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.__init__-164"><a href="#GenericClassifier.__init__-164"><span class="linenos">164</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier.__init__-165"><a href="#GenericClassifier.__init__-165"><span class="linenos">165</span></a>
 </span><span id="GenericClassifier.__init__-166"><a href="#GenericClassifier.__init__-166"><span class="linenos">166</span></a>        <span class="c1"># Keep track of predictions</span>
 </span><span id="GenericClassifier.__init__-167"><a href="#GenericClassifier.__init__-167"><span class="linenos">167</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">predictions</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="GenericClassifier.__init__-168"><a href="#GenericClassifier.__init__-168"><span class="linenos">168</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.__init__-168"><a href="#GenericClassifier.__init__-168"><span class="linenos">168</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier.__init__-169"><a href="#GenericClassifier.__init__-169"><span class="linenos">169</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">pred_probas</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="GenericClassifier.__init__-170"><a href="#GenericClassifier.__init__-170"><span class="linenos">170</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.__init__-170"><a href="#GenericClassifier.__init__-170"><span class="linenos">170</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span><span id="GenericClassifier.__init__-171"><a href="#GenericClassifier.__init__-171"><span class="linenos">171</span></a>
 </span><span id="GenericClassifier.__init__-172"><a href="#GenericClassifier.__init__-172"><span class="linenos">172</span></a>        <span class="c1"># N Splits</span>
 </span><span id="GenericClassifier.__init__-173"><a href="#GenericClassifier.__init__-173"><span class="linenos">173</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">n_splits</span> <span class="o">=</span> <span class="mi">5</span>
-</span><span id="GenericClassifier.__init__-174"><a href="#GenericClassifier.__init__-174"><span class="linenos">174</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;@private (This is just for the API docs, to avoid double listing.&quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.__init__-174"><a href="#GenericClassifier.__init__-174"><span class="linenos">174</span></a><span class="w">        </span><span class="sd">"""@private (This is just for the API docs, to avoid double listing."""</span>
 </span></pre></div>
 
 
@@ -1393,7 +1393,7 @@ Number of splits for cross-validation. Also serves as minimum required samples p
     </div>
     <a class="headerlink" href="#GenericClassifier.get_subset"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="GenericClassifier.get_subset-215"><a href="#GenericClassifier.get_subset-215"><span class="linenos">215</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_subset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="p">[],</span> <span class="n">subset</span><span class="o">=</span><span class="p">[],</span> <span class="n">channel_labels</span><span class="o">=</span><span class="p">[]):</span>
-</span><span id="GenericClassifier.get_subset-216"><a href="#GenericClassifier.get_subset-216"><span class="linenos">216</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a subset of X according to labels or indices.</span>
+</span><span id="GenericClassifier.get_subset-216"><a href="#GenericClassifier.get_subset-216"><span class="linenos">216</span></a><span class="w">        </span><span class="sd">"""Get a subset of X according to labels or indices.</span>
 </span><span id="GenericClassifier.get_subset-217"><a href="#GenericClassifier.get_subset-217"><span class="linenos">217</span></a>
 </span><span id="GenericClassifier.get_subset-218"><a href="#GenericClassifier.get_subset-218"><span class="linenos">218</span></a><span class="sd">        Parameters</span>
 </span><span id="GenericClassifier.get_subset-219"><a href="#GenericClassifier.get_subset-219"><span class="linenos">219</span></a><span class="sd">        ----------</span>
@@ -1417,7 +1417,7 @@ Number of splits for cross-validation. Also serves as minimum required samples p
 </span><span id="GenericClassifier.get_subset-237"><a href="#GenericClassifier.get_subset-237"><span class="linenos">237</span></a>
 </span><span id="GenericClassifier.get_subset-238"><a href="#GenericClassifier.get_subset-238"><span class="linenos">238</span></a><span class="sd">            shape = (`n_trials`,`n_channels`,`n_samples`)</span>
 </span><span id="GenericClassifier.get_subset-239"><a href="#GenericClassifier.get_subset-239"><span class="linenos">239</span></a>
-</span><span id="GenericClassifier.get_subset-240"><a href="#GenericClassifier.get_subset-240"><span class="linenos">240</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.get_subset-240"><a href="#GenericClassifier.get_subset-240"><span class="linenos">240</span></a><span class="sd">        """</span>
 </span><span id="GenericClassifier.get_subset-241"><a href="#GenericClassifier.get_subset-241"><span class="linenos">241</span></a>
 </span><span id="GenericClassifier.get_subset-242"><a href="#GenericClassifier.get_subset-242"><span class="linenos">242</span></a>        <span class="c1"># Check for self.subset and/or self.channel_labels</span>
 </span><span id="GenericClassifier.get_subset-243"><a href="#GenericClassifier.get_subset-243"><span class="linenos">243</span></a>
@@ -1431,14 +1431,14 @@ Number of splits for cross-validation. Also serves as minimum required samples p
 </span><span id="GenericClassifier.get_subset-251"><a href="#GenericClassifier.get_subset-251"><span class="linenos">251</span></a>                <span class="k">return</span> <span class="n">X</span>
 </span><span id="GenericClassifier.get_subset-252"><a href="#GenericClassifier.get_subset-252"><span class="linenos">252</span></a>
 </span><span id="GenericClassifier.get_subset-253"><a href="#GenericClassifier.get_subset-253"><span class="linenos">253</span></a>            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subset</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
-</span><span id="GenericClassifier.get_subset-254"><a href="#GenericClassifier.get_subset-254"><span class="linenos">254</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Using subset indices&quot;</span><span class="p">)</span>
+</span><span id="GenericClassifier.get_subset-254"><a href="#GenericClassifier.get_subset-254"><span class="linenos">254</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Using subset indices"</span><span class="p">)</span>
 </span><span id="GenericClassifier.get_subset-255"><a href="#GenericClassifier.get_subset-255"><span class="linenos">255</span></a>
 </span><span id="GenericClassifier.get_subset-256"><a href="#GenericClassifier.get_subset-256"><span class="linenos">256</span></a>                <span class="n">subset_indices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subset</span>
 </span><span id="GenericClassifier.get_subset-257"><a href="#GenericClassifier.get_subset-257"><span class="linenos">257</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">subset_defined</span>
 </span><span id="GenericClassifier.get_subset-258"><a href="#GenericClassifier.get_subset-258"><span class="linenos">258</span></a>
 </span><span id="GenericClassifier.get_subset-259"><a href="#GenericClassifier.get_subset-259"><span class="linenos">259</span></a>            <span class="c1"># Or channel labels</span>
 </span><span id="GenericClassifier.get_subset-260"><a href="#GenericClassifier.get_subset-260"><span class="linenos">260</span></a>            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subset</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="GenericClassifier.get_subset-261"><a href="#GenericClassifier.get_subset-261"><span class="linenos">261</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Using channel labels and subset labels&quot;</span><span class="p">)</span>
+</span><span id="GenericClassifier.get_subset-261"><a href="#GenericClassifier.get_subset-261"><span class="linenos">261</span></a>                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Using channel labels and subset labels"</span><span class="p">)</span>
 </span><span id="GenericClassifier.get_subset-262"><a href="#GenericClassifier.get_subset-262"><span class="linenos">262</span></a>
 </span><span id="GenericClassifier.get_subset-263"><a href="#GenericClassifier.get_subset-263"><span class="linenos">263</span></a>                <span class="c1"># Replace indices with those described by labels</span>
 </span><span id="GenericClassifier.get_subset-264"><a href="#GenericClassifier.get_subset-264"><span class="linenos">264</span></a>                <span class="k">for</span> <span class="n">sl</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subset</span><span class="p">:</span>
@@ -1467,7 +1467,7 @@ Number of splits for cross-validation. Also serves as minimum required samples p
 </span><span id="GenericClassifier.get_subset-287"><a href="#GenericClassifier.get_subset-287"><span class="linenos">287</span></a>
 </span><span id="GenericClassifier.get_subset-288"><a href="#GenericClassifier.get_subset-288"><span class="linenos">288</span></a>        <span class="c1"># notify if failed</span>
 </span><span id="GenericClassifier.get_subset-289"><a href="#GenericClassifier.get_subset-289"><span class="linenos">289</span></a>        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-</span><span id="GenericClassifier.get_subset-290"><a href="#GenericClassifier.get_subset-290"><span class="linenos">290</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;something went wrong, no subset taken&quot;</span><span class="p">)</span>
+</span><span id="GenericClassifier.get_subset-290"><a href="#GenericClassifier.get_subset-290"><span class="linenos">290</span></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"something went wrong, no subset taken"</span><span class="p">)</span>
 </span><span id="GenericClassifier.get_subset-291"><a href="#GenericClassifier.get_subset-291"><span class="linenos">291</span></a>            <span class="k">return</span> <span class="n">X</span>
 </span></pre></div>
 
@@ -1515,7 +1515,7 @@ Subset of input <code>X</code> according to labels or indices.
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">setup_channel_selection</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">method</span><span class="o">=</span><span class="s1">&#39;SBS&#39;</span>,</span><span class="param">	<span class="n">metric</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span>,</span><span class="param">	<span class="n">iterative_selection</span><span class="o">=</span><span class="kc">False</span>,</span><span class="param">	<span class="n">initial_channels</span><span class="o">=</span><span class="p">[]</span>,</span><span class="param">	<span class="n">max_time</span><span class="o">=</span><span class="mi">999</span>,</span><span class="param">	<span class="n">min_channels</span><span class="o">=</span><span class="mi">1</span>,</span><span class="param">	<span class="n">max_channels</span><span class="o">=</span><span class="mi">999</span>,</span><span class="param">	<span class="n">performance_delta</span><span class="o">=</span><span class="mf">0.001</span>,</span><span class="param">	<span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span>,</span><span class="param">	<span class="n">record_performance</span><span class="o">=</span><span class="kc">False</span></span><span class="return-annotation">):</span></span>
+        <span class="name">setup_channel_selection</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">method</span><span class="o">=</span><span class="s1">'SBS'</span>,</span><span class="param">	<span class="n">metric</span><span class="o">=</span><span class="s1">'accuracy'</span>,</span><span class="param">	<span class="n">iterative_selection</span><span class="o">=</span><span class="kc">False</span>,</span><span class="param">	<span class="n">initial_channels</span><span class="o">=</span><span class="p">[]</span>,</span><span class="param">	<span class="n">max_time</span><span class="o">=</span><span class="mi">999</span>,</span><span class="param">	<span class="n">min_channels</span><span class="o">=</span><span class="mi">1</span>,</span><span class="param">	<span class="n">max_channels</span><span class="o">=</span><span class="mi">999</span>,</span><span class="param">	<span class="n">performance_delta</span><span class="o">=</span><span class="mf">0.001</span>,</span><span class="param">	<span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span>,</span><span class="param">	<span class="n">record_performance</span><span class="o">=</span><span class="kc">False</span></span><span class="return-annotation">):</span></span>
 
                 <label class="view-source-button" for="GenericClassifier.setup_channel_selection-view-source"><span>View Source</span></label>
 
@@ -1523,8 +1523,8 @@ Subset of input <code>X</code> according to labels or indices.
     <a class="headerlink" href="#GenericClassifier.setup_channel_selection"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="GenericClassifier.setup_channel_selection-293"><a href="#GenericClassifier.setup_channel_selection-293"><span class="linenos">293</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">setup_channel_selection</span><span class="p">(</span>
 </span><span id="GenericClassifier.setup_channel_selection-294"><a href="#GenericClassifier.setup_channel_selection-294"><span class="linenos">294</span></a>        <span class="bp">self</span><span class="p">,</span>
-</span><span id="GenericClassifier.setup_channel_selection-295"><a href="#GenericClassifier.setup_channel_selection-295"><span class="linenos">295</span></a>        <span class="n">method</span><span class="o">=</span><span class="s2">&quot;SBS&quot;</span><span class="p">,</span>
-</span><span id="GenericClassifier.setup_channel_selection-296"><a href="#GenericClassifier.setup_channel_selection-296"><span class="linenos">296</span></a>        <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;accuracy&quot;</span><span class="p">,</span>
+</span><span id="GenericClassifier.setup_channel_selection-295"><a href="#GenericClassifier.setup_channel_selection-295"><span class="linenos">295</span></a>        <span class="n">method</span><span class="o">=</span><span class="s2">"SBS"</span><span class="p">,</span>
+</span><span id="GenericClassifier.setup_channel_selection-296"><a href="#GenericClassifier.setup_channel_selection-296"><span class="linenos">296</span></a>        <span class="n">metric</span><span class="o">=</span><span class="s2">"accuracy"</span><span class="p">,</span>
 </span><span id="GenericClassifier.setup_channel_selection-297"><a href="#GenericClassifier.setup_channel_selection-297"><span class="linenos">297</span></a>        <span class="n">iterative_selection</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 </span><span id="GenericClassifier.setup_channel_selection-298"><a href="#GenericClassifier.setup_channel_selection-298"><span class="linenos">298</span></a>        <span class="n">initial_channels</span><span class="o">=</span><span class="p">[],</span>  <span class="c1"># wrapper setup</span>
 </span><span id="GenericClassifier.setup_channel_selection-299"><a href="#GenericClassifier.setup_channel_selection-299"><span class="linenos">299</span></a>        <span class="n">max_time</span><span class="o">=</span><span class="mi">999</span><span class="p">,</span>
@@ -1534,16 +1534,16 @@ Subset of input <code>X</code> according to labels or indices.
 </span><span id="GenericClassifier.setup_channel_selection-303"><a href="#GenericClassifier.setup_channel_selection-303"><span class="linenos">303</span></a>        <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
 </span><span id="GenericClassifier.setup_channel_selection-304"><a href="#GenericClassifier.setup_channel_selection-304"><span class="linenos">304</span></a>        <span class="n">record_performance</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 </span><span id="GenericClassifier.setup_channel_selection-305"><a href="#GenericClassifier.setup_channel_selection-305"><span class="linenos">305</span></a>    <span class="p">):</span>
-</span><span id="GenericClassifier.setup_channel_selection-306"><a href="#GenericClassifier.setup_channel_selection-306"><span class="linenos">306</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Setup channel selection parameters.</span>
+</span><span id="GenericClassifier.setup_channel_selection-306"><a href="#GenericClassifier.setup_channel_selection-306"><span class="linenos">306</span></a><span class="w">        </span><span class="sd">"""Setup channel selection parameters.</span>
 </span><span id="GenericClassifier.setup_channel_selection-307"><a href="#GenericClassifier.setup_channel_selection-307"><span class="linenos">307</span></a>
 </span><span id="GenericClassifier.setup_channel_selection-308"><a href="#GenericClassifier.setup_channel_selection-308"><span class="linenos">308</span></a><span class="sd">        Parameters</span>
 </span><span id="GenericClassifier.setup_channel_selection-309"><a href="#GenericClassifier.setup_channel_selection-309"><span class="linenos">309</span></a><span class="sd">        ----------</span>
 </span><span id="GenericClassifier.setup_channel_selection-310"><a href="#GenericClassifier.setup_channel_selection-310"><span class="linenos">310</span></a><span class="sd">        method : str, *optional*</span>
 </span><span id="GenericClassifier.setup_channel_selection-311"><a href="#GenericClassifier.setup_channel_selection-311"><span class="linenos">311</span></a><span class="sd">            The method used to add or remove channels.</span>
-</span><span id="GenericClassifier.setup_channel_selection-312"><a href="#GenericClassifier.setup_channel_selection-312"><span class="linenos">312</span></a><span class="sd">            - Default is `&quot;SBS&quot;`.</span>
+</span><span id="GenericClassifier.setup_channel_selection-312"><a href="#GenericClassifier.setup_channel_selection-312"><span class="linenos">312</span></a><span class="sd">            - Default is `"SBS"`.</span>
 </span><span id="GenericClassifier.setup_channel_selection-313"><a href="#GenericClassifier.setup_channel_selection-313"><span class="linenos">313</span></a><span class="sd">        metric : str, *optional*</span>
 </span><span id="GenericClassifier.setup_channel_selection-314"><a href="#GenericClassifier.setup_channel_selection-314"><span class="linenos">314</span></a><span class="sd">            The metric used to measure performance.</span>
-</span><span id="GenericClassifier.setup_channel_selection-315"><a href="#GenericClassifier.setup_channel_selection-315"><span class="linenos">315</span></a><span class="sd">            - Default is `&quot;accuracy&quot;`.</span>
+</span><span id="GenericClassifier.setup_channel_selection-315"><a href="#GenericClassifier.setup_channel_selection-315"><span class="linenos">315</span></a><span class="sd">            - Default is `"accuracy"`.</span>
 </span><span id="GenericClassifier.setup_channel_selection-316"><a href="#GenericClassifier.setup_channel_selection-316"><span class="linenos">316</span></a><span class="sd">        iterative_selection : bool, *optional*</span>
 </span><span id="GenericClassifier.setup_channel_selection-317"><a href="#GenericClassifier.setup_channel_selection-317"><span class="linenos">317</span></a><span class="sd">            Whether or not to use the previously selected subset for the initial subset.</span>
 </span><span id="GenericClassifier.setup_channel_selection-318"><a href="#GenericClassifier.setup_channel_selection-318"><span class="linenos">318</span></a><span class="sd">            Default is `False`.</span>
@@ -1574,7 +1574,7 @@ Subset of input <code>X</code> according to labels or indices.
 </span><span id="GenericClassifier.setup_channel_selection-343"><a href="#GenericClassifier.setup_channel_selection-343"><span class="linenos">343</span></a><span class="sd">        -------</span>
 </span><span id="GenericClassifier.setup_channel_selection-344"><a href="#GenericClassifier.setup_channel_selection-344"><span class="linenos">344</span></a><span class="sd">        `None`</span>
 </span><span id="GenericClassifier.setup_channel_selection-345"><a href="#GenericClassifier.setup_channel_selection-345"><span class="linenos">345</span></a>
-</span><span id="GenericClassifier.setup_channel_selection-346"><a href="#GenericClassifier.setup_channel_selection-346"><span class="linenos">346</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.setup_channel_selection-346"><a href="#GenericClassifier.setup_channel_selection-346"><span class="linenos">346</span></a><span class="sd">        """</span>
 </span><span id="GenericClassifier.setup_channel_selection-347"><a href="#GenericClassifier.setup_channel_selection-347"><span class="linenos">347</span></a>        <span class="c1"># Add these to settings later</span>
 </span><span id="GenericClassifier.setup_channel_selection-348"><a href="#GenericClassifier.setup_channel_selection-348"><span class="linenos">348</span></a>        <span class="k">if</span> <span class="n">initial_channels</span> <span class="o">==</span> <span class="p">[]:</span>
 </span><span id="GenericClassifier.setup_channel_selection-349"><a href="#GenericClassifier.setup_channel_selection-349"><span class="linenos">349</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">chs_initial_subset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">channel_labels</span>
@@ -1671,7 +1671,7 @@ Decides whether or not to record performance of channel selection.
     </div>
     <a class="headerlink" href="#GenericClassifier.add_to_train"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="GenericClassifier.add_to_train-365"><a href="#GenericClassifier.add_to_train-365"><span class="linenos">365</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_to_train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decision_block</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">num_options</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="p">[]):</span>
-</span><span id="GenericClassifier.add_to_train-366"><a href="#GenericClassifier.add_to_train-366"><span class="linenos">366</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Add training data to the training set using a decision block</span>
+</span><span id="GenericClassifier.add_to_train-366"><a href="#GenericClassifier.add_to_train-366"><span class="linenos">366</span></a><span class="w">        </span><span class="sd">"""Add training data to the training set using a decision block</span>
 </span><span id="GenericClassifier.add_to_train-367"><a href="#GenericClassifier.add_to_train-367"><span class="linenos">367</span></a><span class="sd">        and a label.</span>
 </span><span id="GenericClassifier.add_to_train-368"><a href="#GenericClassifier.add_to_train-368"><span class="linenos">368</span></a>
 </span><span id="GenericClassifier.add_to_train-369"><a href="#GenericClassifier.add_to_train-369"><span class="linenos">369</span></a><span class="sd">        Parameters</span>
@@ -1693,8 +1693,8 @@ Decides whether or not to record performance of channel selection.
 </span><span id="GenericClassifier.add_to_train-385"><a href="#GenericClassifier.add_to_train-385"><span class="linenos">385</span></a><span class="sd">        -------</span>
 </span><span id="GenericClassifier.add_to_train-386"><a href="#GenericClassifier.add_to_train-386"><span class="linenos">386</span></a><span class="sd">        `None`</span>
 </span><span id="GenericClassifier.add_to_train-387"><a href="#GenericClassifier.add_to_train-387"><span class="linenos">387</span></a>
-</span><span id="GenericClassifier.add_to_train-388"><a href="#GenericClassifier.add_to_train-388"><span class="linenos">388</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="GenericClassifier.add_to_train-389"><a href="#GenericClassifier.add_to_train-389"><span class="linenos">389</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Adding to training set&quot;</span><span class="p">)</span>
+</span><span id="GenericClassifier.add_to_train-388"><a href="#GenericClassifier.add_to_train-388"><span class="linenos">388</span></a><span class="sd">        """</span>
+</span><span id="GenericClassifier.add_to_train-389"><a href="#GenericClassifier.add_to_train-389"><span class="linenos">389</span></a>        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Adding to training set"</span><span class="p">)</span>
 </span><span id="GenericClassifier.add_to_train-390"><a href="#GenericClassifier.add_to_train-390"><span class="linenos">390</span></a>        <span class="c1"># n = number of channels</span>
 </span><span id="GenericClassifier.add_to_train-391"><a href="#GenericClassifier.add_to_train-391"><span class="linenos">391</span></a>        <span class="c1"># m = number of samples</span>
 </span><span id="GenericClassifier.add_to_train-392"><a href="#GenericClassifier.add_to_train-392"><span class="linenos">392</span></a>        <span class="c1"># p = number of epochs</span>
@@ -1760,13 +1760,13 @@ Additional metadata related to the training data.
     <a class="headerlink" href="#GenericClassifier.fit"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="GenericClassifier.fit-406"><a href="#GenericClassifier.fit-406"><span class="linenos">406</span></a>    <span class="nd">@abstractmethod</span>
 </span><span id="GenericClassifier.fit-407"><a href="#GenericClassifier.fit-407"><span class="linenos">407</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="GenericClassifier.fit-408"><a href="#GenericClassifier.fit-408"><span class="linenos">408</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Abstract method to fit classifier</span>
+</span><span id="GenericClassifier.fit-408"><a href="#GenericClassifier.fit-408"><span class="linenos">408</span></a><span class="w">        </span><span class="sd">"""Abstract method to fit classifier</span>
 </span><span id="GenericClassifier.fit-409"><a href="#GenericClassifier.fit-409"><span class="linenos">409</span></a>
 </span><span id="GenericClassifier.fit-410"><a href="#GenericClassifier.fit-410"><span class="linenos">410</span></a><span class="sd">        Returns</span>
 </span><span id="GenericClassifier.fit-411"><a href="#GenericClassifier.fit-411"><span class="linenos">411</span></a><span class="sd">        -------</span>
 </span><span id="GenericClassifier.fit-412"><a href="#GenericClassifier.fit-412"><span class="linenos">412</span></a><span class="sd">        `None`</span>
 </span><span id="GenericClassifier.fit-413"><a href="#GenericClassifier.fit-413"><span class="linenos">413</span></a>
-</span><span id="GenericClassifier.fit-414"><a href="#GenericClassifier.fit-414"><span class="linenos">414</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.fit-414"><a href="#GenericClassifier.fit-414"><span class="linenos">414</span></a><span class="sd">        """</span>
 </span><span id="GenericClassifier.fit-415"><a href="#GenericClassifier.fit-415"><span class="linenos">415</span></a>        <span class="k">pass</span>
 </span></pre></div>
 
@@ -1796,7 +1796,7 @@ Additional metadata related to the training data.
     <a class="headerlink" href="#GenericClassifier.predict"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="GenericClassifier.predict-417"><a href="#GenericClassifier.predict-417"><span class="linenos">417</span></a>    <span class="nd">@abstractmethod</span>
 </span><span id="GenericClassifier.predict-418"><a href="#GenericClassifier.predict-418"><span class="linenos">418</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Prediction</span><span class="p">:</span>
-</span><span id="GenericClassifier.predict-419"><a href="#GenericClassifier.predict-419"><span class="linenos">419</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Abstract method to predict with classifier</span>
+</span><span id="GenericClassifier.predict-419"><a href="#GenericClassifier.predict-419"><span class="linenos">419</span></a><span class="w">        </span><span class="sd">"""Abstract method to predict with classifier</span>
 </span><span id="GenericClassifier.predict-420"><a href="#GenericClassifier.predict-420"><span class="linenos">420</span></a>
 </span><span id="GenericClassifier.predict-421"><a href="#GenericClassifier.predict-421"><span class="linenos">421</span></a><span class="sd">        X : numpy.ndarray</span>
 </span><span id="GenericClassifier.predict-422"><a href="#GenericClassifier.predict-422"><span class="linenos">422</span></a><span class="sd">            3D array where shape = (trials, channels, samples)</span>
@@ -1807,7 +1807,7 @@ Additional metadata related to the training data.
 </span><span id="GenericClassifier.predict-427"><a href="#GenericClassifier.predict-427"><span class="linenos">427</span></a><span class="sd">            Results of predict call containing the predicted class labels, and</span>
 </span><span id="GenericClassifier.predict-428"><a href="#GenericClassifier.predict-428"><span class="linenos">428</span></a><span class="sd">            optionally the probabilities of the labels (empty list if not possible).</span>
 </span><span id="GenericClassifier.predict-429"><a href="#GenericClassifier.predict-429"><span class="linenos">429</span></a>
-</span><span id="GenericClassifier.predict-430"><a href="#GenericClassifier.predict-430"><span class="linenos">430</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="GenericClassifier.predict-430"><a href="#GenericClassifier.predict-430"><span class="linenos">430</span></a><span class="sd">        """</span>
 </span><span id="GenericClassifier.predict-431"><a href="#GenericClassifier.predict-431"><span class="linenos">431</span></a>        <span class="k">pass</span>
 </span></pre></div>
 

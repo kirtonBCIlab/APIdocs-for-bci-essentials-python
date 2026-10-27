@@ -73,23 +73,23 @@
 </span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a>
 </span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>
 </span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="k">class</span><span class="w"> </span><span class="nc">Messenger</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;A Messenger object is used by bci_controller to send event messages.  For example,</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="w">    </span><span class="sd">"""A Messenger object is used by bci_controller to send event messages.  For example,</span>
 </span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a><span class="sd">    to acknowledge that a marker has been received, or to provide a prediction.</span>
-</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a><span class="sd">    """</span>
 </span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>
 </span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a>    <span class="nd">@abstractmethod</span>
 </span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">ping</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Indicate that sender is alive&quot;&quot;&quot;</span>
+</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a><span class="w">        </span><span class="sd">"""Indicate that sender is alive"""</span>
 </span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>        <span class="k">pass</span>
 </span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>
 </span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>    <span class="nd">@abstractmethod</span>
 </span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">marker_received</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">marker</span><span class="p">):</span>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Acknowledge that a marker was processed&quot;&quot;&quot;</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="w">        </span><span class="sd">"""Acknowledge that a marker was processed"""</span>
 </span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>        <span class="k">pass</span>
 </span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>
 </span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>    <span class="nd">@abstractmethod</span>
 </span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">prediction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prediction</span><span class="p">:</span> <span class="n">Prediction</span><span class="p">):</span>
-</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Send latest prediction&quot;&quot;&quot;</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a><span class="w">        </span><span class="sd">"""Send latest prediction"""</span>
 </span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>        <span class="k">pass</span>
 </span></pre></div>
 
@@ -107,23 +107,23 @@
     </div>
     <a class="headerlink" href="#Messenger"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="Messenger-7"><a href="#Messenger-7"><span class="linenos"> 7</span></a><span class="k">class</span><span class="w"> </span><span class="nc">Messenger</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-</span><span id="Messenger-8"><a href="#Messenger-8"><span class="linenos"> 8</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;A Messenger object is used by bci_controller to send event messages.  For example,</span>
+</span><span id="Messenger-8"><a href="#Messenger-8"><span class="linenos"> 8</span></a><span class="w">    </span><span class="sd">"""A Messenger object is used by bci_controller to send event messages.  For example,</span>
 </span><span id="Messenger-9"><a href="#Messenger-9"><span class="linenos"> 9</span></a><span class="sd">    to acknowledge that a marker has been received, or to provide a prediction.</span>
-</span><span id="Messenger-10"><a href="#Messenger-10"><span class="linenos">10</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="Messenger-10"><a href="#Messenger-10"><span class="linenos">10</span></a><span class="sd">    """</span>
 </span><span id="Messenger-11"><a href="#Messenger-11"><span class="linenos">11</span></a>
 </span><span id="Messenger-12"><a href="#Messenger-12"><span class="linenos">12</span></a>    <span class="nd">@abstractmethod</span>
 </span><span id="Messenger-13"><a href="#Messenger-13"><span class="linenos">13</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">ping</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="Messenger-14"><a href="#Messenger-14"><span class="linenos">14</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Indicate that sender is alive&quot;&quot;&quot;</span>
+</span><span id="Messenger-14"><a href="#Messenger-14"><span class="linenos">14</span></a><span class="w">        </span><span class="sd">"""Indicate that sender is alive"""</span>
 </span><span id="Messenger-15"><a href="#Messenger-15"><span class="linenos">15</span></a>        <span class="k">pass</span>
 </span><span id="Messenger-16"><a href="#Messenger-16"><span class="linenos">16</span></a>
 </span><span id="Messenger-17"><a href="#Messenger-17"><span class="linenos">17</span></a>    <span class="nd">@abstractmethod</span>
 </span><span id="Messenger-18"><a href="#Messenger-18"><span class="linenos">18</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">marker_received</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">marker</span><span class="p">):</span>
-</span><span id="Messenger-19"><a href="#Messenger-19"><span class="linenos">19</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Acknowledge that a marker was processed&quot;&quot;&quot;</span>
+</span><span id="Messenger-19"><a href="#Messenger-19"><span class="linenos">19</span></a><span class="w">        </span><span class="sd">"""Acknowledge that a marker was processed"""</span>
 </span><span id="Messenger-20"><a href="#Messenger-20"><span class="linenos">20</span></a>        <span class="k">pass</span>
 </span><span id="Messenger-21"><a href="#Messenger-21"><span class="linenos">21</span></a>
 </span><span id="Messenger-22"><a href="#Messenger-22"><span class="linenos">22</span></a>    <span class="nd">@abstractmethod</span>
 </span><span id="Messenger-23"><a href="#Messenger-23"><span class="linenos">23</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">prediction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prediction</span><span class="p">:</span> <span class="n">Prediction</span><span class="p">):</span>
-</span><span id="Messenger-24"><a href="#Messenger-24"><span class="linenos">24</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Send latest prediction&quot;&quot;&quot;</span>
+</span><span id="Messenger-24"><a href="#Messenger-24"><span class="linenos">24</span></a><span class="w">        </span><span class="sd">"""Send latest prediction"""</span>
 </span><span id="Messenger-25"><a href="#Messenger-25"><span class="linenos">25</span></a>        <span class="k">pass</span>
 </span></pre></div>
 
@@ -147,7 +147,7 @@ to acknowledge that a marker has been received, or to provide a prediction.</p>
     <a class="headerlink" href="#Messenger.ping"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="Messenger.ping-12"><a href="#Messenger.ping-12"><span class="linenos">12</span></a>    <span class="nd">@abstractmethod</span>
 </span><span id="Messenger.ping-13"><a href="#Messenger.ping-13"><span class="linenos">13</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">ping</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="Messenger.ping-14"><a href="#Messenger.ping-14"><span class="linenos">14</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Indicate that sender is alive&quot;&quot;&quot;</span>
+</span><span id="Messenger.ping-14"><a href="#Messenger.ping-14"><span class="linenos">14</span></a><span class="w">        </span><span class="sd">"""Indicate that sender is alive"""</span>
 </span><span id="Messenger.ping-15"><a href="#Messenger.ping-15"><span class="linenos">15</span></a>        <span class="k">pass</span>
 </span></pre></div>
 
@@ -171,7 +171,7 @@ to acknowledge that a marker has been received, or to provide a prediction.</p>
     <a class="headerlink" href="#Messenger.marker_received"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="Messenger.marker_received-17"><a href="#Messenger.marker_received-17"><span class="linenos">17</span></a>    <span class="nd">@abstractmethod</span>
 </span><span id="Messenger.marker_received-18"><a href="#Messenger.marker_received-18"><span class="linenos">18</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">marker_received</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">marker</span><span class="p">):</span>
-</span><span id="Messenger.marker_received-19"><a href="#Messenger.marker_received-19"><span class="linenos">19</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Acknowledge that a marker was processed&quot;&quot;&quot;</span>
+</span><span id="Messenger.marker_received-19"><a href="#Messenger.marker_received-19"><span class="linenos">19</span></a><span class="w">        </span><span class="sd">"""Acknowledge that a marker was processed"""</span>
 </span><span id="Messenger.marker_received-20"><a href="#Messenger.marker_received-20"><span class="linenos">20</span></a>        <span class="k">pass</span>
 </span></pre></div>
 
@@ -195,7 +195,7 @@ to acknowledge that a marker has been received, or to provide a prediction.</p>
     <a class="headerlink" href="#Messenger.prediction"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="Messenger.prediction-22"><a href="#Messenger.prediction-22"><span class="linenos">22</span></a>    <span class="nd">@abstractmethod</span>
 </span><span id="Messenger.prediction-23"><a href="#Messenger.prediction-23"><span class="linenos">23</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">prediction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prediction</span><span class="p">:</span> <span class="n">Prediction</span><span class="p">):</span>
-</span><span id="Messenger.prediction-24"><a href="#Messenger.prediction-24"><span class="linenos">24</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Send latest prediction&quot;&quot;&quot;</span>
+</span><span id="Messenger.prediction-24"><a href="#Messenger.prediction-24"><span class="linenos">24</span></a><span class="w">        </span><span class="sd">"""Send latest prediction"""</span>
 </span><span id="Messenger.prediction-25"><a href="#Messenger.prediction-25"><span class="linenos">25</span></a>        <span class="k">pass</span>
 </span></pre></div>
 

@@ -100,9 +100,9 @@
 </span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a>
 </span><span id="L-5"><a href="#L-5"><span class="linenos">  5</span></a>
 </span><span id="L-6"><a href="#L-6"><span class="linenos">  6</span></a><span class="k">class</span><span class="w"> </span><span class="nc">P300Paradigm</span><span class="p">(</span><span class="n">Paradigm</span><span class="p">):</span>
-</span><span id="L-7"><a href="#L-7"><span class="linenos">  7</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos">  7</span></a><span class="w">    </span><span class="sd">"""</span>
 </span><span id="L-8"><a href="#L-8"><span class="linenos">  8</span></a><span class="sd">    P300 paradigm.</span>
-</span><span id="L-9"><a href="#L-9"><span class="linenos">  9</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-9"><a href="#L-9"><span class="linenos">  9</span></a><span class="sd">    """</span>
 </span><span id="L-10"><a href="#L-10"><span class="linenos"> 10</span></a>
 </span><span id="L-11"><a href="#L-11"><span class="linenos"> 11</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 </span><span id="L-12"><a href="#L-12"><span class="linenos"> 12</span></a>        <span class="bp">self</span><span class="p">,</span>
@@ -112,7 +112,7 @@
 </span><span id="L-16"><a href="#L-16"><span class="linenos"> 16</span></a>        <span class="n">epoch_end</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
 </span><span id="L-17"><a href="#L-17"><span class="linenos"> 17</span></a>        <span class="n">buffer_time</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
 </span><span id="L-18"><a href="#L-18"><span class="linenos"> 18</span></a>    <span class="p">):</span>
-</span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a><span class="w">        </span><span class="sd">"""</span>
 </span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a><span class="sd">        Parameters</span>
 </span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a><span class="sd">        ----------</span>
 </span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a><span class="sd">        filters : list of floats, *optional*</span>
@@ -130,7 +130,7 @@
 </span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a><span class="sd">        buffer_time : float, *optional*</span>
 </span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a><span class="sd">            Defines the time in seconds after an epoch for which we require EEG data to ensure that all EEG is present in that epoch.</span>
 </span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a><span class="sd">            - Default is `0.01`.</span>
-</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a><span class="sd">        """</span>
 </span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a>
 </span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">filters</span><span class="p">)</span>
 </span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a>
@@ -150,10 +150,10 @@
 </span><span id="L-54"><a href="#L-54"><span class="linenos"> 54</span></a>
 </span><span id="L-55"><a href="#L-55"><span class="linenos"> 55</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span> <span class="o">=</span> <span class="n">buffer_time</span>
 </span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a>
-</span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">paradigm_name</span> <span class="o">=</span> <span class="s2">&quot;P300&quot;</span>
+</span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">paradigm_name</span> <span class="o">=</span> <span class="s2">"P300"</span>
 </span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a>
 </span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_eeg_start_and_end_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">markers</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">):</span>
-</span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a><span class="w">        </span><span class="sd">"""</span>
 </span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a><span class="sd">        Get the start and end times of the EEG data based on the markers.</span>
 </span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a>
 </span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a><span class="sd">        Parameters</span>
@@ -169,7 +169,7 @@
 </span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a><span class="sd">            Start time.</span>
 </span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a><span class="sd">        float</span>
 </span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a><span class="sd">            End time.</span>
-</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a><span class="sd">        """</span>
 </span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>        <span class="n">start_time</span> <span class="o">=</span> <span class="n">timestamps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">epoch_start</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span>
 </span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a>
 </span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a>        <span class="n">end_time</span> <span class="o">=</span> <span class="n">timestamps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">epoch_end</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span>
@@ -177,7 +177,7 @@
 </span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>        <span class="k">return</span> <span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span>
 </span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>
 </span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">process_markers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">markers</span><span class="p">,</span> <span class="n">marker_timestamps</span><span class="p">,</span> <span class="n">eeg</span><span class="p">,</span> <span class="n">eeg_timestamps</span><span class="p">,</span> <span class="n">fsample</span><span class="p">):</span>
-</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a><span class="w">        </span><span class="sd">"""</span>
 </span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a><span class="sd">        This takes in the markers and EEG data and processes them into epochs according to the P300 paradigm.</span>
 </span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a>
 </span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a><span class="sd">        Parameters</span>
@@ -199,11 +199,11 @@
 </span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a><span class="sd">            Processed EEG data. Shape is (n_epochs, n_channels, n_samples).</span>
 </span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a><span class="sd">        np.array</span>
 </span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a><span class="sd">            Labels. Shape is (n_epochs).</span>
-</span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a><span class="sd">        """</span>
 </span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a>
 </span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a>        <span class="n">n_channels</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">eeg</span><span class="o">.</span><span class="n">shape</span>
-</span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a>        <span class="n">num_objects</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span>
-</span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a>        <span class="n">train_target</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">3</span><span class="p">])</span>
+</span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a>        <span class="n">num_objects</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span>
+</span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a>        <span class="n">train_target</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)[</span><span class="mi">3</span><span class="p">])</span>
 </span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a>        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_objects</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 </span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a>        <span class="k">if</span> <span class="n">train_target</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
 </span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a>            <span class="c1"># Convert 1-indexed target to array index</span>
@@ -219,7 +219,7 @@
 </span><span id="L-123"><a href="#L-123"><span class="linenos">123</span></a>        <span class="c1"># Do ensemble averaging so that we return a single epoch for each object</span>
 </span><span id="L-124"><a href="#L-124"><span class="linenos">124</span></a>
 </span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">marker</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">markers</span><span class="p">):</span>
-</span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a>            <span class="n">marker</span> <span class="o">=</span> <span class="n">marker</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+</span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a>            <span class="n">marker</span> <span class="o">=</span> <span class="n">marker</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>
 </span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a>            <span class="n">flash_indices</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">marker</span><span class="p">[</span><span class="mi">4</span><span class="p">:]]</span>
 </span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a>
 </span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a>            <span class="n">n_channels</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">eeg</span><span class="o">.</span><span class="n">shape</span>
@@ -296,9 +296,9 @@
     </div>
     <a class="headerlink" href="#P300Paradigm"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="P300Paradigm-7"><a href="#P300Paradigm-7"><span class="linenos">  7</span></a><span class="k">class</span><span class="w"> </span><span class="nc">P300Paradigm</span><span class="p">(</span><span class="n">Paradigm</span><span class="p">):</span>
-</span><span id="P300Paradigm-8"><a href="#P300Paradigm-8"><span class="linenos">  8</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="P300Paradigm-8"><a href="#P300Paradigm-8"><span class="linenos">  8</span></a><span class="w">    </span><span class="sd">"""</span>
 </span><span id="P300Paradigm-9"><a href="#P300Paradigm-9"><span class="linenos">  9</span></a><span class="sd">    P300 paradigm.</span>
-</span><span id="P300Paradigm-10"><a href="#P300Paradigm-10"><span class="linenos"> 10</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="P300Paradigm-10"><a href="#P300Paradigm-10"><span class="linenos"> 10</span></a><span class="sd">    """</span>
 </span><span id="P300Paradigm-11"><a href="#P300Paradigm-11"><span class="linenos"> 11</span></a>
 </span><span id="P300Paradigm-12"><a href="#P300Paradigm-12"><span class="linenos"> 12</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 </span><span id="P300Paradigm-13"><a href="#P300Paradigm-13"><span class="linenos"> 13</span></a>        <span class="bp">self</span><span class="p">,</span>
@@ -308,7 +308,7 @@
 </span><span id="P300Paradigm-17"><a href="#P300Paradigm-17"><span class="linenos"> 17</span></a>        <span class="n">epoch_end</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
 </span><span id="P300Paradigm-18"><a href="#P300Paradigm-18"><span class="linenos"> 18</span></a>        <span class="n">buffer_time</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
 </span><span id="P300Paradigm-19"><a href="#P300Paradigm-19"><span class="linenos"> 19</span></a>    <span class="p">):</span>
-</span><span id="P300Paradigm-20"><a href="#P300Paradigm-20"><span class="linenos"> 20</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="P300Paradigm-20"><a href="#P300Paradigm-20"><span class="linenos"> 20</span></a><span class="w">        </span><span class="sd">"""</span>
 </span><span id="P300Paradigm-21"><a href="#P300Paradigm-21"><span class="linenos"> 21</span></a><span class="sd">        Parameters</span>
 </span><span id="P300Paradigm-22"><a href="#P300Paradigm-22"><span class="linenos"> 22</span></a><span class="sd">        ----------</span>
 </span><span id="P300Paradigm-23"><a href="#P300Paradigm-23"><span class="linenos"> 23</span></a><span class="sd">        filters : list of floats, *optional*</span>
@@ -326,7 +326,7 @@
 </span><span id="P300Paradigm-35"><a href="#P300Paradigm-35"><span class="linenos"> 35</span></a><span class="sd">        buffer_time : float, *optional*</span>
 </span><span id="P300Paradigm-36"><a href="#P300Paradigm-36"><span class="linenos"> 36</span></a><span class="sd">            Defines the time in seconds after an epoch for which we require EEG data to ensure that all EEG is present in that epoch.</span>
 </span><span id="P300Paradigm-37"><a href="#P300Paradigm-37"><span class="linenos"> 37</span></a><span class="sd">            - Default is `0.01`.</span>
-</span><span id="P300Paradigm-38"><a href="#P300Paradigm-38"><span class="linenos"> 38</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="P300Paradigm-38"><a href="#P300Paradigm-38"><span class="linenos"> 38</span></a><span class="sd">        """</span>
 </span><span id="P300Paradigm-39"><a href="#P300Paradigm-39"><span class="linenos"> 39</span></a>
 </span><span id="P300Paradigm-40"><a href="#P300Paradigm-40"><span class="linenos"> 40</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">filters</span><span class="p">)</span>
 </span><span id="P300Paradigm-41"><a href="#P300Paradigm-41"><span class="linenos"> 41</span></a>
@@ -346,10 +346,10 @@
 </span><span id="P300Paradigm-55"><a href="#P300Paradigm-55"><span class="linenos"> 55</span></a>
 </span><span id="P300Paradigm-56"><a href="#P300Paradigm-56"><span class="linenos"> 56</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span> <span class="o">=</span> <span class="n">buffer_time</span>
 </span><span id="P300Paradigm-57"><a href="#P300Paradigm-57"><span class="linenos"> 57</span></a>
-</span><span id="P300Paradigm-58"><a href="#P300Paradigm-58"><span class="linenos"> 58</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">paradigm_name</span> <span class="o">=</span> <span class="s2">&quot;P300&quot;</span>
+</span><span id="P300Paradigm-58"><a href="#P300Paradigm-58"><span class="linenos"> 58</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">paradigm_name</span> <span class="o">=</span> <span class="s2">"P300"</span>
 </span><span id="P300Paradigm-59"><a href="#P300Paradigm-59"><span class="linenos"> 59</span></a>
 </span><span id="P300Paradigm-60"><a href="#P300Paradigm-60"><span class="linenos"> 60</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_eeg_start_and_end_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">markers</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">):</span>
-</span><span id="P300Paradigm-61"><a href="#P300Paradigm-61"><span class="linenos"> 61</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="P300Paradigm-61"><a href="#P300Paradigm-61"><span class="linenos"> 61</span></a><span class="w">        </span><span class="sd">"""</span>
 </span><span id="P300Paradigm-62"><a href="#P300Paradigm-62"><span class="linenos"> 62</span></a><span class="sd">        Get the start and end times of the EEG data based on the markers.</span>
 </span><span id="P300Paradigm-63"><a href="#P300Paradigm-63"><span class="linenos"> 63</span></a>
 </span><span id="P300Paradigm-64"><a href="#P300Paradigm-64"><span class="linenos"> 64</span></a><span class="sd">        Parameters</span>
@@ -365,7 +365,7 @@
 </span><span id="P300Paradigm-74"><a href="#P300Paradigm-74"><span class="linenos"> 74</span></a><span class="sd">            Start time.</span>
 </span><span id="P300Paradigm-75"><a href="#P300Paradigm-75"><span class="linenos"> 75</span></a><span class="sd">        float</span>
 </span><span id="P300Paradigm-76"><a href="#P300Paradigm-76"><span class="linenos"> 76</span></a><span class="sd">            End time.</span>
-</span><span id="P300Paradigm-77"><a href="#P300Paradigm-77"><span class="linenos"> 77</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="P300Paradigm-77"><a href="#P300Paradigm-77"><span class="linenos"> 77</span></a><span class="sd">        """</span>
 </span><span id="P300Paradigm-78"><a href="#P300Paradigm-78"><span class="linenos"> 78</span></a>        <span class="n">start_time</span> <span class="o">=</span> <span class="n">timestamps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">epoch_start</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span>
 </span><span id="P300Paradigm-79"><a href="#P300Paradigm-79"><span class="linenos"> 79</span></a>
 </span><span id="P300Paradigm-80"><a href="#P300Paradigm-80"><span class="linenos"> 80</span></a>        <span class="n">end_time</span> <span class="o">=</span> <span class="n">timestamps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">epoch_end</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span>
@@ -373,7 +373,7 @@
 </span><span id="P300Paradigm-82"><a href="#P300Paradigm-82"><span class="linenos"> 82</span></a>        <span class="k">return</span> <span class="n">start_time</span><span class="p">,</span> <span class="n">end_time</span>
 </span><span id="P300Paradigm-83"><a href="#P300Paradigm-83"><span class="linenos"> 83</span></a>
 </span><span id="P300Paradigm-84"><a href="#P300Paradigm-84"><span class="linenos"> 84</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">process_markers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">markers</span><span class="p">,</span> <span class="n">marker_timestamps</span><span class="p">,</span> <span class="n">eeg</span><span class="p">,</span> <span class="n">eeg_timestamps</span><span class="p">,</span> <span class="n">fsample</span><span class="p">):</span>
-</span><span id="P300Paradigm-85"><a href="#P300Paradigm-85"><span class="linenos"> 85</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="P300Paradigm-85"><a href="#P300Paradigm-85"><span class="linenos"> 85</span></a><span class="w">        </span><span class="sd">"""</span>
 </span><span id="P300Paradigm-86"><a href="#P300Paradigm-86"><span class="linenos"> 86</span></a><span class="sd">        This takes in the markers and EEG data and processes them into epochs according to the P300 paradigm.</span>
 </span><span id="P300Paradigm-87"><a href="#P300Paradigm-87"><span class="linenos"> 87</span></a>
 </span><span id="P300Paradigm-88"><a href="#P300Paradigm-88"><span class="linenos"> 88</span></a><span class="sd">        Parameters</span>
@@ -395,11 +395,11 @@
 </span><span id="P300Paradigm-104"><a href="#P300Paradigm-104"><span class="linenos">104</span></a><span class="sd">            Processed EEG data. Shape is (n_epochs, n_channels, n_samples).</span>
 </span><span id="P300Paradigm-105"><a href="#P300Paradigm-105"><span class="linenos">105</span></a><span class="sd">        np.array</span>
 </span><span id="P300Paradigm-106"><a href="#P300Paradigm-106"><span class="linenos">106</span></a><span class="sd">            Labels. Shape is (n_epochs).</span>
-</span><span id="P300Paradigm-107"><a href="#P300Paradigm-107"><span class="linenos">107</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="P300Paradigm-107"><a href="#P300Paradigm-107"><span class="linenos">107</span></a><span class="sd">        """</span>
 </span><span id="P300Paradigm-108"><a href="#P300Paradigm-108"><span class="linenos">108</span></a>
 </span><span id="P300Paradigm-109"><a href="#P300Paradigm-109"><span class="linenos">109</span></a>        <span class="n">n_channels</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">eeg</span><span class="o">.</span><span class="n">shape</span>
-</span><span id="P300Paradigm-110"><a href="#P300Paradigm-110"><span class="linenos">110</span></a>        <span class="n">num_objects</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span>
-</span><span id="P300Paradigm-111"><a href="#P300Paradigm-111"><span class="linenos">111</span></a>        <span class="n">train_target</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">3</span><span class="p">])</span>
+</span><span id="P300Paradigm-110"><a href="#P300Paradigm-110"><span class="linenos">110</span></a>        <span class="n">num_objects</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span>
+</span><span id="P300Paradigm-111"><a href="#P300Paradigm-111"><span class="linenos">111</span></a>        <span class="n">train_target</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)[</span><span class="mi">3</span><span class="p">])</span>
 </span><span id="P300Paradigm-112"><a href="#P300Paradigm-112"><span class="linenos">112</span></a>        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_objects</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 </span><span id="P300Paradigm-113"><a href="#P300Paradigm-113"><span class="linenos">113</span></a>        <span class="k">if</span> <span class="n">train_target</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
 </span><span id="P300Paradigm-114"><a href="#P300Paradigm-114"><span class="linenos">114</span></a>            <span class="c1"># Convert 1-indexed target to array index</span>
@@ -415,7 +415,7 @@
 </span><span id="P300Paradigm-124"><a href="#P300Paradigm-124"><span class="linenos">124</span></a>        <span class="c1"># Do ensemble averaging so that we return a single epoch for each object</span>
 </span><span id="P300Paradigm-125"><a href="#P300Paradigm-125"><span class="linenos">125</span></a>
 </span><span id="P300Paradigm-126"><a href="#P300Paradigm-126"><span class="linenos">126</span></a>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">marker</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">markers</span><span class="p">):</span>
-</span><span id="P300Paradigm-127"><a href="#P300Paradigm-127"><span class="linenos">127</span></a>            <span class="n">marker</span> <span class="o">=</span> <span class="n">marker</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+</span><span id="P300Paradigm-127"><a href="#P300Paradigm-127"><span class="linenos">127</span></a>            <span class="n">marker</span> <span class="o">=</span> <span class="n">marker</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>
 </span><span id="P300Paradigm-128"><a href="#P300Paradigm-128"><span class="linenos">128</span></a>            <span class="n">flash_indices</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">marker</span><span class="p">[</span><span class="mi">4</span><span class="p">:]]</span>
 </span><span id="P300Paradigm-129"><a href="#P300Paradigm-129"><span class="linenos">129</span></a>
 </span><span id="P300Paradigm-130"><a href="#P300Paradigm-130"><span class="linenos">130</span></a>            <span class="n">n_channels</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">eeg</span><span class="o">.</span><span class="n">shape</span>
@@ -501,7 +501,7 @@
 </span><span id="P300Paradigm.__init__-17"><a href="#P300Paradigm.__init__-17"><span class="linenos">17</span></a>        <span class="n">epoch_end</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
 </span><span id="P300Paradigm.__init__-18"><a href="#P300Paradigm.__init__-18"><span class="linenos">18</span></a>        <span class="n">buffer_time</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
 </span><span id="P300Paradigm.__init__-19"><a href="#P300Paradigm.__init__-19"><span class="linenos">19</span></a>    <span class="p">):</span>
-</span><span id="P300Paradigm.__init__-20"><a href="#P300Paradigm.__init__-20"><span class="linenos">20</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="P300Paradigm.__init__-20"><a href="#P300Paradigm.__init__-20"><span class="linenos">20</span></a><span class="w">        </span><span class="sd">"""</span>
 </span><span id="P300Paradigm.__init__-21"><a href="#P300Paradigm.__init__-21"><span class="linenos">21</span></a><span class="sd">        Parameters</span>
 </span><span id="P300Paradigm.__init__-22"><a href="#P300Paradigm.__init__-22"><span class="linenos">22</span></a><span class="sd">        ----------</span>
 </span><span id="P300Paradigm.__init__-23"><a href="#P300Paradigm.__init__-23"><span class="linenos">23</span></a><span class="sd">        filters : list of floats, *optional*</span>
@@ -519,7 +519,7 @@
 </span><span id="P300Paradigm.__init__-35"><a href="#P300Paradigm.__init__-35"><span class="linenos">35</span></a><span class="sd">        buffer_time : float, *optional*</span>
 </span><span id="P300Paradigm.__init__-36"><a href="#P300Paradigm.__init__-36"><span class="linenos">36</span></a><span class="sd">            Defines the time in seconds after an epoch for which we require EEG data to ensure that all EEG is present in that epoch.</span>
 </span><span id="P300Paradigm.__init__-37"><a href="#P300Paradigm.__init__-37"><span class="linenos">37</span></a><span class="sd">            - Default is `0.01`.</span>
-</span><span id="P300Paradigm.__init__-38"><a href="#P300Paradigm.__init__-38"><span class="linenos">38</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="P300Paradigm.__init__-38"><a href="#P300Paradigm.__init__-38"><span class="linenos">38</span></a><span class="sd">        """</span>
 </span><span id="P300Paradigm.__init__-39"><a href="#P300Paradigm.__init__-39"><span class="linenos">39</span></a>
 </span><span id="P300Paradigm.__init__-40"><a href="#P300Paradigm.__init__-40"><span class="linenos">40</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">filters</span><span class="p">)</span>
 </span><span id="P300Paradigm.__init__-41"><a href="#P300Paradigm.__init__-41"><span class="linenos">41</span></a>
@@ -539,7 +539,7 @@
 </span><span id="P300Paradigm.__init__-55"><a href="#P300Paradigm.__init__-55"><span class="linenos">55</span></a>
 </span><span id="P300Paradigm.__init__-56"><a href="#P300Paradigm.__init__-56"><span class="linenos">56</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span> <span class="o">=</span> <span class="n">buffer_time</span>
 </span><span id="P300Paradigm.__init__-57"><a href="#P300Paradigm.__init__-57"><span class="linenos">57</span></a>
-</span><span id="P300Paradigm.__init__-58"><a href="#P300Paradigm.__init__-58"><span class="linenos">58</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">paradigm_name</span> <span class="o">=</span> <span class="s2">&quot;P300&quot;</span>
+</span><span id="P300Paradigm.__init__-58"><a href="#P300Paradigm.__init__-58"><span class="linenos">58</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">paradigm_name</span> <span class="o">=</span> <span class="s2">"P300"</span>
 </span></pre></div>
 
 
@@ -676,7 +676,7 @@ Defines the time in seconds after an epoch for which we require EEG data to ensu
     </div>
     <a class="headerlink" href="#P300Paradigm.get_eeg_start_and_end_times"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="P300Paradigm.get_eeg_start_and_end_times-60"><a href="#P300Paradigm.get_eeg_start_and_end_times-60"><span class="linenos">60</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_eeg_start_and_end_times</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">markers</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">):</span>
-</span><span id="P300Paradigm.get_eeg_start_and_end_times-61"><a href="#P300Paradigm.get_eeg_start_and_end_times-61"><span class="linenos">61</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="P300Paradigm.get_eeg_start_and_end_times-61"><a href="#P300Paradigm.get_eeg_start_and_end_times-61"><span class="linenos">61</span></a><span class="w">        </span><span class="sd">"""</span>
 </span><span id="P300Paradigm.get_eeg_start_and_end_times-62"><a href="#P300Paradigm.get_eeg_start_and_end_times-62"><span class="linenos">62</span></a><span class="sd">        Get the start and end times of the EEG data based on the markers.</span>
 </span><span id="P300Paradigm.get_eeg_start_and_end_times-63"><a href="#P300Paradigm.get_eeg_start_and_end_times-63"><span class="linenos">63</span></a>
 </span><span id="P300Paradigm.get_eeg_start_and_end_times-64"><a href="#P300Paradigm.get_eeg_start_and_end_times-64"><span class="linenos">64</span></a><span class="sd">        Parameters</span>
@@ -692,7 +692,7 @@ Defines the time in seconds after an epoch for which we require EEG data to ensu
 </span><span id="P300Paradigm.get_eeg_start_and_end_times-74"><a href="#P300Paradigm.get_eeg_start_and_end_times-74"><span class="linenos">74</span></a><span class="sd">            Start time.</span>
 </span><span id="P300Paradigm.get_eeg_start_and_end_times-75"><a href="#P300Paradigm.get_eeg_start_and_end_times-75"><span class="linenos">75</span></a><span class="sd">        float</span>
 </span><span id="P300Paradigm.get_eeg_start_and_end_times-76"><a href="#P300Paradigm.get_eeg_start_and_end_times-76"><span class="linenos">76</span></a><span class="sd">            End time.</span>
-</span><span id="P300Paradigm.get_eeg_start_and_end_times-77"><a href="#P300Paradigm.get_eeg_start_and_end_times-77"><span class="linenos">77</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="P300Paradigm.get_eeg_start_and_end_times-77"><a href="#P300Paradigm.get_eeg_start_and_end_times-77"><span class="linenos">77</span></a><span class="sd">        """</span>
 </span><span id="P300Paradigm.get_eeg_start_and_end_times-78"><a href="#P300Paradigm.get_eeg_start_and_end_times-78"><span class="linenos">78</span></a>        <span class="n">start_time</span> <span class="o">=</span> <span class="n">timestamps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">epoch_start</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span>
 </span><span id="P300Paradigm.get_eeg_start_and_end_times-79"><a href="#P300Paradigm.get_eeg_start_and_end_times-79"><span class="linenos">79</span></a>
 </span><span id="P300Paradigm.get_eeg_start_and_end_times-80"><a href="#P300Paradigm.get_eeg_start_and_end_times-80"><span class="linenos">80</span></a>        <span class="n">end_time</span> <span class="o">=</span> <span class="n">timestamps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">epoch_end</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer_time</span>
@@ -734,7 +734,7 @@ List of timestamps.</li>
     </div>
     <a class="headerlink" href="#P300Paradigm.process_markers"></a>
             <div class="pdoc-code codehilite"><pre><span></span><span id="P300Paradigm.process_markers-84"><a href="#P300Paradigm.process_markers-84"><span class="linenos"> 84</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">process_markers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">markers</span><span class="p">,</span> <span class="n">marker_timestamps</span><span class="p">,</span> <span class="n">eeg</span><span class="p">,</span> <span class="n">eeg_timestamps</span><span class="p">,</span> <span class="n">fsample</span><span class="p">):</span>
-</span><span id="P300Paradigm.process_markers-85"><a href="#P300Paradigm.process_markers-85"><span class="linenos"> 85</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="P300Paradigm.process_markers-85"><a href="#P300Paradigm.process_markers-85"><span class="linenos"> 85</span></a><span class="w">        </span><span class="sd">"""</span>
 </span><span id="P300Paradigm.process_markers-86"><a href="#P300Paradigm.process_markers-86"><span class="linenos"> 86</span></a><span class="sd">        This takes in the markers and EEG data and processes them into epochs according to the P300 paradigm.</span>
 </span><span id="P300Paradigm.process_markers-87"><a href="#P300Paradigm.process_markers-87"><span class="linenos"> 87</span></a>
 </span><span id="P300Paradigm.process_markers-88"><a href="#P300Paradigm.process_markers-88"><span class="linenos"> 88</span></a><span class="sd">        Parameters</span>
@@ -756,11 +756,11 @@ List of timestamps.</li>
 </span><span id="P300Paradigm.process_markers-104"><a href="#P300Paradigm.process_markers-104"><span class="linenos">104</span></a><span class="sd">            Processed EEG data. Shape is (n_epochs, n_channels, n_samples).</span>
 </span><span id="P300Paradigm.process_markers-105"><a href="#P300Paradigm.process_markers-105"><span class="linenos">105</span></a><span class="sd">        np.array</span>
 </span><span id="P300Paradigm.process_markers-106"><a href="#P300Paradigm.process_markers-106"><span class="linenos">106</span></a><span class="sd">            Labels. Shape is (n_epochs).</span>
-</span><span id="P300Paradigm.process_markers-107"><a href="#P300Paradigm.process_markers-107"><span class="linenos">107</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="P300Paradigm.process_markers-107"><a href="#P300Paradigm.process_markers-107"><span class="linenos">107</span></a><span class="sd">        """</span>
 </span><span id="P300Paradigm.process_markers-108"><a href="#P300Paradigm.process_markers-108"><span class="linenos">108</span></a>
 </span><span id="P300Paradigm.process_markers-109"><a href="#P300Paradigm.process_markers-109"><span class="linenos">109</span></a>        <span class="n">n_channels</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">eeg</span><span class="o">.</span><span class="n">shape</span>
-</span><span id="P300Paradigm.process_markers-110"><a href="#P300Paradigm.process_markers-110"><span class="linenos">110</span></a>        <span class="n">num_objects</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span>
-</span><span id="P300Paradigm.process_markers-111"><a href="#P300Paradigm.process_markers-111"><span class="linenos">111</span></a>        <span class="n">train_target</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">3</span><span class="p">])</span>
+</span><span id="P300Paradigm.process_markers-110"><a href="#P300Paradigm.process_markers-110"><span class="linenos">110</span></a>        <span class="n">num_objects</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span>
+</span><span id="P300Paradigm.process_markers-111"><a href="#P300Paradigm.process_markers-111"><span class="linenos">111</span></a>        <span class="n">train_target</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">markers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)[</span><span class="mi">3</span><span class="p">])</span>
 </span><span id="P300Paradigm.process_markers-112"><a href="#P300Paradigm.process_markers-112"><span class="linenos">112</span></a>        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_objects</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 </span><span id="P300Paradigm.process_markers-113"><a href="#P300Paradigm.process_markers-113"><span class="linenos">113</span></a>        <span class="k">if</span> <span class="n">train_target</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
 </span><span id="P300Paradigm.process_markers-114"><a href="#P300Paradigm.process_markers-114"><span class="linenos">114</span></a>            <span class="c1"># Convert 1-indexed target to array index</span>
@@ -776,7 +776,7 @@ List of timestamps.</li>
 </span><span id="P300Paradigm.process_markers-124"><a href="#P300Paradigm.process_markers-124"><span class="linenos">124</span></a>        <span class="c1"># Do ensemble averaging so that we return a single epoch for each object</span>
 </span><span id="P300Paradigm.process_markers-125"><a href="#P300Paradigm.process_markers-125"><span class="linenos">125</span></a>
 </span><span id="P300Paradigm.process_markers-126"><a href="#P300Paradigm.process_markers-126"><span class="linenos">126</span></a>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">marker</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">markers</span><span class="p">):</span>
-</span><span id="P300Paradigm.process_markers-127"><a href="#P300Paradigm.process_markers-127"><span class="linenos">127</span></a>            <span class="n">marker</span> <span class="o">=</span> <span class="n">marker</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+</span><span id="P300Paradigm.process_markers-127"><a href="#P300Paradigm.process_markers-127"><span class="linenos">127</span></a>            <span class="n">marker</span> <span class="o">=</span> <span class="n">marker</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>
 </span><span id="P300Paradigm.process_markers-128"><a href="#P300Paradigm.process_markers-128"><span class="linenos">128</span></a>            <span class="n">flash_indices</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">marker</span><span class="p">[</span><span class="mi">4</span><span class="p">:]]</span>
 </span><span id="P300Paradigm.process_markers-129"><a href="#P300Paradigm.process_markers-129"><span class="linenos">129</span></a>
 </span><span id="P300Paradigm.process_markers-130"><a href="#P300Paradigm.process_markers-130"><span class="linenos">130</span></a>            <span class="n">n_channels</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">eeg</span><span class="o">.</span><span class="n">shape</span>
